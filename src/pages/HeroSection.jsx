@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Stack, IconButton } from '@mui/material';
+import { Box, Typography, Button, Stack, IconButton, Container } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Instagram, Twitter, LinkedIn } from '@mui/icons-material';
 import HeroSectionImg from '../assets/HeroSectionImgslider2.png';
@@ -26,12 +26,14 @@ export default function HeroSection() {
     <Box
       sx={{
         display: 'flex',
+        overflow: 'hidden',
+        marginTop:"5rem"  ,
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: { xs: 'column-reverse', md: 'row' },
         bgcolor: '#000',
         color: '#fff',
-        px: { xs: 1, md: 5 },
+        px: { xs: 2, md: 5 },
         py: { xs: 4, md: 0 },
         height: {
           xs: 'auto',
@@ -81,8 +83,11 @@ export default function HeroSection() {
         </Stack> */}
       </MotionBox>
 
-      {/* Right Side Image Slider */}
-      <Box sx={{ position: 'relative', width: { xs: '100%', md: '48%' }, height: { xs: '500px', md: '620px' }, mb: 3 }}>
+ 
+      <Box sx={{ padding:{
+        xs: 0,
+        
+      }, position: 'relative', width: { xs: '100%', md: '48%' }, height: { xs: '500px', md: '560px' }, mb: 3 }}>
         <AnimatePresence>
           <motion.img
             key={currentIndex}
@@ -96,7 +101,9 @@ export default function HeroSection() {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              objectFit: 'cover',
+              objectFit: {
+                xs:'fit',md:"cover"
+              },
               borderRadius: '8px',
             }}
           />

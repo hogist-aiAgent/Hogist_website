@@ -6,7 +6,7 @@ import Header from '../layout/Header';
 const MainPage = lazy(() => import('../pages/MainPage'));
 
 export default function MainRoutes() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,7 +19,7 @@ export default function MainRoutes() {
   return (
     <BrowserRouter>
       {showSplash ? (
-        <SplashScreen />
+        <SplashScreen loading={false} />
       ) : (
         <Suspense fallback={<SplashScreen loading={true} />}>
           <Header/>

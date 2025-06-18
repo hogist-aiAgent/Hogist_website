@@ -37,16 +37,22 @@ export default function Header() {
     <Box
       component="header"
       sx={{
+        position: 'fixed',
+        top: 0,
+        zIndex:"9999",
+        width: '100%',
+ 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'black',
-        padding: '1.5rem 1.2rem',
+        padding: '1.5rem 1.2rem',   
+
       }}
     >
       {/* MOBILE VIEW */}
       {isMobile ? (
-        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', }}>
           {/* Menu Button */}
           <IconButton
             onClick={() => setDrawerOpen(true)}
@@ -244,7 +250,9 @@ export default function Header() {
       </Menu>
 
       {/* Drawer with Framer Motion */}
-      <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer sx={{
+          zIndex:"9999",
+      }} anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <motion.div
           initial={{ x: -300 }}
           animate={{ x: 0 }}

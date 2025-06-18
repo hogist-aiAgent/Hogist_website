@@ -35,6 +35,7 @@ export default function SplashScreen({ loading = false }) {
           zIndex: 1300,
         }}
       >
+        {/* Overlay */}
         <Box
           sx={{
             position: 'absolute',
@@ -47,21 +48,33 @@ export default function SplashScreen({ loading = false }) {
           }}
         />
 
-        <LazyLoad height={100} offset={100}>
-          <motion.img
-            src={LoaderLogo}
-            alt="Loading"
-            animate={{ rotateY: 360 }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }}
-            style={{
-              width: '150px',
-              height: 'auto',
-              filter: 'brightness(0) invert(1)',
-              transformStyle: 'preserve-3d',
-              zIndex: 2,
-            }}
-          />
-        </LazyLoad>
+        {/* Centered Loader Logo */}
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 2,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <LazyLoad style={{  display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',}} height={100} offset={100}>
+            <motion.img
+              src={LoaderLogo}
+              alt="Loading"
+              animate={{ rotateY: 360 }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }}
+              style={{
+                width: '100px',
+                height: 'auto',
+                filter: 'brightness(0) invert(1)',
+                transformStyle: 'preserve-3d',
+              }}
+            />
+          </LazyLoad>
+        </Box>
       </Box>
     );
   }
@@ -81,6 +94,7 @@ export default function SplashScreen({ loading = false }) {
         zIndex: 1300,
       }}
     >
+      {/* Background */}
       <motion.div
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -98,6 +112,7 @@ export default function SplashScreen({ loading = false }) {
         }}
       />
 
+      {/* Overlay */}
       <Box
         sx={{
           position: 'absolute',
@@ -114,14 +129,16 @@ export default function SplashScreen({ loading = false }) {
         sx={{
           position: 'relative',
           zIndex: 2,
-          width: '100%',
-          height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          height: '100%',
+          width: '100%',
         }}
       >
-        <LazyLoad height={300} offset={100}>
+        <LazyLoad height={300} offset={100} style={{  display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',}}>
           <motion.img
             src={splashScreenLogo}
             alt="Splash Screen Logo"
@@ -129,7 +146,7 @@ export default function SplashScreen({ loading = false }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.8, ease: 'easeOut', delay: 0.5 }}
             style={{
-              width: '390px',
+              width: '300px',
               height: 'auto',
               maxWidth: '80%',
               filter: 'brightness(0) invert(1)',
