@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Stack, IconButton, Container } from '@mui/material';
+import { Box, Typography, Button, Stack, IconButton, Container, useTheme } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Instagram, Twitter, LinkedIn } from '@mui/icons-material';
 import HeroSectionImg from '../assets/HeroSectionImgslider2.png';
@@ -13,7 +13,7 @@ const images = [HeroSectionImg, SlideImg,SlidImg2];
 
 export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const theme = useTheme();
   // Cycle through images every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,12 +41,12 @@ export default function HeroSection() {
         },
       }}
     >
-      {/* Left Side */}
+
       <MotionBox
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        sx={{ width: { xs: '100%', md: '50%' }, pr: { md: 6 } }}
+        sx={{ width: { xs: '100%', md: '50%' }, pr: { md: 6 },}}
       >
         <Typography variant="h4" fontWeight="bold">
           Effortlessly Handle and Enhance your every Event with
@@ -55,7 +55,7 @@ export default function HeroSection() {
         <Typography
           variant="h2"
           fontWeight="900"
-          sx={{ fontSize: { xs: '40px', md: '64px' }, mt: 2, mb: 2, color: '#c60800' }}
+          sx={{ fontSize: { xs: '40px', md: '64px' }, mt: 2, mb: 2, color: theme.palette.primary.secondary }}
         >
           HOGIST
         </Typography>

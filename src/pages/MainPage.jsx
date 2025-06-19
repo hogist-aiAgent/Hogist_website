@@ -1,8 +1,9 @@
 import React from 'react'
 import HeroSection from './HeroSection'
 import ClientSection from './ClientSection'
-import SaladCarousel from '../components/SaladCarousel'
 import { Box } from '@mui/material'
+import FeaturesSection from './Features/FeaturesSection'
+import CateringSection from './Catering/CateringSection'
 
 export default function MainPage() {
   return (
@@ -10,14 +11,16 @@ export default function MainPage() {
 
         <HeroSection/>
         <ClientSection/>
-       <Box sx={{
+       {/* <Box sx={{
         backgroundColor: 'black',
         padding: 4,
        }}>
 
  <SaladCarousel/>
 
-       </Box>
+       </Box> */}
+       <FeaturesSection/>
+       <CateringSection/>
     </div>
   )
 }
