@@ -2,7 +2,6 @@ import client1 from '../assets/client/client-1.png';
 import client2 from '../assets/client/client-2.jpg';
 import client3 from '../assets/client/client-3.jpg';
 import client4 from '../assets/client/client-4.jpg';
-
 import client6 from '../assets/client/client-6.jpg';
 import client7 from '../assets/client/client-7.jpg';
 import client8 from '../assets/client/client-8.jpg';

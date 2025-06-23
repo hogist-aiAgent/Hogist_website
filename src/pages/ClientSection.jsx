@@ -7,7 +7,7 @@ import ClientCarousel from '../components/common/ClientCarousel';
 const ClientSection = () => {
   const theme = useTheme();
   return (
-    <Box sx={{ mb: 10 }}>
+    <Box sx={{ }}>
       <Container maxWidth={'auto'}  sx={{ alignItems:"center", px: { xs: 2, md: 6}, pt:6,pb:3 ,m:0,width:"100%", }}>
         <Box
           display="flex"

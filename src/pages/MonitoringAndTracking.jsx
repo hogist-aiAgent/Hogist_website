@@ -7,7 +7,7 @@ const MonitoringSection = () => {
   const theme = useTheme();
   
   return (
-    <Box sx={{ mb: 10, paddingTop:'50px' }}>
+    <Box sx={{ mb: 10, paddingTop:'50px',bgcolor:'black' }}>
       <Container maxWidth={'auto'} sx={{ px: { xs: 2, md: 6 }, pt: 6, pb: 3, m: 0, width: "100%" }}>
         <Typography variant="h3" fontWeight="bold" sx={{ color: 'white', mb: 2 }}>
           <Box component="span" sx={{ color: theme.palette.primary.secondary }}>

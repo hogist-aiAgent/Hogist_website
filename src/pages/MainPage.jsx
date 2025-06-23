@@ -1,7 +1,6 @@
 import React from 'react'
 import HeroSection from './HeroSection'
 import ClientSection from './ClientSection'
-import SaladCarousel from '../components/SaladCarousel'
 import { Box } from '@mui/material'
 import MonitoringSection from './MonitoringAndTracking'
 import ServeSection from './ServeSection'
@@ -10,6 +9,8 @@ import FaqSection from './FaqSection'
 import HogistSection from './HogistSection'
 import VendorSection from './VendorSection'
 import Footer from '../layout/Footer'
+import FeaturesSection from './Features/FeaturesSection'
+import CateringSection from './Catering/CateringSection'
 
 export default function MainPage() {
   return (
@@ -17,20 +18,17 @@ export default function MainPage() {
 
         <HeroSection/>
         <ClientSection/>
-       <Box sx={{
-        backgroundColor: 'black',
-        padding: 4,
-       }}>
-        
- <SaladCarousel/>
+      
 <MonitoringSection/>
 <ServeSection/>
 <MobileappSection/>
+       <FeaturesSection/>
+       <CateringSection/>
 <FaqSection/>
 <HogistSection/>
 <VendorSection/>
 <Footer/>
-       </Box>
+      
     </div>
   )
 }

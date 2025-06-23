@@ -17,6 +17,7 @@ function HogistSection() {
             display: 'flex',
                 flexDirection: { xs: 'column', md: 'row' },
             py: 5,
+            bgcolor:'black'
         }}>
             <Container maxWidth="sm">
                 <Box>

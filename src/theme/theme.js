@@ -10,7 +10,8 @@ const theme = createTheme({
     mode: 'dark',
     primary: {
       main: '#1976d2',
-      secondary:"#c60800"
+      secondary:"#c60800",
+      
 
     },
     secondary: {
@@ -19,7 +20,11 @@ const theme = createTheme({
     background: {
       default: '#f8f8f8',
     },
-    
+    flex:{
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center",
+    }
   },
   shape: {
     borderRadius: 12,
