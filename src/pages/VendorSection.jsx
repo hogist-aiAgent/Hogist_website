@@ -39,8 +39,8 @@ function VendorSection() {
               fontSize: {
                 xs: '1.8rem',    // Mobile size
                 sm: '2rem',    // Small tablet
-                md: '3rem',      // Desktop size
-                lg: '3rem'     // Large screens
+                md: '1.9rem',      // Desktop size
+                lg: '2.4rem'     // Large screens
               },
               lineHeight: {
                 

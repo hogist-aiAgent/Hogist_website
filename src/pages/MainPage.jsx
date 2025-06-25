@@ -22,8 +22,8 @@ export default function MainPage() {
 <MonitoringSection/>
 <ServeSection/>
 <MobileappSection/>
-       <FeaturesSection/>
        <CateringSection/>
+       <FeaturesSection/>
 <FaqSection/>
 <HogistSection/>
 <VendorSection/>

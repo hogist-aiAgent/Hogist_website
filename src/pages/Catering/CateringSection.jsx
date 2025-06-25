@@ -1,9 +1,23 @@
 import React from 'react';
-import { Box, Container, Typography, Card, CardContent } from '@mui/material';
+import { Box, Container, Typography, Card, CardContent, keyframes } from '@mui/material';
+import foodImage from '../../assets/Catering/foodImage.png';
+import BusinessIcon from '@mui/icons-material/Business';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 const CateringHero = () => {
   return (
-    <Box sx={{color: 'black', bgcolor: '#fff', py: 10, position: 'relative', overflow: 'hidden' }}>
+    <Box sx={{color: 'black', bgcolor: '#fff', py: { xs: 4, md: 10 }, position: 'relative', overflow: 'hidden', height: "auto" }}>
       <Container maxWidth="lg">
 
         <Box
@@ -11,124 +25,177 @@ const CateringHero = () => {
             display: 'flex',
             flexDirection: { xs: 'column', md: 'column' },
             alignItems: 'start',
-            gap: 6,
-            width: '80%',
+            gap: { xs: 3, md: 6 },
+            width: '100%',
           }}
         >
 
           <Box
             sx={{
               flex: 1,
-            
+              width: { xs: '100%', md: 'auto' }
             }}
           >
-            <Typography variant="h4" component="h1" gutterBottom sx={{ color: 'black', fontWeight: 700 }}>
-              Best Corporate & Industrial Catering <br />
+            <Typography 
+              variant="h4" 
+              component="h1" 
+              gutterBottom 
+              sx={{ 
+                color: 'black', 
+                fontWeight: 700,
+                fontSize: { xs: '1.5rem', md: '2.5rem' }
+              }}
+            >
+              Best Corporate & Industrial Catering <Box component="br" sx={{ display: { xs: 'none', md: 'block' } }} />
               Services in Chennai & Coimbatore.
             </Typography>
-            <Box sx={{ width: 100, height: 4, bgcolor: 'black', my: 2 }} />
+            <Box sx={{display:'flex',flexDirection:'row',gap:'2px'}}>
+              <Box sx={{ width: 100 , height: 4, bgcolor: 'black', my: 1 }} />
+              <Box sx={{ width: 5, height: 4, bgcolor: 'black', my: 1 }} />
+              <Box sx={{ width: 5, height: 4, bgcolor: 'black', my: 1 }} />
+              <Box sx={{ width: 5, height: 4, bgcolor: 'black', my: 1 }} />
+              <Box sx={{ width: 5, height: 4, bgcolor: 'black', my: 1 }} />
+              <Box sx={{ width: 5, height: 4, bgcolor: 'black', my: 1 }} />
+              <Box sx={{ width: 100, height: 4, bgcolor: 'black', my: 1 }} />
+            </Box>
             <Typography variant="body1" sx={{ color: 'black' }}>
               <Box component="span" sx={{ color: 'red', fontWeight: 700 }}>
                 Hogist
               </Box>
-              offers reliable corporate catering services in Chennai & Coimbatore, providing consistent quality, flexible plans, and delicious food for offices, factories, and industrial events. Book your hassle-free catering with customizable menus, timely delivery, and professional service today.
+              offers reliable corporate catering services in Chennai & Coimbatore, providing<Box component="br" sx={{ display: { xs: 'none', md: 'block' } }} /> 
+              consistent quality, flexible plans, and delicious food for offices, factories, <Box component="br" sx={{ display: { xs: 'none', md: 'block' } }} />
+              and industrial events.Book your hassle-free catering with customizable menus,
+              <Box component="br" sx={{ display: { xs: 'none', md: 'block' } }} /> timely delivery, and professional service today.
             </Typography>
           </Box>
-<Box
-          sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 3, 
-        
-          }}
-        >
-          {[
-            { title: 'Corporate Catering', value: '10,000+', icon: '🏢' },
-            { title: 'Daily Delights', value: '50+', icon: '🍽️' },
-            { title: 'Award Winning', value: '02', icon: '🏆' },
-            { title: 'ISO Certified', value: '02', icon: '🎖️' },
-          ].map((item, index) => (
-            <Box
-              key={index}
-              sx={{
-                flex: '1 1 100px',
-                display: 'flex',
-                height:"200px"
-              }}
-            >
-              <Card
-                sx={{
-                  textAlign: 'center',
-                  py: 4,
-                  borderRadius: 3,
-                  bgcolor: 'black',
-                  color: 'white',
-                  flexGrow: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                }}
-              >
-                <CardContent>
-                  <Typography variant="h3" component="div" sx={{ mb: 1 }}>
-                    {item.icon}
-                  </Typography>
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    {item.title}
-                  </Typography>
-                  <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-                    {item.value}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-          ))}
-        </Box>
+          
           <Box
             sx={{
-                position: 'absolute',
-                right: "-230px",
-                top: '50%',  
-                transform: 'translateY(-50%) rotate(90deg)',
-                bgcolor:'black',
-               padding: "100px 0px 100px 0px",
-            
-            // trbl
-       
-                
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: { xs: 2, md: 3 },
+              width: {
+                xs:'100%',
+                lg:'70%',
+                md:'100%'
+              },
+              marginLeft:{
+                xs:'0px',
+                md:'0px',
+                lg:"-20px"
+              }
+            }}
+          >
+            {[
+              { title: 'Corporate Catering', value: '10,000+', icon:<BusinessIcon sx={{ fontSize: { xs: '40px', md: '50px' } }} /> },
+              { title: 'Daily Delights', value: '50+', icon: <RestaurantMenuIcon sx={{ fontSize: { xs: '40px', md: '50px' } }} /> },
+              { title: 'Award Winning', value: '02', icon: <EmojiEventsIcon sx={{ fontSize: { xs: '40px', md: '50px' } }} /> },
+              { title: 'ISO Certified', value: '02', icon: <WorkspacePremiumIcon sx={{ fontSize: { xs: '40px', md: '50px' } }} /> },
+            ].map((item, index) => (
+              <Box
+                key={index}
+                sx={{
+                  flex: { xs: '1 1 calc(50% - 16px)', md: '1 1 calc(25% - 24px)', lg: '1 1 100px' },
+                  height:'180px',
+                }}
+              >
+                <Card
+                  sx={{
+                    textAlign: 'center',
+                    py: { xs: 2, md: 4 },
+                    borderRadius: 1,
+                    bgcolor: '#f9f9F9',
+                    color: 'black',
+                    flexGrow: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                    border: '1px solid #e0e0e0',
+                    transition: 'transform 0.3s, box-shadow 0.3s',
+                    '&:hover': {
+                      transform: 'translateY(-4px)', 
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                    },
+                    height:'180px',
+                    width:{
+                      xs:'100%',
+                      lg:'154px',
+                      md:'100%'
+                    },
+                  }}
+                >
+                  <CardContent>
+                    <Typography variant="h3" component="div" sx={{ mb: 1, height: { xs: '50px', md: '60px' }, width: '100%', color: '#c60800' }}> 
+                      {item.icon}
+                    </Typography>
+                    <Typography variant="subtitle1" sx={{ mb: 1, fontSize: { xs: '10px', md: '12px' } }}> 
+                      {item.title}
+                    </Typography>
+                    <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+                      {item.value}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
+            ))}
+          </Box>
+
+          {/* Food Image - Responsive but maintains desktop position */}
+          <Box sx={{
+            position: { xs: 'static', lg: 'absolute' },
+            margin: { xs: '20px auto', lg: '50px' },
+            right: { xs: 'auto', lg: "5%" },
+            top: { xs: 'auto', lg: "10%" },
+            zIndex: 5000,
+            animation: `${rotate} 20s linear infinite`,
+            display: 'flex',
+            justifyContent: 'center',
+            width: { xs: '0%', lg: 'auto' },
+            transform: { xs: 'none', lg: 'none' },
+            order: { xs: 1, lg: 'initial' }
+          }}>
+            <img 
+              src={foodImage} 
+              style={{ 
+                height: { xs: '200px', lg: '320px' },
+                width: { xs: '200px', lg: '320px' }, 
+                objectFit: 'fill'
+              }} 
+              alt="Food presentation"
+            />
+          </Box>
+
+          {/* SPECIAL Text - Responsive but maintains desktop position */}
+          <Box
+            sx={{
+              position: { xs: 'static', lg: 'absolute' },
+              right: { xs: 'auto', lg: "-230px" },
+              top: { xs: 'auto', lg: '50%' },
+              transform: { xs: 'none', lg: 'translateY(-50%) rotate(90deg)' },
+              bgcolor: 'black',
+              padding: { xs: '20px 0', lg: "100px 0px 100px 0px" },
+              width: { xs: '100%', lg: 'auto' },
+              textAlign: { xs: 'center', lg: 'left' },
+              mt: { xs: 2, lg: 0 },
+              mb: { xs: 2, lg: 0 },
+              order: { xs: 2, lg: 'initial' }
             }}
           >
             <Typography
               variant="h1"
               sx={{
-             
-                
-                fontSize: '9rem',
+                fontSize: { xs: '3.5rem', lg: '9.2rem' },
                 color: 'grey',
                 opacity: 1,
-                fontWeight: 900,
+                fontWeight: 1000,
                 letterSpacing: '5px',
-                zIndex: 1,
-                
+                zIndex: 100,
+                display: 'inline-block'
               }}
             >
               SPECIAL
             </Typography>
-
-            {/* Example image placeholder — you can uncomment when needed */}
-            {/* <Box
-              component="img"
-              src="/your-image-path.png"
-              sx={{
-                borderRadius: '50%',
-                width: { xs: 300, md: 400 },
-                height: { xs: 300, md: 400 },
-                objectFit: 'cover',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                position: 'relative',
-                zIndex: 2,
-              }}
-            /> */}
           </Box>
         </Box>
 

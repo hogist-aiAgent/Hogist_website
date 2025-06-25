@@ -85,9 +85,8 @@ export default function HeroSection() {
 
  
       <Box sx={{ padding:{
-        xs: 0,
-        
-      }, position: 'relative', width: { xs: '100%', md: '48%' }, height: { xs: '500px', md: '560px' }, mb: 3 }}>
+        xs: 0, sm:'0px'
+      }, position: 'relative', width: { xs: '100%', md: '40%' }, height: { xs: '500px', md: '487px',}, mb: 3 }}>
         <AnimatePresence>
           <motion.img
             key={currentIndex}

@@ -14,28 +14,31 @@ function HogistSection() {
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
             alignItems: 'center',
-            display: 'flex',
-                flexDirection: { xs: 'column', md: 'row' },
+            justifyContent: 'center',
             py: 5,
-            bgcolor:'black'
+            bgcolor: 'black',
+            px: { xs: 2, sm: 3, md: 0 }
         }}>
-            <Container maxWidth="sm">
+            <Container maxWidth="sm" sx={{
+                order: { xs: 2, md: 1 },
+                mb: { xs: 4, md: 0 }
+            }}>
                 <Box>
-                    <Typography variant='h2' marginTop={'30px'} fontWeight={'bold'} textAlign={'left'}>
+                    <Typography variant='h2' marginTop={'30px'} fontWeight={'bold'} textAlign={{ xs: 'center', md: 'left' }}>
                         <Box sx={{ color: theme.palette.primary.secondary }}>HOGIST</Box>
                     </Typography>
-                    <Typography variant='h5' textAlign={'justify'} fontWeight={'bold'} sx={{ mt: 2,  }}>
+                    <Typography variant='h5' textAlign={{ xs: 'center', md: 'justify' }} fontWeight={'bold'} sx={{ mt: 2 }}>
                         Can serve any Company and
                         Events, No matter the Size,
                         Budget, or Complexity of
                         Operation
                     </Typography>
-                    <Typography variant='h6' textAlign={'justify'} sx={{ mt: 2 }}>
+                    <Typography variant='h6' textAlign={{ xs: 'center', md: 'justify' }} sx={{ mt: 2 }}>
                         Powered with Technology to
                         completely Zero the on-site
                         operational Errors.
                     </Typography>
-                    <Stack direction="row" sx={{ mb: 3, marginTop: '20px' }}>
+                    <Stack direction="row" justifyContent={{ xs: 'center', md: 'flex-start' }} sx={{ mb: 3, marginTop: '20px' }}>
                         <CTAButton name={"Order now"} />
                     </Stack>
                 </Box>
@@ -43,12 +46,14 @@ function HogistSection() {
 
             <Box sx={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: 3,
-                width: { xs: '100%', md: '37%' },
-                maxWidth: '600px',
-                padding: 2,
-                marginRight:'70px'
+                gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(2, 1fr)' },
+                gap: { xs: 2, sm: 3 },
+                width: { xs: '90%', sm: '80%', md: '37%' },
+                maxWidth: { xs: '400px', sm: '500px', md: '600px' },
+                padding: { xs: 1, sm: 2 },
+                marginRight: { xs: 0, md: '70px' },
+                order: { xs: 1, md: 2 },
+                mb: { xs: 3, md: 0 }
             }}>
                 <Box sx={{
                     position: 'relative',

@@ -41,32 +41,35 @@ function MobileappSection() {
                 <Box sx={{
                     width: { xs: '100%', md: '50%' },
                     maxWidth: { xs: '100%', md: '600px' },
-                    textAlign: { xs: 'center', md: 'left' },
+                    textAlign: { xs: 'center', md: 'center' },
                     px: { xs: 2, sm: 3, md: 0 },
-                    marginRight:'40px'
-                    
+                    marginRight: { xs: 0, md: '40px' }
                 }}>
                     <Typography variant="h2" fontWeight="bold" sx={{
                         fontSize: { 
-                            xs: '1.75rem', 
-                            sm: '2rem', 
-                            md: '2.5rem',
-                            lg: '3rem'
+                            xs: '1.5rem', 
+                            sm: '1.75rem', 
+                            md: '2.25rem',
+                            lg: '2.75rem',
+                            xl: '3rem'
                         },
                         mb: { xs: 2, md: 3 },
                         color: 'text.primary',
-                        textAlign: { xs: 'center',  },
+                        lineHeight: 1.2,
                         px: { xs: 1, sm: 0 }
                     }}>
                         It's More Easy to Order By Mobile App
                     </Typography>
                     <Typography variant="body1" sx={{
-                        fontSize: { xs: '1rem', sm: '1.1rem' },
+                        fontSize: { 
+                            xs: '0.9rem', 
+                            sm: '1rem', 
+                            md: '1.1rem' 
+                        },
                         lineHeight: 1.6,
                         color: 'text.secondary',
-                        textAlign: { xs: 'center',  },
                         mb: { xs: 3, md: 4 },
-                        px: { xs: 1, sm: 0 }
+                        px: { xs: 1, sm: 0, md: 0 }
                     }}>
                         Enjoy a smooth and effortless food ordering experience through our mobile app. With just a few taps, you can browse the menu, customize your order, track delivery, and enjoy exclusive app-only deals — all from the palm of your hand.
                     </Typography>
@@ -77,9 +80,8 @@ function MobileappSection() {
                         justifyContent: { xs: 'center', md: 'flex-start' },
                         alignItems: 'center',
                         mt: { xs: 0, md: 2 },
-                        marginLeft:'110px',
-                        marginRight:'60px'
-
+                        marginLeft: { xs: 0, md: '110px' },
+                        marginRight: { xs: 0, md: '60px' }
                     }}>
                         <Box sx={{
                             width: { xs: '140px', sm: '160px', md: '150px', lg: '160px' },
