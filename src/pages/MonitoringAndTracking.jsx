@@ -76,7 +76,9 @@ const MonitoringSection = () => {
             height: { xs: '300px', md: '390px' },
             mb: 2,
             objectFit: 'cover',
-            marginTop: { xs: '20px', md: '-50px' } // Adjusted for mobile
+            marginTop: { xs: '20px', md: '-50px' }, 
+            marginLeft:{xs:'30px'},
+            alignItems:{xs:'center'}
           }}>
             <img 
               src={monitoringImage} 

@@ -48,7 +48,7 @@ export default function HeroSection() {
         transition={{ duration: 0.8 }}
         sx={{ width: { xs: '100%', md: '50%' }, pr: { md: 6 },}}
       >
-        <Typography variant="h4" fontWeight="bold">
+        <Typography variant="h4" fontWeight="bold" marginTop={'50px'}>
           Effortlessly Handle and Enhance your every Event with
         </Typography>
 

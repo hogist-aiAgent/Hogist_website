@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Box,
   Card,
@@ -18,63 +18,110 @@ import theme from '../theme/theme';
 const cards = [
   {
     title: "Over 100 top caterers",
- description:"Community of 100+ best Vendors all over the city for flawless Operations with flexibility, Consistency, and safe food.",
+    description: "Community of 100+ best Vendors all over the city for flawless Operations with flexibility, Consistency, and safe food.",
     color: "#000",
     image: banner1,
   },
-    {
+  {
     title: "No Menu Markups",
- description:"Say Goodbye to Menu Markups and have a transparent dining experience. You'll always know that your satisfaction is our top priority.",
+    description: "Say Goodbye to Menu Markups and have a transparent dining experience. You'll always know that your satisfaction is our top priority.",
     color: "#F87171",
     image: banner2,
-  },  {
+  },
+  {
     title: "Any Group size, or Budget",
- description:"We're dedicated to understanding your desires, preferences, and budgetary constraints. Tailored Experiences, Every Time",
+    description: "We're dedicated to understanding your desires, preferences, and budgetary constraints. Tailored Experiences, Every Time",
     color: "#F87171",
     image: banner3,
-  },  {
+  },
+  {
     title: "Delivering on time",
- description:"Professionally prepared and delivering food you can rely on for your meetings and events with real-time delivery vehicle tracking.",
+    description: "Professionally prepared and delivering food you can rely on for your meetings and events with real-time delivery vehicle tracking.",
     color: "#F87171",
     image: banner4,
-  },  {
+  },
+  {
     title: "24/7 support from Experts",
- description:"Expert support available around the clock for all your needs. We're here whenever you need us. Call us at +91 99626 67733.",
+    description: "Expert support available around the clock for all your needs. We're here whenever you need us. Call us at +91 99626 67733.",
     color: "#F87171",
-    image: banner5  ,
-  },  {
+    image: banner5,
+  },
+  {
     title: "More options",
- description:"Food for hybrid offices, daily employee meals, and fluctuating headcounts. Including previous day cancellation and menu changes.",
+    description: "Food for hybrid offices, daily employee meals, and fluctuating headcounts. Including previous day cancellation and menu changes.",
     color: "#F87171",
     image: banner1,
-  }, 
-  
+  },
 ];
+
+const LazyImage = ({ src, alt }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isLoaded) {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => {
+            setIsLoaded(true);
+          };
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => {
+      if (imgRef.current) {
+        observer.unobserve(imgRef.current);
+      }
+    };
+  }, [src, isLoaded]);
+
+  return (
+    <div ref={imgRef} style={{ width: '100%', height: '150px' }}>
+      {isLoaded ? (
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+      ) : (
+        <div style={{
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#2E3336'
+        }} />
+      )}
+    </div>
+  );
+};
 
 const SaladCard = ({ title, description, image }) => (
   <Card
     sx={{
       minWidth: 250,
-      height: 360, 
+      height: 360,
       backgroundColor: "#2E3336",
       color: "#fff",
       overflow: "hidden",
       textAlign: "left",
       display: "flex",
       flexDirection: "column",
-      border:"1px solid #ccc",
+      border: "1px solid #ccc",
     }}
   >
-    <CardMedia
-      component="img"
-      image={image}
-      alt={title}
-      sx={{
-        width: "100%",
-        height: 150, 
-        objectFit: "cover",
-      }}
-    />
+    <LazyImage src={image} alt={title} />
     <CardContent
       sx={{
         flexGrow: 1,
@@ -83,17 +130,21 @@ const SaladCard = ({ title, description, image }) => (
         overflow: "hidden",
       }}
     >
-      <Typography variant="h6" fontWeight="bold" sx={{
-        // color: theme.palette.primary.secondary
-      }} mb={1}>
+      <Typography variant="h6" fontWeight="bold" mb={1}>
         {title}
       </Typography>
-      <Typography  lineHeight={1.6} sx={{fontSize:"14px ", display: "-webkit-box", WebkitLineClamp: 5, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+      <Typography lineHeight={1.6} sx={{
+        fontSize: "14px",
+        display: "-webkit-box",
+        WebkitLineClamp: 5,
+        WebkitBoxOrient: "vertical",
+        overflow: "hidden"
+      }}>
         {description}
       </Typography>
     </CardContent>
   </Card>
-);;
+);
 
 export default function Carousel() {
   const scrollRef = useRef(null);
@@ -101,7 +152,7 @@ export default function Carousel() {
   const scroll = (direction) => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -200 : 200,
+        left: direction === "left" ? -250 : 250,
         behavior: "smooth",
       });
     }
@@ -118,35 +169,31 @@ export default function Carousel() {
         overflow: "hidden",
       }}
     >
-        <Box
-    sx={{
-         position: "absolute",
-            left: "0px",
-            top: "71.3%",
-            transform: "translateY(-50%)",
-            width: 50,
-            height: 50,
-            borderTopLeftRadius: "20px",
-            background:{ xs:"transparent",md:"white"},
-            zIndex: 100,
-    }}
-  >
-</Box>
-  <Box
-    sx={{
-         position: "absolute",
-           left: "0px",
-     top: "67%",
+      <Box
+        sx={{
+          position: "absolute",
+          left: "0px",
+          top: "71.3%",
+          transform: "translateY(-50%)",
+          width: 50,
+          height: 50,
+          borderTopLeftRadius: "20px",
+          background: { xs: "transparent", md: "white" },
+          zIndex: 100,
+        }}
+      ></Box>
+      <Box
+        sx={{
+          position: "absolute",
+          left: "0px",
+          top: "67%",
+          transform: "translateY(-50%)",
+          width: 20,
+          height: 20,
+          background: { xs: "transparent", md: "black" }
+        }}
+      ></Box>
 
-            transform: "translateY(-50%)",
-            width: 20,
-            height: 20,
- 
-            background: { xs:"transparent",md:"black"}
-    }}
-  >
-</Box>
- 
       <Box
         sx={{
           position: "absolute",
@@ -155,8 +202,7 @@ export default function Carousel() {
           transform: "translateY(-50%)",
           width: 80,
           height: 120,
-          bgcolor: { xs:"transparent",md:"black"},
-          
+          bgcolor: { xs: "transparent", md: "black" },
           borderTopRightRadius: 60,
           borderBottomRightRadius: 60,
           borderBottomLeftRadius: 0,
@@ -175,10 +221,7 @@ export default function Carousel() {
             width: 50,
             height: 50,
             borderBottomLeftRadius: "20px",
-            background:{
-              xs: "transparent",
-            md: "white",
-            },
+            background: { xs: "transparent", md: "white" },
             zIndex: 100,
           },
 
@@ -191,8 +234,7 @@ export default function Carousel() {
             transform: "translateY(-50%)",
             width: 20,
             height: 20,
-
-            background: { xs:"transparent",md:"black"},
+            background: { xs: "transparent", md: "black" },
           },
           
         }}
@@ -205,7 +247,7 @@ export default function Carousel() {
             backgroundColor: "red",
             boxShadow: 1,
             width: 50,
-            height: 50,
+            height: 50
             // "&:hover": { backgroundColor: "#f0f0f0" },
           }}
         >
@@ -220,11 +262,9 @@ export default function Carousel() {
           right: 0,
           top: "50%",
           transform: "translateY(-50%)",
-    width: 80,
+          width: 80,
           height: 120,
-          bgcolor: {
-            xs:"transparent",md:"black"
-          },
+          bgcolor: { xs: "transparent", md: "black" },
           borderTopLeftRadius: 60,
           borderBottomLeftRadius: 60,
           borderBottomRightRadius: 0,
@@ -232,7 +272,7 @@ export default function Carousel() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-             "&::before": {
+          "&::before": {
             content: '""',
             position: "absolute",
             right: "0px",
@@ -241,7 +281,7 @@ export default function Carousel() {
             width: 50,
             height: 50,
             borderBottomRightRadius: "20px",
-            background: { xs:"transparent",md:"white"},
+            background: { xs: "transparent", md: "white" },
             zIndex: 100,
           },
 
@@ -254,8 +294,7 @@ export default function Carousel() {
             transform: "translateY(-50%)",
             width: 20,
             height: 20,
-
-            background: { xs:"transparent",md:"black"},
+            background: { xs: "transparent", md: "black" },
           },
           zIndex: 2,
         }}
@@ -265,8 +304,8 @@ export default function Carousel() {
           sx={{
             backgroundColor: "red",
             boxShadow: 1,
-        width: 50,
-        position: "absolute",
+            width: 50,
+            position: "absolute",
             right: 0,
             height: 50,
             // "&:hover": { backgroundColor: "#f0f0f0" },
@@ -275,34 +314,32 @@ export default function Carousel() {
           <ArrowForwardIos fontSize="small" />
         </IconButton>
       </Box>
-     <Box
-    sx={{
-         position: "absolute",
-            right: "0px",
-                       top: "71.3%",
-            transform: "translateY(-50%)",
-            width: 50,
-            height: 50,
-            borderTopRightRadius: "20px",
-            background: { xs:"transparent",md:"white"},
-            zIndex: 100,
-    }}
-  >
-</Box>
-  <Box
-    sx={{
-         position: "absolute",
-           right: "0px",
-           top: "67%",
 
-            transform: "translateY(-50%)",
-            width: 20,
-            height: 20,
- 
-            background: { xs:"transparent",md:"black"},
-    }}
-  >
-</Box>
+      <Box
+        sx={{
+          position: "absolute",
+          right: "0px",
+          top: "71.3%",
+          transform: "translateY(-50%)",
+          width: 50,
+          height: 50,
+          borderTopRightRadius: "20px",
+          background: { xs: "transparent", md: "white" },
+          zIndex: 100,
+        }}
+      ></Box>
+      <Box
+        sx={{
+          position: "absolute",
+          right: "0px",
+          top: "67%",
+          transform: "translateY(-50%)",
+          width: 20,
+          height: 20,
+          background: { xs: "transparent", md: "black" },
+        }}
+      ></Box>
+
       <Box
         ref={scrollRef}
         sx={{

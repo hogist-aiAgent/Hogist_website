@@ -18,7 +18,7 @@ function VendorSection() {
       bgcolor: 'white', 
       py: 4,
       display: 'flex',
-      flexDirection: { xs: 'column', md: 'row' },
+      flexDirection: { xs: 'column', sm: 'row' },
       alignItems: 'center',
       minHeight: { xs: 'auto', md: '100vh' }
     }}>
@@ -37,13 +37,12 @@ function VendorSection() {
             sx={{ 
               mt: 2,
               fontSize: {
-                xs: '1.8rem',    // Mobile size
-                sm: '2rem',    // Small tablet
-                md: '1.9rem',      // Desktop size
-                lg: '2.4rem'     // Large screens
+                xs: '1.8rem',
+                sm: '2rem',
+                md: '1.9rem',
+                lg: '2.4rem'
               },
               lineHeight: {
-                
                 md: '1.3'
               }
             }}
@@ -72,18 +71,25 @@ function VendorSection() {
       
       <Box sx={{
         flex: 1,
-        display: { xs: 'none', md: 'grid' },
+        display: 'grid',
         gridTemplateColumns: 'repeat(8, 1fr)',
         gridTemplateRows: 'repeat(8, 1fr)',
-        gap: '8px',
+        gap: { xs: '4px', md: '8px' },
         width: '100%',
-        height: '80vh',
-        maxHeight: '800px',
+        height: { 
+          xs: '50vh',  
+          sm: 'auto', 
+          md: '80vh'  
+        },
+        maxHeight: {
+          xs: '400px', 
+          sm: 'auto', 
+          md: '800px'  
+        },
         padding: 2,
         position: 'relative',
         ml: { md: '-100px' },
         order: { xs: 1, md: 2 },
-        
       }}>
         {/* Image 1 - top left */}
         <Box sx={{ 
@@ -102,7 +108,7 @@ function VendorSection() {
           />
         </Box>
         
-        {/* Image 2 - center large  */}
+        {/* Image 2 - center large */}
         <Box sx={{ 
           gridColumn: '3 / span 4',
           gridRow: '1 / span 5'
@@ -119,7 +125,7 @@ function VendorSection() {
           />
         </Box>
         
-        {/* Image 3 - bottom left  */}
+        {/* Image 3 - bottom left*/}
         <Box sx={{ 
           gridColumn: '1 / span 2',
           gridRow: '5 / span 4'
@@ -153,7 +159,7 @@ function VendorSection() {
           />
         </Box>
         
-        {/* Image 5 - top right*/}
+        {/* Image 5 - top right */}
         <Box sx={{ 
           gridColumn: '7 / span 2',
           gridRow: '1 / span 4'
@@ -170,7 +176,7 @@ function VendorSection() {
           />
         </Box>
         
-        {/* Image 6 - bottom right  */}
+        {/* Image 6 - bottom right */}
         <Box sx={{ 
           gridColumn: '7 / span 2',
           gridRow: '5 / span 4'
@@ -187,7 +193,7 @@ function VendorSection() {
           />
         </Box>
         
-        {/* Image 7 - center right bottom  */}
+        {/* Image 7 - center right bottom */}
         <Box sx={{ 
           gridColumn: '5 / span 2',
           gridRow: '6 / span 3'
@@ -203,33 +209,6 @@ function VendorSection() {
             }} 
           />
         </Box>
-      </Box>
-
-      {/* Mobile version of images */}
-      <Box sx={{
-        display: { xs: 'flex', md: 'none' },
-        flexDirection: 'row',
-        overflowX: 'auto',
-        gap: 2,
-        width: '100%',
-        px: 2,
-        py: 4,
-        order: 1
-      }}>
-        {[IMG2, hogistLogo, IMG3, IMG4, IMG5, catering, IMG1].map((img, index) => (
-          <Box key={index} sx={{ minWidth: '200px', height: '150px' }}>
-            <img 
-              src={img} 
-              alt={`img-${index}`}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                borderRadius: '4px'
-              }} 
-            />
-          </Box>
-        ))}
       </Box>
     </Box>
   );

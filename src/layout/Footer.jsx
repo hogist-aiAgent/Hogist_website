@@ -18,6 +18,7 @@ function Footer() {
             backgroundColor: theme.palette.background.paper
         }}>
             <Container maxWidth="lg">
+                {/* Mobile View (unchanged) */}
                 <Box sx={{ 
                     display: { xs: 'block', sm: 'none' },
                     textAlign: 'center'
@@ -77,87 +78,99 @@ function Footer() {
                     </Box>
                 </Box>
 
-             
+                {/* Tablet and Desktop View */}
                 <Box sx={{ 
-                    display: { xs: 'none', sm: 'flex'},
-                    justifyContent: 'space-evenly',
+                    display: { xs: 'none', sm: 'flex' },
+                    justifyContent: 'space-between',
                     flexWrap: 'wrap',
-                    gap: 4,
+                    gap: { sm: 2, md: 4 },
                 }}>
-                   
-                    <Box sx={{ flex: '1 1 0', minWidth: '110px', maxWidth: '200px' }}>
-                        <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <img src={HogistLogo} alt="logo" style={{ height: '40px', width: '140px', marginBottom: '20px' }} />
-                            <Typography variant="body2" sx={{ mb: 3 }}>
-                                Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.We offer best quality with different taste in our catering services.
-                            </Typography>
-                            <Box sx={{ display: 'flex', gap: 2 }}>
-                                <FacebookIcon sx={{ fontSize: '1.5rem' }} />
-                                <InstagramIcon sx={{ fontSize: '1.5rem' }} />
-                                <TwitterIcon sx={{ fontSize: '1.5rem' }} />
-                                <LinkedInIcon sx={{ fontSize: '1.5rem' }} />
-                            </Box>
+                    {/* First column - Logo and description */}
+                    <Box sx={{ 
+                        flex: { sm: '1 1 40%', md: '1 1 0' },
+                        minWidth: { sm: '300px', md: '0' },
+                        maxWidth: { sm: '100%', md: '200px' },
+                        mb: { sm: 3, md: 0 }
+                    }}>
+                        <img src={HogistLogo} alt="logo" style={{ height: '40px', width: '140px', marginBottom: '20px' }} />
+                        <Typography variant="body2" sx={{ mb: 3 }}>
+                            Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.We offer best quality with different taste in our catering services.
+                        </Typography>
+                        <Box sx={{ display: 'flex', gap: 2 }}>
+                            <FacebookIcon sx={{ fontSize: '1.5rem' }} />
+                            <InstagramIcon sx={{ fontSize: '1.5rem' }} />
+                            <TwitterIcon sx={{ fontSize: '1.5rem' }} />
+                            <LinkedInIcon sx={{ fontSize: '1.5rem' }} />
                         </Box>
                     </Box>
 
                     {/* Second column - Our Services */}
-                    <Box sx={{ flex: '1 1 0', minWidth: '150px', maxWidth: '100px',  }}>
-                        <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>Our Services</Typography>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
-                                    <Typography key={item} variant="body2">{item}</Typography>
-                                ))}
-                            </Box>
+                    <Box sx={{ 
+                        flex: { sm: '1 1 25%', md: '1 1 0' },
+                        minWidth: { sm: '120px', md: '0' },
+                        maxWidth: { sm: '100%', md: '100px' }
+                    }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>Our Services</Typography>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
+                                <Typography key={item} variant="body2">{item}</Typography>
+                            ))}
                         </Box>
                     </Box>
                     
-                    {/* Third column - Pages */}
-                    <Box sx={{ flex: '1 1 0', minWidth: '150px', maxWidth: '100px',  }}>
-                        <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>Company</Typography>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
-                                    <Typography key={item} variant="body2">{item}</Typography>
-                                ))}
-                            </Box>
+                    {/* Third column - Company */}
+                    <Box sx={{ 
+                        flex: { sm: '1 1 25%', md: '1 1 0' },
+                        minWidth: { sm: '120px', md: '0' },
+                        maxWidth: { sm: '100%', md: '100px' }
+                    }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>Company</Typography>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
+                                <Typography key={item} variant="body2">{item}</Typography>
+                            ))}
                         </Box>
                     </Box>
 
                     {/* Fourth column - Legal */}
-                    <Box sx={{ flex: '1 1 0', minWidth: '150px', maxWidth: '200px' }}>
-                        <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>Legal</Typography>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                                {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
-                                    <Typography key={item} variant="body2">{item}</Typography>
-                                ))}
-                            </Box>
+                    <Box sx={{ 
+                        flex: { sm: '1 1 25%', md: '1 1 0' },
+                        minWidth: { sm: '120px', md: '0' },
+                        maxWidth: { sm: '100%', md: '200px' }
+                    }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, marginTop:'25px' }}>Legal</Typography>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
+                                <Typography key={item} variant="body2">{item}</Typography>
+                            ))}
                         </Box>
                     </Box>
 
                     {/* Fifth column - Contact us */}
-                    <Box sx={{ flex: '1 1 0', minWidth: '150px', maxWidth: '200px' }}>
-                        <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, textAlign:'center' }}>Contact us</Typography>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                                <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                                    <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '1.5rem', flexShrink: 0 , color:'#c60800'}} />
-                                    <Typography variant="body2">
-                                        HOGIST TECHNOLOGY PVT LTD.<br />
-                                        2nd Floor, Kakani Towers,<br /> 
-                                        No34 Khader Nawaz Khan Road<br />
-                                        Nungambakkam, Chennai 600 006
-                                    </Typography>
-                                </Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <PhoneIcon sx={{ mr: 1, fontSize: '1.5rem', flexShrink: 0, color:'#c60800' }} />
-                                    <Typography variant="body2">+91 - 9962687733</Typography>
-                                </Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <EmailIcon sx={{ mr: 1, fontSize: '0.9rem', flexShrink: 0, color:'#c60800' }} />
-                                    <Typography variant="body2">support@hogist.com</Typography>
-                                </Box>
+                    <Box sx={{ 
+                        flex: { sm: '1 1 40%', md: '1 1 0' },
+                        minWidth: { sm: '300px', md: '0' },
+                        maxWidth: { sm: '100%', md: '200px' },
+                        mt: { sm: 3, md: 0 }
+                    }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, textAlign: { sm: 'left', md: 'center' } }}>Contact us</Typography>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+                                <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '1.5rem', flexShrink: 0, color:'#c60800'}} />
+                                <Typography variant="body2">
+                                    HOGIST TECHNOLOGY PVT LTD.<br />
+                                    2nd Floor, Kakani Towers,<br /> 
+                                    No34 Khader Nawaz Khan Road<br />
+                                    Nungambakkam, Chennai 600 006
+                                </Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <PhoneIcon sx={{ mr: 1, fontSize: '1.5rem', flexShrink: 0, color:'#c60800' }} />
+                                <Typography variant="body2">+91 - 9962687733</Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <EmailIcon sx={{ mr: 1, fontSize: '0.9rem', flexShrink: 0, color:'#c60800' }} />
+                                <Typography variant="body2">support@hogist.com</Typography>
                             </Box>
                         </Box>
                     </Box>

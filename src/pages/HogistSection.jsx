@@ -12,7 +12,7 @@ function HogistSection() {
     return (
         <Box sx={{
             display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
+            flexDirection: { xs: 'column', sm: 'row' },
             alignItems: 'center',
             justifyContent: 'center',
             py: 5,
@@ -24,10 +24,10 @@ function HogistSection() {
                 mb: { xs: 4, md: 0 }
             }}>
                 <Box>
-                    <Typography variant='h2' marginTop={'30px'} fontWeight={'bold'} textAlign={{ xs: 'center', md: 'left' }}>
+                    <Typography variant='h3' marginTop={'30px'} fontWeight={'bold'} textAlign={{ xs: 'center', md: 'left' }}>
                         <Box sx={{ color: theme.palette.primary.secondary }}>HOGIST</Box>
                     </Typography>
-                    <Typography variant='h5' textAlign={{ xs: 'center', md: 'justify' }} fontWeight={'bold'} sx={{ mt: 2 }}>
+                    <Typography variant='h6' textAlign={{ xs: 'center', md: 'justify' }} fontWeight={'bold'} sx={{ mt: 2 }}>
                         Can serve any Company and
                         Events, No matter the Size,
                         Budget, or Complexity of

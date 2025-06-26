@@ -39,7 +39,7 @@ function FaqSection() {
             
             <Box sx={{ 
                 display: 'flex',
-                flexDirection: { xs: 'column', md: 'row' },
+                flexDirection: { xs: 'column', sm: 'row' },
                 width: '100%',
                 gap: { xs: 2, md: 4, lg: 6 },
                 alignItems: 'flex-start'
@@ -55,8 +55,8 @@ function FaqSection() {
                     <Box sx={{ 
                         mb: { xs: 2, md: 4 }, 
                         width: '100%',
-                        marginLeft: { xs: 0, md: '-30px', lg: '-50px' },
-                        marginBottom: { xs: '10px', md: '20px' },
+                        marginLeft: { xs: 0, sm: '-1px', lg: '-50px' },
+                        marginBottom: { xs: '10px', sm: '-20px' },
                         textAlign: 'center'
                     }}>
                         <img 
@@ -67,6 +67,7 @@ function FaqSection() {
                                 width: 'auto',
                                 maxHeight: { xs: '150px', sm: '170px', md: '190px', lg: '210px' },
                                 maxWidth: '100%',
+                                marginTop:'-50px'
                             }} 
                         />
                     </Box>
