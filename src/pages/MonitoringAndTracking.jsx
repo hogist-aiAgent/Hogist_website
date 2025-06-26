@@ -7,88 +7,120 @@ const MonitoringSection = () => {
   const theme = useTheme();
   
   return (
-    <Box sx={{ mb: 10, paddingTop:'50px',bgcolor:'black' }}>
-      <Container maxWidth={'auto'} sx={{ px: { xs: 2, md: 6 }, pt: 6, pb: 3, m: 0, width: "100%" }}>
-        <Typography variant="h3" fontWeight="bold" sx={{ color: 'white', mb: 2 }}>
+    <Box sx={{ 
+      py: { xs: 4, md: 8 },
+      bgcolor: 'black' 
+    }}>
+      <Container maxWidth={'auto'} sx={{ 
+        px: { xs: 2, md: 6 }, 
+        py: { xs: 3, md: 4 },
+        width: "100%"
+      }}>
+        <Typography 
+          variant="h2"  
+          fontWeight="bold" 
+          sx={{ 
+            color: 'white', 
+            mb: { xs: 5, sm: 1, md: 5 },
+            fontSize: { 
+              xs: '1.5rem', 
+              sm: '1.75rem', 
+              md: '2.25rem',
+              lg: '2.75rem',
+              xl: '3rem'
+            } 
+          }}
+        >
           <Box component="span" sx={{ color: theme.palette.primary.secondary }}>
             Monitor and Track
           </Box> your Corporate & Industrial Bulk Food Order from Anywhere
         </Typography>
-        <br /><br/><br/>
         
         <Box
           display="flex"
           flexDirection={{ xs: 'column', sm: 'row' }}
           alignItems="center"
           justifyContent="space-between"
-          gap={4}
+          gap={{ xs: 3, md: 4 }}
         >
           <Box sx={{ 
-            maxWidth: 600, 
-            marginTop: { xs: 0, md: '-130px' } // Adjusted for mobile
+            maxWidth: 600,
+            mt: { md: -8 }
           }}>
-            <Stack spacing={{ xs: 4, md: 9 }}> {/* Responsive spacing */}
-              <Typography variant="h5" sx={{ color: 'white' }}>
+            <Stack spacing={1}>
+              <Typography variant="body1" sx={{ 
+                color: 'white', 
+                fontSize: { 
+                  xs: '0.9rem', 
+                  sm: '1rem', 
+                  md: '1.1rem' 
+                } 
+              }}>
                 Now stop worrying about Delivery delays,
                 food quantity & quality, hygiene, and even
                 staff shortage.
               </Typography>
             </Stack>
-            <br />
-            <br/>
             
-            <Box component="div" sx={{ color: 'white' }}>
+            <Box component="div" sx={{ color: 'white', mt: 2 }}>
               <List sx={{ color: 'white', pl: 0 }}>
-                <ListItem sx={{ alignItems: 'flex-start', px: 0, py: 0 }}>
-                  <TaskAltIcon sx={{ 
-                    color: 'white', 
-                    mr: 1.5, 
-                    fontSize: '1.2rem', 
-                    marginTop: '7px' 
-                  }} />
-                  <Typography variant="h6">Flexible, Contact-free food solution</Typography>
-                </ListItem><br/>
-                <ListItem sx={{ alignItems: 'flex-start', px: 0, py: 0 }}>
-                  <TaskAltIcon sx={{ 
-                    color: 'white', 
-                    mr: 1.5, 
-                    fontSize: '1.2rem',
-                    marginTop: '7px' 
-                  }} />
-                  <Typography variant="h6">Timely Delivery as committed</Typography>
-                </ListItem><br/>
-                <ListItem sx={{ alignItems: 'flex-start', px: 0, py: 0 }}>
-                  <TaskAltIcon sx={{ 
-                    color: 'white', 
-                    mr: 1.5, 
-                    fontSize: '1.2rem',
-                    marginTop: '7px' 
-                  }} />
-                  <Typography variant="h6">Excellent Hospitality/Onsite Service</Typography>
-                </ListItem>
+                {[
+                  "Flexible, Contact-free food solution",
+                  "Timely Delivery as committed",
+                  "Excellent Hospitality/Onsite Service"
+                ].map((item) => (
+                  <ListItem 
+                    key={item}
+                    sx={{ 
+                      alignItems: 'flex-start', 
+                      px: 0, 
+                      py: 0.5,
+                      '&:not(:last-child)': { mb: 1 } 
+                    }}
+                  >
+                    <TaskAltIcon sx={{ 
+                      color: 'white', 
+                      mr: 1.5, 
+                      fontSize: { 
+                        xs: '0.9rem', 
+                        sm: '1rem', 
+                        md: '1.1rem' 
+                      },
+                      mt: '3px' 
+                    }} />
+                    <Typography variant="body1">{item}</Typography>
+                  </ListItem>
+                ))}
               </List>
             </Box>
           </Box>
           
+          {/* Image Container - Modified for proper display without cropping */}
           <Box sx={{ 
-            padding: { xs: 0 },
-            width: { xs: '100%', md: '100%' }, 
-            height: { xs: '300px', md: '390px' },
-            mb: 2,
-            objectFit: 'cover',
-            marginTop: { xs: '20px', md: '-50px' }, 
-            marginLeft:{xs:'30px'},
-            alignItems:{xs:'center'}
+            width: { 
+              xs: '100%', 
+              sm: '100%',
+              md: '100%' 
+            },
+            height: { 
+              xs: '300px', 
+              md: '390px' 
+            },
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            mt: { xs: 2, md: -4 },
+            overflow: 'hidden'
           }}>
             <img 
               src={monitoringImage} 
               alt="Monitoring and Tracking" 
               style={{ 
-                width: '80%',
+                width: 'auto',
                 height: '100%',
-                objectFit: 'fill',
-                margin:'-24px',
-                marginTop:'-30px'
+                maxWidth: '100%',
+                objectFit: 'contain', // Changed from 'cover' to 'contain' to prevent cropping
+                objectPosition: 'center'
               }}
             />
           </Box>

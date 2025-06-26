@@ -7,6 +7,7 @@ import {
   Typography,
   Button,
   IconButton,
+  useMediaQuery,
 } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import banner1 from '../assets/feature/open-food-containers.jpg';
@@ -15,6 +16,7 @@ import banner3 from '../assets/feature/feature4.jpg';
 import banner4 from '../assets/feature/feature5.jpg';
 import banner5 from '../assets/feature/feature2.jpg';
 import theme from '../theme/theme';
+
 const cards = [
   {
     title: "Over 100 top caterers",
@@ -148,6 +150,7 @@ const SaladCard = ({ title, description, image }) => (
 
 export default function Carousel() {
   const scrollRef = useRef(null);
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -164,181 +167,182 @@ export default function Carousel() {
         position: "relative",
         background: "white",
         py: 2,
-        px: { xs: 2, md: 7 },
+        px: { xs: 0, md: 7 }, 
         borderRadius: "20px",
         overflow: "hidden",
       }}
     >
-      <Box
-        sx={{
-          position: "absolute",
-          left: "0px",
-          top: "71.3%",
-          transform: "translateY(-50%)",
-          width: 50,
-          height: 50,
-          borderTopLeftRadius: "20px",
-          background: { xs: "transparent", md: "white" },
-          zIndex: 100,
-        }}
-      ></Box>
-      <Box
-        sx={{
-          position: "absolute",
-          left: "0px",
-          top: "67%",
-          transform: "translateY(-50%)",
-          width: 20,
-          height: 20,
-          background: { xs: "transparent", md: "black" }
-        }}
-      ></Box>
+      {isDesktop && (
+        <>
+          <Box
+            sx={{
+              position: "absolute",
+              left: "0px",
+              top: "71.3%",
+              transform: "translateY(-50%)",
+              width: 50,
+              height: 50,
+              borderTopLeftRadius: "20px",
+              background: "white",
+              zIndex: 100,
+            }}
+          ></Box>
+          <Box
+            sx={{
+              position: "absolute",
+              left: "0px",
+              top: "67%",
+              transform: "translateY(-50%)",
+              width: 20,
+              height: 20,
+              background: "black"
+            }}
+          ></Box>
 
-      <Box
-        sx={{
-          position: "absolute",
-          left: 0,
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: 80,
-          height: 120,
-          bgcolor: { xs: "transparent", md: "black" },
-          borderTopRightRadius: 60,
-          borderBottomRightRadius: 60,
-          borderBottomLeftRadius: 0,
-          borderTopLeftRadius: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        
-          zIndex: 2,
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            left: "0px",
-            top: "-25px",
-            transform: "translateY(-50%)",
-            width: 50,
-            height: 50,
-            borderBottomLeftRadius: "20px",
-            background: { xs: "transparent", md: "white" },
-            zIndex: 100,
-          },
+          <Box
+            sx={{
+              position: "absolute",
+              left: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: 80,
+              height: 120,
+              bgcolor: "black",
+              borderTopRightRadius: 60,
+              borderBottomRightRadius: 60,
+              borderBottomLeftRadius: 0,
+              borderTopLeftRadius: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            
+              zIndex: 2,
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                left: "0px",
+                top: "-25px",
+                transform: "translateY(-50%)",
+                width: 50,
+                height: 50,
+                borderBottomLeftRadius: "20px",
+                background: "white",
+                zIndex: 100,
+              },
 
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            left: "0px",
-            top: "-10px",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                left: "0px",
+                top: "-10px",
 
-            transform: "translateY(-50%)",
-            width: 20,
-            height: 20,
-            background: { xs: "transparent", md: "black" },
-          },
-          
-        }}
-      >
-        <IconButton
-          onClick={() => scroll("left")}
-          sx={{
-            position: "absolute",
-            left: 0,
-            backgroundColor: "red",
-            boxShadow: 1,
-            width: 50,
-            height: 50
-            // "&:hover": { backgroundColor: "#f0f0f0" },
-          }}
-        >
-          <ArrowBackIos fontSize="small" />
-        </IconButton>
-      </Box>
+                transform: "translateY(-50%)",
+                width: 20,
+                height: 20,
+                background: "black",
+              },
+              
+            }}
+          >
+            <IconButton
+              onClick={() => scroll("left")}
+              sx={{
+                position: "absolute",
+                left: 0,
+                backgroundColor: "red",
+                boxShadow: 1,
+                width: 50,
+                height: 50
+              }}
+            >
+              <ArrowBackIos fontSize="small" />
+            </IconButton>
+          </Box>
 
+          <Box
+            sx={{
+              position: "absolute",
+              right: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: 80,
+              height: 120,
+              bgcolor: "black",
+              borderTopLeftRadius: 60,
+              borderBottomLeftRadius: 60,
+              borderBottomRightRadius: 0,
+              borderTopRightRadius: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                right: "0px",
+                top: "-25px",
+                transform: "translateY(-50%)",
+                width: 50,
+                height: 50,
+                borderBottomRightRadius: "20px",
+                background: "white",
+                zIndex: 100,
+              },
 
-      <Box
-        sx={{
-          position: "absolute",
-          right: 0,
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: 80,
-          height: 120,
-          bgcolor: { xs: "transparent", md: "black" },
-          borderTopLeftRadius: 60,
-          borderBottomLeftRadius: 60,
-          borderBottomRightRadius: 0,
-          borderTopRightRadius: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            right: "0px",
-            top: "-25px",
-            transform: "translateY(-50%)",
-            width: 50,
-            height: 50,
-            borderBottomRightRadius: "20px",
-            background: { xs: "transparent", md: "white" },
-            zIndex: 100,
-          },
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                right: "0px",
+                top: "-10px",
 
-          "&::after": {
-            content: '""',
-            position: "absolute",
-            right: "0px",
-            top: "-10px",
+                transform: "translateY(-50%)",
+                width: 20,
+                height: 20,
+                background: "black",
+              },
+              zIndex: 2,
+            }}
+          >
+            <IconButton
+              onClick={() => scroll("right")}
+              sx={{
+                backgroundColor: "red",
+                boxShadow: 1,
+                width: 50,
+                position: "absolute",
+                right: 0,
+                height: 50,
+              }}
+            >
+              <ArrowForwardIos fontSize="small" />
+            </IconButton>
+          </Box>
 
-            transform: "translateY(-50%)",
-            width: 20,
-            height: 20,
-            background: { xs: "transparent", md: "black" },
-          },
-          zIndex: 2,
-        }}
-      >
-        <IconButton
-          onClick={() => scroll("right")}
-          sx={{
-            backgroundColor: "red",
-            boxShadow: 1,
-            width: 50,
-            position: "absolute",
-            right: 0,
-            height: 50,
-            // "&:hover": { backgroundColor: "#f0f0f0" },
-          }}
-        >
-          <ArrowForwardIos fontSize="small" />
-        </IconButton>
-      </Box>
-
-      <Box
-        sx={{
-          position: "absolute",
-          right: "0px",
-          top: "71.3%",
-          transform: "translateY(-50%)",
-          width: 50,
-          height: 50,
-          borderTopRightRadius: "20px",
-          background: { xs: "transparent", md: "white" },
-          zIndex: 100,
-        }}
-      ></Box>
-      <Box
-        sx={{
-          position: "absolute",
-          right: "0px",
-          top: "67%",
-          transform: "translateY(-50%)",
-          width: 20,
-          height: 20,
-          background: { xs: "transparent", md: "black" },
-        }}
-      ></Box>
+          <Box
+            sx={{
+              position: "absolute",
+              right: "0px",
+              top: "71.3%",
+              transform: "translateY(-50%)",
+              width: 50,
+              height: 50,
+              borderTopRightRadius: "20px",
+              background: "white",
+              zIndex: 100,
+            }}
+          ></Box>
+          <Box
+            sx={{
+              position: "absolute",
+              right: "0px",
+              top: "67%",
+              transform: "translateY(-50%)",
+              width: 20,
+              height: 20,
+              background: "black",
+            }}
+          ></Box>
+        </>
+      )}
 
       <Box
         ref={scrollRef}
@@ -347,7 +351,7 @@ export default function Carousel() {
           gap: 2,
           overflowX: "auto",
           scrollBehavior: "smooth",
-          px: 4,
+          px: { xs: 2, md: 0 }, 
           "&::-webkit-scrollbar": { display: "none" },
         }}
       >
