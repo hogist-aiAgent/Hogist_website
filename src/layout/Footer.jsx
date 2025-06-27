@@ -8,6 +8,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
+import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
 
 function Footer() {
     const theme = useTheme();
@@ -20,72 +22,74 @@ function Footer() {
             <Container maxWidth="lg">
                 <Box sx={{ 
                     display: { xs: 'grid', sm: 'none' },
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '26px',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: 3,
                     mb: 3
                 }}>
                     <Box sx={{ gridColumn: 'span 1' }}>
                         <img src={HogistLogo} alt="logo" style={{ height: '20px', width: '70px', marginBottom: '10px' }} />
-                        <Typography variant="body2" sx={{ mb: 2, fontSize: '0.4rem' }}>
+                        <Typography variant="body2" sx={{ mb: 2, fontSize: '0.7rem' }}>
                             Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.
                         </Typography>
-                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                            <FacebookIcon sx={{ fontSize: '0.8rem'}} />
-                            <InstagramIcon sx={{ fontSize: '0.8rem' }} />
-                            <TwitterIcon sx={{ fontSize: '0.8rem' }} />
-                            <LinkedInIcon sx={{ fontSize: '0.8rem' }} />
-                        </Box>
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.5rem' }}>Our Services</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Company</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
-                                <Typography key={item} variant="body2" sx={{ fontSize: '0.4rem' }}>{item}</Typography>
+                            {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
+                                <Typography key={item} variant="body2" sx={{ fontSize: '0.7rem' }}>{item}</Typography>
                             ))}
                         </Box>
                     </Box>
 
-                    <Box sx={{ gridColumn: 'span 1' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.5rem' }}>Company</Typography>
+                    {/* Second Row - 2 Columns */}
+                    <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Our Services</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                            {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
-                                <Typography key={item} variant="body2" sx={{ fontSize: '0.4rem' }}>{item}</Typography>
+                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
+                                <Typography key={item} variant="body2" sx={{ fontSize: '0.7rem' }}>{item}</Typography>
                             ))}
                         </Box>
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.5rem' }}>Legal</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Legal</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                             {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
-                                <Typography key={item} variant="body2" sx={{ fontSize: '0.4rem' }}>{item}</Typography>
+                                <Typography key={item} variant="body2" sx={{ fontSize: '0.7rem' }}>{item}</Typography>
                             ))}
                         </Box>
                     </Box>
 
-                    <Box sx={{ gridColumn: 'span 2', mt: '13px' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.5rem', marginLeft:'36px' }}>Contact us</Typography>
+                    <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Contact us</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                            <Box>
-                                <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                                    <LocationOnIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800'}} />
-                                    <Typography variant="body2" sx={{ fontSize: '0.4rem' }}>
-                                        HOGIST TECHNOLOGY PVT LTD.<br />
-                                        2nd Floor, Kakani Towers,<br /> 
-                                        No34 Khader Nawaz Khan Road<br />
-                                        Nungambakkam, Chennai 600 006
-                                    </Typography>
-                                </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+                                <LocationOnIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800'}} />
+                                <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>
+                                    HOGIST TECHNOLOGY PVT LTD.<br />
+                                    2nd Floor, Kakani Towers,<br /> 
+                                    No34 Khader Nawaz Khan Road<br />
+                                    Nungambakkam, Chennai 600 006
+                                </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                 <PhoneIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800' }} />
-                                <Typography variant="body2" sx={{ fontSize: '0.4rem' }}>+91 - 9962687733</Typography>
+                                <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>+91 - 9962687733</Typography>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                 <EmailIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800' }} />
-                                <Typography variant="body2" sx={{ fontSize: '0.4rem' }}>support@hogist.com</Typography>
+                                <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>support@hogist.com</Typography>
                             </Box>
+                        </Box>
+                    </Box>
+                     <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Follow Us</Typography>
+                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
+                            <FacebookIcon sx={{ fontSize: '0.8rem'}} />
+                            <InstagramIcon sx={{ fontSize: '0.8rem' }} />
+                            <TwitterIcon sx={{ fontSize: '0.8rem' }} />
+                            <LinkedInIcon sx={{ fontSize: '0.8rem' }} />
                         </Box>
                     </Box>
                 </Box>
@@ -184,9 +188,45 @@ function Footer() {
                 </Box>
 
                 <Box sx={{ textAlign: 'center', mt: 5, pt: 3, borderTop: `1px solid ${theme.palette.divider}` }}>
-                    <Typography variant="body2" sx={{ fontSize: '0.75rem', color: 'text.secondary' }}>
+                    <Typography variant="body2" sx={{ fontSize: '0.75rem', color: 'text.secondary', mb: 2 }}>
                         © 2024, Hogist technologies private limited. All rights reserved.
                     </Typography>
+                    <Box sx={{ 
+                        display: 'flex', 
+                        justifyContent: 'center', 
+                        gap: 2,
+                        alignItems: 'center',
+                        flexDirection: { xs: 'column', sm: 'row' }
+                    }}>
+                        <Box sx={{
+                            width: { xs: '140px', sm: '160px', md: '150px', lg: '160px' },
+                            height: 'auto',
+                        }}>
+                            <img 
+                                src={AppStoreButton} 
+                                alt="Download on the App Store" 
+                                style={{ 
+                                    width: '100%', 
+                                    height: 'auto',
+                                    cursor: 'pointer'
+                                }} 
+                            />
+                        </Box>
+                        <Box sx={{
+                            width: { xs: '140px', sm: '160px', md: '150px', lg: '160px' },
+                            height: 'auto',
+                        }}>
+                            <img 
+                                src={GooglePlayButton} 
+                                alt="GET IT ON Google Play" 
+                                style={{ 
+                                    width: '100%', 
+                                    height: 'auto',
+                                    cursor: 'pointer'
+                                }} 
+                            />
+                        </Box>
+                    </Box>
                 </Box>
             </Container>
         </Box>
