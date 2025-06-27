@@ -146,7 +146,7 @@ function Footer() {
                         maxWidth: { sm: '100%', md: '200px' },
                         marginRight:'-70px'
                     }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, marginTop:'30px' }}>Legal</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, marginTop:{sm:'30px',md:'auto'}}}>Legal</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                             {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
                                 <Typography key={item} variant="body2">{item}</Typography>
@@ -160,7 +160,7 @@ function Footer() {
                         maxWidth: { sm: '100%', md: '200px' },
                         mt: { sm: 3, md: 0 }
                     }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, textAlign: { sm: 'left', md: 'center' },marginLeft:'77px' }}>Contact us</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2, textAlign: { sm: 'left', md: 'center' },marginLeft:{sm:'77px', md:'auto'} }}>Contact us</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                                 <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '1.5rem', flexShrink: 0, color:'#c60800'}} />
