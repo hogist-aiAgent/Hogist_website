@@ -47,14 +47,14 @@ const MonitoringSection = () => {
             maxWidth: 600,
             mt: { md: -8 }
           }}>
-            <Stack spacing={1}>
+            <Stack spacing={1} sx={{marginTop:{sm:'-80px'}}}>
               <Typography variant="body1" sx={{ 
                 color: 'white', 
                 fontSize: { 
                   xs: '0.9rem', 
                   sm: '1rem', 
                   md: '1.1rem' 
-                } 
+                }
               }}>
                 Now stop worrying about Delivery delays,
                 food quantity & quality, hygiene, and even
@@ -95,7 +95,6 @@ const MonitoringSection = () => {
             </Box>
           </Box>
           
-          {/* Image Container - Modified for proper display without cropping */}
           <Box sx={{ 
             width: { 
               xs: '100%', 
@@ -117,10 +116,11 @@ const MonitoringSection = () => {
               alt="Monitoring and Tracking" 
               style={{ 
                 width: 'auto',
-                height: '100%',
+                height: '80%',
                 maxWidth: '100%',
-                objectFit: 'contain', // Changed from 'cover' to 'contain' to prevent cropping
-                objectPosition: 'center'
+                objectFit: 'contain',
+                objectPosition: 'center',
+                marginTop:{ms:'-73px'}
               }}
             />
           </Box>
