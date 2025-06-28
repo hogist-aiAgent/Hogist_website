@@ -18,8 +18,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import LazyLoad from 'react-lazyload';
-
-import HeaderLogo from '../assets/HogistLogo2.png'; // Adjust path if needed
+import HeaderLogo from '../assets/HogistLogo2.png';
 
 const navItems = ['Home', 'Feature', 'Review', 'Menu Bank', 'Corporate', 'Industrials'];
 
@@ -46,7 +45,7 @@ export default function Header() {
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'black',
-        padding: '1.5rem 1.2rem',   
+        padding: '1.2rem 1rem',   
 
       }}
     >
@@ -82,7 +81,7 @@ export default function Header() {
                 src={HeaderLogo}
                 alt="Hogist Logo"
                 loading="lazy"
-                sx={{ width: 150, height: 'auto', mr: 1 }}
+                sx={{ width: 110, height: 'auto', mr: 1 }}
               />
             </LazyLoad>
           </Box>
@@ -182,6 +181,7 @@ export default function Header() {
             backgroundColor: 'white',
             boxShadow: '0px 8px 20px rgba(0,0,0,0.2)',
             padding: 2,
+            marginTop:'30px'
           },
         }}
         anchorOrigin={{
