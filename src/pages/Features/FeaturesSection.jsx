@@ -20,7 +20,7 @@ sx={{
               }}>Feature</Box>
             </Typography>
           
-              <Typography variant="h4" fontWeight="bold" sx={{ color: 'white', mt: 2 }}>
+              <Typography variant="h5" fontWeight="bold" sx={{ color: 'white', mt: 2 }}>
                           Effortlessly oversee and enhance your daily catering.
                         </Typography>
 </Box>

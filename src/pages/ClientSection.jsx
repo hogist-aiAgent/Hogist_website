@@ -28,10 +28,10 @@ const ClientSection = () => {
                 color:theme.palette.primary.secondary
               }}>Trust</Box>
             </Typography>
-            <Typography variant="h4" fontWeight="bold" sx={{ color: 'black', mt: 2 }}>
+            <Typography variant="h5" fontWeight="bold" sx={{ color: 'black', mt: 2 }}>
               Trusted by the world&apos;s best companies.
             </Typography>
-            <Typography variant="h4" fontWeight="bold" sx={{ color: 'black' }}>
+            <Typography variant="h5" fontWeight="bold" sx={{ color: 'black' }}>
               Join the ranks of the elite.
             </Typography>
           </motion.div>
@@ -67,7 +67,7 @@ const ClientSection = () => {
           </motion.div>
         </Box>
       </Container>
-         <Typography variant="h4" fontWeight="bold" sx={{  color:theme.palette.primary.secondary,textAlign: 'center', my: 5 }}>
+         <Typography variant="h5" fontWeight="bold" sx={{  color:theme.palette.primary.secondary,textAlign: 'center', my: 5 }}>
              Take a Look at our clients
             </Typography>
       <ClientCarousel/>

@@ -55,8 +55,8 @@ function FaqSection() {
                     <Box sx={{ 
                         mb: { xs: 2, md: 4 }, 
                         width: '100%',
-                        marginLeft: { xs: 0, sm: '-1px', lg: '-50px' },
-                        marginBottom: { xs: '10px', sm: '-20px' },
+                        marginLeft: { xs: 0, sm: '-1px', md:'-80px',lg: '-30px' },
+                        marginBottom: { xs: '-20px', sm: '-20px',md:'0',lg:'20px' },
                         textAlign: 'center'
                     }}>
                         <img 

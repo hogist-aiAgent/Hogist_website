@@ -8,12 +8,12 @@ const MonitoringSection = () => {
   
   return (
     <Box sx={{ 
-      py: { xs: 4, md: 8 },
+      py: { xs: 3, md: 5 },
       bgcolor: 'black' 
     }}>
       <Container maxWidth={'auto'} sx={{ 
-        px: { xs: 2, md: 6 }, 
-        py: { xs: 3, md: 4 },
+        px: { xs: 2, md: 4 }, 
+        py: { xs: 2, md: 3 },
         width: "100%"
       }}>
         <Typography 
@@ -21,19 +21,19 @@ const MonitoringSection = () => {
           fontWeight="bold" 
           sx={{ 
             color: 'white', 
-            mb: { xs: 5, sm: 1, md: 5 },
+            mb: { xs: 3, sm: 1, md: 4 },
             fontSize: { 
               xs: '1.5rem', 
-              sm: '1.75rem', 
-              md: '2.25rem',
-              lg: '2.75rem',
+              sm: '1.7rem', 
+              md: '2.2rem',
+              lg: '2.3rem',
               xl: '3rem'
-            } 
+            }
           }}
         >
           <Box component="span" sx={{ color: theme.palette.primary.secondary }}>
             Monitor and Track
-          </Box> your Corporate & Industrial Bulk Food Order from Anywhere
+          </Box> your Corporate & Industrial<br/> Bulk Food Order from Anywhere
         </Typography>
         
         <Box
@@ -41,19 +41,19 @@ const MonitoringSection = () => {
           flexDirection={{ xs: 'column', sm: 'row' }}
           alignItems="center"
           justifyContent="space-between"
-          gap={{ xs: 3, md: 4 }}
+          gap={{ xs: 2, md: 3 }}
         >
           <Box sx={{ 
             maxWidth: 600,
-            mt: { md: -8 }
+            mt: { md: -6 }
           }}>
-            <Stack spacing={1} sx={{marginTop:{sm:'-80px'}}}>
+            <Stack spacing={1} sx={{marginTop:{sm:'-40px'}}}>
               <Typography variant="body1" sx={{ 
                 color: 'white', 
                 fontSize: { 
-                  xs: '0.9rem', 
+                  xs: '1rem', 
                   sm: '1rem', 
-                  md: '1.1rem' 
+                  md: '1.7rem' 
                 }
               }}>
                 Now stop worrying about Delivery delays,
@@ -62,7 +62,7 @@ const MonitoringSection = () => {
               </Typography>
             </Stack>
             
-            <Box component="div" sx={{ color: 'white', mt: 2 }}>
+            <Box component="div" sx={{ color: 'white', mt: 1.5, }}>
               <List sx={{ color: 'white', pl: 0 }}>
                 {[
                   "Flexible, Contact-free food solution",
@@ -74,21 +74,21 @@ const MonitoringSection = () => {
                     sx={{ 
                       alignItems: 'flex-start', 
                       px: 0, 
-                      py: 0.5,
-                      '&:not(:last-child)': { mb: 1 } 
+                      py: 0.3,
+                      '&:not(:last-child)': { mb: 0.5 } 
                     }}
                   >
                     <TaskAltIcon sx={{ 
                       color: 'white', 
-                      mr: 1.5, 
+                      mr: 1, 
                       fontSize: { 
                         xs: '0.9rem', 
                         sm: '1rem', 
                         md: '1.1rem' 
                       },
-                      mt: '3px' 
+                      mt: '2px' 
                     }} />
-                    <Typography variant="body1">{item}</Typography>
+                    <Typography variant="body1" sx={{ fontSize:{md:'1.1rem'}}}>{item}</Typography>
                   </ListItem>
                 ))}
               </List>
@@ -102,13 +102,13 @@ const MonitoringSection = () => {
               md: '100%' 
             },
             height: { 
-              xs: '300px', 
-              md: '390px' 
+              xs: '250px', 
+              md: '350px' 
             },
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            mt: { xs: 2, md: -4 },
+            mt: { xs: 1, md: -3 },
             overflow: 'hidden'
           }}>
             <img 
@@ -116,11 +116,11 @@ const MonitoringSection = () => {
               alt="Monitoring and Tracking" 
               style={{ 
                 width: 'auto',
-                height: '80%',
+                height: '90%',
                 maxWidth: '100%',
                 objectFit: 'contain',
                 objectPosition: 'center',
-                marginTop:{ms:'-73px'}
+                marginTop:{sm:'-60px'}
               }}
             />
           </Box>

@@ -63,7 +63,7 @@ function VendorSection() {
                 color: 'black',
               }} 
               border={"1px solid red"}  
-              name={"Watch video"} 
+              name={"Join Now"} 
             />
           </Stack>
         </Box>

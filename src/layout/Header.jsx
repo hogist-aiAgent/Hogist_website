@@ -14,7 +14,7 @@ import {
   Divider,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import LazyLoad from 'react-lazyload';
@@ -57,7 +57,7 @@ export default function Header() {
           <IconButton
             onClick={() => setDrawerOpen(true)}
             sx={{
-              backgroundColor: 'white',
+              backgroundColor: 'transparent',
               color: 'red',
               borderRadius: '50%',
               p: 1.2,
@@ -91,13 +91,13 @@ export default function Header() {
           <IconButton
             onClick={handleMenuOpen}
             sx={{
-              backgroundColor: 'white',
+              backgroundColor: 'transparent',
               color: 'red',
               borderRadius: '50%',
               p: 1.2,
             }}
           >
-            <HomeIcon />
+            <AccountCircleIcon/>
           </IconButton>
         </Box>
       ) : (
@@ -138,7 +138,7 @@ export default function Header() {
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <IconButton onClick={handleMenuOpen} sx={{ color: 'white' }}>
-              <HomeIcon
+              <AccountCircleIcon
                 sx={{
                   '&:hover': {
                     borderRadius: '5px',

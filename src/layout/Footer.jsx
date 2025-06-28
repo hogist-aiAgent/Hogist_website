@@ -29,7 +29,7 @@ function Footer() {
                     <Box sx={{ gridColumn: 'span 1' }}>
                         <img src={HogistLogo} alt="logo" style={{ height: '20px', width: '70px', marginBottom: '10px' }} />
                         <Typography variant="body2" sx={{ mb: 2, fontSize: '0.7rem' }}>
-                            Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.
+                           Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.We offer best quality with different taste in our catering services.
                         </Typography>
                     </Box>
 

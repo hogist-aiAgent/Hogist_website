@@ -7,20 +7,20 @@ import Waiters from '../assets/ServePage/Waiters.png';
 export default function ServeSection() {
   const theme = useTheme();
   return (
-    <Box sx={{ bgcolor: 'white', minHeight: '100vh', py: 4 }}>
+    <Box sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 } }}>
       <Container>
         <Typography variant="h4" fontWeight="bold" sx={{ 
           textAlign: 'center', 
-          mb: 2, 
+          mb: { xs: 1, md: 2 }, 
           color: theme.palette.primary.secondary, 
-          paddingTop: '30px',
+          paddingTop: { xs: '15px', md: '30px' },
           fontSize: { xs: '1.5rem', md: '2.125rem' } 
         }}>
           WHAT WE SERVE
         </Typography>
         <Typography variant="h3" fontWeight="bold" sx={{ 
           textAlign: 'center', 
-          mb: 4, 
+          mb: { xs: 2, md: 4 }, 
           color: 'black',
           fontSize: { xs: '1.75rem', sm: '2.5rem', md: '3rem' } 
         }}>
@@ -29,17 +29,17 @@ export default function ServeSection() {
         
         <Grid container justifyContent="center" sx={{ 
           flexWrap: { xs: 'wrap', md: 'nowrap' },
-          gap: { xs: 4, md: '140px' },
+          gap: { xs: 2, md: '140px' },
           alignItems: 'center'
         }}>
           <Grid item xs={12} md="auto">
-            <Box sx={{ textAlign: 'center', p: 3 }}>
+            <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
               <Box component="img" src={Order_food} alt="Easy To Order" sx={{ 
-                height: { xs: 150, md: 200 },
-                mb: 4,
+                height: { xs: 120, md: 200 },
+                mb: { xs: 2, md: 4 },
                 objectFit: 'contain'
               }} />
-              <Typography variant="h5" fontWeight="bold" sx={{ mb: 2, color: theme.palette.primary.secondary }}>
+              <Typography variant="h5" fontWeight="bold" sx={{ mb: 1, color: theme.palette.primary.secondary }}>
                   Meal Box
               </Typography>
               <Typography variant="body1" color="black">
@@ -49,13 +49,13 @@ export default function ServeSection() {
           </Grid>
           
           <Grid item xs={12} md="auto">
-            <Box sx={{ textAlign: 'center', p: 3 }}>
+            <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
               <Box component="img" src={scooty} alt="Fastest Delivery" sx={{ 
-                height: { xs: 160, md: 210 },
-                mb: 2,
+                height: { xs: 130, md: 210 },
+                mb: { xs: 1, md: 2 },
                 objectFit: 'contain'
               }} />
-              <Typography variant="h5" fontWeight="bold" sx={{ mb: 2, color: theme.palette.primary.secondary }}>
+              <Typography variant="h5" fontWeight="bold" sx={{ mb: 1, color: theme.palette.primary.secondary }}>
                 Delivery Box
               </Typography>
               <Typography variant="body1" color="black">
@@ -65,14 +65,14 @@ export default function ServeSection() {
           </Grid>
           
           <Grid item xs={12} md="auto">
-            <Box sx={{ textAlign: 'center', p: 3 }}>
+            <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
               <Box component="img" src={Waiters} alt="Best Quality" sx={{ 
-                height: { xs: 150, md: 200 },
-                mb: { xs: 4, md: '-7px' },
+                height: { xs: 120, md: 200 },
+                mb: { xs: 2, md: '-7px' },
                 objectFit: 'contain'
               }} />
               <Typography variant="h5" fontWeight="bold" sx={{ 
-                mb: 2, 
+                mb: 1, 
                 color: theme.palette.primary.secondary, 
                 marginTop: { xs: 0, md: '30px' } 
               }}>
