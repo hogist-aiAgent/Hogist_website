@@ -141,7 +141,7 @@ const CateringHero = () => {
             ))}
           </Box>
 
-          {/* Food Image - Responsive but maintains desktop position */}
+          {/* Food Image  */}
           <Box sx={{
             position: { xs: 'static', lg: 'absolute' },
             margin: { xs: '20px auto', lg: '50px' },
@@ -166,40 +166,34 @@ const CateringHero = () => {
             />
           </Box>
 
-          {/* SPECIAL Text - Responsive but maintains desktop position */}
+          {/* SPECIAL Text  */}
           <Box
+          sx={{
+            display: { xs: 'none', lg: 'block' },
+            position: 'absolute',
+            right: "-230px",
+            top: '50%',
+            transform: 'translateY(-50%) rotate(90deg)',
+            bgcolor: 'black',
+            padding: "100px 0px 100px 0px",
+            textAlign: 'left'
+          }}
+        >
+          <Typography
+            variant="h1"
             sx={{
-              position: { xs: 'relative', lg: 'absolute' },
-              right: { xs: '-54px', lg: "-230px" },
-              top: { xs: '-55px', lg: '50%' },
-              transform: { xs: 'none', lg: 'translateY(-50%) rotate(90deg)' },
-              bgcolor: 'black',
-              padding: { xs: '20px 0', lg: "100px 0px 100px 0px" },
-              width: { xs: '100%', lg: 'auto' },
-              textAlign: { xs: 'center', lg: 'left' },
-              mt: { xs: 2, lg: 0 },
-              mb: { xs: 2, lg: 0 },
-              order: { xs: 2, lg: 'initial' },
-              // marginLeft: '-64px',
-              // marginBottom:'-20px',
-              // marginRight: '-74px',
+              fontSize: '9.2rem',
+              color: 'grey',
+              opacity: 1,
+              fontWeight: 1000,
+              letterSpacing: '5px',
+              zIndex: 100,
+              display: 'inline-block'
             }}
           >
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: '3.5rem', lg: '9.2rem' },
-                color: 'grey',
-                opacity: 1,
-                fontWeight: 900,
-                letterSpacing: '5px',
-                zIndex: 100,
-                display: 'inline-block'
-              }}
-            >
-              SPECIAL
-            </Typography>
-          </Box>
+            SPECIAL
+          </Typography>
+        </Box>
         </Box>
 
         
