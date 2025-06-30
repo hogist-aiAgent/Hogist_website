@@ -169,9 +169,9 @@ const CateringHero = () => {
           {/* SPECIAL Text - Responsive but maintains desktop position */}
           <Box
             sx={{
-              position: { xs: 'static', lg: 'absolute' },
-              right: { xs: 'auto', lg: "-230px" },
-              top: { xs: 'auto', lg: '50%' },
+              position: { xs: 'relative', lg: 'absolute' },
+              right: { xs: '-54px', lg: "-230px" },
+              top: { xs: '-55px', lg: '50%' },
               transform: { xs: 'none', lg: 'translateY(-50%) rotate(90deg)' },
               bgcolor: 'black',
               padding: { xs: '20px 0', lg: "100px 0px 100px 0px" },
@@ -179,7 +179,10 @@ const CateringHero = () => {
               textAlign: { xs: 'center', lg: 'left' },
               mt: { xs: 2, lg: 0 },
               mb: { xs: 2, lg: 0 },
-              order: { xs: 2, lg: 'initial' }
+              order: { xs: 2, lg: 'initial' },
+              // marginLeft: '-64px',
+              // marginBottom:'-20px',
+              // marginRight: '-74px',
             }}
           >
             <Typography
@@ -188,7 +191,7 @@ const CateringHero = () => {
                 fontSize: { xs: '3.5rem', lg: '9.2rem' },
                 color: 'grey',
                 opacity: 1,
-                fontWeight: 1000,
+                fontWeight: 900,
                 letterSpacing: '5px',
                 zIndex: 100,
                 display: 'inline-block'
