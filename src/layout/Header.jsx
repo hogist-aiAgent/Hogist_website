@@ -45,7 +45,7 @@ export default function Header() {
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'black',
-        padding: '1.2rem 1rem',   
+        padding: '1.2rem 1.2rem',   
 
       }}
     >
@@ -94,6 +94,7 @@ export default function Header() {
               color: 'red',
               borderRadius: '50%',
               p: 1.2,
+              //padding:'15px'
             }}
           >
             <AccountCircleIcon/>
@@ -107,11 +108,11 @@ export default function Header() {
               src={HeaderLogo}
               alt="Hogist Logo"
               loading="lazy"
-              sx={{ width: 170, height: 'auto' }}
+              sx={{ width: 170, height: 'auto', paddingRight:'15px'}}
             />
           </LazyLoad>
 
-          <Box sx={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
             {navItems.map((item) => (
               <Typography
                 key={item}
@@ -120,7 +121,7 @@ export default function Header() {
                   color: 'white',
                   cursor: 'pointer',
                   fontWeight: 500,
-                  padding: '7px 10px',
+                  padding: '6px 12px',
                   '&:hover': {
                     borderRadius: '5px',
                     color: theme.palette.primary.secondary,
@@ -181,7 +182,7 @@ export default function Header() {
             backgroundColor: 'white',
             boxShadow: '0px 8px 20px rgba(0,0,0,0.2)',
             padding: 2,
-            marginTop:'30px'
+            marginTop:'50px'
           },
         }}
         anchorOrigin={{
