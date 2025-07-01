@@ -23,7 +23,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <Box
+    <Box  id="hero-section"
       sx={{
         display: 'flex',
         overflow: 'hidden',

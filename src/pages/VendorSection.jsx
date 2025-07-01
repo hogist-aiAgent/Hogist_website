@@ -14,7 +14,7 @@ function VendorSection() {
   const theme = useTheme();
   
   return (
-    <Box sx={{ 
+    <Box id="vendor-section" sx={{ 
       bgcolor: 'white', 
       py: 4,
       display: 'flex',

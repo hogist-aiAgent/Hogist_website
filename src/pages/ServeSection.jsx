@@ -7,7 +7,7 @@ import Waiters from '../assets/ServePage/Waiters.png';
 export default function ServeSection() {
   const theme = useTheme();
   return (
-    <Box sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 } }}>
+    <Box  id="serve-section" sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 } }}>
       <Container>
         <Typography variant="h4" fontWeight="bold" sx={{ 
           textAlign: 'center', 

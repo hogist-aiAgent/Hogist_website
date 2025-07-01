@@ -24,7 +24,7 @@ function FaqSection() {
     ];
 
     return (
-        <Box sx={{ 
+        <Box id="faq-section"  sx={{ 
             bgcolor: 'white', 
             minHeight: { xs: 'auto', md: '100vh' },
             py: { xs: 3, md: 4 }, 
