@@ -11,43 +11,32 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
 import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
 
-function Footer() {
+function Footer({ refs }) {
     const theme = useTheme();
+    const contactRef = React.useRef(null);
     
-   
     const handleCompanyNavigation = (item) => {
         switch(item) {
-            
             case 'Our Story':
-                document.getElementById('hero-section')?.scrollIntoView({ behavior: 'smooth' });
+                refs.heroRef.current?.scrollIntoView({ behavior: 'smooth' });
                 break;
-
             case 'Careers':
-                document.getElementById('client-section')?.scrollIntoView({ behavior: 'smooth' });
+                refs.clientRef.current?.scrollIntoView({ behavior: 'smooth' });
                 break;
-
             case 'FAQ':
-                document.getElementById('faq-section')?.scrollIntoView({ behavior: 'smooth' });
+                refs.faqRef.current?.scrollIntoView({ behavior: 'smooth' });
                 break;
-
             case 'Services Offered':
-                document.getElementById('serve-section')?.scrollIntoView({ behavior: 'smooth' });
+                refs.serveRef.current?.scrollIntoView({ behavior: 'smooth' });
                 break;
-
             case 'Contact us':
-                document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+                contactRef.current?.scrollIntoView({ behavior: 'smooth' });
                 break;
-
             default:
-                // Default behavior for other items
-                const element = document.getElementById(item.toLowerCase().replace(' ', '-'));
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
+                break;
         }
     };
 
-    // General navigation function for other sections
     const handleNavigation = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -61,23 +50,23 @@ function Footer() {
             px: 2,
             backgroundColor: theme.palette.background.paper,
             minHeight: { xs: '40vh', sm: '40vh', md: '30vh' },
-            paddingLeft:'10px',
-            paddingRight:'10px'
+            paddingLeft: '10px',
+            paddingRight: '10px'
         }}>
-            <Container maxWidth="lg" sx={{ paddingLeft:'10px', paddingRight:'10px'}}>
+            <Container maxWidth="lg" sx={{ paddingLeft: '10px', paddingRight: '10px' }}>
                 {/* Mobile View (xs) */}
                 <Box sx={{ 
                     display: { xs: 'grid', sm: 'none' },
                     gridTemplateColumns: 'repeat(2, 1fr)',
                     gap: '13px',
                     mb: 3,
-                    paddingLeft:'10px',
-                    paddingRight:'10px'
+                    paddingLeft: '10px',
+                    paddingRight: '10px'
                 }}>
                     <Box sx={{ gridColumn: 'span 1' }}>
                         <img src={HogistLogo} alt="logo" style={{ height: '20px', width: '70px', marginBottom: '10px' }} />
                         <Typography variant="body2" sx={{ mb: 2, fontSize: '0.7rem' }}>
-                        Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.We offer best quality <br/>with different taste in our catering services.
+                            Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.
                         </Typography>
                     </Box>
 
@@ -88,7 +77,11 @@ function Footer() {
                                 <Typography 
                                     key={item} 
                                     variant="body2" 
-                                    sx={{ fontSize: '0.7rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ 
+                                        fontSize: '0.7rem', 
+                                        cursor: 'pointer', 
+                                        '&:hover': { color: '#c60800' } 
+                                    }}
                                     onClick={() => handleCompanyNavigation(item)}
                                 >
                                     {item}
@@ -100,11 +93,15 @@ function Footer() {
                     <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Our Services</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
+                            {['Industrial Catering', 'Corporate Catering', 'Out Door Catering', 'Cafeteria Services'].map((item) => (
                                 <Typography 
                                     key={item} 
                                     variant="body2" 
-                                    sx={{ fontSize: '0.7rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ 
+                                        fontSize: '0.7rem', 
+                                        cursor: 'pointer', 
+                                        '&:hover': { color: '#c60800' } 
+                                    }}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-'))}
                                 >
                                     {item}
@@ -116,11 +113,15 @@ function Footer() {
                     <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Legal</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                            {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
+                            {['Become a Vendor', 'Become a Consultant', 'Privacy Policy', 'Terms & Conditions', 'Refunds & Cancellation'].map((item) => (
                                 <Typography 
                                     key={item} 
                                     variant="body2" 
-                                    sx={{ fontSize: '0.7rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ 
+                                        fontSize: '0.7rem', 
+                                        cursor: 'pointer', 
+                                        '&:hover': { color: '#c60800' } 
+                                    }}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-').replace('&', 'and'))}
                                 >
                                     {item}
@@ -130,7 +131,7 @@ function Footer() {
                     </Box>
                 </Box>
 
-                <Box id="contact-section" sx={{ 
+                <Box ref={contactRef} sx={{ 
                     display: { xs: 'block', sm: 'none' },
                     mt: '13px',
                     px: '10px',
@@ -139,7 +140,7 @@ function Footer() {
                     <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Contact us</Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                            <LocationOnIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800'}} />
+                            <LocationOnIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color: '#c60800' }} />
                             <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>
                                 HOGIST TECHNOLOGIES PVT LTD.<br />
                                 2nd Floor, Kakani Towers,<br /> 
@@ -148,27 +149,13 @@ function Footer() {
                             </Typography>
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <PhoneIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800' }} />
+                            <PhoneIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color: '#c60800' }} />
                             <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>+91 - 9962687733</Typography>
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <EmailIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800' }} />
+                            <EmailIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color: '#c60800' }} />
                             <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>support@hogist.com</Typography>
                         </Box>
-                    </Box>
-                </Box>
-                <Box sx={{ 
-                    display: { xs: 'block', sm: 'none' },
-                    mt: '13px',
-                    px: '10px',
-                    mb: '13px'
-                }}>
-                    <Typography  sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.8rem' }}>Follow Us</Typography>
-                    <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                        <FacebookIcon sx={{ fontSize: '1rem'}} />
-                        <InstagramIcon sx={{ fontSize: '1rem' }} />
-                        <TwitterIcon sx={{ fontSize: '1rem' }} />
-                        <LinkedInIcon sx={{ fontSize: '1rem' }} />
                     </Box>
                 </Box>
 

@@ -1,13 +1,13 @@
 import { Typography, Box, Container, useTheme, Grid } from '@mui/material';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Order_food from '../assets/ServePage/Order_food.png';
 import scooty from '../assets/ServePage/scooty.png';
 import Waiters from '../assets/ServePage/Waiters.png';
 
-export default function ServeSection() {
+const ServeSection = forwardRef((props, ref) => {
   const theme = useTheme();
   return (
-    <Box  id="serve-section" sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 } }}>
+    <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 } }}>
       <Container>
         <Typography variant="h4" fontWeight="bold" sx={{ 
           textAlign: 'center', 
@@ -87,4 +87,6 @@ export default function ServeSection() {
       </Container>
     </Box>
   );
-}
+});
+
+export default ServeSection;

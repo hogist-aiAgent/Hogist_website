@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { Box, Typography, Button, Stack, IconButton, Container, useTheme } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Instagram, Twitter, LinkedIn } from '@mui/icons-material';
@@ -9,12 +9,12 @@ import CTAButton from '../components/common/CTAButton';
 
 const MotionBox = motion(Box);
 
-const images = [HeroSectionImg, SlideImg,SlidImg2];
+const images = [HeroSectionImg, SlideImg, SlidImg2];
 
-export default function HeroSection() {
+const HeroSection = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const theme = useTheme();
-  // Cycle through images every 4 seconds
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -23,11 +23,13 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <Box  id="hero-section"
+    <Box 
+      ref={ref}
+      id="hero-section"
       sx={{
         display: 'flex',
         overflow: 'hidden',
-        marginTop:"5rem"  ,
+        marginTop: "3rem",
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: { xs: 'column-reverse', md: 'row' },
@@ -46,7 +48,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        sx={{ width: { xs: '100%', md: '50%' }, pr: { md: 6 },}}
+        sx={{ width: { xs: '100%', md: '50%' }, pr: { md: 6 }}}
       >
         <Typography variant="h4" fontWeight="bold" marginTop={'50px'}>
           Effortlessly Handle and Enhance your every Event with
@@ -74,8 +76,9 @@ export default function HeroSection() {
           <CTAButton name={"Order now"} />
           <CTAButton name={"Talk to US"} />
         </Stack>
-{/* 
-        <Stack direction="row" spacing={2}>
+
+        {/* Uncomment if you want to use these social icons */}
+        {/* <Stack direction="row" spacing={2}>
           <IconButton sx={{ color: 'white' }}><Facebook /></IconButton>
           <IconButton sx={{ color: 'white' }}><Instagram /></IconButton>
           <IconButton sx={{ color: 'white' }}><Twitter /></IconButton>
@@ -83,10 +86,13 @@ export default function HeroSection() {
         </Stack> */}
       </MotionBox>
 
- 
-      <Box sx={{ padding:{
-        xs: 0, sm:'0px'
-      }, position: 'relative', width: { xs: '100%', md: '40%' }, height: { xs: '500px', md: '487px',}, mb: 3 }}>
+      <Box sx={{ 
+        padding: { xs: 0, sm: '0px' },
+        position: 'relative', 
+        width: { xs: '100%', md: '40%' }, 
+        height: { xs: '500px', md: '487px' },
+        mb: 3 
+      }}>
         <AnimatePresence>
           <motion.img
             key={currentIndex}
@@ -100,9 +106,7 @@ export default function HeroSection() {
               position: 'absolute',
               width: '100%',
               height: '100%',
-              objectFit: {
-                xs:'fit',md:"cover"
-              },
+              objectFit: { xs: 'fit', md: 'cover' },
               borderRadius: '8px',
             }}
           />
@@ -110,4 +114,6 @@ export default function HeroSection() {
       </Box>
     </Box>
   );
-}
+});
+
+export default HeroSection;

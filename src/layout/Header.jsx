@@ -45,7 +45,7 @@ export default function Header() {
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'black',
-        padding: '1.2rem 1.2rem',   
+        padding: '0.4rem 0.2rem',   
 
       }}
     >

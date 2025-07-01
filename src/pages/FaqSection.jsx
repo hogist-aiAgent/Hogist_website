@@ -1,20 +1,19 @@
-import { useTheme } from '@emotion/react'
+import { useTheme } from '@emotion/react';
 import { Box, Stack, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import FaqImage from '../assets/Faq/FaqImage.png';
 import CTAButton from '../components/common/CTAButton';
-import { color } from 'framer-motion';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-function FaqSection() {
-    const theme = useTheme();
-    
-    const [selectedIndex,setSelectedIndex]=useState(null)
 
-   const handleClick = (index) => {
-        console.log(index)
-        setSelectedIndex(selectedIndex === index ? null : index)
-    }
+const FaqSection = forwardRef((props, ref) => {
+    const theme = useTheme();
+    const [selectedIndex, setSelectedIndex] = useState(null);
+
+    const handleClick = (index) => {
+        setSelectedIndex(selectedIndex === index ? null : index);
+    };
+
     const faqs = [
         { question: "Can I use Hogist's online services for free?", answer: "Hogist's services are free. We will never charge you beyond the pricing listed on the website for the service opted by you. Our online catering service is free of cost and after every successful transaction, you will be receiving the complete breakup of charges incurred. There are no hidden charges." },
         { question: "What kind of food can I get?", answer: "You name it and we have it. We have collaborated with a wide range of restaurants, caterers, renowned chefs, Homecooks. All you have to do is get in touch with them, choose the product, set your quantity and make the payment. If you have a caterer in mind and you don't find them on Hogist, please feel free to drop their details at support@hogist.com. and we will get in touch with them." },
@@ -24,7 +23,7 @@ function FaqSection() {
     ];
 
     return (
-        <Box id="faq-section"  sx={{ 
+        <Box ref={ref} sx={{ 
             bgcolor: 'white', 
             minHeight: { xs: 'auto', md: '100vh' },
             py: { xs: 3, md: 4 }, 
@@ -55,8 +54,8 @@ function FaqSection() {
                     <Box sx={{ 
                         mb: { xs: 2, md: 4 }, 
                         width: '100%',
-                        marginLeft: { xs: 0, sm: '-1px', md:'-80px',lg: '-30px' },
-                        marginBottom: { xs: '-20px', sm: '-20px',md:'0',lg:'20px' },
+                        marginLeft: { xs: 0, sm: '-1px', md:'-80px', lg: '-30px' },
+                        marginBottom: { xs: '-20px', sm: '-20px', md:'0', lg:'20px' },
                         textAlign: 'center'
                     }}>
                         <img 
@@ -115,86 +114,86 @@ function FaqSection() {
                     </Box>
                 </Box>
 
-                 <Box sx={{
-                width: { xs: '100%', md: '55%', lg: '60%' },
-                maxWidth: { xs: '100%', md: '700px', lg: '800px' },
-                order: { xs: 2, md: 2 },
-                marginRight: { xs: 0, md: '15px', lg: '30px' },
-                marginTop: { xs: 0, md: '10px' },
-            }}>
-                {faqs.map((faq, index) => (
-                    <Accordion 
-                        expanded={selectedIndex === index}
-                        onClick={() => handleClick(index)}
-                        key={index} 
-                        sx={{ 
-                            boxShadow: 'none', 
-                            mb: { xs: 2, sm: 3, md: 4, lg: 5 },
-                            position: "relative",
-                            border: 'none',
-                            background: 'black',
-                            clipPath: 'polygon(0% 0%, 92% 0%, 100% 50%, 92% 100%, 0% 100%)',
-                            borderRadius: '0 !important',
-                            '&:before': { display: 'none' },
-                            width: { xs: '100%', sm: '90%', md: '500px', lg: '600px' },
-                            mx: { xs: 'auto', md: 0 },
-                        }}>
-                        <AccordionSummary 
+                <Box sx={{
+                    width: { xs: '100%', md: '55%', lg: '60%' },
+                    maxWidth: { xs: '100%', md: '700px', lg: '800px' },
+                    order: { xs: 2, md: 2 },
+                    marginRight: { xs: 0, md: '15px', lg: '30px' },
+                    marginTop: { xs: 0, md: '10px' },
+                }}>
+                    {faqs.map((faq, index) => (
+                        <Accordion 
+                            expanded={selectedIndex === index}
+                            onClick={() => handleClick(index)}
+                            key={index} 
                             sx={{ 
-                                bgcolor: 'transparent',
-                                px: { xs: 3, sm: 4, md: '24px' },
-                                py: { xs: 1, md: 2 },
-                                minHeight: '48px !important',
-                                flexDirection: 'row',
-                                '& .MuiAccordionSummary-content': {
-                                    margin: 0,
-                                    flexGrow: 1, 
-                                },
-                            }}
-                        >
-                            <Box sx={{
-                                position: "absolute",
-                                left: "0px",
-                                marginLeft: '16px',
-                                display: 'flex',
-                                alignItems: 'center',
+                                boxShadow: 'none', 
+                                mb: { xs: 2, sm: 3, md: 4, lg: 5 },
+                                position: "relative",
+                                border: 'none',
+                                background: 'black',
+                                clipPath: 'polygon(0% 0%, 92% 0%, 100% 50%, 92% 100%, 0% 100%)',
+                                borderRadius: '0 !important',
+                                '&:before': { display: 'none' },
+                                width: { xs: '100%', sm: '90%', md: '500px', lg: '600px' },
+                                mx: { xs: 'auto', md: 0 },
                             }}>
-                                {selectedIndex === index ? (
-                                    <KeyboardArrowUpIcon sx={{ color: 'white' }} />
-                                ) : (
-                                    <KeyboardArrowDownIcon sx={{ color: 'white' }} />
-                                )}
-                            </Box>
-                            <Typography fontWeight="medium" sx={{ 
-                                fontSize: { xs: '11px', sm: '14px', md: '16px', lg: '17px' }, 
-                                color: 'white',
-                                textAlign: 'left',
-                                flex: 1,
-                                marginLeft: '24px'
+                            <AccordionSummary 
+                                sx={{ 
+                                    bgcolor: 'transparent',
+                                    px: { xs: 3, sm: 4, md: '24px' },
+                                    py: { xs: 1, md: 2 },
+                                    minHeight: '48px !important',
+                                    flexDirection: 'row',
+                                    '& .MuiAccordionSummary-content': {
+                                        margin: 0,
+                                        flexGrow: 1, 
+                                    },
+                                }}
+                            >
+                                <Box sx={{
+                                    position: "absolute",
+                                    left: "0px",
+                                    marginLeft: '16px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}>
+                                    {selectedIndex === index ? (
+                                        <KeyboardArrowUpIcon sx={{ color: 'white' }} />
+                                    ) : (
+                                        <KeyboardArrowDownIcon sx={{ color: 'white' }} />
+                                    )}
+                                </Box>
+                                <Typography fontWeight="medium" sx={{ 
+                                    fontSize: { xs: '11px', sm: '14px', md: '16px', lg: '17px' }, 
+                                    color: 'white',
+                                    textAlign: 'left',
+                                    flex: 1,
+                                    marginLeft: '24px'
+                                }}>
+                                    {faq.question}
+                                </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails sx={{ 
+                                px: { xs: 3, sm: 4, md: '24px' }, 
+                                py: 0,
+                                pb: { xs: 2, md: 3 },
+                                bgcolor: 'black',
                             }}>
-                                {faq.question}
-                            </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails sx={{ 
-                            px: { xs: 3, sm: 4, md: '24px' }, 
-                            py: 0,
-                            pb: { xs: 2, md: 3 },
-                            bgcolor: 'black',
-                        }}>
-                            <Typography color="white" sx={{ 
-                                fontSize: { xs: '12px', sm: '13px', md: '14px', lg: '15px' },
-                                lineHeight: '1.6',
-                                opacity: 0.8
-                            }}>
-                                {faq.answer || "Answer not provided yet"}
-                            </Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                ))}
+                                <Typography color="white" sx={{ 
+                                    fontSize: { xs: '12px', sm: '13px', md: '14px', lg: '15px' },
+                                    lineHeight: '1.6',
+                                    opacity: 0.8
+                                }}>
+                                    {faq.answer || "Answer not provided yet"}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    ))}
+                </Box>
             </Box>
         </Box>
-        </Box>
-    )
-}
+    );
+});
 
-export default FaqSection
+export default FaqSection;
