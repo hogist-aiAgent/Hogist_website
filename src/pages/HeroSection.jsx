@@ -14,7 +14,7 @@ const images = [HeroSectionImg, SlideImg, SlidImg2];
 const HeroSection = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const theme = useTheme();
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -29,7 +29,7 @@ const HeroSection = forwardRef((props, ref) => {
       sx={{
         display: 'flex',
         overflow: 'hidden',
-        marginTop: "3rem",
+        marginTop: "5rem",
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: { xs: 'column-reverse', md: 'row' },
@@ -43,7 +43,6 @@ const HeroSection = forwardRef((props, ref) => {
         },
       }}
     >
-
       <MotionBox
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}

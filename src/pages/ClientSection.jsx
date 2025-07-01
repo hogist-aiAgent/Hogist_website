@@ -14,7 +14,7 @@ const ClientSection = forwardRef((props, ref) => {
         pt: 6,
         pb: 3,
         m: 0,
-        width: "100%" 
+        width: "100%" ,
       }}>
         <Box
           display="flex"
