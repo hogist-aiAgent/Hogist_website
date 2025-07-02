@@ -14,7 +14,8 @@ const MonitoringSection = () => {
       <Container maxWidth={'auto'} sx={{ 
         px: { xs: 2, md: 4 }, 
         py: { xs: 2, md: 3 },
-        width: "100%"
+        width: "100%",
+        paddingLeft:{xs:'35px',md:'60px'}
       }}>
         <Typography 
           variant="h2"  

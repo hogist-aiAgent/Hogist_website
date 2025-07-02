@@ -27,6 +27,7 @@ const CateringHero = () => {
             alignItems: 'start',
             gap: { xs: 3, md: 6 },
             width: '100%',
+             paddingLeft:{md:'35px'}
           }}
         >
 
@@ -97,6 +98,7 @@ const CateringHero = () => {
                 sx={{
                   flex: { xs: '1 1 calc(50% - 16px)', md: '1 1 calc(25% - 24px)', lg: '1 1 100px' },
                   height:'180px',
+                  paddingLeft:{md:'5px',lg:'20px'}
                 }}
               >
                 <Card
@@ -146,7 +148,7 @@ const CateringHero = () => {
             position: { xs: 'static', lg: 'absolute' },
             margin: { xs: '20px auto', lg: '50px' },
             right: { xs: 'auto', lg: "5%" },
-            top: { xs: 'auto', lg: "10%" },
+            top: { xs: 'auto', lg: "5%" },
             zIndex: 5000,
             animation: `${rotate} 20s linear infinite`,
             display: 'flex',

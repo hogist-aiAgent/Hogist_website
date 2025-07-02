@@ -39,7 +39,7 @@ const HeroSection = forwardRef((props, ref) => {
         py: { xs: 4, md: 0 },
         height: {
           xs: 'auto',
-          md: '90vh',
+          md: '100vh',
         },
       }}
     >
@@ -47,7 +47,7 @@ const HeroSection = forwardRef((props, ref) => {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        sx={{ width: { xs: '100%', md: '50%' }, pr: { md: 6 }}}
+        sx={{ width: { xs: '100%', md: '50%' }, pr: { md: 6 },paddingLeft:'20px'}}
       >
         <Typography variant="h4" fontWeight="bold" marginTop={'50px'}>
           Effortlessly Handle and Enhance your every Event with

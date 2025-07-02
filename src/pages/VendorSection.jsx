@@ -20,11 +20,13 @@ function VendorSection() {
       display: 'flex',
       flexDirection: { xs: 'column', sm: 'row' },
       alignItems: 'center',
-      minHeight: { xs: 'auto', md: '100vh' }
+      minHeight: { xs: 'auto', md: '95vh' },
+      marginBottom:'-25px',
+      padding:4
     }}>
       <Container sx={{ 
         flex: 1,
-        order: { xs: 2, md: 1 },
+        order: { xs: 2, sm: 1, md: 1 }, 
         mt: { xs: 4, md: 0 }
       }}>
        <Box sx={{ px: { xs: 2, md: 0 } }}>
@@ -32,19 +34,20 @@ function VendorSection() {
             variant='h3' 
             component="h2"
             color='black' 
-            textAlign={{ xs: 'center', md: 'left' }}
+            textAlign={{ xs: 'center',sm:'center', md: 'left' }}
             fontWeight={'bold'}
             sx={{ 
               mt: 2,
               fontSize: {
-                xs: '1.8rem',
-                sm: '2rem',
-                md: '1.9rem',
-                lg: '2.4rem'
+                xs: '1.6rem',
+                sm: '1.3rem',
+                md: '1.7rem',
+                lg: '1.9rem'
               },
               lineHeight: {
-                md: '1.3'
-              }
+                md: '1.5'
+              },
+              marginLeft:{sm:'-70px',md:'20px',lg:'27px'}
             }}
           >
             Become a Vendor Grow your catering business with us.
@@ -54,7 +57,8 @@ function VendorSection() {
             sx={{ 
               mb: 3, 
               mt: { xs: 4, md: '50px' },
-              justifyContent: { xs: 'center', md: 'flex-start' }
+              justifyContent: { xs: 'center', md: 'flex-start' },
+              marginLeft:{sm:'-90px',md:'150px',lg:'170px'}
             }}
           >
             <CTAButton 
@@ -74,22 +78,22 @@ function VendorSection() {
         display: 'grid',
         gridTemplateColumns: 'repeat(8, 1fr)',
         gridTemplateRows: 'repeat(8, 1fr)',
-        gap: { xs: '4px', md: '8px' },
-        width: '100%',
+        gap: { xs: '4px',sm:'4px', md: '8px' },
+        width: '110%',
         height: { 
           xs: '50vh',  
           sm: 'auto', 
-          md: '80vh'  
+          md: '70vh'  
         },
         maxHeight: {
           xs: '400px', 
           sm: 'auto', 
           md: '800px'  
         },
-        padding: 2,
+        padding: {xs:1,sm:3, md:4},
         position: 'relative',
-        ml: { md: '-100px' },
-        order: { xs: 1, md: 2 },
+        ml: { sm: '-100px', md: '-100px' }, 
+        order: { xs: 1, sm: 2, md: 2 }, 
       }}>
         {/* Image 1 - top left */}
         <Box sx={{ 

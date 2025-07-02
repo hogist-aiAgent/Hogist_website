@@ -15,6 +15,7 @@ const ClientSection = forwardRef((props, ref) => {
         pb: 3,
         m: 0,
         width: "100%" ,
+        paddingLeft:{xs:'33px',sm:'30px',md:'60px',lg:'60px'}
       }}>
         <Box
           display="flex"
@@ -27,7 +28,7 @@ const ClientSection = forwardRef((props, ref) => {
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            style={{ flex: 1 }}
+            style={{ flex: 1 ,}}
           >
             <Typography variant="h6" fontWeight="bold" sx={{ color: 'black' }}>
               -Elite <Box component="span" sx={{

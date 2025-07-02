@@ -51,7 +51,8 @@ function Footer({ refs }) {
             backgroundColor: theme.palette.background.paper,
             minHeight: { xs: '40vh', sm: '40vh', md: '30vh' },
             paddingLeft: '10px',
-            paddingRight: '10px'
+            paddingRight: '10px',
+            //paddingTop:'50px'
         }}>
             <Container maxWidth="lg" sx={{ paddingLeft: '10px', paddingRight: '10px' }}>
                 {/* Mobile View (xs) */}
@@ -61,7 +62,8 @@ function Footer({ refs }) {
                     gap: '13px',
                     mb: 3,
                     paddingLeft: '10px',
-                    paddingRight: '10px'
+                    paddingRight: '10px',
+                    paddingTop:'20px'
                 }}>
                     <Box sx={{ gridColumn: 'span 1' }}>
                         <img src={HogistLogo} alt="logo" style={{ height: '20px', width: '70px', marginBottom: '10px' }} />
@@ -157,6 +159,13 @@ function Footer({ refs }) {
                             <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>support@hogist.com</Typography>
                         </Box>
                     </Box>
+                     <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '14px' }}>Follow Us</Typography>
+                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
+                            <FacebookIcon sx={{ fontSize: '1.3rem'}} />
+                            <InstagramIcon sx={{ fontSize:'1.3rem' }} />
+                            <TwitterIcon sx={{ fontSize: '1.3rem' }} />
+                            <LinkedInIcon sx={{ fontSize:'1.3rem' }} />
+                        </Box>
                 </Box>
 
                 {/* Tablet View (sm) */}
@@ -167,9 +176,10 @@ function Footer({ refs }) {
                     mb: 2,
                     justifyContent:'space-evenly',
                     paddingRight:'0px',
+                    paddingTop:'30px'
                 }}>
                     <Box sx={{ gridColumn: 'span 1' }}>
-                        <img src={HogistLogo} alt="logo" style={{ height: '20px', width: '80px', marginBottom: '10px' }} />
+                        <img src={HogistLogo} alt="logo" style={{ height: '25px', width: '90px', marginBottom: '10px' }} />
                         <Typography variant="body2" sx={{ mb: 1, fontSize: '0.7rem' }}>
                            Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.We offer best quality with different taste in our catering services.
                         </Typography>
@@ -263,14 +273,15 @@ function Footer({ refs }) {
                     justifyContent: 'space-between',
                     gap: 3,
                     flexWrap: 'wrap',
-                    height: { md: 'calc(100% - 80px)' }
+                    height: { md: 'calc(100% - 80px)' },
+                    paddingTop:'30px'
                 }}>
                     <Box sx={{ 
                         flex: '1 1 200px',
                         mb: 2
                     }}>
-                        <img src={HogistLogo} alt="logo" style={{ height: '25px', width: '100px', marginBottom: '15px' }} />
-                        <Typography sx={{ fontSize: '0.75rem', lineHeight: 1.4 }}>
+                        <img src={HogistLogo} alt="logo" style={{ height: '50px', width: '190px', marginBottom: '15px' }} />
+                        <Typography sx={{ fontSize: '15px', lineHeight: 1.4 }}>
                             Hogist is the one-stop solution for all your event food needs.
                             Get the best catering services through us. We offer best quality with different taste in our catering services.
                         </Typography>
@@ -280,12 +291,12 @@ function Footer({ refs }) {
                         flex: '1 1 150px',
                         mb: 2
                     }}>
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Our Services</Typography>
+                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize: '16px' }}>Our Services</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
                             {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
                                 <Typography 
                                     key={item} 
-                                    sx={{ fontSize: '0.75rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '15px', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-'))}
                                 >
                                     {item}
@@ -293,12 +304,12 @@ function Footer({ refs }) {
                             ))}
                         </Box>
                         
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '0.85rem' }}>Company</Typography>
+                        <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '16px'}}>Company</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
                             {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
                                 <Typography 
                                     key={item} 
-                                    sx={{ fontSize: '0.75rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '15px', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
                                     onClick={() => handleCompanyNavigation(item)}
                                 >
                                     {item}
@@ -311,25 +322,17 @@ function Footer({ refs }) {
                         flex: '1 1 150px',
                         mb: 2
                     }}>
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Legal</Typography>
+                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize:'16px' }}>Legal</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
                             {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
                                 <Typography 
                                     key={item} 
-                                    sx={{ fontSize: '0.75rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '15px', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-').replace('&', 'and'))}
                                 >
                                     {item}
                                 </Typography>
                             ))}
-                        </Box>
-                        
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '0.85rem' }}>Follow Us</Typography>
-                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                            <FacebookIcon sx={{ fontSize: '0.9rem'}} />
-                            <InstagramIcon sx={{ fontSize: '0.9rem' }} />
-                            <TwitterIcon sx={{ fontSize: '0.9rem' }} />
-                            <LinkedInIcon sx={{ fontSize: '0.9rem' }} />
                         </Box>
                     </Box>
 
@@ -337,11 +340,11 @@ function Footer({ refs }) {
                         flex: '1 1 200px',
                         mb: 2
                     }}>
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Contact us</Typography>
+                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize:'17px' }}>Contact us</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                                <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '0.9rem', flexShrink: 0, color:'#c60800'}} />
-                                <Typography sx={{ fontSize: '0.75rem', lineHeight: 1.4 }}>
+                                <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '1.5rem', flexShrink: 0, color:'#c60800'}} />
+                                <Typography sx={{ fontSize: '15px', lineHeight: 1.4 }}>
                                     HOGIST TECHNOLOGIES PVT LTD.<br />
                                     2nd Floor, Kakani Towers,<br /> 
                                     No34 Khader Nawaz Khan Road<br />
@@ -349,13 +352,20 @@ function Footer({ refs }) {
                                 </Typography>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                <PhoneIcon sx={{ mr: 1, fontSize: '0.9rem', flexShrink: 0, color:'#c60800' }} />
-                                <Typography sx={{ fontSize: '0.75rem' }}>+91 - 9962687733</Typography>
+                                <PhoneIcon sx={{ mr: 1, fontSize: '1.6rem', flexShrink: 0, color:'#c60800' }} />
+                                <Typography sx={{ fontSize: '15px' }}>+91 - 9962687733</Typography>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                <EmailIcon sx={{ mr: 1, fontSize: '0.9rem', flexShrink: 0, color:'#c60800' }} />
-                                <Typography sx={{ fontSize: '0.75rem' }}>support@hogist.com</Typography>
+                                <EmailIcon sx={{ mr: 1, fontSize: '1.5rem', flexShrink: 0, color:'#c60800' }} />
+                                <Typography sx={{ fontSize: '15px' }}>support@hogist.com</Typography>
                             </Box>
+                        </Box>
+                         <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '17px' }}>Follow Us</Typography>
+                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
+                            <FacebookIcon sx={{ fontSize: '1.4rem'}} />
+                            <InstagramIcon sx={{ fontSize:'1.4rem' }} />
+                            <TwitterIcon sx={{ fontSize: '1.4rem' }} />
+                            <LinkedInIcon sx={{ fontSize:'1.4rem' }} />
                         </Box>
                     </Box>
                 </Box>
