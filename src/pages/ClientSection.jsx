@@ -15,7 +15,7 @@ const ClientSection = forwardRef((props, ref) => {
         pb: 3,
         m: 0,
         width: "100%" ,
-        paddingLeft:{xs:'33px',sm:'30px',md:'60px',lg:'60px'}
+        paddingLeft:{xs:'33px',md:'60px',lg:'60px'}
       }}>
         <Box
           display="flex"

@@ -27,7 +27,7 @@ const CateringHero = () => {
             alignItems: 'start',
             gap: { xs: 3, md: 6 },
             width: '100%',
-             paddingLeft:{md:'35px'}
+             paddingLeft:{md:'35px', lg:'3px'}
           }}
         >
 
