@@ -14,7 +14,9 @@ const ServeSection = forwardRef((props, ref) => {
           mb: { xs: 1, md: 2 }, 
           color: theme.palette.primary.secondary, 
           paddingTop: { xs: '15px', md: '30px' },
-          fontSize: { xs: '1.5rem', md: '2.125rem' } 
+          fontSize: { xs: '1.5rem', md: '2.125rem' },
+          marginBottom:'50px',
+           
         }}>
           WHAT WE SERVE
         </Typography>

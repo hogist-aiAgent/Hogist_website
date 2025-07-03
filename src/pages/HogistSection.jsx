@@ -17,7 +17,8 @@ function HogistSection() {
             justifyContent: 'center',
             py: 5,
             bgcolor: 'black',
-            px: { xs: 2, sm: 3, md: 0 }
+            px: { xs: 2, sm: 3, md: 0 },
+            marginBottom:'-20px'
         }}>
             <Container maxWidth="sm" sx={{
                 order: { xs: 2, sm: 1 },
@@ -25,7 +26,7 @@ function HogistSection() {
                 paddingLeft:{sm:'50px'},
                 paddingRight:{sm:'50px'},
                 marginRight:{md:'50px'},
-                marginLeft:{md:'5px'}
+                marginLeft:{md:'10px'}
             }}>
                 <Box>
                     <Typography fontSize={{xs:'30px',sm:'30px',md:'45px'}} marginTop={'30px'} fontWeight={'bold'} textAlign={{ xs: 'center', md: 'left' }}>
@@ -52,7 +53,7 @@ function HogistSection() {
                 display: 'grid',
                 gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(2, 1fr)' },
                 gap: { xs: 2, sm: 3 },
-                width: { xs: '90%', sm: '80%', md: '30%' },
+                width: { xs: '90%', sm: '90%', md: '40%' },
                 maxWidth: { xs: '400px', sm: '500px', md: '600px' },
                 padding: { xs: 1, sm: 2 },
                 marginRight: { xs: 0, md: '40px' },

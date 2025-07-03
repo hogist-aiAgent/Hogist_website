@@ -29,7 +29,7 @@ const HeroSection = forwardRef((props, ref) => {
       sx={{
         display: 'flex',
         overflow: 'hidden',
-        marginTop: "5rem",
+        marginTop: "4rem",
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: { xs: 'column-reverse', md: 'row' },
@@ -91,7 +91,7 @@ const HeroSection = forwardRef((props, ref) => {
         width: { xs: '100%', md: '40%' }, 
         height: { xs: '500px', md: '487px' },
         mb: 3,
-        marginRight:{xs:'-10px',sm:'-20px',lg:'55px'} 
+        marginRight:{xs:'-10px',sm:'-20px',md:'30px',lg:'55px'} 
       }}>
         <AnimatePresence>
           <motion.img

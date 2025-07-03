@@ -22,19 +22,21 @@ function VendorSection() {
       alignItems: 'center',
       minHeight: { xs: 'auto', md: '95vh' },
       marginBottom:'-25px',
-      padding:4
+      padding:4,
+      gap:'20px',
+      marginTop:{xs:'40px'}
     }}>
       <Container sx={{ 
         flex: 1,
         order: { xs: 2, sm: 1, md: 1 }, 
         mt: { xs: 4, md: 0 }
       }}>
-       <Box sx={{ px: { xs: 2, md: 0 } }}>
+       <Box sx={{ px: { xs: 2, md: 0 },marginTop:{xs:'-50px',md:'-20px'} }}>
           <Typography 
             variant='h3' 
             component="h2"
             color='black' 
-            textAlign={{ xs: 'center',sm:'center', md: 'left' }}
+            textAlign={{ xs: 'center',sm:'center', md: 'left',lg:'left' }}
             fontWeight={'bold'}
             sx={{ 
               mt: 2,
@@ -47,10 +49,31 @@ function VendorSection() {
               lineHeight: {
                 md: '1.5'
               },
-              marginLeft:{sm:'-70px',md:'20px',lg:'27px'}
+              marginLeft:{sm:'-70px',md:'4px',lg:'27px'}
             }}
           >
             Become a Vendor Grow your catering business with us.
+          </Typography>
+          <Typography variant="subtitle1" color="black" 
+            sx={{ 
+              mb: { xs: 3, md: 4 },
+              lineHeight: '1.5',
+              marginLeft:{sm:'-70px',md:'-27px',lg:'-24px'},
+              marginRight:{md:'60px'},
+              padding:{md:'10px 50px 0px 50px', sm:'10px 50px 0px 50px'},
+              
+               fontSize: {
+                xs: '0.8rem',
+                sm: '0.9rem',
+                md: '1rem',
+                lg: '1.1rem'
+              },
+              textAlign:{ xs: 'center',sm:'center', md: 'center',lg:'left' }
+              }}>
+              Let your food shine at every event!
+              Serve more. Earn more. Stress less with HOGIST.
+              Showcase your menu, manage orders, and grow online.
+              Start your catering journey with us now!
           </Typography>
           <Stack 
             direction="row" 
@@ -58,7 +81,7 @@ function VendorSection() {
               mb: 3, 
               mt: { xs: 4, md: '50px' },
               justifyContent: { xs: 'center', md: 'flex-start' },
-              marginLeft:{sm:'-90px',md:'150px',lg:'170px'}
+              marginLeft:{sm:'-90px',md:'130px',lg:'170px'}
             }}
           >
             <CTAButton 
@@ -83,7 +106,7 @@ function VendorSection() {
         height: { 
           xs: '50vh',  
           sm: 'auto', 
-          md: '70vh'  
+          md: '80vh',  
         },
         maxHeight: {
           xs: '400px', 
@@ -93,7 +116,8 @@ function VendorSection() {
         padding: {xs:1,sm:3, md:4},
         position: 'relative',
         ml: { sm: '-100px', md: '-100px' }, 
-        order: { xs: 1, sm: 2, md: 2 }, 
+        order: { xs: 1, sm: 2, md: 2 },
+        marginTop:{sm:'-20px',md:'-40px',lg:'-50px' }
       }}>
         {/* Image 1 - top left */}
         <Box sx={{ 
