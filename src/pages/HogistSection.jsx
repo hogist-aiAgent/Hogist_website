@@ -25,7 +25,7 @@ function HogistSection() {
                 paddingLeft:{sm:'50px'},
                 paddingRight:{sm:'50px'},
                 marginRight:{md:'50px'},
-                marginLeft:{md:'30px'}
+                marginLeft:{md:'5px'}
             }}>
                 <Box>
                     <Typography fontSize={{xs:'30px',sm:'30px',md:'45px'}} marginTop={'30px'} fontWeight={'bold'} textAlign={{ xs: 'center', md: 'left' }}>

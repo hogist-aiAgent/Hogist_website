@@ -90,7 +90,8 @@ const HeroSection = forwardRef((props, ref) => {
         position: 'relative', 
         width: { xs: '100%', md: '40%' }, 
         height: { xs: '500px', md: '487px' },
-        mb: 3 
+        mb: 3,
+        marginRight:{xs:'-10px',sm:'-20px',lg:'55px'} 
       }}>
         <AnimatePresence>
           <motion.img

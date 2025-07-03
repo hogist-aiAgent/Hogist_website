@@ -15,7 +15,8 @@ const ClientSection = forwardRef((props, ref) => {
         pb: 3,
         m: 0,
         width: "100%" ,
-        paddingLeft:{xs:'33px',md:'60px',lg:'60px'}
+        paddingLeft:{xs:'33px',md:'60px',lg:'60px'},
+        paddingRight:{xs:'33px',md:'60px',lg:'60px'}
       }}>
         <Box
           display="flex"
@@ -52,7 +53,7 @@ const ClientSection = forwardRef((props, ref) => {
               elevation={3}
               sx={{
                 height: { xs: 200, sm: 250 },
-                width: { xs: '100%', md: '80%' },
+                width: { xs: '100%', md: '100%' },
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -74,7 +75,10 @@ const ClientSection = forwardRef((props, ref) => {
       <Typography variant="h5" fontWeight="bold" sx={{ 
         color: theme.palette.primary.secondary,
         textAlign: 'center', 
-        my: 5 
+        my: 5,
+        paddingLeft:{xs:'5.4px'},
+        paddingRight:{xs:'5.4px'},
+        margin:'10px'         
       }}>
         Take a Look at our clients
       </Typography>
