@@ -2,6 +2,7 @@ import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SplashScreen from '../components/common/SplashScreen';
 import Header from '../layout/Header';
+import WhatsAppButton from '../components/common/watsapPage';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 
@@ -22,7 +23,7 @@ export default function MainRoutes() {
         <SplashScreen loading={false} />
       ) : (
         <Suspense fallback={<SplashScreen loading={true} />}>
-          <Header/>
+          <Header/><WhatsAppButton/>
           <Routes>
             <Route path="/" element={<MainPage />} />
           </Routes>

@@ -153,16 +153,18 @@ const CateringHero = () => {
             animation: `${rotate} 20s linear infinite`,
             display: 'flex',
             justifyContent: 'center',
-            width: { xs: '0%', lg: 'auto' },
-            transform: { xs: 'none', lg: 'none' },
+            width: { xs: '100%', lg: 'auto' },
+            transform: { xs: 'none', lg: 'none' },overflow:'hidden',
             order: { xs: 1, lg: 'initial' }
           }}>
-            <img 
+            <Box 
+             
+              component={"img"}
               src={foodImage} 
-              style={{ 
-                height: { xs: '200px', lg: '320px' },
-                width: { xs: '200px', lg: '320px' }, 
-                objectFit: 'fill'
+              sx={{ 
+                height: { xs: '270px',md:'300px', lg: '350px' },
+                width: { xs: '270px',md:'300px', lg: '350px' }, 
+                objectFit: 'contain'
               }} 
               alt="Food presentation"
             />
