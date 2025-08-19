@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { Box, Container, Stack, useTheme } from '@mui/system'
 import React from 'react'
-import Chef from '../assets/front/Chef.jpg';
+import Chef from '../assets/front/chef.jpg';
 import homemade from '../assets/front/homemade.jpg';
 import rest from '../assets/front/rest.jpg';
 import n from '../assets/resized/n.jpg';
