@@ -1,7 +1,7 @@
 import { useTheme } from '@emotion/react';
 import { Box, Stack, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import React, { forwardRef, useState } from 'react';
-import FaqImage from '../assets/Faq/FaqImage.png';
+import FaqImage from '../assets/Faq/faqImage.png';
 import CTAButton from '../components/common/CTAButton';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
