@@ -15,11 +15,11 @@ const FaqSection = forwardRef((props, ref) => {
     };
 
     const faqs = [
-        { question: "Can I use Hogist's online services for free?", answer: "Hogist's services are free. We will never charge you beyond the pricing listed on the website for the service opted by you. Our online catering service is free of cost and after every successful transaction, you will be receiving the complete breakup of charges incurred. There are no hidden charges." },
-        { question: "What kind of food can I get?", answer: "You name it and we have it. We have collaborated with a wide range of restaurants, caterers, renowned chefs, Homecooks. All you have to do is get in touch with them, choose the product, set your quantity and make the payment. If you have a caterer in mind and you don't find them on Hogist, please feel free to drop their details at support@hogist.com. and we will get in touch with them." },
-        { question: "Do you have home delivery option or I will have to pick it up?", answer: "All the orders will be delivered to you at your doorstep.Anyways, if you wish to pick the order by yourself, then you can set your order as a takeaway and pick it up from the Vendor's place." },
-        { question: "Can I expect 100% satisfaction from Hogist?", answer: "Definitely with Top Class Customer Service! You can contact us anytime if you feel our services are not as expected.We will make sure that we deliver our services with 100% customer satisfaction. Also, if you find it appropriate, we can even serve your guests on your behalf." },
-        { question: "Do you follow a secure process for accepting orders?", answer: "Yes. We use 128-bit SSL encryption method to capture your data. The information you provide us is stored using secured mediums so that there is no chance of data theft. Refer our Privacy Policy to get more information on how we store and use your information." },
+        { question: " Where can I order bulk food online in Chennai or Coimbatore?", answer: "You can place bulk food orders online directly through Hogist. We deliver to both Chennai and Coimbatore and have a variety of cuisines, custom menus and can handle delivery for parties, weddings, functions, corporate and industrial needs." },
+        { question: "How do I book an online bulk food order with Hogist?", answer: "Go to www.hogist.com or download our app.1. Select your service type (corporate / industrial / party catering etc.).2. Select your menu, fill in the event details and place the order.3.We'll take care of everything else, including vendor coordination, quality checks and timely delivery." },
+        { question: " Does Hogist handle corporate and industrial bulk food orders*?", answer: "Yes! Hogist offers a full range of corporate and industrial catering services. Hogist specializes in corporate catering, we supply event catering and meal plans for employees within their work environment. We also specialize in industrial catering for factories or large teams, so if you require ongoing food services on-site Hogist is your go-to." },
+        { question: "Can I customize my *bulk food order online?", answer: "Yes, absolutely! You can choose your preferred cuisines, dishes, and dietary options. We offer Veg, Non-Veg, Jain, Vegan, and even healthy meal choices to suit your event." },
+       
     ];
 
     return (

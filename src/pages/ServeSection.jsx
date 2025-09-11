@@ -7,14 +7,14 @@ import Waiters from '../assets/ServePage/Waiters.png';
 const ServeSection = forwardRef((props, ref) => {
   const theme = useTheme();
   return (
-    <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 } }}>
+    <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 },  fontFamily: theme.fontFamily.default, }}>
       <Container>
         <Typography variant="h4" fontWeight="bold" sx={{ 
           textAlign: 'center', 
           mb: { xs: 1, md: 2 }, 
           color: theme.palette.primary.secondary, 
           paddingTop: { xs: '15px', md: '30px' },
-          fontSize: { xs: '1.5rem', md: '2.125rem' },
+          fontSize: { xs: '1.5rem',sm:'1.8rem', md: '2.125rem' },
           marginBottom:'50px',
            
         }}>
@@ -24,9 +24,9 @@ const ServeSection = forwardRef((props, ref) => {
           textAlign: 'center', 
           mb: { xs: 2, md: 4 }, 
           color: 'black',
-          fontSize: { xs: '1.75rem', sm: '2.5rem', md: '3rem' } 
+          fontSize: { xs: '1.75rem', sm: '2.2rem', md: '2.6rem' } 
         }}>
-          Your Favorite Food Delivery Partner
+          Your Trusted Bulk Food Order & Delivery Partner
         </Typography>
         
         <Grid container justifyContent="center" sx={{ 
@@ -45,7 +45,7 @@ const ServeSection = forwardRef((props, ref) => {
                   Meal Box
               </Typography>
               <Typography variant="body1" color="black">
-                Customizable Meal Boxes for All Events
+               Customizable bulk meal boxes for events and teams.
               </Typography>
             </Box>
           </Grid>
@@ -61,7 +61,7 @@ const ServeSection = forwardRef((props, ref) => {
                 Delivery Box
               </Typography>
               <Typography variant="body1" color="black">
-                Party-Ready Meal Delivery for Gatherings
+               Party-ready bulk food delivery boxes for gatherings.
               </Typography>
             </Box>
           </Grid>
@@ -81,7 +81,7 @@ const ServeSection = forwardRef((props, ref) => {
                 Catering
               </Typography>
               <Typography variant="body1" color="black">
-                Wedding & Event Catering, Custom Menus
+                Large-scale bulk food orders for weddings & celebrations.
               </Typography>
             </Box>
           </Grid>

@@ -1,6 +1,6 @@
 import { Box, Container, Typography, useTheme } from '@mui/material';
 import React from 'react';
-import HogistLogo from '../assets/HogistLogo2.png';
+import HogistLogo from '../assets/red with white bck.png';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -55,7 +55,7 @@ function Footer({ refs }) {
             //paddingTop:'50px'
         }}>
             <Container maxWidth="lg" sx={{ paddingLeft: '10px', paddingRight: '10px' }}>
-                {/* Mobile View (xs) */}
+                 {/* Mobile View (xs) */}
                 <Box sx={{ 
                     display: { xs: 'grid', sm: 'none' },
                     gridTemplateColumns: 'repeat(2, 1fr)',
@@ -66,23 +66,23 @@ function Footer({ refs }) {
                     paddingTop:'20px'
                 }}>
                     <Box sx={{ gridColumn: 'span 1' }}>
-                        <img src={HogistLogo} alt="logo" style={{ height: '20px', width: '70px', marginBottom: '10px' }} />
+                        <img src={HogistLogo} alt="logo" style={{ height: '40px', width: '100px', marginBottom: '1px', marginTop:'-6px',marginLeft:'-7px' }} />
                         <Typography variant="body2" sx={{ mb: 2, fontSize: '0.7rem' }}>
-                            Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.
+Your trusted partner for<br/> bulk food orders in<br/> Chennai — serving<br/> corporates, industries <br/>& events.
                         </Typography>
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Company</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem', color: '#c60800' }}>Quick Links</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                            {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
+                            {['About Us', 'Services Offered', 'FAQ', 'Careers', 'Contact us'].map((item) => (
                                 <Typography 
                                     key={item} 
                                     variant="body2" 
                                     sx={{ 
                                         fontSize: '0.7rem', 
                                         cursor: 'pointer', 
-                                        '&:hover': { color: '#c60800' } 
+                                        
                                     }}
                                     onClick={() => handleCompanyNavigation(item)}
                                 >
@@ -93,7 +93,7 @@ function Footer({ refs }) {
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Our Services</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem', color: '#c60800' }}>Our Services</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                             {['Industrial Catering', 'Corporate Catering', 'Out Door Catering', 'Cafeteria Services'].map((item) => (
                                 <Typography 
@@ -102,7 +102,7 @@ function Footer({ refs }) {
                                     sx={{ 
                                         fontSize: '0.7rem', 
                                         cursor: 'pointer', 
-                                        '&:hover': { color: '#c60800' } 
+                                        
                                     }}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-'))}
                                 >
@@ -113,7 +113,7 @@ function Footer({ refs }) {
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1', mt: '13px' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Legal</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem', color: '#c60800' }}>Legal</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                             {['Become a Vendor', 'Become a Consultant', 'Privacy Policy', 'Terms & Conditions', 'Refunds & Cancellation'].map((item) => (
                                 <Typography 
@@ -122,7 +122,7 @@ function Footer({ refs }) {
                                     sx={{ 
                                         fontSize: '0.7rem', 
                                         cursor: 'pointer', 
-                                        '&:hover': { color: '#c60800' } 
+                                        
                                     }}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-').replace('&', 'and'))}
                                 >
@@ -139,7 +139,7 @@ function Footer({ refs }) {
                     px: '10px',
                     mb: '13px'
                 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem' }}>Contact us</Typography>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '1rem', color: '#c60800' }}>Contact us</Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                             <LocationOnIcon sx={{ mr: '5px', fontSize: '0.8rem', flexShrink: 0, color: '#c60800' }} />
@@ -159,7 +159,7 @@ function Footer({ refs }) {
                             <Typography variant="body2" sx={{ fontSize: '0.7rem' }}>support@hogist.com</Typography>
                         </Box>
                     </Box>
-                     <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '14px' }}>Follow Us</Typography>
+                     <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '14px',color: '#c60800' }}>Follow Us</Typography>
                         <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
                             <FacebookIcon sx={{ fontSize: '1.3rem'}} />
                             <InstagramIcon sx={{ fontSize:'1.3rem' }} />
@@ -179,20 +179,28 @@ function Footer({ refs }) {
                     paddingTop:'30px'
                 }}>
                     <Box sx={{ gridColumn: 'span 1' }}>
-                        <img src={HogistLogo} alt="logo" style={{ height: '25px', width: '90px', marginBottom: '10px' }} />
+                        <img src={HogistLogo} alt="logo" style={{ height: '40px', width: '120px', marginBottom: '1px', marginTop:'-7px',marginLeft:'-7px' }} />
                         <Typography variant="body2" sx={{ mb: 1, fontSize: '0.7rem' }}>
-                           Hogist is the one-stop solution for all your event food needs. Get the best catering services through us.We offer best quality with different taste in our catering services.
+                        Your trusted partner for bulk food orders in Chennai — serving <br/>corporates, industries & events.
                         </Typography>
+
+                          <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Follow Us</Typography>
+                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
+                            <FacebookIcon sx={{ fontSize: '0.9rem'}} />
+                            <InstagramIcon sx={{ fontSize: '0.9rem' }} />
+                            <TwitterIcon sx={{ fontSize: '0.9rem' }} />
+                            <LinkedInIcon sx={{ fontSize: '0.9rem' }} />
+                        </Box>
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Company</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Quick Links</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
-                            {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
+                            {['About Us', 'Services Offered', 'FAQ', 'Careers', 'Contact us'].map((item) => (
                                 <Typography 
                                     key={item} 
                                     variant="body2" 
-                                    sx={{ fontSize: '0.7rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '0.7rem', cursor: 'pointer' }}
                                     onClick={() => handleCompanyNavigation(item)}
                                 >
                                     {item}
@@ -202,13 +210,13 @@ function Footer({ refs }) {
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Our Services</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Our Services</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
                             {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
                                 <Typography 
                                     key={item} 
                                     variant="body2" 
-                                    sx={{ fontSize: '0.7rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '0.7rem', cursor: 'pointer'}}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-'))}
                                 >
                                     {item}
@@ -218,13 +226,13 @@ function Footer({ refs }) {
                     </Box>
 
                     <Box sx={{ gridColumn: 'span 1', mt: 2 }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Legal</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Legal</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
                             {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
                                 <Typography 
                                     key={item} 
                                     variant="body2" 
-                                    sx={{ fontSize: '0.7rem', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '0.7rem', cursor: 'pointer' }}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-').replace('&', 'and'))}
                                 >
                                     {item}
@@ -234,7 +242,7 @@ function Footer({ refs }) {
                     </Box>
 
                     <Box id="contact-section" sx={{ gridColumn: 'span 1', mt: 2 }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Contact us</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Contact us</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                                 <LocationOnIcon sx={{ mr: '3px', fontSize: '0.8rem', flexShrink: 0, color:'#c60800'}} />
@@ -256,78 +264,79 @@ function Footer({ refs }) {
                         </Box>
                     </Box>
                     
-                    <Box sx={{ gridColumn: 'span 1', mt: 2 }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem' }}>Follow Us</Typography>
-                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                            <FacebookIcon sx={{ fontSize: '0.9rem'}} />
-                            <InstagramIcon sx={{ fontSize: '0.9rem' }} />
-                            <TwitterIcon sx={{ fontSize: '0.9rem' }} />
-                            <LinkedInIcon sx={{ fontSize: '0.9rem' }} />
-                        </Box>
-                    </Box>
                 </Box>
-
                 {/* Desktop View (md) */}
                 <Box sx={{ 
                     display: { xs: 'none', md: 'flex' },
-                    justifyContent: 'space-between',
+                    justifyContent: 'space-evenly',
                     gap: 3,
                     flexWrap: 'wrap',
                     height: { md: 'calc(100% - 80px)' },
                     paddingTop:'30px'
                 }}>
                     <Box sx={{ 
-                        flex: '1 1 200px',
+                        flex: '1 1 250px',
                         mb: 2
                     }}>
-                        <img src={HogistLogo} alt="logo" style={{ height: '50px', width: '190px', marginBottom: '15px' }} />
+                        <img src={HogistLogo} alt="logo" style={{ height: '65px', width: '190px', marginBottom: '3px',marginLeft:'-10px' }} />
                         <Typography sx={{ fontSize: '15px', lineHeight: 1.4 }}>
-                            Hogist is the one-stop solution for all your event food needs.
-                            Get the best catering services through us. We offer best quality with different taste in our catering services.
+                            Your trusted partner for bulk food orders in Chennai — serving corporates, industries & events.
                         </Typography>
+
+                         <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '17px', color: '#c60800' }}>Follow Us</Typography>
+                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
+                            <FacebookIcon sx={{ fontSize: '1.4rem'}} />
+                            <InstagramIcon sx={{ fontSize:'1.4rem' }} />
+                            <TwitterIcon sx={{ fontSize: '1.4rem' }} />
+                            <LinkedInIcon sx={{ fontSize:'1.4rem' }} />
+                        </Box>
                     </Box>
 
+                    <Box sx={{ 
+                        flex: '1 1 100px',
+                        mb: 2
+                    }}>
+                        <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '16px', color: '#c60800'}}>Quick Links</Typography>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                            {['About Us', 'Services Offered', 'FAQ', 'Careers', 'Contact us'].map((item) => (
+                                <Typography 
+                                    key={item} 
+                                    sx={{ fontSize: '15px', cursor: 'pointer',}}
+                                    onClick={() => handleCompanyNavigation(item)}
+                                >
+                                    {item}
+                                </Typography>
+                            ))}
+                        </Box>            
+                    </Box>
                     <Box sx={{ 
                         flex: '1 1 150px',
                         mb: 2
                     }}>
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize: '16px' }}>Our Services</Typography>
+                         <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2,fontSize: '16px', color: '#c60800' }}>Services</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Services'].map((item) => (
+                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria ManagAbout Us'].map((item) => (
                                 <Typography 
                                     key={item} 
-                                    sx={{ fontSize: '15px', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '15px', cursor: 'pointer'}}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-'))}
                                 >
                                     {item}
                                 </Typography>
                             ))}
                         </Box>
-                        
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '16px'}}>Company</Typography>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                            {['Our Story', 'Careers', 'FAQ', 'Services Offered', 'Contact us'].map((item) => (
-                                <Typography 
-                                    key={item} 
-                                    sx={{ fontSize: '15px', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
-                                    onClick={() => handleCompanyNavigation(item)}
-                                >
-                                    {item}
-                                </Typography>
-                            ))}
-                        </Box>
                     </Box>
 
                     <Box sx={{ 
                         flex: '1 1 150px',
                         mb: 2
                     }}>
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize:'16px' }}>Legal</Typography>
+                        <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize:'16px', color: '#c60800' }}>Legal</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
                             {['Become a Vendor','Become a Consultant','Privacy Policy','Terms & Conditions','Refunds & Cancellation'].map((item) => (
                                 <Typography 
                                     key={item} 
-                                    sx={{ fontSize: '15px', cursor: 'pointer', '&:hover': { color: '#c60800' } }}
+                                    sx={{ fontSize: '15px', cursor: 'pointer'}}
                                     onClick={() => handleNavigation(item.toLowerCase().replace(' ', '-').replace('&', 'and'))}
                                 >
                                     {item}
@@ -340,7 +349,7 @@ function Footer({ refs }) {
                         flex: '1 1 200px',
                         mb: 2
                     }}>
-                        <Typography sx={{ fontWeight: 'bold', mb: 1, fontSize:'17px' }}>Contact us</Typography>
+                        <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize:'17px', color: '#c60800' }}>Contact us</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                             <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
                                 <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '1.5rem', flexShrink: 0, color:'#c60800'}} />
@@ -359,13 +368,6 @@ function Footer({ refs }) {
                                 <EmailIcon sx={{ mr: 1, fontSize: '1.5rem', flexShrink: 0, color:'#c60800' }} />
                                 <Typography sx={{ fontSize: '15px' }}>support@hogist.com</Typography>
                             </Box>
-                        </Box>
-                         <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '17px' }}>Follow Us</Typography>
-                        <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                            <FacebookIcon sx={{ fontSize: '1.4rem'}} />
-                            <InstagramIcon sx={{ fontSize:'1.4rem' }} />
-                            <TwitterIcon sx={{ fontSize: '1.4rem' }} />
-                            <LinkedInIcon sx={{ fontSize:'1.4rem' }} />
                         </Box>
                     </Box>
                 </Box>

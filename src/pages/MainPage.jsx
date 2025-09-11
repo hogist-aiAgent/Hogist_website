@@ -11,6 +11,7 @@ import VendorSection from './VendorSection';
 import Footer from '../layout/Footer';
 import FeaturesSection from './Features/FeaturesSection';
 import CateringSection from './Catering/CateringSection';
+import EventsCater from './EventsCater';
 
 export default function MainPage() {
   const heroRef = useRef(null);
@@ -23,14 +24,12 @@ export default function MainPage() {
     <div>
       <HeroSection ref={heroRef} />
       <ClientSection ref={clientRef} />
-      <MonitoringSection />
       <ServeSection ref={serveRef} />
+      <EventsCater/>
+      <FeaturesSection /> 
       <MobileappSection />
-      <CateringSection />
-      <FeaturesSection />
+     <HogistSection />
       <FaqSection ref={faqRef} />
-      <HogistSection />
-      <VendorSection />
       <Footer 
         refs={{
           heroRef,

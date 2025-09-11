@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography,useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import clients from '../../utils/clientImport';
 
 const ClientCarousel = () => {
   const duplicatedClients = [...clients, ...clients.reverse()];
-
+  const theme = useTheme();
   const MarqueeRow = ({ reverse = false }) => (
     <motion.div
       animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
@@ -35,6 +35,7 @@ const ClientCarousel = () => {
             boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
             flexShrink: 0,
             p: 1,
+            fontFamily: theme.fontFamily.default,
           }}
         >
           <Box
@@ -53,8 +54,21 @@ const ClientCarousel = () => {
   );
 
   return (
+    
     <Box sx={{ py: 6, background: '#000', position: 'relative', overflow: 'hidden' }}>
-      {/* Fade left */}
+    
+      <Box sx={{ position: 'relative', zIndex: 2 }}>
+        <Typography variant="h4" fontWeight="bold" sx={{ 
+          color: theme.palette.primary.secondary,
+          textAlign: 'center', 
+          mb: 6,
+          marginTop:-2,
+          fontSize:{xs:'25px', sm:'30px', md:'35px', lg:'40px'}
+        }}>
+          Take a Look at our clients
+        </Typography>
+      </Box>
+            {/* Fade left */}
       <Box
         sx={{
           position: 'absolute',

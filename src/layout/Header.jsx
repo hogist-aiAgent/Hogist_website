@@ -25,6 +25,7 @@ const navItems = ['Home', 'Feature', 'Review', 'Menu Bank', 'Corporate', 'Indust
 export default function Header() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
@@ -38,20 +39,19 @@ export default function Header() {
       sx={{
         position: 'fixed',
         top: 0,
-        zIndex:"9999",
+        zIndex: 9999,
         width: '100%',
- 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: 'black',
-        padding: '1.2rem 1.2rem',   
-
+        padding: { xs: '0.75rem 1rem', sm: '1rem 1.5rem', md: '1rem 2rem' },
+         fontFamily: theme.fontFamily.default,   
       }}
     >
       {/* MOBILE VIEW */}
       {isMobile ? (
-        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
           {/* Menu Button */}
           <IconButton
             onClick={() => setDrawerOpen(true)}
@@ -59,7 +59,7 @@ export default function Header() {
               backgroundColor: 'transparent',
               color: 'red',
               borderRadius: '50%',
-              p: 1.2,
+              p: { xs: 1, sm: 1.2 },
               mr: 1,
             }}
           >
@@ -81,20 +81,19 @@ export default function Header() {
                 src={HeaderLogo}
                 alt="Hogist Logo"
                 loading="lazy"
-                sx={{ width: 110, height: 'auto', mr: 1 }}
+                sx={{ width: { xs: 90, sm: 110 }, height: 'auto', mr: 1 }}
               />
             </LazyLoad>
           </Box>
 
-          {/* Home Button */}
+          {/* Account Button */}
           <IconButton
             onClick={handleMenuOpen}
             sx={{
               backgroundColor: 'transparent',
               color: 'red',
               borderRadius: '50%',
-              p: 1.2,
-              //padding:'15px'
+              p: { xs: 1, sm: 1.2 },
             }}
           >
             <AccountCircleIcon/>
@@ -108,11 +107,21 @@ export default function Header() {
               src={HeaderLogo}
               alt="Hogist Logo"
               loading="lazy"
-              sx={{ width: 170, height: 'auto', paddingRight:'15px'}}
+              sx={{ 
+                width: { md: 150, lg: 170 }, 
+                height: 'auto', 
+                paddingRight: { md: '10px', lg: '15px' }
+              }}
             />
           </LazyLoad>
 
-          <Box sx={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
+          <Box sx={{ 
+            display: 'flex', 
+            gap: { md: '0.8rem', lg: '1.2rem' }, 
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            justifyContent: 'center'
+          }}>
             {navItems.map((item) => (
               <Typography
                 key={item}
@@ -121,7 +130,8 @@ export default function Header() {
                   color: 'white',
                   cursor: 'pointer',
                   fontWeight: 500,
-                  padding: '6px 12px',
+                  padding: { md: '4px 8px', lg: '6px 12px' },
+                  fontSize: { md: '0.9rem', lg: '1rem' },
                   '&:hover': {
                     borderRadius: '5px',
                     color: theme.palette.primary.secondary,
@@ -140,6 +150,7 @@ export default function Header() {
             <IconButton onClick={handleMenuOpen} sx={{ color: 'white' }}>
               <AccountCircleIcon
                 sx={{
+                  fontSize: { md: '1.8rem', lg: '2rem' },
                   '&:hover': {
                     borderRadius: '5px',
                     color: theme.palette.primary.secondary,
@@ -153,19 +164,16 @@ export default function Header() {
             <Button
               variant="contained"
               sx={{
-                color: theme.palette.primary.secondary,
-                background: 'white',
-                border: '1px solid white',
+                color: 'white',
+                background: theme.palette.primary.secondary,
                 fontWeight: 'bold',
-                fontSize: '16px',
+                fontSize: { md: '12px', lg: '14px' },
                 borderRadius: '999px',
-                paddingX: 3,
-                '&:hover': {
-                  background: 'white',
-                },
+                paddingX: { md: 2, lg: 3 },
+                whiteSpace: 'nowrap',
               }}
             >
-              Get started
+             Call to Query
             </Button>
           </Box>
         </>
@@ -182,7 +190,7 @@ export default function Header() {
             backgroundColor: 'white',
             boxShadow: '0px 8px 20px rgba(0,0,0,0.2)',
             padding: 2,
-            marginTop:'50px'
+            marginTop: '20px'
           },
         }}
         anchorOrigin={{
@@ -203,7 +211,7 @@ export default function Header() {
           sx={{
             color: 'red',
             fontWeight: 600,
-            fontSize: '14px',
+            fontSize: { xs: '13px', sm: '14px' },
             paddingY: 1.5,
             '&:hover': {
               backgroundColor: '#f2f2f2',
@@ -221,7 +229,7 @@ export default function Header() {
           sx={{
             color: 'red',
             fontWeight: 600,
-            fontSize: '14px',
+            fontSize: { xs: '13px', sm: '14px' },
             paddingY: 1.5,
             '&:hover': {
               backgroundColor: '#f2f2f2',
@@ -239,7 +247,7 @@ export default function Header() {
           sx={{
             color: 'red',
             fontWeight: 600,
-            fontSize: '14px',
+            fontSize: { xs: '13px', sm: '14px' },
             paddingY: 1.5,
             '&:hover': {
               backgroundColor: '#f2f2f2',
@@ -251,16 +259,14 @@ export default function Header() {
       </Menu>
 
       {/* Drawer with Framer Motion */}
-      <Drawer sx={{
-          zIndex:"9999",
-      }} anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer sx={{ zIndex: 9999 }} anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <motion.div
           initial={{ x: -300 }}
           animate={{ x: 0 }}
           exit={{ x: -300 }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         >
-          <Box sx={{ width: 260, padding: 2 }}>
+          <Box sx={{ width: { xs: 250, sm: 260 }, padding: 2 }}>
             <List>
               {navItems.map((item) => (
                 <ListItem button key={item} sx={{ paddingY: 1 }}>
@@ -269,7 +275,7 @@ export default function Header() {
                     sx={{
                       '& .MuiTypography-root': {
                         fontWeight: 500,
-                        fontSize: '1rem',
+                        fontSize: { xs: '0.95rem', sm: '1rem' },
                       },
                     }}
                   />
@@ -286,13 +292,16 @@ export default function Header() {
               sx={{
                 borderRadius: '20px',
                 fontWeight: 'bold',
-           backgroundColor: theme.palette.primary.dark,
+                fontFamily:'initial',
+                backgroundColor: theme.palette.primary.secondary,
+                fontSize: { xs: '0.9rem', sm: '1rem' },
+                py: { xs: 1, sm: 1.25 },
                 '&:hover': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: "#c60000",
                 },
               }}
             >
-              Get Started
+              Call to Query
             </Button>
           </Box>
         </motion.div>
