@@ -315,7 +315,7 @@ Your trusted partner for<br/> bulk food orders in<br/> Chennai — serving<br/> 
                     }}>
                          <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2,fontSize: '16px', color: '#c60800' }}>Services</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria ManagAbout Us'].map((item) => (
+                            {['Industrial Catering','Corporate Catering','Out Door Catering','Cafeteria Management'].map((item) => (
                                 <Typography 
                                     key={item} 
                                     sx={{ fontSize: '15px', cursor: 'pointer'}}

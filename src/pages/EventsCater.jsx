@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardContent, CardMedia, Typography, Button, Container } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, Button, Container,Stack } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import bday from '../assets/EventCaterImage/bday.jpg';
 import corporate from '../assets/EventCaterImage/corporate.jpg';
@@ -34,7 +34,7 @@ function EventsCater() {
   ];
 
   return (
-    <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default }}>
+    <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}>
       <Container maxWidth="lg">
         <Typography variant="h3" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'1.8rem', md: '2.29rem'}}} color={theme.palette.primary.secondary}>
           Events we Cater
@@ -143,6 +143,33 @@ function EventsCater() {
             </Card>
           ))}
         </Box>
+          <Stack  
+                   direction="row" 
+                   spacing={{ xs: 1.5, sm: 2, md: 3 }}
+                   sx={{ 
+                     justifyContent: 'center',
+                     alignItems: 'center',
+                     mt: '40px',
+                     width: '100%'
+                   }}
+                 >
+                   <Button
+                     variant="contained"
+                     sx={{ 
+                       minWidth: { xs: '130px', sm: '140px', md: '130px' },
+                       fontSize: { xs: '0.8rem', sm: '0.9rem', md: '0.9rem' },
+                       padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+                       fontWeight: 'bold',
+                       borderRadius: '24px',
+                       backgroundColor: theme.palette.primary.secondary,
+                       '&:hover': {
+                         backgroundColor: theme.palette.primary.secondary,
+                       }
+                     }}
+                   >
+                     ORDER NOW
+                   </Button>
+                 </Stack>
       </Container>
     </Box>
   );

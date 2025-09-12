@@ -4,7 +4,7 @@ import React from 'react';
 import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
 import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
 import MobileApp from '../assets/Mobileapp/MobileApp.png';
-
+import mobilepic from '../assets/Mobileapp/mobilepic.png'
 function MobileappSection() {
     const theme = useTheme();
     return (
@@ -28,11 +28,11 @@ function MobileappSection() {
                     px: { xs: 2, sm: 0 }
                 }}>
                     <img 
-                        src={MobileApp} 
+                        src={mobilepic} 
                         alt='MobileApp' 
                         style={{ 
                             width: '100%', 
-                            height: 'auto',
+                            height: '600px',
                             maxWidth: '100%'
                         }} 
                     />
@@ -58,7 +58,7 @@ function MobileappSection() {
                         lineHeight: 1.2,
                         px: { xs: 1, sm: 0 }
                     }}>
-                        It's More Easy to Order By Mobile App
+                      <Box component="span" sx={{ color: theme.palette.primary.secondary }}>Order Bulk Food Online</Box> — Track & Enjoy with the Hogist App!
                     </Typography>
                     <Typography variant="body1" sx={{
                         fontSize: { 
@@ -67,11 +67,13 @@ function MobileappSection() {
                             md: '1.1rem' 
                         },
                         lineHeight: 1.6,
-                        color: 'text.secondary',
+                        color: '#FFF',
                         mb: { xs: 3, md: 4 },
                         px: { xs: 1, sm: 0, md: 0 }
                     }}>
-                        Enjoy a smooth and effortless food ordering experience through our mobile app. With just a few taps, you can browse the menu, customize your order, track delivery, and enjoy exclusive app-only deals — all from the palm of your hand.
+                       Ordering bulk food in large quantities is now made easier!
+                        Browse the menu, customize your order, track delivery, and enjoy exclusive app-only deals.
+                        It's a quick, clever, and easy way to handle all your bulk food deliveries — straight from your smartphone.
                     </Typography>
                     <Box sx={{
                         display: 'flex',

@@ -7,6 +7,7 @@ import SlidImg2 from '../assets/HeroSectionImgslider3.png';
 import SlideImg from '../assets/HeroSectionImg4.png';
 import CTAButton from '../components/common/CTAButton';
 import EnquiryForm from '../layout/EnqueryForm';
+import background_img from '../assets/gallery/background_img.jpg'
 
 const MotionBox = motion(Box);
 
@@ -34,7 +35,10 @@ const HeroSection = forwardRef((props, ref) => {
         justifyContent: { xs: 'center', md: 'space-between' },
         alignItems: 'center',
         flexDirection: { xs: 'column', md: 'row' }, 
-        bgcolor: '#000',
+        backgroundImage: `url(${ background_img})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         color: '#fff',
         px: { xs: 2, sm: 3, md: 5 },
         py: { xs: 2, sm: 3, md: 4 }, 

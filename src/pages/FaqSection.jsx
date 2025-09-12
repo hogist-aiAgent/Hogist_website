@@ -21,8 +21,10 @@ const FaqSection = forwardRef((props, ref) => {
         { question: "Can I customize my *bulk food order online?", answer: "Yes, absolutely! You can choose your preferred cuisines, dishes, and dietary options. We offer Veg, Non-Veg, Jain, Vegan, and even healthy meal choices to suit your event." },
        
     ];
-
+   
     return (
+       
+
         <Box ref={ref} sx={{ 
             bgcolor: 'white', 
             minHeight: { xs: 'auto', md: '100vh' },
@@ -30,96 +32,59 @@ const FaqSection = forwardRef((props, ref) => {
             px: { xs: 2, sm: 3, md: '40px', lg: '60px' },
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
+            justifyContent: 'center',
+            mb:'-50px'
         }}>
-            <Typography variant="h6" fontWeight="bold" color='black' mb={2} alignSelf="flex-start">
-                -FA<Box component="span" sx={{ color: theme.palette.primary.secondary }}>Q</Box>
-            </Typography>
+            <Typography variant="h3" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'1.8rem', md: '2.29rem'},mb: 3,mt:'-60px'}} color={theme.palette.primary.secondary}>
+                    FAQ 
+                  </Typography>
             
             <Box sx={{ 
                 display: 'flex',
-                flexDirection: { xs: 'column', sm: 'row' },
+                flexDirection: { xs: 'column', md: 'row' },
                 width: '100%',
-                gap: { xs: 2, md: 4, lg: 6 },
-                alignItems: 'flex-start'
+                maxWidth: '1200px',
+                gap: { xs: 3, md: 4, lg: 3 },
+                alignItems: 'center',
+                justifyContent: 'center'
             }}>
+                {/* Image Section - Centered with accordion */}
                 <Box sx={{
-                    width: { xs: '100%', md: '45%', lg: '40%' },
-                    order: { xs: 1, md: 1 },
+                    width: { xs: '40%',sm:'20%', md: '15%', lg: '10%' },
                     display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: { xs: 'center', md: 'flex-start' },
-                    marginRight: { xs: 0, md: '40px', lg: '80px' }
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    order: { xs: 2, md: 1 }
                 }}>
                     <Box sx={{ 
-                        mb: { xs: 2, md: 4 }, 
                         width: '100%',
-                        marginLeft: { xs: 0, sm: '-1px', md:'-80px', lg: '-30px' },
-                        marginBottom: { xs: '-20px', sm: '-20px', md:'0', lg:'20px' },
-                        textAlign: 'center'
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center'
                     }}>
                         <img 
                             src={FaqImage}
                             alt='FAQ'
                             style={{ 
                                 height: 'auto',
-                                width: 'auto',
-                                maxHeight: { xs: '150px', sm: '170px', md: '190px', lg: '210px' },
-                                maxWidth: '100%',
-                                marginTop:'-50px'
+                                width: '100%',
+                                maxWidth: '300px',
+                                maxHeight: '300px'
                             }} 
                         />
                     </Box>
-                    <Box sx={{
-                        width: '100%',
-                        textAlign: { xs: 'center', md: 'right' },
-                        marginLeft: { xs: 0, md: '40px', lg: '60px' },
-                        pr: { md: 2 },
-                        fontSize:'15px'
-                    }}>
-                        <Typography variant="h4" fontWeight="bold" color='black' 
-                            sx={{ 
-                                marginTop: { xs: 0, md: '-80px', lg: '-100px' },
-                                fontSize: { xs: '22px', sm: '26px', md: '32px', lg: '35px' },
-                                mb: 2,
-                                lineHeight: '1.3'
-                            }}>
-                            Everything You<br/> Need to Know About<br/> Hogist
-                        </Typography>
-                        
-                        <Typography variant="subtitle1" color="black" 
-                            sx={{ 
-                                fontSize: { xs: '14px', sm: '15px', md: '16px', lg: '18px' },
-                                mb: { xs: 3, md: 4 },
-                                lineHeight: '1.5'
-                            }}>
-                            Have questions about Hogist's catering<br/> and online food delivery? Here are answers to some of the most common queries
-                        </Typography>
-                        <Stack direction="row" sx={{ 
-                            mb: 3, 
-                            marginLeft: { xs: 'auto', md: '180px', lg: '260px' },
-                            marginRight: { xs: 'auto', md: 0 },
-                            justifyContent: { xs: 'center', md: 'flex-end' },
-                            borderRadius:'0px'
-                        }}>
-                            <CTAButton 
-                                hover={{
-                                    backgroundColor: 'transparent',
-                                    color:'black',
-                                }} 
-                                border={"1px solid red"}  
-                                name={"Watch video"} 
-                            />
-                        </Stack>
-                    </Box>
                 </Box>
 
+                {/* Accordion Section - Centered with image */}
                 <Box sx={{
-                    width: { xs: '100%', md: '55%', lg: '60%' },
-                    maxWidth: { xs: '100%', md: '700px', lg: '800px' },
+                    width: { xs: '100%', md: '60%', lg: '65%' },
+                    maxWidth: { xs: '100%', md: '700px' },
                     order: { xs: 2, md: 2 },
-                    marginRight: { xs: 0, md: '15px', lg: '30px' },
-                    marginTop: { xs: 0, md: '10px' },
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center'
                 }}>
                     {faqs.map((faq, index) => (
                         <Accordion 
@@ -128,15 +93,16 @@ const FaqSection = forwardRef((props, ref) => {
                             key={index} 
                             sx={{ 
                                 boxShadow: 'none', 
-                                mb: { xs: 2, sm: 3, md: 4, lg: 5 },
+                                mb: { xs: 1, sm: 1.5, md: 2 }, // Reduced space between accordions
                                 position: "relative",
                                 border: 'none',
                                 background: 'black',
                                 clipPath: 'polygon(0% 0%, 92% 0%, 100% 50%, 92% 100%, 0% 100%)',
                                 borderRadius: '0 !important',
                                 '&:before': { display: 'none' },
-                                width: { xs: '100%', sm: '90%', md: '500px', lg: '600px' },
-                                mx: { xs: 'auto', md: 0 },
+                                width: { xs: '100%', sm: '90%', md: '100%', lg: '100%' },
+                                mx: 'auto',
+                                
                             }}>
                             <AccordionSummary 
                                 sx={{ 

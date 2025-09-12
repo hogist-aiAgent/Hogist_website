@@ -12,6 +12,7 @@ import Footer from '../layout/Footer';
 import FeaturesSection from './Features/FeaturesSection';
 import CateringSection from './Catering/CateringSection';
 import EventsCater from './EventsCater';
+import TestimonialSection from './TestimonialSection';
 
 export default function MainPage() {
   const heroRef = useRef(null);
@@ -26,8 +27,10 @@ export default function MainPage() {
       <ClientSection ref={clientRef} />
       <ServeSection ref={serveRef} />
       <EventsCater/>
+    
       <FeaturesSection /> 
-      <MobileappSection />
+      <MobileappSection /> 
+       <TestimonialSection/>
      <HogistSection />
       <FaqSection ref={faqRef} />
       <Footer 

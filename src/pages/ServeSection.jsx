@@ -1,4 +1,4 @@
-import { Typography, Box, Container, useTheme, Grid } from '@mui/material';
+import { Typography, Box, Container, useTheme, Grid, Stack,Button } from '@mui/material';
 import React, { forwardRef } from 'react';
 import Order_food from '../assets/ServePage/Order_food.png';
 import scooty from '../assets/ServePage/scooty.png';
@@ -86,6 +86,34 @@ const ServeSection = forwardRef((props, ref) => {
             </Box>
           </Grid>
         </Grid>
+
+        <Stack  
+          direction="row" 
+          spacing={{ xs: 1.5, sm: 2, md: 3 }}
+          sx={{ 
+            justifyContent: 'center',
+            alignItems: 'center',
+            mt: '40px',
+            width: '100%'
+          }}
+        >
+          <Button
+            variant="contained"
+            sx={{ 
+              minWidth: { xs: '130px', sm: '140px', md: '130px' },
+              fontSize: { xs: '0.8rem', sm: '0.9rem', md: '0.9rem' },
+              padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+              fontWeight: 'bold',
+              borderRadius: '24px',
+              backgroundColor: theme.palette.primary.secondary,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.secondary,
+              }
+            }}
+          >
+            ORDER NOW
+          </Button>
+        </Stack>
       </Container>
     </Box>
   );

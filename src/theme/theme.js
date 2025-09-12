@@ -5,6 +5,9 @@ import '@fontsource/poppins'; // if you installed via npm
 const theme = createTheme({
   typography: {
     fontFamily: 'Poppins, sans-serif',
+    title:'45px',
+    heading:'32px',
+    paragraph:'16px',
   },
   palette: {
     mode: 'dark',
@@ -33,6 +36,8 @@ const theme = createTheme({
   fontFamily:{
     default:"Poppins, sans-serif"
   }
+
+  
 });
 
 export default theme;
