@@ -111,7 +111,7 @@ const ServeSection = forwardRef((props, ref) => {
               }
             }}
           >
-            ORDER NOW
+            Request Menu Pricing
           </Button>
         </Stack>
       </Container>

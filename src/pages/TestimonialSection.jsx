@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Box, Typography, Rating, useTheme } from '@mui/material';
+import { Box, Typography, Rating, useTheme, Button, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
@@ -444,6 +444,33 @@ export default function TestimonialSection() {
           {duplicatedTestimonials}
         </TestimonialWrapper>
       </Box>
+       <Stack  
+                   direction="row" 
+                   spacing={{ xs: 1.5, sm: 2, md: 3 }}
+                   sx={{ 
+                     justifyContent: 'center',
+                     alignItems: 'center',
+                     mt: '40px',
+                     width: '100%'
+                   }}
+                 >
+                   <Button
+                     variant="contained"
+                     sx={{ 
+                       minWidth: { xs: '130px', sm: '140px', md: '130px' },
+                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
+                       padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+                       fontWeight: 'bold',
+                       borderRadius: '24px',
+                       backgroundColor: theme.palette.primary.secondary,
+                       '&:hover': {
+                         backgroundColor: theme.palette.primary.secondary,
+                       }
+                     }}
+                   >
+                     ORDER NOW
+                   </Button>
+                 </Stack>
     </TestimonialContainer>
   )
 }

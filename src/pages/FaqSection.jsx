@@ -1,5 +1,5 @@
 import { useTheme } from '@emotion/react';
-import { Box, Stack, Typography, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { Box, Stack, Typography, Accordion, AccordionSummary, AccordionDetails, Button } from '@mui/material';
 import React, { forwardRef, useState } from 'react';
 import FaqImage from '../assets/Faq/faqImage.png';
 import CTAButton from '../components/common/CTAButton';
@@ -36,7 +36,7 @@ const FaqSection = forwardRef((props, ref) => {
             justifyContent: 'center',
             mb:'-20px'
         }}>
-            <Typography variant="h4" align="center" fontWeight="bold" sx={{fontSize:{ xs: '28px',sm:'30px', md: theme.font.title},mb: 3,mt:'-60px'}} color={theme.palette.primary.secondary}>
+            <Typography variant="h4" align="center" fontWeight="bold" sx={{fontSize:{ xs: '28px',sm:'30px', md: theme.font.title},mb: 3,mt:'20px'}} color={theme.palette.primary.secondary}>
                     FAQ 
                   </Typography>
             
@@ -156,7 +156,36 @@ const FaqSection = forwardRef((props, ref) => {
                             </AccordionDetails>
                         </Accordion>
                     ))}
+                     <Stack  
+                   direction="row" 
+                   spacing={{ xs: 1.5, sm: 2, md: 3 }}
+                   sx={{ 
+                     justifyContent: 'center',
+                     alignItems: 'center',
+                     mt: '40px',
+                     width: '100%',
+                     mr:'80px'
+                   }}
+                 >
+                   <Button
+                     variant="contained"
+                     sx={{ 
+                       minWidth: { xs: '130px', sm: '140px', md: '130px' },
+                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
+                       padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+                       fontWeight: 'bold',
+                       borderRadius: '24px',
+                       backgroundColor: theme.palette.primary.secondary,
+                       '&:hover': {
+                         backgroundColor: theme.palette.primary.secondary,
+                       }
+                     }}
+                   >
+                     Still Need Help?
+                   </Button>
+                 </Stack>
                 </Box>
+               
             </Box>
         </Box>
     );
