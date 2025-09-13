@@ -34,9 +34,9 @@ const FaqSection = forwardRef((props, ref) => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            mb:'-50px'
+            mb:'-20px'
         }}>
-            <Typography variant="h3" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'1.8rem', md: '2.29rem'},mb: 3,mt:'-60px'}} color={theme.palette.primary.secondary}>
+            <Typography variant="h4" align="center" fontWeight="bold" sx={{fontSize:{ xs: '28px',sm:'30px', md: theme.font.title},mb: 3,mt:'-60px'}} color={theme.palette.primary.secondary}>
                     FAQ 
                   </Typography>
             
@@ -147,7 +147,7 @@ const FaqSection = forwardRef((props, ref) => {
                                 bgcolor: 'black',
                             }}>
                                 <Typography color="white" sx={{ 
-                                    fontSize: { xs: '12px', sm: '13px', md: '14px', lg: '15px' },
+                                    fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph },
                                     lineHeight: '1.6',
                                     opacity: 0.8
                                 }}>

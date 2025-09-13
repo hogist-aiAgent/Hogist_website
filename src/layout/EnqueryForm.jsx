@@ -153,7 +153,7 @@ export default function EnquiryForm() {
             sx={{ 
               fontWeight: 'bold', 
               color: '#e53935',
-              fontSize: { xs: '1.6rem', sm: '1.8rem', md: '2rem' },
+              fontSize: { xs: '1.6rem', sm: '1.8rem', md:theme.font.heading },
               textAlign: 'center',
               width: '100%',
               fontFamily: theme.fontFamily.default,

@@ -80,9 +80,10 @@ const ClientSection = forwardRef((props, ref) => {
             transition={{ duration: 0.8 }}
             style={{ flex: 1, width: '100%' }}
           >
-            <Typography variant="h5" fontWeight="bold" sx={{ 
+            <Typography variant="h4" fontWeight="bold" sx={{ 
               color: theme.palette.primary.secondary, 
               textAlign: { xs: 'center', md: 'left' },
+              fontSize:{xs:'28px',md:theme.font.title},
               mb: 2
             }}>
               About Us :
@@ -91,7 +92,7 @@ const ClientSection = forwardRef((props, ref) => {
               color: 'black', 
               textAlign: { xs: 'center', md: 'left' },
               lineHeight: '26px',
-              fontSize: { xs: '14px', sm: '15px', md: '16px' }
+              fontSize: { xs: '14px', sm: '15px', md:theme.font.paragraph }
             }}>
               Hogist, a leading online bulk food order and delivery partner in Chennai and Coimbatore. Offering comprehensive special events catering, corporate and Industrial catering, house parties, and wedding services. We ensure fresh meals come from certified kitchens, and create menus to fit your needs. Whether you need 500 lunch boxes, meals for different shifts, or a grand buffet to feed 5,000 guests, Hogist has you covered.
             </Typography>
@@ -141,7 +142,7 @@ const ClientSection = forwardRef((props, ref) => {
                 </Typography>
                 <Typography variant="subtitle1" sx={{ 
                   mb: 1, 
-                  fontSize: { xs: '12px', sm: '14px', md: '16px' },
+                  fontSize: { xs: '14px', sm: '15px', md: theme.font.paragraph },
                   color: theme.palette.primary.secondary 
                 }}> 
                   {item.title}

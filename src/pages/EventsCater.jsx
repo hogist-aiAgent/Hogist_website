@@ -36,10 +36,10 @@ function EventsCater() {
   return (
     <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}>
       <Container maxWidth="lg">
-        <Typography variant="h3" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'1.8rem', md: '2.29rem'}}} color={theme.palette.primary.secondary}>
+        <Typography variant="h4" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'28px', md: theme.font.title}}} color={theme.palette.primary.secondary}>
           Events we Cater
         </Typography>
-        <Typography variant="h6" align="center" sx={{fontSize:{xs: '1.75rem', sm: '2rem', md: '2rem'}, mb: 4, maxWidth: 800, mx: 'auto' }} color={theme.palette.primary}>
+        <Typography variant="h3" align="center"  fontWeight="bold" sx={{fontSize:{xs: '1.5rem', sm: '28px', md: theme.font.title }, mb: 4, maxWidth: 800, mx: 'auto' }} color={theme.palette.primary}>
           Bulk Food Order Solutions for Every Occasion
         </Typography>
 
@@ -55,7 +55,7 @@ function EventsCater() {
             <Card key={index} sx={{
               width: { 
                 xs: '100%', 
-                sm: '45%', // Tablet: 2 cards per row (approx 45% width)
+                sm: '45%', // Tablet: 2 cards per row (approx 45% width)45PX-H132-HEADINGOTHERS-1REM
                 md: 280,   // Desktop: fixed width
                 lg: 280,   // Laptop: fixed width
                 xl: 280    // Large desktop: fixed width
@@ -118,11 +118,11 @@ function EventsCater() {
                 justifyContent: 'space-between'
               }}>
                 <Box>
-                  <Typography variant="h6" component="h2" gutterBottom color={theme.palette.primary.secondary}
-                    sx={{ fontSize: { xs: '1rem', sm: '1.1rem', md: '1.1rem', lg: '1.1rem', xl: '1.1rem' } }}>
+                  <Typography variant="body2"  gutterBottom color={theme.palette.primary.secondary}
+                    sx={{ fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph } }}>
                     {service.title}
                   </Typography>
-                  <Typography variant="body2" color="black" sx={{ mb: 2, fontSize: { xs: '0.8rem', sm: '0.9rem', md: '0.9rem', lg: '0.9rem', xl: '0.9rem' } }}>
+                  <Typography variant="body2" color="black" sx={{ mb: 2, fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph } }}>
                     {service.description}
                   </Typography>
                 </Box>
@@ -133,7 +133,7 @@ function EventsCater() {
                     sx={{
                       background: theme.palette.primary.secondary,
                       fontWeight: 'bold',
-                      fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.8rem', lg: '0.8rem', xl: '0.8rem' }
+                      fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  }
                     }}
                   >
                     Learn More
@@ -157,7 +157,7 @@ function EventsCater() {
                      variant="contained"
                      sx={{ 
                        minWidth: { xs: '130px', sm: '140px', md: '130px' },
-                       fontSize: { xs: '0.8rem', sm: '0.9rem', md: '0.9rem' },
+                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
                        padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
                        fontWeight: 'bold',
                        borderRadius: '24px',

@@ -67,7 +67,7 @@ const HeroSection = forwardRef((props, ref) => {
           variant="h1"
           fontWeight="900"
           sx={{ 
-            fontSize: { xs: '28px', sm: '36px', md: '48px', lg: '50px', xl: '52px' }, 
+            fontSize: { xs: '36px', md:theme.font.title }, 
             mt: { xs: 0, md: 0 }, 
             mb: { xs: 1.5, sm: 2, md: 2 },
             lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
@@ -81,7 +81,7 @@ const HeroSection = forwardRef((props, ref) => {
           variant="h6" 
           sx={{ 
             mb: { xs: 2, sm: 2.5, md: 3 },
-            fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '20px' },
+            fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph },
             lineHeight: { xs: 1.4, sm: 1.5 },
             textAlign:"center"
           }}
@@ -92,7 +92,7 @@ const HeroSection = forwardRef((props, ref) => {
         <Typography   
           sx={{ 
             mb: { xs: 1.5, sm: 2 },
-            fontSize: { xs: '14px', sm: '16px' },
+            fontSize: { xs: '14px', sm: '16px',md:theme.font.paragraph },
             textAlign:"center"
           }}
         >
@@ -112,7 +112,7 @@ const HeroSection = forwardRef((props, ref) => {
             variant="contained"
             sx={{ 
               width: { xs: '50%', sm: 'auto' },
-              fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem' },
+              fontSize: { xs: '0.7rem', sm: '0.9rem', md: theme.font.paragraph },
               padding: { xs: '6px 12px', sm: '8px 16px', md: '10px 20px' },
               fontWeight: 'bold',
               borderRadius:'20px',
@@ -129,7 +129,7 @@ const HeroSection = forwardRef((props, ref) => {
             variant="contained"
             sx={{ 
               width: { xs: '50%', sm: 'auto' },
-              fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem' },
+              fontSize: { xs: '0.7rem', sm: '0.9rem', md: theme.font.paragraph },
               padding: { xs: '6px 12px', sm: '8px 16px', md: '10px 20px' },
               fontWeight: 'bold',
               borderRadius:'20px',

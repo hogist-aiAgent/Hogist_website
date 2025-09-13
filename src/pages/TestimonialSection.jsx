@@ -120,7 +120,7 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: { xs: '1rem', sm: '1rem', md: '1rem' },
+            fontSize:theme.font.paragraph ,
             lineHeight: 1.7,
             color: '#333',
             position: 'relative',
@@ -157,7 +157,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: '1rem',
+            fontSize: theme.font.paragraph ,
             letterSpacing: '0.5px'
           }}
         >
@@ -177,7 +177,7 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: { xs: '1rem', sm: '1rem', md: '1rem' },
+            fontSize:theme.font.paragraph ,
             lineHeight: 1.7,
             color: '#333',
             position: 'relative',
@@ -208,7 +208,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: '1rem',
+            fontSize: theme.font.paragraph ,
             letterSpacing: '0.5px'
           }}
         >
@@ -228,7 +228,7 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: { xs: '1rem', sm: '1rem', md: '1rem' },
+            fontSize: theme.font.paragraph ,
             lineHeight: 1.7,
             color: '#333',
             position: 'relative',
@@ -259,7 +259,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: '1rem',
+            fontSize: theme.font.paragraph ,
             letterSpacing: '0.5px'
           }}
         >
@@ -279,7 +279,7 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: { xs: '1rem', sm: '1rem', md: '1rem' },
+            fontSize:theme.font.paragraph ,
             lineHeight: 1.7,
             color: '#333',
             position: 'relative',
@@ -309,7 +309,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: '1rem',
+            fontSize:theme.font.paragraph ,
             letterSpacing: '0.5px'
           }}
         >  
@@ -329,7 +329,7 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: { xs: '1rem', sm: '1rem', md: '1rem' },
+            fontSize:theme.font.paragraph ,
             lineHeight: 1.7,
             color: '#333',
             position: 'relative',
@@ -359,7 +359,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: '1rem',
+            fontSize: theme.font.paragraph ,
             letterSpacing: '0.5px'
           }}
         >
@@ -379,7 +379,7 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: { xs: '1rem', sm: '1rem', md: '1rem' },
+            fontSize: theme.font.paragraph  ,
             lineHeight: 1.7,
             color: '#333',
             position: 'relative',
@@ -409,7 +409,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: '1rem',
+            fontSize: theme.font.paragraph ,
             letterSpacing: '0.5px'
           }}
         >
@@ -429,7 +429,7 @@ export default function TestimonialSection() {
         align="center" 
         fontWeight="bold" 
         sx={{
-          fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem', lg: '2.8rem' },
+          fontSize: { xs: '28px', sm: '30px', md: theme.font.title },
           mb: 6,
           color: '#c60000',
           position: 'relative',

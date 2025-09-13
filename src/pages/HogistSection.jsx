@@ -48,7 +48,7 @@ function HogistSection() {
                 align="center" 
                 fontWeight="bold" 
                 sx={{
-                    fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem', lg: '2.8rem' },
+                    fontSize: { xs: '28px', sm: '30px', md: theme.font.title },
                     mb: 4,
                     color: theme.palette.primary.secondary
                 }}

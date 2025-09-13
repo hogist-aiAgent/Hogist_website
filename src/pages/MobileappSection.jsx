@@ -45,26 +45,24 @@ function MobileappSection() {
                     px: { xs: 2, sm: 3, md: 0 },
                     marginRight: { xs: 0, md: '40px' }
                 }}>
-                    <Typography variant="h2" fontWeight="bold" sx={{
+                    <Typography variant="h4" fontWeight="bold" sx={{
                         fontSize: { 
-                            xs: '1.5rem', 
-                            sm: '1.75rem', 
-                            md: '2.25rem',
-                            lg: '2.75rem',
-                            xl: '3rem'
+                            xs: '28px', 
+                            sm: '30px', 
+                            md: theme.font.title
                         },
                         mb: { xs: 2, md: 3 },
                         color: 'text.primary',
                         lineHeight: 1.2,
                         px: { xs: 1, sm: 0 }
                     }}>
-                      <Box component="span" sx={{ color: theme.palette.primary.secondary }}>Order Bulk Food Online</Box> — Track & Enjoy with the Hogist App!
+                      <Box component="span" sx={{ color: theme.palette.primary.secondary }}>Order Bulk Food Online</Box> - Track & Enjoy with the Hogist App!
                     </Typography>
                     <Typography variant="body1" sx={{
                         fontSize: { 
-                            xs: '0.9rem', 
-                            sm: '1rem', 
-                            md: '1.1rem' 
+                            xs: '14px', 
+                            sm: '16px', 
+                            md:theme.font.paragraph 
                         },
                         lineHeight: 1.6,
                         color: '#FFF',

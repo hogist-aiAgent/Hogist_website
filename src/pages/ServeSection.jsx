@@ -14,7 +14,7 @@ const ServeSection = forwardRef((props, ref) => {
           mb: { xs: 1, md: 2 }, 
           color: theme.palette.primary.secondary, 
           paddingTop: { xs: '15px', md: '30px' },
-          fontSize: { xs: '1.5rem',sm:'1.8rem', md: '2.125rem' },
+          fontSize: { xs: '1.5rem',sm:'28px', md:theme.font.title },
           marginBottom:'50px',
            
         }}>
@@ -24,7 +24,7 @@ const ServeSection = forwardRef((props, ref) => {
           textAlign: 'center', 
           mb: { xs: 2, md: 4 }, 
           color: 'black',
-          fontSize: { xs: '1.75rem', sm: '2.2rem', md: '2.6rem' } 
+          fontSize: { xs: '1.5rem', sm: '28px', md: theme.font.title } 
         }}>
           Your Trusted Bulk Food Order & Delivery Partner
         </Typography>

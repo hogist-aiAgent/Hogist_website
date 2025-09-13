@@ -63,7 +63,7 @@ const ClientCarousel = () => {
           textAlign: 'center', 
           mb: 6,
           marginTop:-2,
-          fontSize:{xs:'25px', sm:'30px', md:'35px', lg:'40px'}
+          fontSize:{xs:'25px', sm:'30px', md:theme.font.title}
         }}>
           Take a Look at our clients
         </Typography>
