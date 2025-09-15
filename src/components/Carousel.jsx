@@ -1,364 +1,520 @@
-import React, { useRef, useState, useEffect } from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  IconButton,
-  useMediaQuery,
-} from "@mui/material";
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import banner1 from '../assets/feature/open-food-containers.jpg';
-import banner2 from '../assets/feature/feature3.jpg';
-import banner3 from '../assets/feature/feature4.jpg';
-import banner4 from '../assets/feature/feature5.jpg';
-import banner5 from '../assets/feature/feature2.jpg';
-import theme from '../theme/theme';
+import React, { useRef, useState, useEffect } from 'react'
+import { Box, Typography, Rating, useTheme, Button, Stack, IconButton } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const cards = [
-  {
-    title: "Over 100 top caterers",
-    description: "Community of 100+ best Vendors all over the city for flawless Operations with flexibility, Consistency, and safe food.",
-    color: "#000",
-    image: banner1,
-  },
-  {
-    title: "No Menu Markups",
-    description: "Say Goodbye to Menu Markups and have a transparent dining experience. You'll always know that your satisfaction is our top priority.",
-    color: "#F87171",
-    image: banner2,
-  },
-  {
-    title: "Any Group size, or Budget",
-    description: "We're dedicated to understanding your desires, preferences, and budgetary constraints. Tailored Experiences, Every Time",
-    color: "#F87171",
-    image: banner3,
-  },
-  {
-    title: "Delivering on time",
-    description: "Professionally prepared and delivering food you can rely on for your meetings and events with real-time delivery vehicle tracking.",
-    color: "#F87171",
-    image: banner4,
-  },
-  {
-    title: "24/7 support from Experts",
-    description: "Expert support available around the clock for all your needs. We're here whenever you need us. Call us at +91 99626 67733.",
-    color: "#F87171",
-    image: banner5,
-  },
-  {
-    title: "More options",
-    description: "Food for hybrid offices, daily employee meals, and fluctuating headcounts. Including previous day cancellation and menu changes.",
-    color: "#F87171",
-    image: banner1,
-  },
-];
+const TestimonialContainer = styled(Box)({
+  padding: '60px 20px',
+  textAlign: 'center',
+  position: 'relative',
+});
 
-const LazyImage = ({ src, alt }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const imgRef = useRef();
+const TestimonialWrapper = styled(Box)({
+  display: 'flex',
+  width: 'max-content',
+  overflowX: 'auto',
+  scrollSnapType: 'x mandatory',
+  scrollbarWidth: 'none', // Hide scrollbar
+  msOverflowStyle: 'none',  // IE and Edge
+  '&::-webkit-scrollbar': {
+    display: 'none', // Safari and Chrome
+  }
+});
+
+const TestimonialCard = styled(Box)({
+  backgroundColor: '#fff',
+  borderRadius: '16px',
+  padding: '40px 35px 45px', // increased bottom padding for height
+  margin: '20px',
+  width: '520px', // reduced width for smaller card
+  flexShrink: 0,
+  position: 'relative',
+  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.02)',
+  border: '1px solid #eaeaea',
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  '&:hover': {
+    boxShadow: '1 15px 35px rgba(0,0,0,0.12)',
+  },
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '420px', // extended height
+  scrollSnapAlign: 'start',
+});
+
+const QuoteIconTop = styled(FormatQuoteIcon)({
+  position: 'absolute',
+  top: '-60px',
+  left: '15px',
+  fontSize: '9rem',
+  color: '#c600009a',
+  zIndex: 0,
+});
+
+const QuoteIconBottom = styled(FormatQuoteIcon)({
+  position: 'absolute',
+  bottom: '-60px',
+  right: '15px',
+  fontSize: '9rem',
+  color: '#c600009a',
+  zIndex: 0,
+  transform: 'rotate(180deg)',
+});
+
+const Signature = styled(Box)({
+  marginTop: 'auto',
+  paddingTop: '20px',
+  borderTop: '1px solid #C60000',
+  position: 'absolute',
+  bottom: '35px',
+  left: '35px',
+  right: '35px',
+});
+
+const DecorationCircle = styled(Box)({
+  position: 'absolute',
+  width: '150px',
+  height: '150px',
+  borderRadius: '50%',
+  background: 'linear-gradient(135deg, rgba(198,0,0,0.1) 0%, rgba(255,255,255,0) 70%)',
+  top: '-40px',
+  right: '-40px',
+});
+
+const DecorationCircleBottom = styled(Box)({
+  position: 'absolute',
+  width: '120px',
+  height: '120px',
+  borderRadius: '50%',
+  background: 'linear-gradient(315deg, rgba(198,0,0,0.08) 0%, rgba(255,255,255,0) 70%)',
+  bottom: '-30px',
+  left: '-30px',
+});
+
+const ContentWrapper = styled(Box)({
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  marginBottom: '80px',
+});
+
+export default function TestimonialSection() {
+  const theme = useTheme();
+  const wrapperRef = useRef(null);
+  const [cardWidth, setCardWidth] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isLoaded) {
-          const img = new Image();
-          img.src = src;
-          img.onload = () => {
-            setIsLoaded(true);
-          };
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => {
-      if (imgRef.current) {
-        observer.unobserve(imgRef.current);
+    // Calculate the actual width of a card including margins
+    const updateCardWidth = () => {
+      if (wrapperRef.current && wrapperRef.current.firstChild) {
+        const card = wrapperRef.current.firstChild;
+        const cardStyle = window.getComputedStyle(card);
+        const cardWidth = card.offsetWidth;
+        const marginLeft = parseFloat(cardStyle.marginLeft) || 0;
+        const marginRight = parseFloat(cardStyle.marginRight) || 0;
+        setCardWidth(cardWidth + marginLeft + marginRight);
       }
     };
-  }, [src, isLoaded]);
 
-  return (
-    <div ref={imgRef} style={{ width: '100%', height: '150px' }}>
-      {isLoaded ? (
-        <img
-          src={src}
-          alt={alt}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover'
-          }}
-        />
-      ) : (
-        <div style={{
-          width: '100%',
-          height: '100%',
-          backgroundColor: '#2E3336'
-        }} />
-      )}
-    </div>
-  );
-};
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    
+    return () => {
+      window.removeEventListener('resize', updateCardWidth);
+    };
+  }, []);
 
-const SaladCard = ({ title, description, image }) => (
-  <Card
-    sx={{
-      minWidth: 250,
-      height: 360,
-      backgroundColor: "#2E3336",
-      color: "#fff",
-      overflow: "hidden",
-      textAlign: "left",
-      display: "flex",
-      flexDirection: "column",
-      border: "1px solid #ccc",
-    }}
-  >
-    <LazyImage src={image} alt={title} />
-    <CardContent
-      sx={{
-        flexGrow: 1,
-        px: 2,
-        py: 1,
-        overflow: "hidden",
-      }}
-    >
-      <Typography variant="h6" fontWeight="bold" mb={1}>
-        {title}
-      </Typography>
-      <Typography lineHeight={1.6} sx={{
-        fontSize: "14px",
-        display: "-webkit-box",
-        WebkitLineClamp: 5,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden"
-      }}>
-        {description}
-      </Typography>
-    </CardContent>
-  </Card>
-);
-
-export default function Carousel() {
-  const scrollRef = useRef(null);
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -250 : 250,
-        behavior: "smooth",
-      });
+  const scrollLeft = () => {
+    if (wrapperRef.current && cardWidth > 0) {
+      wrapperRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
 
+  const scrollRight = () => {
+    if (wrapperRef.current && cardWidth > 0) {
+      wrapperRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }
+  };
+
+  const testimonials = [
+    <TestimonialCard key="1">
+      <QuoteIconTop />
+      <QuoteIconBottom />
+      <DecorationCircle />
+      <DecorationCircleBottom />
+      <ContentWrapper>
+        <Typography 
+          variant="body1" 
+          sx={{
+            fontSize: theme.font.paragraph,
+            lineHeight: 1.7,
+            color: '#000',
+            position: 'relative',
+            zIndex: 1,
+            marginTop:'30px'
+          }}
+        >
+          For the first time we came across someone from
+          online who were very professional from taking the 
+          food order, specifying the tariff and dispatching
+          the food delivery on time. Food was very tasty and
+          maintained good standards. Pricing was reasonably
+          good and best service. Thanks to Hogist team for
+          Organizing dinner menu for our Anniversary party for
+          50 members. I give 5 star ratings..
+        </Typography>
+      </ContentWrapper>
+      <Signature>
+        <Rating 
+          value={5} 
+          readOnly 
+          sx={{ 
+            mb: 1,
+            '& .MuiRating-icon': {
+              color: '#c60000',
+              fontSize: { xs: '1.8rem', sm: '2rem' }
+            }
+          }}
+        />
+        <Typography 
+          variant="body1" 
+          sx={{
+            color: '#c60000',
+            fontWeight: 'bold',
+            fontSize: theme.font.paragraph,
+            letterSpacing: '0.5px'
+          }}
+        >
+          Brinda Ghanesh
+        </Typography>
+      </Signature>
+    </TestimonialCard>,
+
+    <TestimonialCard key="2">
+      <QuoteIconTop />
+      <QuoteIconBottom />
+      <DecorationCircle />
+      <DecorationCircleBottom />
+      <ContentWrapper>
+        <Typography 
+          variant="body1" 
+          sx={{
+            fontSize: theme.font.paragraph,
+            lineHeight: 1.7,
+            color: '#000',
+            position: 'relative',
+            zIndex: 1,
+            marginTop:'30px'
+          }}
+        >
+          Food was excellent.... i will reach out to them even for the upcoming events. The foods were clean, tasty and also was on time with quality. Kudos to the Hogist team.speacial mention
+          Mrs. Renuka for the arrangements and Mr Alex and Satish for the timely delivery.
+        </Typography>
+      </ContentWrapper>
+      <Signature>
+        <Rating 
+          value={5} 
+          readOnly 
+          sx={{ 
+            mb: 1,
+            '& .MuiRating-icon': {
+              color: '#c60000',
+              fontSize: { xs: '1.8rem', sm: '2rem' }
+            }
+          }}
+        />
+        <Typography 
+          variant="body1" 
+          sx={{
+            color: '#c60000',
+            fontWeight: 'bold',
+            fontSize: theme.font.paragraph,
+            letterSpacing: '0.5px'
+          }}
+        >
+          yamunashankar krishnan
+        </Typography>
+      </Signature>
+    </TestimonialCard>,
+
+    <TestimonialCard key="3">
+      <QuoteIconTop />
+      <QuoteIconBottom />
+      <DecorationCircle />
+      <DecorationCircleBottom />
+      <ContentWrapper>
+        <Typography 
+          variant="body1" 
+          sx={{
+            fontSize: theme.font.paragraph,
+            lineHeight: 1.7,
+            color: '#000',
+            position: 'relative',
+            zIndex: 1,
+            marginTop:'30px'
+          }}
+        >
+          The food is excellent and service is also super taste and today bread halwa is very very tasty. All variety rice, raasam, kara Kulzambu and vegetables are good taste and serve in hot conditions. Butter milk is good really. Over all I love the food taste, presentation, service and conditions all excellent to the core.
+          Srinivasa Sampathkumar
+        </Typography>
+      </ContentWrapper>
+      <Signature>
+        <Rating 
+          value={5} 
+          readOnly 
+          sx={{ 
+            mb: 1,
+            '& .MuiRating-icon': {
+              color: '#c60000',
+              fontSize: { xs: '1.8rem', sm: '2rem' }
+            }
+          }}
+        />
+        <Typography 
+          variant="body1" 
+          sx={{
+            color: '#c60000',
+            fontWeight: 'bold',
+            fontSize: theme.font.paragraph,
+            letterSpacing: '0.5px'
+          }}
+        >
+          Srinivasa Sampathkumar
+        </Typography>
+      </Signature>
+    </TestimonialCard>,
+
+    <TestimonialCard key="4">
+      <QuoteIconTop />
+      <QuoteIconBottom />
+      <DecorationCircle />
+      <DecorationCircleBottom />
+      <ContentWrapper>
+        <Typography 
+          variant="body1" 
+          sx={{
+            fontSize: theme.font.paragraph,
+            lineHeight: 1.7,
+            color: '#000',
+            position: 'relative',
+            zIndex: 1,
+            marginTop:'30px'
+          }}
+        >
+          Recently we had a small bday party at home for just 20 people and we're struggling to get the catering done for the same. Then we came across Hogist and then got in touch with them. They were blessing in disguise. They provided amazing food and the service was also great. The delivered the food on time and all our guests loved the food. The food was delicious and yummy. Thank you so much.
+        </Typography>
+      </ContentWrapper>
+      <Signature>
+        <Rating 
+          value={5} 
+          readOnly 
+          sx={{ 
+            mb: 1,
+            '& .MuiRating-icon': {
+              color: '#c60000',
+              fontSize: { xs: '1.8rem', sm: '2rem' }
+            }
+          }}
+        />
+        <Typography 
+          variant="body1" 
+          sx={{
+            color: '#c60000',
+            fontWeight: 'bold',
+            fontSize: theme.font.paragraph,
+            letterSpacing: '0.5px'
+          }}
+        >  
+          swati menon
+        </Typography>
+      </Signature>
+    </TestimonialCard>,
+
+    <TestimonialCard key="5">
+      <QuoteIconTop />
+      <QuoteIconBottom />
+      <DecorationCircle />
+      <DecorationCircleBottom />
+      <ContentWrapper>
+        <Typography 
+          variant="body1" 
+          sx={{
+            fontSize: theme.font.paragraph,
+            lineHeight: 1.7,
+            color: '#000',
+            position: 'relative',
+            zIndex: 1,
+            marginTop:'30px'
+          }}
+        >
+          Hi I am JANOSE BERDEEN from chennai, Professional approach, decent pricing, excellent quality of food with commitment on the timings. Hassle-free Ordering experience. Hogist, the best small party catering services in chennai ever experienced.
+        </Typography>
+      </ContentWrapper>
+      <Signature>
+        <Rating 
+          value={5} 
+          readOnly 
+          sx={{ 
+            mb: 1,
+            '& .MuiRating-icon': {
+              color: '#c60000',
+              fontSize: { xs: '1.8rem', sm: '2rem' }
+            }
+          }}
+        />
+        <Typography 
+          variant="body1" 
+          sx={{
+            color: '#c60000',
+            fontWeight: 'bold',
+            fontSize: theme.font.paragraph,
+            letterSpacing: '0.5px'
+          }}
+        >
+          JANOSE BERDEEN I
+        </Typography>
+      </Signature>
+    </TestimonialCard>,
+
+    <TestimonialCard key="6">
+      <QuoteIconTop />
+      <QuoteIconBottom />
+      <DecorationCircle />
+      <DecorationCircleBottom />
+      <ContentWrapper>
+        <Typography 
+          variant="body1" 
+          sx={{
+            fontSize: theme.font.paragraph,
+            lineHeight: 1.7,
+            color: '#000',
+            position: 'relative',
+            zIndex: 1,
+            marginTop:'30px'
+          }}
+        >
+          When it comes to corporate catering in chennai. I would recommend 100% Hogist. Their service and industrial catering app would helps us getting good quality and food and save our time.
+        </Typography>
+      </ContentWrapper>
+      <Signature>
+        <Rating 
+          value={4} 
+          readOnly 
+          sx={{ 
+            mb: 1,
+            '& .MuiRating-icon': {
+              color: '#c60000',
+              fontSize: { xs: '1.8rem', sm: '2rem' }
+            }
+          }}
+        />
+        <Typography 
+          variant="body1" 
+          sx={{
+            color: '#c60000',
+            fontWeight: 'bold',
+            fontSize: theme.font.paragraph,
+            letterSpacing: '0.5px'
+          }}
+        >
+          Mr. Sanzeeth
+        </Typography>
+      </Signature>
+    </TestimonialCard>
+  ];
+
   return (
-    <Box
-      sx={{
-        position: "relative",
-        background: "white",
-        py: 2,
-        px: { xs: 0, md: 7 }, 
-        borderRadius: "20px",
-        overflow: "hidden",
-      }}
-    >
-      {isDesktop && (
-        <>
-          <Box
-            sx={{
-              position: "absolute",
-              left: "0px",
-              top: "71.3%",
-              transform: "translateY(-50%)",
-              width: 50,
-              height: 50,
-              borderTopLeftRadius: "20px",
-              background: "white",
-              zIndex: 100,
-            }}
-          ></Box>
-          <Box
-            sx={{
-              position: "absolute",
-              left: "0px",
-              top: "67%",
-              transform: "translateY(-50%)",
-              width: 20,
-              height: 20,
-              background: "black"
-            }}
-          ></Box>
-
-          <Box
-            sx={{
-              position: "absolute",
-              left: 0,
-              top: "50%",
-              transform: "translateY(-50%)",
-              width: 80,
-              height: 120,
-              bgcolor: "black",
-              borderTopRightRadius: 60,
-              borderBottomRightRadius: 60,
-              borderBottomLeftRadius: 0,
-              borderTopLeftRadius: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            
-              zIndex: 2,
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                left: "0px",
-                top: "-25px",
-                transform: "translateY(-50%)",
-                width: 50,
-                height: 50,
-                borderBottomLeftRadius: "20px",
-                background: "white",
-                zIndex: 100,
-              },
-
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                left: "0px",
-                top: "-10px",
-
-                transform: "translateY(-50%)",
-                width: 20,
-                height: 20,
-                background: "black",
-              },
-              
-            }}
-          >
-            <IconButton
-              onClick={() => scroll("left")}
-              sx={{
-                position: "absolute",
-                left: 0,
-                backgroundColor: "red",
-                boxShadow: 1,
-                width: 50,
-                height: 50
-              }}
-            >
-              <ArrowBackIos fontSize="small" />
-            </IconButton>
-          </Box>
-
-          <Box
-            sx={{
-              position: "absolute",
-              right: 0,
-              top: "50%",
-              transform: "translateY(-50%)",
-              width: 80,
-              height: 120,
-              bgcolor: "black",
-              borderTopLeftRadius: 60,
-              borderBottomLeftRadius: 60,
-              borderBottomRightRadius: 0,
-              borderTopRightRadius: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                right: "0px",
-                top: "-25px",
-                transform: "translateY(-50%)",
-                width: 50,
-                height: 50,
-                borderBottomRightRadius: "20px",
-                background: "white",
-                zIndex: 100,
-              },
-
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                right: "0px",
-                top: "-10px",
-
-                transform: "translateY(-50%)",
-                width: 20,
-                height: 20,
-                background: "black",
-              },
-              zIndex: 2,
-            }}
-          >
-            <IconButton
-              onClick={() => scroll("right")}
-              sx={{
-                backgroundColor: "red",
-                boxShadow: 1,
-                width: 50,
-                position: "absolute",
-                right: 0,
-                height: 50,
-              }}
-            >
-              <ArrowForwardIos fontSize="small" />
-            </IconButton>
-          </Box>
-
-          <Box
-            sx={{
-              position: "absolute",
-              right: "0px",
-              top: "71.3%",
-              transform: "translateY(-50%)",
-              width: 50,
-              height: 50,
-              borderTopRightRadius: "20px",
-              background: "white",
-              zIndex: 100,
-            }}
-          ></Box>
-          <Box
-            sx={{
-              position: "absolute",
-              right: "0px",
-              top: "67%",
-              transform: "translateY(-50%)",
-              width: 20,
-              height: 20,
-              background: "black",
-            }}
-          ></Box>
-        </>
-      )}
-
-      <Box
-        ref={scrollRef}
+    <TestimonialContainer>
+      <Typography 
+        variant="h3" 
+        align="center" 
+        fontWeight="bold" 
         sx={{
-          display: "flex",
-          gap: 2,
-          overflowX: "auto",
-          scrollBehavior: "smooth",
-          px: { xs: 2, md: 0 }, 
-          "&::-webkit-scrollbar": { display: "none" },
+          fontSize: { xs: '28px', sm: '30px', md: theme.font.title },
+          mb: 6,
+          color: '#c60000',
+          position: 'relative',
+          display: 'inline-block',
         }}
       >
-        {cards.map((item, index) => (
-          <SaladCard key={index} {...item} />
-        ))}
-      </Box>
-    </Box>
-  );
+        Testimonials
+      </Typography>
+
+      <IconButton
+        aria-label="scroll left"
+        onClick={scrollLeft}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: { xs: 8, sm: 16 },
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          backgroundColor: '#c60000',
+          color: '#fff',
+          '&:hover': { backgroundColor: '#a50000' },
+          display: { xs: 'none', sm: 'flex' }, // Hide on mobile, show on larger screens
+          borderRadius: '50%',
+          width: 40,
+          height: 40,
+        }}
+      >
+        <ArrowBackIosNewIcon />
+      </IconButton>
+
+      <IconButton
+        aria-label="scroll right"
+        onClick={scrollRight}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          right: { xs: 8, sm: 16 },
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          backgroundColor: '##c60000',
+          color: '#fff',
+          '&:hover': { backgroundColor: '#a50000' },
+          display: { xs: 'none', sm: 'flex' }, // Hide on mobile, show on larger screens
+          borderRadius: '50%',
+          width: 40,
+          height: 40,
+        }}
+      >
+        <ArrowForwardIosIcon />
+      </IconButton>
+
+      <TestimonialWrapper ref={wrapperRef}>
+        {testimonials}
+      </TestimonialWrapper>
+
+      <Stack   
+        direction="row" 
+        spacing={{ xs: 1.5, sm: 2, md: 3 }}
+        sx={{ 
+          justifyContent: 'center',
+          alignItems: 'center',
+          mt: '40px',
+          width: '100%'
+        }}
+      >
+        <Button
+          variant="contained"
+          sx={{ 
+            minWidth: { xs: '130px', sm: '140px', md: theme.font.paragraph },
+            fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph },
+            padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+            fontWeight: 'bold',
+            borderRadius: '24px',
+            backgroundColor: theme.palette.primary.secondary,
+            '&:hover': {
+              backgroundColor: theme.palette.primary.secondary,
+            }
+          }}
+        >
+          ORDER NOW
+        </Button>
+      </Stack>
+    </TestimonialContainer>
+  )
 }

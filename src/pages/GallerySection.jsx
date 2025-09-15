@@ -15,7 +15,7 @@ import gvdo1 from '../assets/gallery/video-1.mp4'
 import gvdo2 from '../assets/gallery/video-2.mp4'
 import gvdo3 from '../assets/gallery/video-3.mp4'
 
-function HogistSection() {
+function GallerySection() {
     const theme = useTheme();
     const videoRefs = useRef([]);
     
@@ -253,4 +253,4 @@ function HogistSection() {
     )
 }
 
-export default HogistSection
+export default GallerySection

@@ -8,7 +8,7 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import about_us from '../assets/gallery/about_us.png';
 
-const ClientSection = forwardRef((props, ref) => {
+const AboutUs = forwardRef((props, ref) => {
   const theme = useTheme();
   return (
     <Box ref={ref} sx={{ overflow: 'hidden' }}>
@@ -164,4 +164,4 @@ const ClientSection = forwardRef((props, ref) => {
   );
 });
 
-export default ClientSection;
+export default AboutUs;

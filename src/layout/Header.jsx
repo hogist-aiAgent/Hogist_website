@@ -173,7 +173,7 @@ export default function Header() {
                 whiteSpace: 'nowrap',
               }}
             >
-             Call to Query
+             +91 - 9962687733
             </Button>
           </Box>
         </>
@@ -301,7 +301,7 @@ export default function Header() {
                 },
               }}
             >
-              Call to Query
+              +91 - 9962687733
             </Button>
           </Box>
         </motion.div>

@@ -3,8 +3,8 @@ import { Box, Container, useTheme } from '@mui/system';
 import React from 'react';
 import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
 import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
-import MobileApp from '../assets/Mobileapp/MobileApp.png';
-import mobilepic from '../assets/Mobileapp/mobilepic.png'
+import mobilepic from '../assets/Mobileapp/mobilenew.png'
+
 function MobileappSection() {
     const theme = useTheme();
     return (
@@ -17,15 +17,21 @@ function MobileappSection() {
         }}>
             <Container sx={{
                 display: 'flex',
-                flexDirection: { xs: 'column-reverse', md: 'row' }, 
+                flexDirection: { xs: 'column', md: 'row' },
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 gap: { xs: 3, md: 4 }
             }}>
+                {/* Image Box - Now centered on mobile/tablet */}
                 <Box sx={{
                     width: { xs: '100%', sm: '80%', md: '45%', lg: '40%' },
                     maxWidth: '500px',
-                    px: { xs: 2, sm: 0 }
+                    px: { xs: 2, sm: 0 },
+                    marginLeft: { xs: 0, md: '50px' },
+                    order: { xs: 1, md: 1 },
+                    display: 'flex',
+                    justifyContent: { xs: 'center', md: 'flex-start' }, // Center on mobile/tablet
+                    alignItems: 'center'
                 }}>
                     <img 
                         src={mobilepic} 
@@ -33,17 +39,19 @@ function MobileappSection() {
                         style={{ 
                             width: '100%', 
                             height: '600px',
-                            maxWidth: '100%'
+                            maxWidth: '90%'
                         }} 
                     />
                 </Box> 
 
+                {/* Content Box */}
                 <Box sx={{
                     width: { xs: '100%', md: '50%' },
                     maxWidth: { xs: '100%', md: '600px' },
                     textAlign: { xs: 'center', md: 'center' },
                     px: { xs: 2, sm: 3, md: 0 },
-                    marginRight: { xs: 0, md: '40px' }
+                    marginRight: { xs: 0, md: '40px' },
+                    order: { xs: 2, md: 2 }
                 }}>
                     <Typography variant="h4" fontWeight="bold" sx={{
                         fontSize: { 

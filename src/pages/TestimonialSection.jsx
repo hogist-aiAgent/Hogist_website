@@ -1,49 +1,51 @@
-import React, { useEffect, useRef } from 'react'
-import { Box, Typography, Rating, useTheme, Button, Stack } from '@mui/material';
+import React, { useRef, useState, useEffect } from 'react'
+import { Box, Typography, Rating, useTheme, Button, Stack, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const TestimonialContainer = styled(Box)({
-  //backgroundColor: '#f8f9fa',
   padding: '60px 20px',
   textAlign: 'center',
   position: 'relative',
+});
+
+const ScrollContainer = styled(Box)({
   overflow: 'hidden',
+  position: 'relative',
+  width: '100%',
 });
 
 const TestimonialWrapper = styled(Box)({
   display: 'flex',
-  width: 'max-content',
-  animation: 'slide 60s linear infinite',
-  '@keyframes slide': {
-    '0%': {
-      transform: 'translateX(0)',
-    },
-    '100%': {
-      transform: 'translateX(-50%)',
-    }
-  },
-  
+  overflowX: 'auto',
+  scrollSnapType: 'x mandatory',
+  scrollbarWidth: 'none',
+  msOverflowStyle: 'none',
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  }
 });
 
 const TestimonialCard = styled(Box)({
   backgroundColor: '#fff',
   borderRadius: '16px',
-  padding: '40px 35px 35px',
+  padding: '40px 35px 45px',
   margin: '20px',
-  width: '700px',
+  width: '520px',
   flexShrink: 0,
   position: 'relative',
   boxShadow: '0 10px 30px rgba(0, 0, 0, 0.02)',
   border: '1px solid #eaeaea',
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   '&:hover': {
- 
-    boxShadow: '1 15px 35px rgba(0,0,0,0.12)',
+    boxShadow: '0 15px 35px rgba(0,0,0,0.12)',
   },
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '390px', // Fixed height for all cards
+  minHeight: '420px',
+  scrollSnapAlign: 'start',
 });
 
 const QuoteIconTop = styled(FormatQuoteIcon)({
@@ -66,7 +68,7 @@ const QuoteIconBottom = styled(FormatQuoteIcon)({
 });
 
 const Signature = styled(Box)({
-  marginTop: 'auto', // Push to bottom of card
+  marginTop: 'auto',
   paddingTop: '20px',
   borderTop: '1px solid #C60000',
   position: 'absolute',
@@ -100,29 +102,61 @@ const ContentWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  marginBottom: '80px', // Space for fixed signature section
+  marginBottom: '80px',
 });
 
 export default function TestimonialSection() {
   const theme = useTheme();
   const wrapperRef = useRef(null);
-  
-  // Duplicate testimonials for seamless looping
+  const [cardWidth, setCardWidth] = useState(0);
+
+  useEffect(() => {
+    const updateCardWidth = () => {
+      if (wrapperRef.current && wrapperRef.current.firstChild) {
+        const card = wrapperRef.current.firstChild;
+        const cardStyle = window.getComputedStyle(card);
+        const cardWidth = card.offsetWidth;
+        const marginLeft = parseFloat(cardStyle.marginLeft) || 0;
+        const marginRight = parseFloat(cardStyle.marginRight) || 0;
+        setCardWidth(cardWidth + marginLeft + marginRight);
+      }
+    };
+
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    
+    return () => {
+      window.removeEventListener('resize', updateCardWidth);
+    };
+  }, []);
+
+  const scrollLeft = () => {
+    console.log('test');
+    if (wrapperRef.current && cardWidth > 0) {
+      wrapperRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+        console.log('test1');
+    if (wrapperRef.current && cardWidth > 0) {
+      wrapperRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }
+  };
+
   const testimonials = [
-    // First testimonial
     <TestimonialCard key="1">
       <QuoteIconTop />
       <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
-      
       <ContentWrapper>
         <Typography 
           variant="body1" 
           sx={{
-            fontSize:theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             lineHeight: 1.7,
-            color: '#333',
+            color: '#000',
             position: 'relative',
             zIndex: 1,
             marginTop:'30px'
@@ -138,7 +172,6 @@ export default function TestimonialSection() {
           50 members. I give 5 star ratings..
         </Typography>
       </ContentWrapper>
-      
       <Signature>
         <Rating 
           value={5} 
@@ -151,13 +184,12 @@ export default function TestimonialSection() {
             }
           }}
         />
-        
         <Typography 
           variant="body1" 
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             letterSpacing: '0.5px'
           }}
         >
@@ -165,21 +197,19 @@ export default function TestimonialSection() {
         </Typography>
       </Signature>
     </TestimonialCard>,
-    
-    // Second testimonial
+
     <TestimonialCard key="2">
       <QuoteIconTop />
       <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
-      
       <ContentWrapper>
         <Typography 
           variant="body1" 
           sx={{
-            fontSize:theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             lineHeight: 1.7,
-            color: '#333',
+            color: '#000',
             position: 'relative',
             zIndex: 1,
             marginTop:'30px'
@@ -189,7 +219,6 @@ export default function TestimonialSection() {
           Mrs. Renuka for the arrangements and Mr Alex and Satish for the timely delivery.
         </Typography>
       </ContentWrapper>
-      
       <Signature>
         <Rating 
           value={5} 
@@ -202,13 +231,12 @@ export default function TestimonialSection() {
             }
           }}
         />
-        
         <Typography 
           variant="body1" 
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             letterSpacing: '0.5px'
           }}
         >
@@ -216,21 +244,19 @@ export default function TestimonialSection() {
         </Typography>
       </Signature>
     </TestimonialCard>,
-    
-    // Third testimonial
+
     <TestimonialCard key="3">
       <QuoteIconTop />
       <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
-      
       <ContentWrapper>
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             lineHeight: 1.7,
-            color: '#333',
+            color: '#000',
             position: 'relative',
             zIndex: 1,
             marginTop:'30px'
@@ -240,7 +266,6 @@ export default function TestimonialSection() {
           Srinivasa Sampathkumar
         </Typography>
       </ContentWrapper>
-      
       <Signature>
         <Rating 
           value={5} 
@@ -253,13 +278,12 @@ export default function TestimonialSection() {
             }
           }}
         />
-        
         <Typography 
           variant="body1" 
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             letterSpacing: '0.5px'
           }}
         >
@@ -267,21 +291,19 @@ export default function TestimonialSection() {
         </Typography>
       </Signature>
     </TestimonialCard>,
-    
-    // Fourth testimonial
+
     <TestimonialCard key="4">
       <QuoteIconTop />
       <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
-      
       <ContentWrapper>
         <Typography 
           variant="body1" 
           sx={{
-            fontSize:theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             lineHeight: 1.7,
-            color: '#333',
+            color: '#000',
             position: 'relative',
             zIndex: 1,
             marginTop:'30px'
@@ -290,7 +312,6 @@ export default function TestimonialSection() {
           Recently we had a small bday party at home for just 20 people and we're struggling to get the catering done for the same. Then we came across Hogist and then got in touch with them. They were blessing in disguise. They provided amazing food and the service was also great. The delivered the food on time and all our guests loved the food. The food was delicious and yummy. Thank you so much.
         </Typography>
       </ContentWrapper>
-      
       <Signature>
         <Rating 
           value={5} 
@@ -303,13 +324,12 @@ export default function TestimonialSection() {
             }
           }}
         />
-        
         <Typography 
           variant="body1" 
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize:theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             letterSpacing: '0.5px'
           }}
         >  
@@ -317,21 +337,19 @@ export default function TestimonialSection() {
         </Typography>
       </Signature>
     </TestimonialCard>,
-    
-    // Fifth testimonial
+
     <TestimonialCard key="5">
       <QuoteIconTop />
       <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
-      
       <ContentWrapper>
         <Typography 
           variant="body1" 
           sx={{
-            fontSize:theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             lineHeight: 1.7,
-            color: '#333',
+            color: '#000',
             position: 'relative',
             zIndex: 1,
             marginTop:'30px'
@@ -340,7 +358,6 @@ export default function TestimonialSection() {
           Hi I am JANOSE BERDEEN from chennai, Professional approach, decent pricing, excellent quality of food with commitment on the timings. Hassle-free Ordering experience. Hogist, the best small party catering services in chennai ever experienced.
         </Typography>
       </ContentWrapper>
-      
       <Signature>
         <Rating 
           value={5} 
@@ -353,13 +370,12 @@ export default function TestimonialSection() {
             }
           }}
         />
-        
         <Typography 
           variant="body1" 
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             letterSpacing: '0.5px'
           }}
         >
@@ -367,21 +383,19 @@ export default function TestimonialSection() {
         </Typography>
       </Signature>
     </TestimonialCard>,
-    
-    // Sixth testimonial
+
     <TestimonialCard key="6">
       <QuoteIconTop />
       <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
-      
       <ContentWrapper>
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph  ,
+            fontSize: theme.font.paragraph,
             lineHeight: 1.7,
-            color: '#333',
+            color: '#000',
             position: 'relative',
             zIndex: 1,
             marginTop:'30px'
@@ -390,7 +404,6 @@ export default function TestimonialSection() {
           When it comes to corporate catering in chennai. I would recommend 100% Hogist. Their service and industrial catering app would helps us getting good quality and food and save our time.
         </Typography>
       </ContentWrapper>
-      
       <Signature>
         <Rating 
           value={4} 
@@ -403,13 +416,12 @@ export default function TestimonialSection() {
             }
           }}
         />
-        
         <Typography 
           variant="body1" 
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph ,
+            fontSize: theme.font.paragraph,
             letterSpacing: '0.5px'
           }}
         >
@@ -418,10 +430,7 @@ export default function TestimonialSection() {
       </Signature>
     </TestimonialCard>
   ];
-  
-  // Duplicate the testimonials for seamless looping
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
-  
+
   return (
     <TestimonialContainer>
       <Typography 
@@ -438,39 +447,82 @@ export default function TestimonialSection() {
       >
         Testimonials
       </Typography>
-      
-      <Box sx={{ overflow: 'hidden' }}>
+
+      <IconButton
+        aria-label="scroll left"
+        onClick={scrollLeft}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: { xs: 8, sm: 16 },
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          backgroundColor: '#c60000',
+          color: '#fff',
+          '&:hover': { backgroundColor: '#a50000' },
+          display: { xs: 'none', sm: 'flex' },
+          borderRadius: '50%',
+          width: 40,
+          height: 40,
+        }}
+      >
+        <ArrowBackIosNewIcon />
+      </IconButton>
+
+      <IconButton
+        aria-label="scroll right"
+        onClick={scrollRight}
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          right: { xs: 8, sm: 16 },
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          backgroundColor: '#c60000',
+          color: '#fff',
+          '&:hover': { backgroundColor: '#a50000' },
+          display: { xs: 'none', sm: 'flex' },
+          borderRadius: '50%',
+          width: 40,
+          height: 40,
+        }}
+      >
+        <ArrowForwardIosIcon />
+      </IconButton>
+
+      <ScrollContainer>
         <TestimonialWrapper ref={wrapperRef}>
-          {duplicatedTestimonials}
+          {testimonials}
         </TestimonialWrapper>
-      </Box>
-       <Stack  
-                   direction="row" 
-                   spacing={{ xs: 1.5, sm: 2, md: 3 }}
-                   sx={{ 
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                     mt: '40px',
-                     width: '100%'
-                   }}
-                 >
-                   <Button
-                     variant="contained"
-                     sx={{ 
-                       minWidth: { xs: '130px', sm: '140px', md: '130px' },
-                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
-                       padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
-                       fontWeight: 'bold',
-                       borderRadius: '24px',
-                       backgroundColor: theme.palette.primary.secondary,
-                       '&:hover': {
-                         backgroundColor: theme.palette.primary.secondary,
-                       }
-                     }}
-                   >
-                     ORDER NOW
-                   </Button>
-                 </Stack>
+      </ScrollContainer>
+
+      <Stack   
+        direction="row" 
+        spacing={{ xs: 1.5, sm: 2, md: 3 }}
+        sx={{ 
+          justifyContent: 'center',
+          alignItems: 'center',
+          mt: '40px',
+          width: '100%'
+        }}
+      >
+        <Button
+          variant="contained"
+          sx={{ 
+            minWidth: { xs: '130px', sm: '140px', md: theme.font.paragraph },
+            fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph },
+            padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+            fontWeight: 'bold',
+            borderRadius: '24px',
+            backgroundColor: theme.palette.primary.secondary,
+            '&:hover': {
+              backgroundColor: theme.palette.primary.secondary,
+            }
+          }}
+        >
+          ORDER NOW
+        </Button>
+      </Stack>
     </TestimonialContainer>
   )
 }

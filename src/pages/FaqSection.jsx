@@ -18,7 +18,7 @@ const FaqSection = forwardRef((props, ref) => {
         { question: " Where can I order bulk food online in Chennai or Coimbatore?", answer: "You can place bulk food orders online directly through Hogist. We deliver to both Chennai and Coimbatore and have a variety of cuisines, custom menus and can handle delivery for parties, weddings, functions, corporate and industrial needs." },
         { question: "How do I book an online bulk food order with Hogist?", answer: "Go to www.hogist.com or download our app.1. Select your service type (corporate / industrial / party catering etc.).2. Select your menu, fill in the event details and place the order.3.We'll take care of everything else, including vendor coordination, quality checks and timely delivery." },
         { question: " Does Hogist handle corporate and industrial bulk food orders*?", answer: "Yes! Hogist offers a full range of corporate and industrial catering services. Hogist specializes in corporate catering, we supply event catering and meal plans for employees within their work environment. We also specialize in industrial catering for factories or large teams, so if you require ongoing food services on-site Hogist is your go-to." },
-        { question: "Can I customize my *bulk food order online?", answer: "Yes, absolutely! You can choose your preferred cuisines, dishes, and dietary options. We offer Veg, Non-Veg, Jain, Vegan, and even healthy meal choices to suit your event." },
+        { question: "Can I customize my bulk food order online?", answer: "Yes, absolutely! You can choose your preferred cuisines, dishes, and dietary options. We offer Veg, Non-Veg, Jain, Vegan, and even healthy meal choices to suit your event." },
        
     ];
    
@@ -57,23 +57,7 @@ const FaqSection = forwardRef((props, ref) => {
                     alignItems: 'center',
                     order: { xs: 2, md: 1 }
                 }}>
-                    <Box sx={{ 
-                        width: '100%',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                        <img 
-                            src={FaqImage}
-                            alt='FAQ'
-                            style={{ 
-                                height: 'auto',
-                                width: '100%',
-                                maxWidth: '300px',
-                                maxHeight: '300px'
-                            }} 
-                        />
-                    </Box>
+                   
                 </Box>
 
                 {/* Accordion Section - Centered with image */}
@@ -164,7 +148,8 @@ const FaqSection = forwardRef((props, ref) => {
                      alignItems: 'center',
                      mt: '40px',
                      width: '100%',
-                     mr:'80px'
+                     mr:{xs:'10px',md:'100px'},
+                     mb:3
                    }}
                  >
                    <Button

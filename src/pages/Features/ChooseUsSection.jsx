@@ -4,7 +4,7 @@ import AlarmOnIcon from '@mui/icons-material/AlarmOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import theme from '../../theme/theme';
+import chooseusPic from '../../assets/chooseus/Whychoosus.png'
 
 const featureImage = 'YOUR_IMAGE_PATH_OR_URL';
 
@@ -16,7 +16,7 @@ const features = [
   },
   {
     title: "On-Time Bulk Food Delivery",
-    Description: "Always fresh and hot, and delivered in time.",
+    Description: "Always fresh, hot, and delivered on time.",
     icon: <AlarmOnIcon sx={{ fontSize: 40, color: '#C60000' }} />
   },
   {
@@ -31,7 +31,7 @@ const features = [
   }
 ];
 
-export default function FeaturesSection() {
+export default function ChooseUsSection() {
   const theme = useTheme();
   return (
     <Box
@@ -57,7 +57,8 @@ export default function FeaturesSection() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: { xs: 'center', md: 'flex-start' },
-          mb: { xs: 8, md: 0 }
+          mb: { xs: 8, md: 0 },
+         
         }}
       >
         <Typography
@@ -77,7 +78,7 @@ export default function FeaturesSection() {
           sx={{
             color: '#C60000',
             mb: 4,
-            fontSize: { xs: '14px', sm: '16px', md: theme.font.heading },
+            fontSize: { xs: '24px', sm: '28px', md: theme.font.heading },
             maxWidth: 350,
             textAlign: { xs: 'center', md: 'left' },
             fontWeight:'bold',
@@ -88,14 +89,14 @@ export default function FeaturesSection() {
         </Typography>
         <Box
           component="img"
-          src={featureImage}
+          src={chooseusPic}
           alt="Why Choose Us"
           sx={{
-            borderRadius: 3,
-            width: { xs: 220, sm: 260, md: 300 },
-            height: { xs: 130, sm: 180, md: 200 },
+            //borderRadius: 3,
+            width: { xs: 220, sm: 260, md: 400 },
+            height: { xs: 130, sm: 180, md: 300 },
             objectFit: 'cover',
-            boxShadow: 3
+            //boxShadow: 3
           }}
         />
       </Box>
@@ -109,7 +110,8 @@ export default function FeaturesSection() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          
         }}
       >
         <Box
@@ -205,7 +207,7 @@ export default function FeaturesSection() {
                      alignItems: 'center',
                      mt: '40px',
                      width: '100%',
-                     mr:'80px'
+                     mr:{xs:'5px',md:'80px'}
                    }}
                  >
                    <Button

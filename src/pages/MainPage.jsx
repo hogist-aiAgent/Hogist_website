@@ -1,18 +1,18 @@
 import React, { useRef } from 'react';
 import HeroSection from './HeroSection';
-import ClientSection from './ClientSection';
 import { Box } from '@mui/material';
 import MonitoringSection from './MonitoringAndTracking';
 import ServeSection from './ServeSection';
 import MobileappSection from './MobileappSection';
 import FaqSection from './FaqSection';
-import HogistSection from './HogistSection';
 import VendorSection from './VendorSection';
 import Footer from '../layout/Footer';
-import FeaturesSection from './Features/FeaturesSection';
-import CateringSection from './Catering/CateringSection';
 import EventsCater from './EventsCater';
 import TestimonialSection from './TestimonialSection';
+import AboutUs from './AboutUs';
+
+import GallerySection from './GallerySection';
+import ChooseUsSection from './Features/ChooseUsSection';
 
 export default function MainPage() {
   const heroRef = useRef(null);
@@ -24,14 +24,14 @@ export default function MainPage() {
   return (
     <div>
       <HeroSection ref={heroRef} />
-      <ClientSection ref={clientRef} />
+      <AboutUs ref={clientRef} />
       <ServeSection ref={serveRef} />
       <EventsCater/>
     
-      <FeaturesSection /> 
+      <ChooseUsSection /> 
       <MobileappSection /> 
        <TestimonialSection/>
-     <HogistSection />
+     <GallerySection />
       <FaqSection ref={faqRef} />
       <Footer 
         refs={{
