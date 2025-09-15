@@ -63,7 +63,7 @@ const AboutUs = forwardRef((props, ref) => {
               >
                 <img 
                   src={about_us} 
-                  alt="About Hogist"
+                  alt="Corporate Catering in Chennai "
                   style={{ 
                     width: '100%', 
                     height: '100%', 

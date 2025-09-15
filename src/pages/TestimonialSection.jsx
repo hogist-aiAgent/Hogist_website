@@ -5,11 +5,16 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const TestimonialContainer = styled(Box)({
+const TestimonialContainer = styled(Box)(({ theme }) => ({
   padding: '60px 20px',
   textAlign: 'center',
   position: 'relative',
-});
+  maxWidth: '100vw',
+  overflow: 'hidden',
+  [theme.breakpoints.down('sm')]: {
+    padding: '40px 10px',
+  },
+}));
 
 const ScrollContainer = styled(Box)({
   overflow: 'hidden',
@@ -20,44 +25,52 @@ const ScrollContainer = styled(Box)({
 const TestimonialWrapper = styled(Box)({
   display: 'flex',
   overflowX: 'auto',
-  scrollSnapType: 'x mandatory',
-  scrollbarWidth: 'none',
-  msOverflowStyle: 'none',
+  overflowY: 'hidden',
+  scrollbarWidth: 'none', // For Firefox
+  msOverflowStyle: 'none', // For IE and Edge
   '&::-webkit-scrollbar': {
-    display: 'none',
+    display: 'none', // For Chrome, Safari, and Opera
+    background: 'transparent',
   }
 });
 
-const TestimonialCard = styled(Box)({
+const TestimonialCard = styled(Box)(({ theme }) => ({
   backgroundColor: '#fff',
   borderRadius: '16px',
   padding: '40px 35px 45px',
   margin: '20px',
-  width: '520px',
+  width: '450px', // Default width for larger screens
   flexShrink: 0,
   position: 'relative',
   boxShadow: '0 10px 30px rgba(0, 0, 0, 0.02)',
   border: '1px solid #eaeaea',
-  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-  '&:hover': {
-    boxShadow: '0 15px 35px rgba(0,0,0,0.12)',
-  },
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '420px',
-  scrollSnapAlign: 'start',
-});
+  minHeight: '400px',
+  // Responsive styles for mobile
+  [theme.breakpoints.down('sm')]: {
+    width: 'calc(100vw - 40px)', // More appropriate for mobile
+    padding: '25px 20px 30px',
+    minHeight: '420px',
+    margin: '10px 15px',
+  },
+}));
 
-const QuoteIconTop = styled(FormatQuoteIcon)({
+const QuoteIconTop = styled(FormatQuoteIcon)(({ theme }) => ({
   position: 'absolute',
   top: '-60px',
   left: '15px',
   fontSize: '9rem',
   color: '#c600009a',
   zIndex: 0,
-});
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '5rem',
+    top: '-40px',
+    left: '8px',
+  },
+}));
 
-const QuoteIconBottom = styled(FormatQuoteIcon)({
+const QuoteIconBottom = styled(FormatQuoteIcon)(({ theme }) => ({
   position: 'absolute',
   bottom: '-60px',
   right: '15px',
@@ -65,9 +78,14 @@ const QuoteIconBottom = styled(FormatQuoteIcon)({
   color: '#c600009a',
   zIndex: 0,
   transform: 'rotate(180deg)',
-});
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '5rem',
+    bottom: '-40px',
+    right: '8px',
+  },
+}));
 
-const Signature = styled(Box)({
+const Signature = styled(Box)(({ theme }) => ({
   marginTop: 'auto',
   paddingTop: '20px',
   borderTop: '1px solid #C60000',
@@ -75,9 +93,15 @@ const Signature = styled(Box)({
   bottom: '35px',
   left: '35px',
   right: '35px',
-});
+  [theme.breakpoints.down('sm')]: {
+    bottom: '25px',
+    left: '20px',
+    right: '20px',
+    paddingTop: '15px',
+  },
+}));
 
-const DecorationCircle = styled(Box)({
+const DecorationCircle = styled(Box)(({ theme }) => ({
   position: 'absolute',
   width: '150px',
   height: '150px',
@@ -85,9 +109,15 @@ const DecorationCircle = styled(Box)({
   background: 'linear-gradient(135deg, rgba(198,0,0,0.1) 0%, rgba(255,255,255,0) 70%)',
   top: '-40px',
   right: '-40px',
-});
+  [theme.breakpoints.down('sm')]: {
+    width: '80px',
+    height: '80px',
+    top: '-25px',
+    right: '-25px',
+  },
+}));
 
-const DecorationCircleBottom = styled(Box)({
+const DecorationCircleBottom = styled(Box)(({ theme }) => ({
   position: 'absolute',
   width: '120px',
   height: '120px',
@@ -95,15 +125,24 @@ const DecorationCircleBottom = styled(Box)({
   background: 'linear-gradient(315deg, rgba(198,0,0,0.08) 0%, rgba(255,255,255,0) 70%)',
   bottom: '-30px',
   left: '-30px',
-});
+  [theme.breakpoints.down('sm')]: {
+    width: '70px',
+    height: '70px',
+    bottom: '-20px',
+    left: '-20px',
+  },
+}));
 
-const ContentWrapper = styled(Box)({
+const ContentWrapper = styled(Box)(({ theme }) => ({
   flex: 1,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
   marginBottom: '80px',
-});
+  [theme.breakpoints.down('sm')]: {
+    marginBottom: '70px',
+  },
+}));
 
 export default function TestimonialSection() {
   const theme = useTheme();
@@ -131,14 +170,12 @@ export default function TestimonialSection() {
   }, []);
 
   const scrollLeft = () => {
-    console.log('test');
     if (wrapperRef.current && cardWidth > 0) {
       wrapperRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
-        console.log('test1');
     if (wrapperRef.current && cardWidth > 0) {
       wrapperRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
     }
@@ -154,12 +191,12 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph,
-            lineHeight: 1.7,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
+            lineHeight: 1.6,
             color: '#000',
             position: 'relative',
             zIndex: 1,
-            marginTop:'30px'
+            marginTop: '20px'
           }}
         >
           For the first time we came across someone from
@@ -180,7 +217,7 @@ export default function TestimonialSection() {
             mb: 1,
             '& .MuiRating-icon': {
               color: '#c60000',
-              fontSize: { xs: '1.8rem', sm: '2rem' }
+              fontSize: { xs: '1.5rem', sm: '2rem' }
             }
           }}
         />
@@ -189,7 +226,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
           }}
         >
@@ -207,12 +244,12 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph,
-            lineHeight: 1.7,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
+            lineHeight: 1.6,
             color: '#000',
             position: 'relative',
             zIndex: 1,
-            marginTop:'30px'
+            marginTop: '20px'
           }}
         >
           Food was excellent.... i will reach out to them even for the upcoming events. The foods were clean, tasty and also was on time with quality. Kudos to the Hogist team.speacial mention
@@ -227,7 +264,7 @@ export default function TestimonialSection() {
             mb: 1,
             '& .MuiRating-icon': {
               color: '#c60000',
-              fontSize: { xs: '1.8rem', sm: '2rem' }
+              fontSize: { xs: '1.5rem', sm: '2rem' }
             }
           }}
         />
@@ -236,7 +273,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
           }}
         >
@@ -254,12 +291,12 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph,
-            lineHeight: 1.7,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
+            lineHeight: 1.6,
             color: '#000',
             position: 'relative',
             zIndex: 1,
-            marginTop:'30px'
+            marginTop: '20px'
           }}
         >
           The food is excellent and service is also super taste and today bread halwa is very very tasty. All variety rice, raasam, kara Kulzambu and vegetables are good taste and serve in hot conditions. Butter milk is good really. Over all I love the food taste, presentation, service and conditions all excellent to the core.
@@ -274,7 +311,7 @@ export default function TestimonialSection() {
             mb: 1,
             '& .MuiRating-icon': {
               color: '#c60000',
-              fontSize: { xs: '1.8rem', sm: '2rem' }
+              fontSize: { xs: '1.5rem', sm: '2rem' }
             }
           }}
         />
@@ -283,7 +320,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
           }}
         >
@@ -301,12 +338,12 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph,
-            lineHeight: 1.7,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
+            lineHeight: 1.6,
             color: '#000',
             position: 'relative',
             zIndex: 1,
-            marginTop:'30px'
+            marginTop: '20px'
           }}
         >
           Recently we had a small bday party at home for just 20 people and we're struggling to get the catering done for the same. Then we came across Hogist and then got in touch with them. They were blessing in disguise. They provided amazing food and the service was also great. The delivered the food on time and all our guests loved the food. The food was delicious and yummy. Thank you so much.
@@ -320,7 +357,7 @@ export default function TestimonialSection() {
             mb: 1,
             '& .MuiRating-icon': {
               color: '#c60000',
-              fontSize: { xs: '1.8rem', sm: '2rem' }
+              fontSize: { xs: '1.5rem', sm: '2rem' }
             }
           }}
         />
@@ -329,7 +366,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
           }}
         >  
@@ -347,12 +384,12 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph,
-            lineHeight: 1.7,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
+            lineHeight: 1.6,
             color: '#000',
             position: 'relative',
             zIndex: 1,
-            marginTop:'30px'
+            marginTop: '20px'
           }}
         >
           Hi I am JANOSE BERDEEN from chennai, Professional approach, decent pricing, excellent quality of food with commitment on the timings. Hassle-free Ordering experience. Hogist, the best small party catering services in chennai ever experienced.
@@ -366,7 +403,7 @@ export default function TestimonialSection() {
             mb: 1,
             '& .MuiRating-icon': {
               color: '#c60000',
-              fontSize: { xs: '1.8rem', sm: '2rem' }
+              fontSize: { xs: '1.5rem', sm: '2rem' }
             }
           }}
         />
@@ -375,7 +412,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
           }}
         >
@@ -393,12 +430,12 @@ export default function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            fontSize: theme.font.paragraph,
-            lineHeight: 1.7,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
+            lineHeight: 1.6,
             color: '#000',
             position: 'relative',
             zIndex: 1,
-            marginTop:'30px'
+            marginTop: '20px'
           }}
         >
           When it comes to corporate catering in chennai. I would recommend 100% Hogist. Their service and industrial catering app would helps us getting good quality and food and save our time.
@@ -412,7 +449,7 @@ export default function TestimonialSection() {
             mb: 1,
             '& .MuiRating-icon': {
               color: '#c60000',
-              fontSize: { xs: '1.8rem', sm: '2rem' }
+              fontSize: { xs: '1.5rem', sm: '2rem' }
             }
           }}
         />
@@ -421,7 +458,7 @@ export default function TestimonialSection() {
           sx={{
             color: '#c60000',
             fontWeight: 'bold',
-            fontSize: theme.font.paragraph,
+            fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
           }}
         >
@@ -438,8 +475,8 @@ export default function TestimonialSection() {
         align="center" 
         fontWeight="bold" 
         sx={{
-          fontSize: { xs: '28px', sm: '30px', md: theme.font.title },
-          mb: 6,
+          fontSize: { xs: '24px', sm: '30px', md: theme.font.title },
+          mb: { xs: 4, sm: 6 },
           color: '#c60000',
           position: 'relative',
           display: 'inline-block',
@@ -454,7 +491,7 @@ export default function TestimonialSection() {
         sx={{
           position: 'absolute',
           top: '50%',
-          left: { xs: 8, sm: 16 },
+          left: { xs: 5, sm: 16 },
           transform: 'translateY(-50%)',
           zIndex: 10,
           backgroundColor: '#c60000',
@@ -475,7 +512,7 @@ export default function TestimonialSection() {
         sx={{
           position: 'absolute',
           top: '50%',
-          right: { xs: 8, sm: 16 },
+          right: { xs: 5, sm: 16 },
           transform: 'translateY(-50%)',
           zIndex: 10,
           backgroundColor: '#c60000',
@@ -502,16 +539,16 @@ export default function TestimonialSection() {
         sx={{ 
           justifyContent: 'center',
           alignItems: 'center',
-          mt: '40px',
+          mt: { xs: '30px', sm: '40px' },
           width: '100%'
         }}
       >
         <Button
           variant="contained"
           sx={{ 
-            minWidth: { xs: '130px', sm: '140px', md: theme.font.paragraph },
-            fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph },
-            padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+            minWidth: { xs: '120px', sm: '140px', md: theme.font.paragraph },
+            fontSize: { xs: '13px', sm: '16px', md: theme.font.paragraph },
+            padding: { xs: '7px 12px', sm: '9px 18px', md: '10px 20px' },
             fontWeight: 'bold',
             borderRadius: '24px',
             backgroundColor: theme.palette.primary.secondary,

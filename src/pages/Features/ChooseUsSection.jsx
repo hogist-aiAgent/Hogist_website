@@ -58,7 +58,8 @@ export default function ChooseUsSection() {
           flexDirection: 'column',
           alignItems: { xs: 'center', md: 'flex-start' },
           mb: { xs: 8, md: 0 },
-         
+        marginLeft:{sm:'16px', md:'45px'},
+        marginRight:{md:'75px',lg:'5px'}
         }}
       >
         <Typography
@@ -79,7 +80,7 @@ export default function ChooseUsSection() {
             color: '#C60000',
             mb: 4,
             fontSize: { xs: '24px', sm: '28px', md: theme.font.heading },
-            maxWidth: 350,
+            maxWidth: 700,
             textAlign: { xs: 'center', md: 'left' },
             fontWeight:'bold',
             lineHeight:'45px'
@@ -90,7 +91,7 @@ export default function ChooseUsSection() {
         <Box
           component="img"
           src={chooseusPic}
-          alt="Why Choose Us"
+          alt="Bulk Food Ordering"
           sx={{
             //borderRadius: 3,
             width: { xs: 220, sm: 260, md: 400 },

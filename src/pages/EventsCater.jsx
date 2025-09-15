@@ -12,22 +12,22 @@ function EventsCater() {
   const services = [
       {
       title: 'Corporate',
-      description: 'Corporate bulk food order solutions',
+      description: ' Find easy bulk and corporate catering solutions that will impress your team and clients.',
       image: corporate,
     },
     {
       title: 'Birthday',
-      description: 'Bulk food orders for birthday parties',
+      description: 'Make every birthday a memorable one with delicious bulk food and the timely delivery you deserve.',
       image: bday,
     },
     {
       title: 'Industrial',
-      description: 'Industrial bulk food delivery',
+      description: 'You can rely on timely bulk food delivery service for your industrial and workforce needs.',
       image: industry,
     },
     {
       title: 'Celebration',
-      description: 'Large-scale bulk food orders for celebrations',
+      description: 'Celebrate your moment with perfectly catered bulk food orders that bring joy and memories.',
       image: Celebration,
     },
   
@@ -61,7 +61,7 @@ function EventsCater() {
                 xl: 280    // Large desktop: fixed width
               },
               maxWidth: { xs: 300, sm: 'none', md: 280, lg: 280, xl: 280 },
-              height: { xs: 320, sm: 350, md: 350, lg: 350, xl: 350 },
+              // height: { xs: 320, sm: 350, md: 350, lg: 350, xl: 350 },
               display: 'flex',
               flexDirection: 'column',
               backgroundColor: 'white',
@@ -78,13 +78,14 @@ function EventsCater() {
                 display: 'flex', 
                 justifyContent: 'center', 
                 alignItems: 'center',
-                height: { 
-                  xs: 130, 
-                  sm: 150, 
-                  md: 150, // Regular desktop
-                  lg: 140, // Laptop (1024px): slightly smaller height
-                  xl: 150  // Large desktop (1440px+): back to original height
-                },
+                // height: { 
+                //   xs: 130, 
+                //   sm: 150, 
+                //   md: 140, // Regular desktop
+                //   lg: 140, // Laptop (1024px): slightly smaller height
+                //   xl: 150  // Large desktop (1440px+): back to original height
+                // },
+                // height:'900px',
                 width: { 
                   xs: '90%', 
                   sm: 270, 

@@ -51,8 +51,8 @@ const HeroSection = forwardRef((props, ref) => {
     >
       {/* Content Section */}
       <MotionBox
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, scale: 1.2 }} // Changed from x:40 to scale:1.2 for zoom in effect
+        animate={{ opacity: 1, scale: 1 }} // Changed from x:5 to scale:1 for zoom in effect
         transition={{ duration: 0.8 }}
         sx={{ 
           width: { xs: '100%', sm: '90%', md: '50%', lg: '45%' }, 
@@ -157,8 +157,8 @@ const HeroSection = forwardRef((props, ref) => {
         }}
       >
         <motion.div
-          initial={{ opacity: 0, x: { xs: 0, md: 100 } }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 1.2 }} // Changed from x:100 to scale:1.2 for zoom in effect
+          animate={{ opacity: 1, scale: 1 }} // Changed from x:0 to scale:1 for zoom in effect
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Box sx={{ 

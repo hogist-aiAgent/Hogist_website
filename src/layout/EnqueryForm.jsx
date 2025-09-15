@@ -159,7 +159,7 @@ export default function EnquiryForm() {
               fontFamily: theme.fontFamily.default,
             }}
           >
-            <Box component="span" sx={{ color: '#e53935' }}>HOGIST </Box>Enquiry
+            Instant Quotes
           </Typography>
         </Box>
 
