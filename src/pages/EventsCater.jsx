@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import bday from '../assets/EventCaterImage/bday.jpg';
 import corporate from '../assets/EventCaterImage/corporate.jpg';
 import industry from '../assets/EventCaterImage/industry.jpg';
-import Celebration from '../assets/EventCaterImage/Celebration.jpg';
+import Celebration from '../assets/EventCaterImage/celebration.jpg';
 
 function EventsCater() {
   const theme = useTheme();
