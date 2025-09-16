@@ -313,7 +313,7 @@ export default function EnquiryForm() {
             }}
             onClick={handleSubmit}
           >
-            Gey my Quote now
+            Get my Quote now
           </Button>
         </Box>
 

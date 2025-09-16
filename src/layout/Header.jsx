@@ -21,7 +21,7 @@ import { motion } from 'framer-motion';
 import LazyLoad from 'react-lazyload';
 import HeaderLogo from '../assets/HogistLogo2.png';
 
-const navItems = ['Home', 'Feature', 'Services', 'Menu Bank', 'Review', 'Blogs'];
+const navItems = ['Home', 'Features', 'Services', 'Menu Bank', 'Review', 'Blogs'];
 
 // Services dropdown items
 const servicesItems = [
