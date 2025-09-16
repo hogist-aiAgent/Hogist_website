@@ -148,7 +148,10 @@ export default function TestimonialSection() {
   const theme = useTheme();
   const wrapperRef = useRef(null);
   const [cardWidth, setCardWidth] = useState(0);
-
+   const openWhatsApp = () => {
+    const url = `https://wa.me/${'9962374733'}`;
+    window.open(url, '_blank');
+  };
   useEffect(() => {
     const updateCardWidth = () => {
       if (wrapperRef.current && wrapperRef.current.firstChild) {
@@ -184,7 +187,6 @@ export default function TestimonialSection() {
   const testimonials = [
     <TestimonialCard key="1">
       <QuoteIconTop />
-      <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
       <ContentWrapper>
@@ -237,7 +239,6 @@ export default function TestimonialSection() {
 
     <TestimonialCard key="2">
       <QuoteIconTop />
-      <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
       <ContentWrapper>
@@ -284,7 +285,6 @@ export default function TestimonialSection() {
 
     <TestimonialCard key="3">
       <QuoteIconTop />
-      <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
       <ContentWrapper>
@@ -331,7 +331,6 @@ export default function TestimonialSection() {
 
     <TestimonialCard key="4">
       <QuoteIconTop />
-      <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
       <ContentWrapper>
@@ -377,7 +376,6 @@ export default function TestimonialSection() {
 
     <TestimonialCard key="5">
       <QuoteIconTop />
-      <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
       <ContentWrapper>
@@ -423,7 +421,6 @@ export default function TestimonialSection() {
 
     <TestimonialCard key="6">
       <QuoteIconTop />
-      <QuoteIconBottom />
       <DecorationCircle />
       <DecorationCircleBottom />
       <ContentWrapper>
@@ -545,6 +542,7 @@ export default function TestimonialSection() {
       >
         <Button
           variant="contained"
+          onClick={openWhatsApp}
           sx={{ 
             minWidth: { xs: '120px', sm: '140px', md: theme.font.paragraph },
             fontSize: { xs: '13px', sm: '16px', md: theme.font.paragraph },

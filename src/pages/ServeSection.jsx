@@ -3,9 +3,17 @@ import React, { forwardRef } from 'react';
 import Order_food from '../assets/ServePage/Order_food.png';
 import scooty from '../assets/ServePage/scooty.png';
 import Waiters from '../assets/ServePage/Waiters.png';
-
+import HeroSection from './HeroSection';
 const ServeSection = forwardRef((props, ref) => {
   const theme = useTheme();
+
+   const handleRequestPricingClick = () => {
+    // Scroll to the hero section
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 },  fontFamily: theme.fontFamily.default, }}>
       <Container>
@@ -99,6 +107,7 @@ const ServeSection = forwardRef((props, ref) => {
         >
           <Button
             variant="contained"
+            onClick={handleRequestPricingClick}
             sx={{ 
               minWidth: { xs: '130px', sm: '140px', md: '130px' },
               fontSize: { xs: '0.8rem', sm: '0.9rem', md: '0.9rem' },

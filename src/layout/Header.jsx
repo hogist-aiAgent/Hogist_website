@@ -15,12 +15,22 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+//import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import LazyLoad from 'react-lazyload';
 import HeaderLogo from '../assets/HogistLogo2.png';
 
-const navItems = ['Home', 'Feature', 'Review', 'Menu Bank', 'Corporate', 'Industrials'];
+const navItems = ['Home', 'Feature', 'Services', 'Menu Bank', 'Review', 'Blogs'];
+
+// Services dropdown items
+const servicesItems = [
+  'Corporate Events',
+  'Industrial Catering',
+  'Institutional Catering',
+  'Family Events',
+  'Public Events'
+];
 
 export default function Header() {
   const theme = useTheme();
@@ -28,10 +38,20 @@ export default function Header() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [servicesAnchorEl, setServicesAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
+  const servicesMenuOpen = Boolean(servicesAnchorEl);
 
   const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
+
+  const handleServicesMenuOpen = (event) => setServicesAnchorEl(event.currentTarget);
+  const handleServicesMenuClose = () => setServicesAnchorEl(null);
+
+  const handleCallButtonClick = () => {
+    // Initiate phone call
+    window.location.href = 'tel:+919962374733';
+  };
 
   return (
     <Box
@@ -46,7 +66,9 @@ export default function Header() {
         justifyContent: 'space-between',
         backgroundColor: 'black',
         padding: { xs: '0.75rem 1rem', sm: '1rem 1.5rem', md: '1rem 2rem' },
-         fontFamily: theme.fontFamily.default,   
+        fontFamily: theme.fontFamily.default,
+        overflow: 'hidden', // Prevent horizontal overflow
+        boxSizing: 'border-box', // Ensure padding is included in width calculation
       }}
     >
       {/* MOBILE VIEW */}
@@ -110,47 +132,89 @@ export default function Header() {
               sx={{ 
                 width: { md: 150, lg: 170 }, 
                 height: 'auto', 
-                paddingRight: { md: '10px', lg: '15px' }
+                paddingRight: { md: '10px', lg: '15px' },
+                flexShrink: 0, // Prevent logo from shrinking
               }}
             />
           </LazyLoad>
 
           <Box sx={{ 
             display: 'flex', 
-            gap: { md: '0.8rem', lg: '1.2rem' }, 
+            gap: { md: '0.6rem', lg: '0.8rem' }, 
             alignItems: 'center',
-            flexWrap: 'wrap',
-            justifyContent: 'center'
+            flexWrap: 'nowrap', 
+            justifyContent: 'center',
+            flex: 1,
+            maxWidth: '600px', 
+            margin: '0 auto', 
+            overflow: 'hidden', 
+
           }}>
             {navItems.map((item) => (
-              <Typography
-                key={item}
-                variant="body1"
-                sx={{
-                  color: 'white',
-                  cursor: 'pointer',
-                  fontWeight: 500,
-                  padding: { md: '4px 8px', lg: '6px 12px' },
-                  fontSize: { md: '0.9rem', lg: '1rem' },
-                  '&:hover': {
-                    borderRadius: '5px',
-                    color: theme.palette.primary.secondary,
-                    backgroundColor: 'white',
-                    transform: 'scale(1.05)',
-                    transition: 'all 0.3s ease',
-                  },
-                }}
-              >
-                {item}
-              </Typography>
+              item === 'Services' ? (
+                <Box key={item} sx={{ position: 'relative', flexShrink: 0 }}>
+                  <Typography
+                    onClick={handleServicesMenuOpen}
+                    variant="body1"
+                    sx={{
+                      color: 'white',
+                      cursor: 'pointer',
+                      fontWeight: 500,
+                      padding: { md: '4px 6px', lg: '6px 8px' }, 
+                      fontSize: { md: '0.85rem', lg: '0.9rem' }, 
+                      display: 'flex',
+                      alignItems: 'center',
+                      whiteSpace: 'nowrap',
+                      '&:hover': {
+                        borderRadius: '5px',
+                        color: theme.palette.primary.secondary,
+                        backgroundColor: 'white',
+                        transform: 'scale(1.05)',
+                        transition: 'all 0.3s ease',
+                      },
+                    }}
+                  >
+                    {item}
+                    
+                  </Typography>
+                </Box>
+              ) : (
+                <Typography
+                  key={item}
+                  variant="body1"
+                  sx={{
+                    color: 'white',
+                    cursor: 'pointer',
+                    fontWeight: 500,
+                    padding: { md: '4px 6px', lg: '6px 8px' }, // Reduced padding
+                    fontSize: { md: '0.85rem', lg: '0.9rem' }, // Slightly smaller font
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                    '&:hover': {
+                      borderRadius: '5px',
+                      color: theme.palette.primary.secondary,
+                      backgroundColor: 'white',
+                      transform: 'scale(1.05)',
+                      transition: 'all 0.3s ease',
+                    },
+                  }}
+                >
+                  {item}
+                </Typography>
+              )
             ))}
           </Box>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 1,
+            flexShrink: 0, // Prevent shrinking
+          }}>
             <IconButton onClick={handleMenuOpen} sx={{ color: 'white' }}>
               <AccountCircleIcon
                 sx={{
-                  fontSize: { md: '1.8rem', lg: '2rem' },
+                  fontSize: { md: '1.6rem', lg: '1.8rem' }, // Slightly smaller
                   '&:hover': {
                     borderRadius: '5px',
                     color: theme.palette.primary.secondary,
@@ -163,23 +227,72 @@ export default function Header() {
 
             <Button
               variant="contained"
+              onClick={handleCallButtonClick}
               sx={{
                 color: 'white',
                 background: theme.palette.primary.secondary,
                 fontWeight: 'bold',
-                fontSize: { md: '12px', lg: '14px' },
+                fontSize: { md: '11px', lg: '12px' }, // Smaller font
                 borderRadius: '999px',
-                paddingX: { md: 2, lg: 3 },
+                paddingX: { md: 1.5, lg: 2 }, // Reduced padding
                 whiteSpace: 'nowrap',
+                minWidth: 'auto', // Allow button to shrink
               }}
             >
-             +91 - 9962687733
+             +91 - 9962374733
             </Button>
           </Box>
         </>
       )}
 
-      {/* Dropdown Menu */}
+      {/* Services Dropdown Menu */}
+      <Menu
+        anchorEl={servicesAnchorEl}
+        open={servicesMenuOpen}
+        onClose={handleServicesMenuClose}
+        PaperProps={{
+          sx: {
+            borderRadius: '16px',
+            backgroundColor: 'white',
+            boxShadow: '0px 8px 20px rgba(0,0,0,0.2)',
+            padding: 1,
+            marginTop: '26px',
+            maxHeight: '300px', // Limit height
+            overflow: 'hidden',
+            marginLeft:'-42px'
+          },
+        }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        {servicesItems.map((item) => (
+          <MenuItem
+            key={item}
+            onClick={handleServicesMenuClose}
+            sx={{
+              color: 'red',
+              fontWeight: 600,
+              fontSize: '13px', // Slightly smaller font
+              paddingY: 1.2,
+              paddingX: 1.5,
+              whiteSpace: 'nowrap',
+              '&:hover': {
+                backgroundColor: '#f2f2f2',
+              },
+            }}
+          >
+            {item}
+          </MenuItem>
+        ))}
+      </Menu>
+
+      {/* Account Dropdown Menu */}
       <Menu
         anchorEl={anchorEl}
         open={menuOpen}
@@ -189,8 +302,9 @@ export default function Header() {
             borderRadius: '16px',
             backgroundColor: 'white',
             boxShadow: '0px 8px 20px rgba(0,0,0,0.2)',
-            padding: 2,
-            marginTop: '20px'
+            padding: 1.5,
+            marginTop: '20px',
+            maxHeight: '300px', // Limit height
           },
         }}
         anchorOrigin={{
@@ -211,8 +325,9 @@ export default function Header() {
           sx={{
             color: 'red',
             fontWeight: 600,
-            fontSize: { xs: '13px', sm: '14px' },
-            paddingY: 1.5,
+            fontSize: { xs: '12px', sm: '13px' }, // Smaller font
+            paddingY: 1.2,
+            whiteSpace: 'nowrap',
             '&:hover': {
               backgroundColor: '#f2f2f2',
             },
@@ -229,8 +344,9 @@ export default function Header() {
           sx={{
             color: 'red',
             fontWeight: 600,
-            fontSize: { xs: '13px', sm: '14px' },
-            paddingY: 1.5,
+            fontSize: { xs: '12px', sm: '13px' }, // Smaller font
+            paddingY: 1.2,
+            whiteSpace: 'nowrap',
             '&:hover': {
               backgroundColor: '#f2f2f2',
             },
@@ -247,8 +363,9 @@ export default function Header() {
           sx={{
             color: 'red',
             fontWeight: 600,
-            fontSize: { xs: '13px', sm: '14px' },
-            paddingY: 1.5,
+            fontSize: { xs: '12px', sm: '13px' }, // Smaller font
+            paddingY: 1.2,
+            whiteSpace: 'nowrap',
             '&:hover': {
               backgroundColor: '#f2f2f2',
             },
@@ -288,7 +405,10 @@ export default function Header() {
             <Button
               fullWidth
               variant="contained"
-              onClick={() => setDrawerOpen(false)}
+              onClick={() => {
+                handleCallButtonClick();
+                setDrawerOpen(false);
+              }}
               sx={{
                 borderRadius: '20px',
                 fontWeight: 'bold',
@@ -301,7 +421,7 @@ export default function Header() {
                 },
               }}
             >
-              +91 - 9962687733
+              +91 -  9962374733
             </Button>
           </Box>
         </motion.div>

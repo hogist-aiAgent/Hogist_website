@@ -14,6 +14,11 @@ const FaqSection = forwardRef((props, ref) => {
         setSelectedIndex(selectedIndex === index ? null : index);
     };
 
+    const handleCallButtonClick = () => {
+        // Initiate phone call
+        window.location.href = 'tel:+919962374733';
+    };
+
     const faqs = [
         { question: " Where can I order bulk food online in Chennai or Coimbatore?", answer: "You can place bulk food orders online directly through Hogist. We deliver to both Chennai and Coimbatore and have a variety of cuisines, custom menus and can handle delivery for parties, weddings, functions, corporate and industrial needs." },
         { question: "How do I book an online bulk food order with Hogist?", answer: "Go to www.hogist.com or download our app.1. Select your service type (corporate / industrial / party catering etc.).2. Select your menu, fill in the event details and place the order.3.We'll take care of everything else, including vendor coordination, quality checks and timely delivery." },
@@ -154,6 +159,7 @@ const FaqSection = forwardRef((props, ref) => {
                  >
                    <Button
                      variant="contained"
+                     onClick={handleCallButtonClick} // Add this onClick handler
                      sx={{ 
                        minWidth: { xs: '130px', sm: '140px', md: '130px' },
                        fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },

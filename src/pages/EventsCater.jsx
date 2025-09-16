@@ -5,12 +5,33 @@ import bday from '../assets/EventCaterImage/bday.jpg';
 import corporate from '../assets/EventCaterImage/corporate.jpg';
 import industry from '../assets/EventCaterImage/industry.jpg';
 import Celebration from '../assets/EventCaterImage/celebration.jpg';
+import { useNavigate } from 'react-router-dom';
 
 function EventsCater() {
   const theme = useTheme();
+  const navigate = useNavigate();
+  
+  const serviceLinks = {
+    industrial: 'https://www.hogist.com/industrial-catering-services-near-me/',
+    corporate: 'https://www.hogist.com/corporate-catering-services-in-chennai/',
+    birthday: 'https://www.hogist.com/catering-services-in-chennai/',
+    celebration: 'https://www.hogist.com/catering-services-in-chennai/'
+  };
+  
+  const handleExploreMoreClick = (serviceType) => {
+    window.open(serviceLinks[serviceType.toLowerCase()], '_blank');
+  };
+
+  const handleRequestPricingClick = () => {
+    // Scroll to the hero section
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const services = [
-      {
+    {
       title: 'Corporate',
       description: ' Find easy bulk and corporate catering solutions that will impress your team and clients.',
       image: corporate,
@@ -30,7 +51,6 @@ function EventsCater() {
       description: 'Celebrate your moment with perfectly catered bulk food orders that bring joy and memories.',
       image: Celebration,
     },
-  
   ];
 
   return (
@@ -131,13 +151,14 @@ function EventsCater() {
                   <Button
                     variant="contained"
                     size="small"
+                    onClick={() => handleExploreMoreClick(service.title)}
                     sx={{
                       background: theme.palette.primary.secondary,
                       fontWeight: 'bold',
                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  }
                     }}
                   >
-                    Learn More
+                    Explore More
                   </Button>
                 </Box>
               </CardContent>
@@ -156,6 +177,7 @@ function EventsCater() {
                  >
                    <Button
                      variant="contained"
+                      onClick={handleRequestPricingClick}
                      sx={{ 
                        minWidth: { xs: '130px', sm: '140px', md: '130px' },
                        fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
@@ -168,7 +190,7 @@ function EventsCater() {
                        }
                      }}
                    >
-                     ORDER NOW
+                    Get pricing form
                    </Button>
                  </Stack>
       </Container>

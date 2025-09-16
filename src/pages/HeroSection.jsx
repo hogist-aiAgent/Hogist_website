@@ -2,6 +2,7 @@ import React, { useState, useEffect, forwardRef } from 'react';
 import { Box, Typography, Button, Stack, IconButton, Container, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Twitter, LinkedIn } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import HeroSectionImg from '../assets/HeroSectionImgslider2.png';
 import SlidImg2 from '../assets/HeroSectionImgslider3.png';
 import SlideImg from '../assets/HeroSectionImg4.png';
@@ -15,6 +16,7 @@ const images = [HeroSectionImg, SlideImg, SlidImg2];
 const HeroSection = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const theme = useTheme();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,6 +24,11 @@ const HeroSection = forwardRef((props, ref) => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  const openWhatsApp = () => {
+    const url = `https://wa.me/${'9962374733'}`;
+    window.open(url, '_blank');
+  };
 
   return (
     <Box 
@@ -51,8 +58,8 @@ const HeroSection = forwardRef((props, ref) => {
     >
       {/* Content Section */}
       <MotionBox
-        initial={{ opacity: 0, scale: 1.2 }} // Changed from x:40 to scale:1.2 for zoom in effect
-        animate={{ opacity: 1, scale: 1 }} // Changed from x:5 to scale:1 for zoom in effect
+        initial={{ opacity: 0, scale: 1.2 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
         sx={{ 
           width: { xs: '100%', sm: '90%', md: '50%', lg: '45%' }, 
@@ -109,6 +116,7 @@ const HeroSection = forwardRef((props, ref) => {
         >
           <Button
             variant="contained"
+            onClick={openWhatsApp}
             sx={{ 
               width: { xs: '50%', sm: 'auto' },
               fontSize: { xs: '0.7rem', sm: '0.9rem', md: theme.font.paragraph },
@@ -121,27 +129,11 @@ const HeroSection = forwardRef((props, ref) => {
               }
             }}
           >
-            GET A QUOTE
+            GET INSTANT QUOTE ON WHATSAPP
           </Button>
           
-          <Button
-            variant="contained"
-            sx={{ 
-              width: { xs: '50%', sm: 'auto' },
-              fontSize: { xs: '0.7rem', sm: '0.9rem', md: theme.font.paragraph },
-              padding: { xs: '6px 12px', sm: '8px 16px', md: '10px 20px' },
-              fontWeight: 'bold',
-              borderRadius:'20px',
-              backgroundColor: theme.palette.primary.secondary,
-              '&:hover': {
-                backgroundColor: theme.palette.primary.secondary,
-              }
-            }}
-          >
-            ORDER NOW
-          </Button>
         </Stack>
-      </MotionBox>
+      </MotionBox> 
 
       {/* Enquiry Form Section */}
       <Box 
@@ -157,8 +149,8 @@ const HeroSection = forwardRef((props, ref) => {
         }}
       >
         <motion.div
-          initial={{ opacity: 0, scale: 1.2 }} // Changed from x:100 to scale:1.2 for zoom in effect
-          animate={{ opacity: 1, scale: 1 }} // Changed from x:0 to scale:1 for zoom in effect
+          initial={{ opacity: 0, scale: 1.2 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Box sx={{ 

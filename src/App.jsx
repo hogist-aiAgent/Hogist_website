@@ -11,6 +11,7 @@ function App() {
       <MainRoutes />
     </ThemeProvider>
   );
+
 }
 
 export default App;

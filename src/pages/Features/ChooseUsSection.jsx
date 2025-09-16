@@ -33,6 +33,10 @@ const features = [
 
 export default function ChooseUsSection() {
   const theme = useTheme();
+   const openWhatsApp = () => {
+    const url = `https://wa.me/${'9962374733'}`;
+    window.open(url, '_blank');
+  };
   return (
     <Box
       sx={{
@@ -213,6 +217,7 @@ export default function ChooseUsSection() {
                  >
                    <Button
                      variant="contained"
+                     onClick={openWhatsApp}
                      sx={{ 
                        minWidth: { xs: '130px', sm: '140px', md: '130px' },
                        fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
