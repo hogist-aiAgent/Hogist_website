@@ -373,12 +373,12 @@ function Footer({ refs }) {
                             <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize:'17px', color: '#c60800' }}>Contact us</Typography>
                             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                                 <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                                    <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '1.5rem', flexShrink: 0, color:'#c60800'}} />
-                                    <Typography sx={{ fontSize: '15px', lineHeight: 1.4 }}>
+                                    <LocationOnIcon sx={{ mr: 1, mt: '2px', fontSize: '1.4rem', flexShrink: 0, color:'#c60800'}} />
+                                    <Typography sx={{ fontSize: '13px', lineHeight: 1.45 }}>
                                         HOGIST TECHNOLOGIES PVT LTD.<br />
                                         2nd Floor, Kakani Towers,<br /> 
-                                        No34 Khader Nawaz Khan Road<br />
-                                        Nungambakkam, Chennai 600 006
+                                        No.34 Khader Nawaz Khan Road
+                                        Nungambakkam,<br /> Chennai-600006.
                                     </Typography>
                                 </Box>
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
