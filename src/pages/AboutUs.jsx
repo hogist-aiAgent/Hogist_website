@@ -26,6 +26,7 @@ const AboutUs = forwardRef((props, ref) => {
           justifyContent="space-between"
           gap={{ xs: 3, md: 4 }}
           sx={{ overflow: 'hidden' }}
+          component="section"
         >
           <Box
             sx={{
@@ -63,7 +64,7 @@ const AboutUs = forwardRef((props, ref) => {
               >
                 <img 
                   src={about_us} 
-                  alt="Corporate Catering in Chennai "
+                 alt="Corporate catering service in Chennai by Hogist"
                   style={{ 
                     width: '100%', 
                     height: '100%', 

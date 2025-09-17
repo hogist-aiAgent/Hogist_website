@@ -74,7 +74,7 @@ function Footer({ refs }) {
                 paddingLeft: '10px',
                 paddingRight: '10px',
                 //paddingTop:'50px'
-            }}>
+            }} component="footer">
                 <Container maxWidth="lg" sx={{ paddingLeft: '10px', paddingRight: '10px' }}>
                     {/* Mobile View (xs) */}
                     <Box sx={{ 

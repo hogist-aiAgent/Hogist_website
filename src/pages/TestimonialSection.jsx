@@ -466,9 +466,9 @@ export default function TestimonialSection() {
   ];
 
   return (
-    <TestimonialContainer  id="testimonial-section">
+    <TestimonialContainer  id="testimonial-section" component="section">
       <Typography 
-        variant="h3" 
+        variant="h2" 
         align="center" 
         fontWeight="bold" 
         sx={{

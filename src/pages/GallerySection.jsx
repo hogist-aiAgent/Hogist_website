@@ -1,19 +1,12 @@
 import { Button, Typography } from '@mui/material'
 import { Box, Container, Stack, useTheme } from '@mui/system'
 import React, { useRef } from 'react'
-import Chef from '../assets/front/chef.jpg';
-import homemade from '../assets/front/homemade.jpg';
-import rest from '../assets/front/rest.jpg';
-import n from '../assets/resized/n.jpg';
 import gimg1 from '../assets/gallery/4img.jpg'
 import gimg2 from '../assets/gallery/5img.jpg'
 import gimg3 from '../assets/gallery/6img.jpg'
 import gimg4 from '../assets/gallery/1img.jpg'
 import gimg5 from '../assets/gallery/2img.jpg'
 import gimg6 from '../assets/gallery/3img.jpg'
-import gvdo1 from '../assets/gallery/video-1.mp4'
-import gvdo2 from '../assets/gallery/video-2.mp4'
-import gvdo3 from '../assets/gallery/video-3.mp4'
 
 function GallerySection() {
     const theme = useTheme();
@@ -42,7 +35,8 @@ function GallerySection() {
             bgcolor: 'black',
             px: { xs: 2, sm: 3, md: 4 },
             marginBottom: '-10px'
-        }}>
+        }}
+        component="section">
             <Typography 
                 variant="h2" 
                 align="center" 
@@ -86,7 +80,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg1} 
-                        alt="Gallery item 1" 
+                       alt="Hogist catering service for corporate events in Chennai"  
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -111,7 +105,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg2} 
-                        alt="Gallery item 2" 
+                       alt="Hogist catering service for corporate events in Chennai" 
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -136,7 +130,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg3} 
-                        alt="Gallery item 3" 
+                        alt="Hogist catering service for corporate events in Chennai"  
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -161,7 +155,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg4} 
-                        alt="Gallery item 4" 
+                       alt="Hogist catering service for corporate events in Chennai" 
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -186,7 +180,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg5} 
-                        alt="Gallery item 5" 
+                        alt="Hogist catering service for corporate events in Chennai"  
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -211,7 +205,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg6} 
-                        alt="Gallery item 6" 
+                        alt="Hogist catering service for corporate events in Chennai" 
                         style={{ 
                             width: '100%', 
                             height: '100%', 

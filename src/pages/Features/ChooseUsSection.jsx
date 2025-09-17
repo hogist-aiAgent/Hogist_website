@@ -52,6 +52,7 @@ export default function ChooseUsSection() {
         maxWidth: 1450,
         margin: '0 auto'
       }}
+       component="section"
     >
       {/* Left Side */}
       <Box
@@ -96,7 +97,7 @@ export default function ChooseUsSection() {
         <Box
           component="img"
           src={chooseusPic}
-          alt="Bulk Food Ordering"
+          alt="Hogist bulk food ordering services in Chennai"
           sx={{
             //borderRadius: 3,
             width: { xs: 220, sm: 260, md: 400 },

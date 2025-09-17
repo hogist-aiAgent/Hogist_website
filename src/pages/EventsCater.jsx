@@ -54,7 +54,7 @@ function EventsCater() {
   ];
 
   return (
-    <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}>
+    <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}  component="section">
       <Container maxWidth="lg">
         <Typography variant="h2" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'28px', md: theme.font.title}}} color={theme.palette.primary.secondary}>
           Events we Cater
@@ -125,7 +125,7 @@ function EventsCater() {
                     objectFit: 'cover',
                   }}
                   image={service.image}
-                  alt={service.title}
+                 alt={`${service.title} catering service in Chennai`}
                 />
               </Box>
               

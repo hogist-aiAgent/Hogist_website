@@ -15,7 +15,7 @@ const ServeSection = forwardRef((props, ref) => {
     }
   };
   return (
-    <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 },  fontFamily: theme.fontFamily.default, }}>
+    <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 },  fontFamily: theme.fontFamily.default, }}component="section">
       <Container>
         <Typography variant="h2" fontWeight="bold" sx={{ 
           textAlign: 'center', 
@@ -44,7 +44,7 @@ const ServeSection = forwardRef((props, ref) => {
         }}>
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={Order_food} alt="Easy To Order" sx={{ 
+              <Box component="img" src={Order_food} alt="Bulk meal boxes for events and corporate teams" sx={{ 
                 height: { xs: 120, md: 200 },
                 mb: { xs: 2, md: 4 },
                 objectFit: 'contain'
