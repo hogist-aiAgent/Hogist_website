@@ -39,11 +39,17 @@ const FaqSection = forwardRef((props, ref) => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            mb:'-20px'
+            mb:{md:'-50px',lg:'-200px'}
         }}>
-            <Typography variant="h2" align="center" fontWeight="bold" sx={{fontSize:{ xs: '28px',sm:'30px', md: theme.font.title},mb: 3,mt:'20px'}} color={theme.palette.primary.secondary}>
-                    FAQ 
-                  </Typography>
+            <Typography variant="h2" align="center" fontWeight="bold"
+             sx={{fontSize:{ xs: '28px',sm:'30px', 
+             md: theme.font.title},
+             mb: { xs: "-5px",sm:'auto', md:"26px", lg:"15px" }, // Changed mb for mobile
+             mt: { xs: '5px',sm:'auto', md: '-10px',lg:"-200px" } // Changed mt for mobile
+             }} 
+             color={theme.palette.primary.secondary}>
+                FAQ 
+            </Typography>
             
             <Box sx={{ 
                 display: 'flex',
@@ -67,13 +73,14 @@ const FaqSection = forwardRef((props, ref) => {
 
                 {/* Accordion Section - Centered with image */}
                 <Box sx={{
-                    width: { xs: '100%', md: '60%', lg: '65%' },
+                    width: { xs: '100%', md: '65%', lg: '65%' },
                     maxWidth: { xs: '100%', md: '700px' },
                     order: { xs: 2, md: 2 },
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    marginRight:{md:'100px'}
                 }}>
                     {faqs.map((faq, index) => (
                         <Accordion 

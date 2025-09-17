@@ -58,11 +58,11 @@ export default function Header() {
     switch (item) {
       case 'Home':
         // Scroll to HeroSection
-        document.getElementById('heroSection')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('hero-section')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'Why Us':
         // Scroll to ChooseUsSection
-        document.getElementById('chooseUsSection')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('chooseUs-section')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'Menu Bank':
         // Open external link
@@ -70,7 +70,7 @@ export default function Header() {
         break;
       case 'Review':
         // Scroll to TestimonialSection
-        document.getElementById('testimonialSection')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('testimonial-section')?.scrollIntoView({ behavior: 'smooth' });
         break;
       default:
         break;

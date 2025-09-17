@@ -17,8 +17,8 @@ const WhatsAppButton = ({ phoneNumber }) => {
       onClick={openWhatsApp}
       sx={{
         position: 'fixed',
-        bottom: 70,
-        right: 16,
+        bottom: 30,
+        left: 16,
         zIndex: 1000,
         boxShadow: 6,
       }}

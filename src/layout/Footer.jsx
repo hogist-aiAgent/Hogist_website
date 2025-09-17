@@ -427,7 +427,7 @@ function Footer({ refs }) {
                     onClick={scrollToTop}
                     sx={{
                         position: 'fixed',
-                        bottom: 16,
+                        bottom: 30,
                         right: 22,
                         backgroundColor: '#c60800',
                         color: 'white',

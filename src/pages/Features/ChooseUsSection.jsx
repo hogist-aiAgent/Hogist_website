@@ -39,6 +39,7 @@ export default function ChooseUsSection() {
   };
   return (
     <Box
+    id="chooseUs-section"
       sx={{
         py: { xs: 6, md: 10 },
         px: { xs: 2, md: 8 },
