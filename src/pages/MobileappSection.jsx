@@ -7,6 +7,15 @@ import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
 import mobilepic from '../assets/Mobileapp/mobilenew.png'
 function MobileappSection() {
     const theme = useTheme();
+     const openGooglePlay = () => {
+    const url = `https://play.google.com/store/apps/details?id=io.ionic.hogistcustomer&pcampaignid=web_share'}`;
+    window.open(url, '_blank');
+  };
+
+  const openAppPlay = () => {
+    const url = `https://apps.apple.com/in/app/hogist/id6744101849'}`;
+    window.open(url, '_blank');
+  };
     return (
         <Box sx={{
             minHeight: '100vh',
@@ -84,7 +93,9 @@ function MobileappSection() {
                         marginLeft: { xs: 0, md: '110px' },
                         marginRight: { xs: 0, md: '60px' }
                     }}>
-                        <Box sx={{
+                        <Box 
+                        onClick={openAppPlay}
+                        sx={{
                             width: { xs: '140px', sm: '160px', md: '150px', lg: '160px' },
                             height: 'auto',
                         }}>
@@ -98,10 +109,13 @@ function MobileappSection() {
                                 }} 
                             />
                         </Box>
-                        <Box sx={{
+                        <Box  
+                        onClick={openGooglePlay}
+                        sx={{
                             width: { xs: '140px', sm: '160px', md: '150px', lg: '160px' },
                             height: 'auto'
                         }}>
+                            
                             <img 
                                 src={GooglePlayButton} 
                                 alt="GET IT ON Google Play" 

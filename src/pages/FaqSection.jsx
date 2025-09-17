@@ -32,20 +32,20 @@ const FaqSection = forwardRef((props, ref) => {
 
         <Box ref={ref} sx={{ 
             bgcolor: 'white', 
-            minHeight: { xs: 'auto', md: '100vh' },
+            height: 'auto', // Changed from minHeight to height
             py: { xs: 3, md: 4 }, 
             px: { xs: 2, sm: 3, md: '40px', lg: '60px' },
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            mb:{md:'-50px',lg:'-200px'}
+            mb: {xs: 0, md: 0} // Removed negative margins
         }}>
             <Typography variant="h2" align="center" fontWeight="bold"
              sx={{fontSize:{ xs: '28px',sm:'30px', 
              md: theme.font.title},
-             mb: { xs: "-5px",sm:'auto', md:"26px", lg:"15px" }, // Changed mb for mobile
-             mt: { xs: '5px',sm:'auto', md: '-10px',lg:"-200px" } // Changed mt for mobile
+             mb: { xs: 2, md: 3 }, // Normalized margins
+             mt: { xs: 1, md: 2 } // Normalized margins
              }} 
              color={theme.palette.primary.secondary}>
                 FAQ 
