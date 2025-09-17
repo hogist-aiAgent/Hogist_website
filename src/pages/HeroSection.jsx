@@ -55,7 +55,8 @@ const HeroSection = forwardRef((props, ref) => {
         },
         fontFamily: theme.fontFamily.default,
       }}
-      
+       itemScope
+      itemType="https://schema.org/FoodService"
     >
       {/* Content Section */}
       <MotionBox
