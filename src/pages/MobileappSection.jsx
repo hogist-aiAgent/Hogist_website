@@ -46,7 +46,7 @@ function MobileappSection() {
                     px: { xs: 2, sm: 3, md: 0 },
                     marginRight: { xs: 0, md: '40px' }
                 }}>
-                    <Typography variant="h4" fontWeight="bold" sx={{
+                    <Typography variant="h2" fontWeight="bold" sx={{
                         fontSize: { 
                             xs: '28px', 
                             sm: '30px', 

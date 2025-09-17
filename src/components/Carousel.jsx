@@ -428,7 +428,7 @@ export default function TestimonialSection() {
   return (
     <TestimonialContainer>
       <Typography 
-        variant="h3" 
+        variant="h2" 
         align="center" 
         fontWeight="bold" 
         sx={{

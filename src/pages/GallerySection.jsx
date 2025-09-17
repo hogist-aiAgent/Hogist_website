@@ -44,7 +44,7 @@ function GallerySection() {
             marginBottom: '-10px'
         }}>
             <Typography 
-                variant="h3" 
+                variant="h2" 
                 align="center" 
                 fontWeight="bold" 
                 sx={{

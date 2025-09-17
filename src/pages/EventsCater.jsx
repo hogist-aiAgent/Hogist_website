@@ -56,7 +56,7 @@ function EventsCater() {
   return (
     <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}>
       <Container maxWidth="lg">
-        <Typography variant="h4" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'28px', md: theme.font.title}}} color={theme.palette.primary.secondary}>
+        <Typography variant="h2" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'28px', md: theme.font.title}}} color={theme.palette.primary.secondary}>
           Events we Cater
         </Typography>
         <Typography variant="h3" align="center"  fontWeight="bold" sx={{fontSize:{xs: '1.5rem', sm: '28px', md: theme.font.title }, mb: 4, maxWidth: 800, mx: 'auto' }} color={theme.palette.primary}>
@@ -177,7 +177,7 @@ function EventsCater() {
                  >
                    <Button
                      variant="contained"
-                      onClick={handleRequestPricingClick}
+                     onClick={handleRequestPricingClick}
                      sx={{ 
                        minWidth: { xs: '130px', sm: '140px', md: '130px' },
                        fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },

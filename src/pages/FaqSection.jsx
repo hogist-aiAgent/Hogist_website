@@ -41,7 +41,7 @@ const FaqSection = forwardRef((props, ref) => {
             justifyContent: 'center',
             mb:'-20px'
         }}>
-            <Typography variant="h4" align="center" fontWeight="bold" sx={{fontSize:{ xs: '28px',sm:'30px', md: theme.font.title},mb: 3,mt:'20px'}} color={theme.palette.primary.secondary}>
+            <Typography variant="h2" align="center" fontWeight="bold" sx={{fontSize:{ xs: '28px',sm:'30px', md: theme.font.title},mb: 3,mt:'20px'}} color={theme.palette.primary.secondary}>
                     FAQ 
                   </Typography>
             

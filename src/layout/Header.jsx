@@ -21,7 +21,7 @@ import { motion } from 'framer-motion';
 import LazyLoad from 'react-lazyload';
 import HeaderLogo from '../assets/HogistLogo2.png';
 
-const navItems = ['Home', 'Features', 'Services', 'Menu Bank', 'Review', 'Blogs'];
+const navItems = ['Home', 'Why Us', 'Services', 'Menu Bank', 'Review', 'Blogs'];
 
 // Services dropdown items
 const servicesItems = [
@@ -51,6 +51,31 @@ export default function Header() {
   const handleCallButtonClick = () => {
     // Initiate phone call
     window.location.href = 'tel:+919962374733';
+  };
+
+  // Navigation handler
+  const handleNavigation = (item) => {
+    switch (item) {
+      case 'Home':
+        // Scroll to HeroSection
+        document.getElementById('heroSection')?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'Why Us':
+        // Scroll to ChooseUsSection
+        document.getElementById('chooseUsSection')?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'Menu Bank':
+        // Open external link
+        window.open('https://www.hogist.com/hogist-menu-bank/', '_blank');
+        break;
+      case 'Review':
+        // Scroll to TestimonialSection
+        document.getElementById('testimonialSection')?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      default:
+        break;
+    }
+    setDrawerOpen(false); // Close drawer on mobile after navigation
   };
 
   return (
@@ -182,6 +207,7 @@ export default function Header() {
                 <Typography
                   key={item}
                   variant="body1"
+                  onClick={() => handleNavigation(item)}
                   sx={{
                     color: 'white',
                     cursor: 'pointer',
@@ -386,7 +412,12 @@ export default function Header() {
           <Box sx={{ width: { xs: 250, sm: 260 }, padding: 2 }}>
             <List>
               {navItems.map((item) => (
-                <ListItem button key={item} sx={{ paddingY: 1 }}>
+                <ListItem 
+                  button 
+                  key={item} 
+                  sx={{ paddingY: 1 }}
+                  onClick={() => handleNavigation(item)}
+                >
                   <ListItemText
                     primary={item}
                     sx={{

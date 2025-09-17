@@ -67,7 +67,7 @@ export default function ChooseUsSection() {
         }}
       >
         <Typography
-          variant="h3"
+          variant="h2"
           sx={{
             fontWeight: 700,
             fontSize: { xs: '28px', sm: '30px', md:theme.font.title},

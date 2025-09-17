@@ -80,7 +80,7 @@ const AboutUs = forwardRef((props, ref) => {
             transition={{ duration: 0.8 }}
             style={{ flex: 1, width: '100%' }}
           >
-            <Typography variant="h4" fontWeight="bold" sx={{ 
+            <Typography variant="h2" fontWeight="bold" sx={{ 
               color: theme.palette.primary.secondary, 
               textAlign: { xs: 'center', md: 'left' },
               fontSize:{xs:'28px',md:theme.font.title},

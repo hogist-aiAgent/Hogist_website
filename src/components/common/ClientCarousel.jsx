@@ -58,7 +58,7 @@ const ClientCarousel = () => {
     <Box sx={{ py: 6, background: '#000', position: 'relative', overflow: 'hidden' }}>
     
       <Box sx={{ position: 'relative', zIndex: 2 }}>
-        <Typography variant="h4" fontWeight="bold" sx={{ 
+        <Typography variant="h2" fontWeight="bold" sx={{ 
           color: theme.palette.primary.secondary,
           textAlign: 'center', 
           mb: 6,

@@ -17,7 +17,7 @@ const ServeSection = forwardRef((props, ref) => {
   return (
     <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 },  fontFamily: theme.fontFamily.default, }}>
       <Container>
-        <Typography variant="h4" fontWeight="bold" sx={{ 
+        <Typography variant="h2" fontWeight="bold" sx={{ 
           textAlign: 'center', 
           mb: { xs: 1, md: 2 }, 
           color: theme.palette.primary.secondary, 
@@ -120,7 +120,7 @@ const ServeSection = forwardRef((props, ref) => {
               }
             }}
           >
-            Request Menu Pricing
+            Order now
           </Button>
         </Stack>
       </Container>
