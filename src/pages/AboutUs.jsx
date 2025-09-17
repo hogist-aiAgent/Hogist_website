@@ -11,7 +11,7 @@ import about_us from '../assets/gallery/about_us.png';
 const AboutUs = forwardRef((props, ref) => {
   const theme = useTheme();
   return (
-    <Box ref={ref} sx={{ overflow: 'hidden' }} itemScope itemType="https://schema.org/AboutPage">
+    <Box ref={ref} sx={{ overflow: 'hidden' }} >
       <Container maxWidth={false} sx={{ 
         px: { xs: 2, sm: 3, md: 4, lg: 6 }, 
         pt: { xs: 3, md: 5 },
