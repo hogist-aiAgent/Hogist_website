@@ -4,7 +4,7 @@ import AlarmOnIcon from '@mui/icons-material/AlarmOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import chooseusPic from '../../assets/chooseus/Whychoosus.png'
+import chooseusPic from '../../assets/chooseus/Whychoosus.webp'
 
 const featureImage = 'YOUR_IMAGE_PATH_OR_URL';
 

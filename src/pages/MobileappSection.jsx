@@ -3,8 +3,8 @@ import { Box, Container, useTheme } from '@mui/system';
 import React from 'react';
 import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
 import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
-//import MobileApp from '../assets/Mobileapp/MobileApp.png';
-import mobilepic from '../assets/Mobileapp/mobilenew.png'
+//import MobileApp from '../assets/Mobileapp/';
+import mobilepic from '../assets/Mobileapp/mobilenew.webp'
 function MobileappSection() {
     const theme = useTheme();
      const openGooglePlay = () => {

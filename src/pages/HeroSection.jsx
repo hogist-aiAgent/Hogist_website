@@ -8,7 +8,7 @@ import SlidImg2 from '../assets/HeroSectionImgslider3.png';
 import SlideImg from '../assets/HeroSectionImg4.png';
 import CTAButton from '../components/common/CTAButton';
 import EnquiryForm from '../layout/EnqueryForm';
-import headerImage from '../assets/mobile-banner/headerImage.png'
+import headerImage from '../assets/mobile-banner/Header.webp'
 const MotionBox = motion(Box);
 
 const images = [HeroSectionImg, SlideImg, SlidImg2];

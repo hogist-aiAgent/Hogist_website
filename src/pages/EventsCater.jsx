@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Card, CardContent, CardMedia, Typography, Button, Container,Stack } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import bday from '../assets/EventCaterImage/bday.jpg';
-import corporate from '../assets/EventCaterImage/corporate.jpg';
-import industry from '../assets/EventCaterImage/industry.jpg';
-import Celebration from '../assets/EventCaterImage/celebration.jpg';
+import bday from '../assets/EventCaterImage/bday.webp';
+import corporate from '../assets/EventCaterImage/corporate.webp';
+import industry from '../assets/EventCaterImage/industry.webp';
+import Celebration from '../assets/EventCaterImage/celebration.webp';
 import { useNavigate } from 'react-router-dom';
 
 function EventsCater() {
