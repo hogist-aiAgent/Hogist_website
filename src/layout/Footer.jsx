@@ -91,21 +91,7 @@ function Footer({ refs }) {
                 paddingRight: '10px',
                 //paddingTop:'50px'
             }} component="footer">
-                <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Hogist",
-              "url": "https://www.hogist.com/",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://www.hogist.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            }
-          `}
-        </script>
+               
                 <Container maxWidth="lg" sx={{ paddingLeft: '10px', paddingRight: '10px' }}>
                     {/* Mobile View (xs) */}
                     <Box sx={{ 

@@ -28,36 +28,6 @@ const AboutUs = forwardRef((props, ref) => {
           sx={{ overflow: 'hidden' }}
           component="section"
         >
-           <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Hogist",
-              "description": "Online Bulk Food Order & Delivery Platform",
-              "url": "https://www.hogist.com",
-              "logo": "https://www.hogist.com/assets/HogistLogo2.png",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "2nd Floor, Kakani Towers, No34 Khader Nawaz Khan Road",
-                "addressLocality": "Nungambakkam, Chennai",
-                "postalCode": "600006",
-                "addressCountry": "IN"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-9962374733",
-                "contactType": "customer service"
-              },
-              "sameAs": [
-                "https://www.facebook.com/hogist",
-                "https://www.instagram.com/hogist",
-                "https://www.twitter.com/hogist",
-                "https://www.linkedin.com/company/hogist"
-              ]
-            }
-          `}
-        </script>
           <Box
             sx={{
               flex: 1,

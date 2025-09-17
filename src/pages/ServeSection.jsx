@@ -17,34 +17,6 @@ const ServeSection = forwardRef((props, ref) => {
   return (
     <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 },  fontFamily: theme.fontFamily.default, }}component="section" 
     >
-      <script type="application/ld+json">
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "itemListElement": [
-              {
-                "@type": "Service",
-                "position": 1,
-                "name": "Meal Box",
-                "description": "Customizable bulk meal boxes for events and teams."
-              },
-              {
-                "@type": "Service",
-                "position": 2,
-                "name": "Delivery Box",
-                "description": "Party-ready bulk food delivery boxes for gatherings."
-              },
-              {
-                "@type": "Service",
-                "position": 3,
-                "name": "Catering",
-                "description": "Large-scale bulk food orders for weddings & celebrations."
-              }
-            ]
-          }
-        `}
-      </script>
       <Container>
         <Typography variant="h2" fontWeight="bold" sx={{ 
           textAlign: 'center', 
