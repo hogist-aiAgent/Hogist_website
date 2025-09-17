@@ -64,6 +64,22 @@ function Footer({ refs }) {
         }
     };
 
+    const openFacebook = () => {
+    const url = `https://www.facebook.com/hogisttechnologies/`;
+    window.open(url, '_blank');
+    }
+      const openInstagram = () => {
+    const url = `https://www.instagram.com/hogistindia/ `;
+    window.open(url, '_blank');
+    }
+      const openTwitter = () => {
+    const url = `https://twitter.com/Hogistindia`;
+    window.open(url, '_blank');
+    }
+      const openLinkedin = () => {
+    const url = `https://www.linkedin.com/company/hogist/`;
+    window.open(url, '_blank');
+    }
     return (
         <>
             <Box sx={{
@@ -75,6 +91,21 @@ function Footer({ refs }) {
                 paddingRight: '10px',
                 //paddingTop:'50px'
             }} component="footer">
+                <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Hogist",
+              "url": "https://www.hogist.com/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.hogist.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            }
+          `}
+        </script>
                 <Container maxWidth="lg" sx={{ paddingLeft: '10px', paddingRight: '10px' }}>
                     {/* Mobile View (xs) */}
                     <Box sx={{ 
@@ -181,11 +212,11 @@ function Footer({ refs }) {
                             </Box>
                         </Box>
                          <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '14px',color: '#c60800' }}>Follow Us</Typography>
-                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                                <FacebookIcon sx={{ fontSize: '1.3rem'}} />
-                                <InstagramIcon sx={{ fontSize:'1.3rem' }} />
-                                <TwitterIcon sx={{ fontSize: '1.3rem' }} />
-                                <LinkedInIcon sx={{ fontSize:'1.3rem' }} />
+                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start',cursor: 'pointer' }}>
+                                <FacebookIcon onClick={openFacebook} sx={{ fontSize: '1.3rem',cursor: 'pointer'}} />
+                                <InstagramIcon onClick={openInstagram} sx={{ fontSize:'1.3rem',cursor: 'pointer' }} />
+                                <TwitterIcon onClick={openTwitter} sx={{ fontSize: '1.3rem',cursor: 'pointer' }} />
+                                <LinkedInIcon onClick={ openLinkedin} sx={{ fontSize:'1.3rem',cursor: 'pointer' }} />
                             </Box>
                     </Box>
 
@@ -206,11 +237,11 @@ function Footer({ refs }) {
                             </Typography>
 
                               <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Follow Us</Typography>
-                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                                <FacebookIcon sx={{ fontSize: '0.9rem'}} />
-                                <InstagramIcon sx={{ fontSize: '0.9rem' }} />
-                                <TwitterIcon sx={{ fontSize: '0.9rem' }} />
-                                <LinkedInIcon sx={{ fontSize: '0.9rem' }} />
+                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start',cursor: 'pointer' }}>
+                                <FacebookIcon onClick={openFacebook} sx={{ fontSize: '0.9rem',cursor: 'pointer'}} />
+                                <InstagramIcon onClick={openInstagram} sx={{ fontSize: '0.9rem',cursor: 'pointer' }} />
+                                <TwitterIcon  onClick={openTwitter} sx={{ fontSize: '0.9rem',cursor: 'pointer' }} />
+                                <LinkedInIcon onClick={ openLinkedin} sx={{ fontSize: '0.9rem',cursor: 'pointer' }} />
                             </Box>
                         </Box>
 
@@ -305,11 +336,11 @@ function Footer({ refs }) {
                             </Typography>
 
                              <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '17px', color: '#c60800' }}>Follow Us</Typography>
-                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start' }}>
-                                <FacebookIcon sx={{ fontSize: '1.4rem'}} />
-                                <InstagramIcon sx={{ fontSize:'1.4rem' }} />
-                                <TwitterIcon sx={{ fontSize: '1.4rem' }} />
-                                <LinkedInIcon sx={{ fontSize:'1.4rem' }} />
+                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start',cursor: 'pointer' }}>
+                                <FacebookIcon onClick={openFacebook} sx={{ fontSize: '1.4rem',cursor: 'pointer'}} />
+                                <InstagramIcon onClick={openInstagram} sx={{ fontSize:'1.4rem',cursor: 'pointer' }} />
+                                <TwitterIcon  onClick={openTwitter} sx={{ fontSize: '1.4rem',cursor: 'pointer', }} />
+                                <LinkedInIcon onClick={ openLinkedin} sx={{ fontSize:'1.4rem',cursor: 'pointer' }} />
                             </Box>
                         </Box>
 

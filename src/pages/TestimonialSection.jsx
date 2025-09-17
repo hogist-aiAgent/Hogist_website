@@ -467,6 +467,40 @@ export default function TestimonialSection() {
 
   return (
     <TestimonialContainer  id="testimonial-section" component="section">
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Hogist Catering Services",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "156"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": "Brinda Ghanesh",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5"
+                },
+                "reviewBody": "For the first time we came across someone from online who were very professional from taking the food order, specifying the tariff and dispatching the food delivery on time. Food was very tasty and maintained good standards."
+              },
+              {
+                "@type": "Review",
+                "author": "yamunashankar krishnan",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5"
+                },
+                "reviewBody": "Food was excellent.... i will reach out to them even for the upcoming events. The foods were clean, tasty and also was on time with quality."
+              }
+            ]
+          }
+        `}
+      </script>
       <Typography 
         variant="h2" 
         align="center" 

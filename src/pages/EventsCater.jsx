@@ -55,6 +55,44 @@ function EventsCater() {
 
   return (
     <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}  component="section">
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "position": 1,
+                "name": "Corporate Catering",
+                "description": "Find easy bulk and corporate catering solutions that will impress your team and clients.",
+                "url": "https://www.hogist.com/corporate-catering-services-in-chennai/"
+              },
+              {
+                "@type": "Service",
+                "position": 2,
+                "name": "Birthday Catering",
+                "description": "Make every birthday a memorable one with delicious bulk food and the timely delivery you deserve.",
+                "url": "https://www.hogist.com/catering-services-in-chennai/"
+              },
+              {
+                "@type": "Service",
+                "position": 3,
+                "name": "Industrial Catering",
+                "description": "You can rely on timely bulk food delivery service for your industrial and workforce needs.",
+                "url": "https://www.hogist.com/industrial-catering-services-near-me/"
+              },
+              {
+                "@type": "Service",
+                "position": 4,
+                "name": "Celebration Catering",
+                "description": "Celebrate your moment with perfectly catered bulk food orders that bring joy and memories.",
+                "url": "https://www.hogist.com/catering-services-in-chennai/"
+              }
+            ]
+          }
+        `}
+      </script>
       <Container maxWidth="lg">
         <Typography variant="h2" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'28px', md: theme.font.title}}} color={theme.palette.primary.secondary}>
           Events we Cater

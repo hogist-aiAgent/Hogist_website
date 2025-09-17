@@ -96,6 +96,23 @@ export default function Header() {
         boxSizing: 'border-box', // Ensure padding is included in width calculation
       }}
     >
+       <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Hogist",
+            "url": "https://www.hogist.com",
+            "logo": "https://www.hogist.com/assets/HogistLogo2.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-9962374733",
+              "contactType": "customer service"
+            }
+          }
+        `}
+      </script>
+      
       {/* MOBILE VIEW */}
       {isMobile ? (
         <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>

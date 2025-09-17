@@ -55,6 +55,8 @@ const HeroSection = forwardRef((props, ref) => {
         },
         fontFamily: theme.fontFamily.default,
       }}
+       itemScope
+      itemType="https://schema.org/FoodService"
     >
       {/* Content Section */}
       <MotionBox
@@ -70,7 +72,7 @@ const HeroSection = forwardRef((props, ref) => {
         }}
       >
         <Typography
-           component="h1"
+          component="h1"
           fontWeight="900"
           sx={{ 
             fontSize: { xs: '36px', md:theme.font.title }, 
@@ -79,6 +81,7 @@ const HeroSection = forwardRef((props, ref) => {
             lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
             textAlign:"center"
           }}
+          itemProp="name"
         >
            <Box component="span" sx={{ color: theme.palette.primary.secondary }}>HOGIST</Box> - Online Bulk Food Order & Delivery Platform
         </Typography>
@@ -91,6 +94,7 @@ const HeroSection = forwardRef((props, ref) => {
             lineHeight: { xs: 1.4, sm: 1.5 },
             textAlign:"center"
           }}
+          itemProp="description"
         >
          Place your bulk food order in Chennai online with Hogist — weddings, parties, corporate events & industrial needs. Fresh meals, customized menus & on-time delivery. Order Now!
         </Typography>
