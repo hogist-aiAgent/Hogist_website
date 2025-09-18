@@ -4,6 +4,7 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import chooseusPic from '../../assets/chooseus/Whychoosus.webp'
+import React from 'react';
 
 
 const features = [
@@ -29,7 +30,7 @@ const features = [
   }
 ];
 
-export default function ChooseUsSection() {
+function ChooseUsSection() {
   const theme = useTheme();
    const openWhatsApp = () => {
     const url = `https://wa.me/${'9962374733'}`;
@@ -237,3 +238,4 @@ export default function ChooseUsSection() {
     </Box>
   );
 }
+export default React.memo(ChooseUsSection);

@@ -199,4 +199,4 @@ function EventsCater() {
   );
 }
 
-export default EventsCater;
+export default React.memo(EventsCater);

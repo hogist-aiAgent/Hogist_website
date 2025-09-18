@@ -206,4 +206,4 @@ const CateringHero = () => {
   );
 };
 
-export default CateringHero;
+export default React.memo(CateringHero);

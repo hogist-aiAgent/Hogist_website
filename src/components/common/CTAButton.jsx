@@ -1,7 +1,7 @@
 import { Button, useTheme } from '@mui/material'
 import React from 'react'
 
-export default function CTAButton({name,border,hover}) {
+function CTAButton({name,border,hover}) {
     const theme=useTheme()
   return (
 <Button variant='contained' sx={{
@@ -19,3 +19,4 @@ export default function CTAButton({name,border,hover}) {
 }}> {name}</Button>
   )
 }
+export default React.memo(CTAButton)

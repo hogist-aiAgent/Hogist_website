@@ -165,4 +165,4 @@ const AboutUs = forwardRef((props, ref) => {
   );
 });
 
-export default AboutUs;
+export default React.memo(AboutUs);

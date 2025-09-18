@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-export default function EnquiryForm() {
+ function EnquiryForm() {
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -339,3 +339,4 @@ export default function EnquiryForm() {
     </Box>
   );
 }
+export default React.memo(EnquiryForm)

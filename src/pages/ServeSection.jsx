@@ -129,4 +129,4 @@ const ServeSection = forwardRef((props, ref) => {
   );
 });
 
-export default ServeSection;
+export default React.memo(ServeSection);

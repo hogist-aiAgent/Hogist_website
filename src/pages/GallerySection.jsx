@@ -245,4 +245,4 @@ function GallerySection() {
     )
 }
 
-export default GallerySection
+export default React.memo(GallerySection);

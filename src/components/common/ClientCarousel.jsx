@@ -101,4 +101,4 @@ const ClientCarousel = () => {
   );
 };
 
-export default ClientCarousel;
+export default React.memo(ClientCarousel);

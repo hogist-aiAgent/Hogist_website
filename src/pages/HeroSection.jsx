@@ -161,4 +161,4 @@ const HeroSection = forwardRef((props, ref) => {
   );
 });
 
-export default HeroSection;
+export default React.memo(HeroSection);

@@ -133,4 +133,4 @@ function MobileappSection() {
     )
 }
 
-export default MobileappSection;
+export default React.memo(MobileappSection);

@@ -9,7 +9,7 @@ import LoaderLogo from '../../assets/loaderLogo.png';
 
 const MotionBox = motion(Box);
 
-export default function SplashScreen({ loading = false }) {
+ function SplashScreen({ loading = false }) {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -157,3 +157,4 @@ export default function SplashScreen({ loading = false }) {
     </MotionBox>
   );
 }
+export default React.memo(SplashScreen)

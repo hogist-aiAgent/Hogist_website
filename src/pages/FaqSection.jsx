@@ -188,4 +188,4 @@ const FaqSection = forwardRef((props, ref) => {
     );
 });
 
-export default FaqSection;
+export default React.memo(FaqSection);

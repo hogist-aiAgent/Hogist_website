@@ -144,7 +144,7 @@ const ContentWrapper = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function TestimonialSection() {
+function TestimonialSection() {
   const theme = useTheme();
   const wrapperRef = useRef(null);
   const [cardWidth, setCardWidth] = useState(0);
@@ -562,3 +562,5 @@ export default function TestimonialSection() {
     </TestimonialContainer>
   )
 }
+
+export default React.memo(TestimonialSection);

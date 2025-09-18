@@ -32,7 +32,7 @@ const servicesItems = [
   'Public Events'
 ];
 
-export default function Header() {
+function Header() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -462,3 +462,4 @@ export default function Header() {
     </Box>
   );
 }
+export default React.memo(Header)

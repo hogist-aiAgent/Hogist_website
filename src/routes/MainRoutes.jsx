@@ -7,7 +7,7 @@ import EnquiryForm from '../layout/EnqueryForm';
 
 const MainPage = lazy(() => import('../pages/MainPage'));
 
-export default function MainRoutes() {
+function MainRoutes() {
   const [showSplash, setShowSplash] = useState(false);
 
   useEffect(() => {
@@ -33,3 +33,4 @@ export default function MainRoutes() {
     </BrowserRouter>
   );
 }
+export default React.memo(MainRoutes);

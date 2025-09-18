@@ -12,7 +12,7 @@ import AboutUs from './AboutUs';
 import GallerySection from './GallerySection';
 import ChooseUsSection from './Features/ChooseUsSection';
 
-export default function MainPage() {
+function MainPage() {
   const heroRef = useRef(null);
   const clientRef = useRef(null);
   const serveRef = useRef(null);
@@ -44,3 +44,4 @@ export default function MainPage() {
     </div>
   );
 }
+export default React.memo(MainPage);

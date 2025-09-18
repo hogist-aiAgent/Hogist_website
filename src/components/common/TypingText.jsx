@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 
-export default function TypingText({ text, variant = "body1", speed = 50, ...props }) {
+function TypingText({ text, variant = "body1", speed = 50, ...props }) {
   const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
@@ -20,3 +20,4 @@ export default function TypingText({ text, variant = "body1", speed = 50, ...pro
     </Typography>
   );
 }
+export default React.memo(TypingText)
