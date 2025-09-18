@@ -61,21 +61,7 @@ const HeroSection = forwardRef((props, ref) => {
           textAlign: { xs: 'center', md: 'left' }
         }}
       >
-        <Typography
-          component="h1"
-          varient="h1"
-          fontWeight="900"
-          sx={{ 
-            fontSize: { xs: '36px', md:theme.font.title }, 
-            mt: { xs: 0, md: 0 }, 
-            mb: { xs: 1.5, sm: 2, md: 2 },
-            lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
-            textAlign:"center"
-          }}
-          itemProp="name"
-        >
-           <Box component="span" sx={{ color: theme.palette.primary.secondary }}>HOGIST</Box> - Online Bulk Food Order & Delivery Platform
-        </Typography>
+        <h1 style={{textAlign:'center', color:theme.palette.primary.secondary, marginBottom:'50px', fontWeight:'bold'}}>HOGIST - Online Bulk Food Order & Delivery Platform</h1>
 
         <Typography 
           variant="h6" 

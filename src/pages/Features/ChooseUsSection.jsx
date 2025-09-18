@@ -4,8 +4,8 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import chooseusPic from '../../assets/chooseus/Whychoosus.webp'
-import React from 'react';
 
+import React from 'react';
 
 const features = [
   {
@@ -238,4 +238,4 @@ function ChooseUsSection() {
     </Box>
   );
 }
-export default React.memo(ChooseUsSection);
+export default React.memo(ChooseUsSection)

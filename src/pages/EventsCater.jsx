@@ -5,7 +5,8 @@ import bday from '../assets/EventCaterImage/bday.webp';
 import corporate from '../assets/EventCaterImage/corporate.webp';
 import industry from '../assets/EventCaterImage/industry.webp';
 import Celebration from '../assets/EventCaterImage/celebration.webp';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { link } from 'framer-motion/client';
 
 function EventsCater() {
   const theme = useTheme();
@@ -35,21 +36,25 @@ function EventsCater() {
       title: 'Corporate',
       description: ' Find easy bulk and corporate catering solutions that will impress your team and clients.',
       image: corporate,
+      link:"https://www.hogist.com/industrial-catering-services-near-me/",
     },
     {
       title: 'Birthday',
       description: 'Make every birthday a memorable one with delicious bulk food and the timely delivery you deserve.',
       image: bday,
+      link:"https://www.hogist.com/catering-services-in-chennai/"
     },
     {
       title: 'Industrial',
       description: 'You can rely on timely bulk food delivery service for your industrial and workforce needs.',
       image: industry,
+      link:"https://www.hogist.com/industrial-catering-services-near-me/"
     },
     {
       title: 'Celebration',
       description: 'Celebrate your moment with perfectly catered bulk food orders that bring joy and memories.',
       image: Celebration,
+      link:"https://www.hogist.com/corporate-catering-services-in-chennai/"
     },
   ];
 
@@ -159,7 +164,8 @@ function EventsCater() {
                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  }
                     }}
                   >
-                    Explore More
+                    <Link to={service.link}>Explore More</Link>
+                    
                   </Button>
                 </Box>
               </CardContent>
@@ -191,7 +197,7 @@ function EventsCater() {
                        }
                      }}
                    >
-                    Get pricing form
+                    Get pricing
                    </Button>
                  </Stack>
       </Container>
