@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, useEffect, forwardRef, useMemo } from 'react';
 import { Box, Typography, Button, Stack, IconButton, Container, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Twitter, LinkedIn } from '@mui/icons-material';
@@ -15,12 +15,10 @@ const HeroSection = forwardRef((props, ref) => {
   const theme = useTheme();
   const navigate = useNavigate();
 
- 
-
-  const openWhatsApp = () => {
+  const openWhatsApp = useMemo(() => () => {
     const url = `https://wa.me/${'9962374733'}`;
     window.open(url, '_blank');
-  };
+  }, []);
 
   return (
     <Box 

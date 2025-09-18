@@ -1,12 +1,12 @@
 import { Button, Typography } from '@mui/material'
 import { Box, Container, Stack, useTheme } from '@mui/system'
 import React, { useRef } from 'react'
-import gimg1 from '../assets/gallery/4img.jpg'
-import gimg2 from '../assets/gallery/5img.jpg'
-import gimg3 from '../assets/gallery/6img.jpg'
-import gimg4 from '../assets/gallery/1img.jpg'
-import gimg5 from '../assets/gallery/2img.jpg'
-import gimg6 from '../assets/gallery/3img.jpg'
+import gimg1 from '../assets/gallery/4img.webp'
+import gimg2 from '../assets/gallery/5img.webp'
+import gimg3 from '../assets/gallery/6img.webp'
+import gimg4 from '../assets/gallery/1img.webp'
+import gimg5 from '../assets/gallery/2img.webp'
+import gimg6 from '../assets/gallery/3img.webp'
 
 function GallerySection() {
     const theme = useTheme();
