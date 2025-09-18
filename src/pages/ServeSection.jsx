@@ -1,8 +1,8 @@
 import { Typography, Box, Container, useTheme, Grid, Stack,Button } from '@mui/material';
 import React, { forwardRef } from 'react';
-import Order_food from '../assets/ServePage/Order_food.png';
-import scooty from '../assets/ServePage/scooty.png';
-import Waiters from '../assets/ServePage/Waiters.png';
+import Order_food from '../assets/ServePage/MealBox.webp';
+import scooty from '../assets/ServePage/Deliverybox.webp';
+import Waiters from '../assets/ServePage/Catering.webp';
 import HeroSection from './HeroSection';
 const ServeSection = forwardRef((props, ref) => {
   const theme = useTheme();
