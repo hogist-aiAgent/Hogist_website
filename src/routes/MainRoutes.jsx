@@ -23,7 +23,7 @@ export default function MainRoutes() {
       {showSplash ? (
         <SplashScreen loading={false} />
       ) : (
-        <Suspense fallback={<SplashScreen loading={true} />}>
+        <Suspense fallback={<></>}>
           <Header/><WhatsAppButton/>
           <Routes>
             <Route path="/" element={<MainPage />} />
