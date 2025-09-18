@@ -3,27 +3,19 @@ import { Box, Typography, Button, Stack, IconButton, Container, useTheme } from 
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Twitter, LinkedIn } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import HeroSectionImg from '../assets/HeroSectionImgslider2.png';
-import SlidImg2 from '../assets/HeroSectionImgslider3.png';
-import SlideImg from '../assets/HeroSectionImg4.png';
+
 import CTAButton from '../components/common/CTAButton';
 import EnquiryForm from '../layout/EnqueryForm';
 import headerImage from '../assets/mobile-banner/HeaderImage.webp'
 const MotionBox = motion(Box);
 
-const images = [HeroSectionImg, SlideImg, SlidImg2];
 
 const HeroSection = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const theme = useTheme();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   const openWhatsApp = () => {
     const url = `https://wa.me/${'9962374733'}`;

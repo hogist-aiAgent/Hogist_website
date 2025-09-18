@@ -17,6 +17,10 @@ function GallerySection() {
             videoRefs.current[index].play();
         }
     };
+    const openGallery = () => {
+    const url = `https://hogist.com/gallery/`;
+    window.open(url, '_blank');
+  };
 
     const handleVideoPause = (index) => {
         if (videoRefs.current[index]) {
@@ -228,6 +232,7 @@ function GallerySection() {
                  >
                    <Button
                      variant="contained"
+                     onClick={openGallery}
                      sx={{ 
                        minWidth: { xs: '130px', sm: '140px', md: '130px' },
                        fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
