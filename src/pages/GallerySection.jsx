@@ -22,13 +22,6 @@ function GallerySection() {
     window.open(url, '_blank');
   };
 
-    const handleVideoPause = (index) => {
-        if (videoRefs.current[index]) {
-            videoRefs.current[index].pause();
-            videoRefs.current[index].currentTime = 0;
-        }
-    };
-
     return (
         <Box sx={{
             display: 'flex',
