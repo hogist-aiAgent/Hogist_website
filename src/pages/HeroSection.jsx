@@ -8,7 +8,7 @@ import SlidImg2 from '../assets/HeroSectionImgslider3.png';
 import SlideImg from '../assets/HeroSectionImg4.png';
 import CTAButton from '../components/common/CTAButton';
 import EnquiryForm from '../layout/EnqueryForm';
-import headerImage from '../assets/mobile-banner/Header.webp'
+import headerImage from '../assets/mobile-banner/HeaderImage.webp'
 const MotionBox = motion(Box);
 
 const images = [HeroSectionImg, SlideImg, SlidImg2];
@@ -73,6 +73,7 @@ const HeroSection = forwardRef((props, ref) => {
       >
         <Typography
           component="h1"
+          varient="h1"
           fontWeight="900"
           sx={{ 
             fontSize: { xs: '36px', md:theme.font.title }, 
