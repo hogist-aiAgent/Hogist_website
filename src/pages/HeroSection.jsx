@@ -3,6 +3,7 @@ import { Box, Typography, Button, Stack, IconButton, Container, useTheme } from 
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Twitter, LinkedIn } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 
 import CTAButton from '../components/common/CTAButton';
 import EnquiryForm from '../layout/EnqueryForm';
@@ -13,43 +14,50 @@ const MotionBox = motion(Box);
 const HeroSection = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [isIntersecting, setIsIntersecting] = useState(false);
   const theme = useTheme();
   const navigate = useNavigate();
+
+  // Use react-intersection-observer hook
+  const { ref: intersectionRef, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
 
   const openWhatsApp = useMemo(() => () => {
     const url = `https://wa.me/${'9962374733'}`;
     window.open(url, '_blank');
   }, []);
 
-  // Intersection Observer for lazy loading
+  // Handle image loading when component comes into view
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-          // Preload the image when component is in viewport
-          const img = new Image();
-          img.src = headerImage;
-          img.alt="bulk-food-order-online"
-          img.onload = () => setImageLoaded(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref?.current) {
-      observer.observe(ref.current);
+    if (inView && !imageLoaded) {
+      const img = new Image();
+      img.src = headerImage;
+      img.alt = "bulk-food-order-online";
+      img.onload = () => setImageLoaded(true);
     }
+  }, [inView, imageLoaded]);
 
-    return () => observer.disconnect();
-  }, [ref]);
-
+  // Combine the external ref with our intersection ref
+  const setRefs = useMemo(() => {
+    return (node) => {
+      // Set the external ref if provided
+      if (ref) {
+        if (typeof ref === 'function') {
+          ref(node);
+        } else {
+          ref.current = node;
+        }
+      }
+      
+      // Set the intersection observer ref
+      intersectionRef(node);
+    };
+  }, [ref, intersectionRef]);
 
   return (
     <Box 
-      ref={ref}
+      ref={setRefs}
       id="hero-section"
       sx={{
         display: 'flex',
@@ -79,7 +87,7 @@ const HeroSection = forwardRef((props, ref) => {
     >
 
        {/* Preload image with lazy loading - only when in viewport */}
-      {isIntersecting && (
+      {inView && (
         <img 
           src={headerImage} 
           alt=""
