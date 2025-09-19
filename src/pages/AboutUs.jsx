@@ -83,7 +83,7 @@ const AboutUs = forwardRef((props, ref) => {
                 }}
               >
                 <img 
-                  src={imageLoaded ? about_us : ''} 
+                  src={imageLoaded ? about_us : about_us} 
                   alt="bulk food order"
                   loading="lazy"
                   style={{ 

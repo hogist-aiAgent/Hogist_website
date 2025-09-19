@@ -76,7 +76,7 @@ function MobileappSection() {
                     marginLeft: '30px'
                 }}>
                     <img 
-                        src={imageLoaded ? mobilepic : ''} 
+                        src={imageLoaded ? mobilepic : mobilepic} 
                         alt='online bulk food order' 
                         loading="lazy"
                         style={{ 
@@ -142,7 +142,7 @@ function MobileappSection() {
                             }}
                         >
                             <img 
-                                src={appStoreLoaded ? AppStoreButton : ''} 
+                                src={appStoreLoaded ? AppStoreButton : AppStoreButton} 
                                 alt="Download on the App Store" 
                                 loading="lazy"
                                 style={{ 
@@ -162,7 +162,7 @@ function MobileappSection() {
                             }}
                         >
                             <img 
-                                src={googlePlayLoaded ? GooglePlayButton : ''} 
+                                src={googlePlayLoaded ? GooglePlayButton : GooglePlayButton} 
                                 alt="GET IT ON Google Play" 
                                 loading="lazy"
                                 style={{ 

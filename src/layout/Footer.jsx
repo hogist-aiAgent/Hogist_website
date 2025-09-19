@@ -134,7 +134,7 @@ function Footer({ refs }) {
                     }}>
                         <Box sx={{ gridColumn: 'span 1' }}>
                             <img 
-                                src={imagesLoaded[HogistLogo] ? HogistLogo : ''} 
+                                src={imagesLoaded[HogistLogo] ? HogistLogo : HogistLogo} 
                                 alt="logo" 
                                 style={{ 
                                     height: '40px', 
@@ -259,7 +259,7 @@ function Footer({ refs }) {
                     }}>
                         <Box sx={{ gridColumn: 'span 1' }}>
                             <img 
-                                src={imagesLoaded[HogistLogo] ? HogistLogo : ''} 
+                                src={imagesLoaded[HogistLogo] ? HogistLogo : HogistLogo} 
                                 alt="logo" 
                                 style={{ 
                                     height: '40px', 
@@ -370,7 +370,7 @@ function Footer({ refs }) {
                             mb: 2
                         }}>
                             <img 
-                                src={imagesLoaded[HogistLogo] ? HogistLogo : ''} 
+                                src={imagesLoaded[HogistLogo] ? HogistLogo : HogistLogo} 
                                 alt="logo" 
                                 style={{ 
                                     height: '65px', 
@@ -494,7 +494,7 @@ function Footer({ refs }) {
                         }}>
                             <Box sx={{ width: { xs: '90px', sm: '80px', md: '90px' }, height: 'auto' }}>
                                 <img 
-                                    src={imagesLoaded[AppStoreButton] ? AppStoreButton : ''} 
+                                    src={imagesLoaded[AppStoreButton] ? AppStoreButton : AppStoreButton} 
                                     alt="App Store" 
                                     style={{ 
                                         width: '100%', 
@@ -506,7 +506,7 @@ function Footer({ refs }) {
                             </Box>
                             <Box sx={{ width: { xs: '90px', sm: '80px', md: '90px' }, height: 'auto' }}>
                                 <img 
-                                    src={imagesLoaded[GooglePlayButton] ? GooglePlayButton : ''} 
+                                    src={imagesLoaded[GooglePlayButton] ? GooglePlayButton : GooglePlayButton} 
                                     alt="Google Play" 
                                     style={{ 
                                         width: '100%', 

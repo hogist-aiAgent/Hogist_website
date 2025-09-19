@@ -115,7 +115,7 @@ function ChooseUsSection() {
         <Box
           ref={imageRef}
           component="img"
-          src={imageLoaded ? chooseusPic : ''}
+          src={imageLoaded ? chooseusPic : chooseusPic}
           alt="bulk food order chennai"
           loading="lazy"
           sx={{

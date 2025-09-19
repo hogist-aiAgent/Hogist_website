@@ -88,7 +88,7 @@ const ServeSection = forwardRef((props, ref) => {
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
               <Box 
                 component="img" 
-                src={imagesLoaded[Order_food] ? Order_food : ''} 
+                src={imagesLoaded[Order_food] ? Order_food : scooty} 
                 alt="bulk food order near me" 
                 loading="lazy" 
                 sx={{ 
@@ -112,7 +112,7 @@ const ServeSection = forwardRef((props, ref) => {
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
               <Box 
                 component="img" 
-                src={imagesLoaded[scooty] ? scooty : ''} 
+                src={imagesLoaded[scooty] ? scooty : scooty} 
                 alt="order bulk food online" 
                 loading="lazy" 
                 sx={{ 
@@ -136,7 +136,7 @@ const ServeSection = forwardRef((props, ref) => {
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
               <Box 
                 component="img" 
-                src={imagesLoaded[Waiters] ? Waiters : ''} 
+                src={imagesLoaded[Waiters] ? Waiters : Waiters} 
                 alt="bulk food delivery" 
                 loading="lazy" 
                 sx={{ 

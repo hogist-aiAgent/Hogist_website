@@ -143,7 +143,7 @@ function EventsCater() {
               }}>
                 <CardMedia
                   component="img"
-                  src={imagesLoaded[service.image] ? service.image : ''}
+                  src={imagesLoaded[service.image] ? service.image : service.image}
                   alt={`${service.title} food bulk order`}
                   loading="lazy"
                   sx={{

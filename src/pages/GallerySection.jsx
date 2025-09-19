@@ -97,7 +97,7 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={imagesLoaded[gimg1] ? gimg1 : ''} 
+                        src={imagesLoaded[gimg1] ? gimg1 : gimg1} 
                         alt="bulk food order for party"  
                         loading="lazy"
                         style={{ 
@@ -125,7 +125,7 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={imagesLoaded[gimg2] ? gimg2 : ''} 
+                        src={imagesLoaded[gimg2] ? gimg2 : gimg2} 
                         alt="bulk food order for corporate" 
                         loading="lazy"
                         style={{ 
@@ -153,7 +153,7 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={imagesLoaded[gimg3] ? gimg3 : ''} 
+                        src={imagesLoaded[gimg3] ? gimg3 : gimg3} 
                         alt="bulk food order delivery near me"  
                         loading="lazy"
                         style={{ 
@@ -181,7 +181,7 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={imagesLoaded[gimg4] ? gimg4 : ''} 
+                        src={imagesLoaded[gimg4] ? gimg4 : gimg4} 
                         alt="online bulk food delivery" 
                         loading="lazy"
                         style={{ 
@@ -209,7 +209,7 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={imagesLoaded[gimg5] ? gimg5 : ''} 
+                        src={imagesLoaded[gimg5] ? gimg5 : gimg5} 
                         alt="bulk food order delivery platform"  
                         loading="lazy"
                         style={{ 
@@ -237,7 +237,7 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={imagesLoaded[gimg6] ? gimg6 : ''} 
+                        src={imagesLoaded[gimg6] ? gimg6 : gimg6} 
                         alt="bulk food delivery near me" 
                         loading="lazy"
                         style={{ 

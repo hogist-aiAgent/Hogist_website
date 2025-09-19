@@ -64,7 +64,7 @@ const ClientCarousel = () => {
         >
           <Box
             component="img"
-            src={logosLoaded[logo] ? logo : ''}
+            src={logosLoaded[logo] ? logo : logo}
             alt={`logo-${index}`}
             loading="lazy"
             sx={{
