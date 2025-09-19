@@ -7,7 +7,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import about_us from '../assets/gallery/bulk-food-order.png';
+import about_us from '../assets/gallery/bulk-food-order.webp';
 
 const AboutUs = forwardRef((props, ref) => {
   const theme = useTheme();
