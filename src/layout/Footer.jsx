@@ -1,5 +1,6 @@
 import { Box, Container, Typography, useTheme, Fab, Zoom } from '@mui/material';
 import React, { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import HogistLogo from '../assets/red with white bck.png';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -16,7 +17,30 @@ function Footer({ refs }) {
     const theme = useTheme();
     const contactRef = React.useRef(null);
     const [showScrollTop, setShowScrollTop] = useState(false);
+    const [imagesLoaded, setImagesLoaded] = useState({});
     
+    // Use react-intersection-observer hook for the footer
+    const { ref: footerRef, inView: footerInView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    });
+
+    // Handle image loading when footer comes into view
+    useEffect(() => {
+        if (footerInView) {
+            // Preload footer images when footer is in view
+            const footerImages = [HogistLogo, AppStoreButton, GooglePlayButton];
+            footerImages.forEach((image, index) => {
+                const img = new Image();
+                img.src = image;
+                img.alt = `footer-image-${index}`;
+                img.onload = () => {
+                    setImagesLoaded(prev => ({ ...prev, [image]: true }));
+                };
+            });
+        }
+    }, [footerInView]);
+
     // Show the scroll-to-top button when user scrolls down
     useEffect(() => {
         const handleScroll = () => {
@@ -65,33 +89,38 @@ function Footer({ refs }) {
     };
 
     const openFacebook = () => {
-    const url = `https://www.facebook.com/hogisttechnologies/`;
-    window.open(url, '_blank');
-    }
-      const openInstagram = () => {
-    const url = `https://www.instagram.com/hogistindia/ `;
-    window.open(url, '_blank');
-    }
-      const openTwitter = () => {
-    const url = `https://twitter.com/Hogistindia`;
-    window.open(url, '_blank');
-    }
-      const openLinkedin = () => {
-    const url = `https://www.linkedin.com/company/hogist/`;
-    window.open(url, '_blank');
-    }
-    return (
+        const url = `https://www.facebook.com/hogisttechnologies/`;
+        window.open(url, '_blank');
+    };
+
+    const openInstagram = () => {
+        const url = `https://www.instagram.com/hogistindia/ `;
+        window.open(url, '_blank');
+    };
+
+    const openTwitter = () => {
+        const url = `https://twitter.com/Hogistindia`;
+        window.open(url, '_blank');
+    };
+
+    const openLinkedin = () => {
+        const url = `https://www.linkedin.com/company/hogist/`;
+        window.open(url, '_blank');
+    };
+      return (
         <>
-            <Box sx={{
-                py: { xs: 3, sm: 2, md: 2 },
-                px: 2,
-                backgroundColor: theme.palette.background.paper,
-                minHeight: { xs: '40vh', sm: '40vh', md: '30vh' },
-                paddingLeft: '10px',
-                paddingRight: '10px',
-                //paddingTop:'50px'
-            }} component="footer">
-               
+            <Box 
+                ref={footerRef}
+                sx={{
+                    py: { xs: 3, sm: 2, md: 2 },
+                    px: 2,
+                    backgroundColor: theme.palette.background.paper,
+                    minHeight: { xs: '40vh', sm: '40vh', md: '30vh' },
+                    paddingLeft: '10px',
+                    paddingRight: '10px',
+                }} 
+                component="footer"
+            >
                 <Container maxWidth="lg" sx={{ paddingLeft: '10px', paddingRight: '10px' }}>
                     {/* Mobile View (xs) */}
                     <Box sx={{ 
@@ -101,12 +130,24 @@ function Footer({ refs }) {
                         mb: 3,
                         paddingLeft: '10px',
                         paddingRight: '10px',
-                        paddingTop:'20px'
+                        paddingTop: '20px'
                     }}>
                         <Box sx={{ gridColumn: 'span 1' }}>
-                            <img src={HogistLogo} alt="logo" style={{ height: '40px', width: '100px', marginBottom: '1px', marginTop:'-6px',marginLeft:'-7px' }} />
+                            <img 
+                                src={imagesLoaded[HogistLogo] ? HogistLogo : ''} 
+                                alt="logo" 
+                                style={{ 
+                                    height: '40px', 
+                                    width: '100px', 
+                                    marginBottom: '1px', 
+                                    marginTop: '-6px', 
+                                    marginLeft: '-7px',
+                                    opacity: imagesLoaded[HogistLogo] ? 1 : 0,
+                                    transition: 'opacity 0.3s ease-in-out'
+                                }} 
+                            />
                             <Typography variant="body2" sx={{ mb: 2, fontSize: '0.7rem' }}>
-            Your trusted partner for<br/> bulk food orders in<br/> Chennai — serving<br/> corporates, industries <br/>& events.
+                                Your trusted partner for<br/> bulk food orders in<br/> Chennai — serving<br/> corporates, industries <br/>& events.
                             </Typography>
                         </Box>
 
@@ -212,22 +253,34 @@ function Footer({ refs }) {
                         gridTemplateColumns: 'repeat(3, 1fr)',
                         gap: 2,
                         mb: 2,
-                        justifyContent:'space-evenly',
-                        paddingRight:'0px',
-                        paddingTop:'30px'
+                        justifyContent: 'space-evenly',
+                        paddingRight: '0px',
+                        paddingTop: '30px'
                     }}>
                         <Box sx={{ gridColumn: 'span 1' }}>
-                            <img src={HogistLogo} alt="logo" style={{ height: '40px', width: '120px', marginBottom: '1px', marginTop:'-7px',marginLeft:'-7px' }} />
+                            <img 
+                                src={imagesLoaded[HogistLogo] ? HogistLogo : ''} 
+                                alt="logo" 
+                                style={{ 
+                                    height: '40px', 
+                                    width: '120px', 
+                                    marginBottom: '1px', 
+                                    marginTop: '-7px', 
+                                    marginLeft: '-7px',
+                                    opacity: imagesLoaded[HogistLogo] ? 1 : 0,
+                                    transition: 'opacity 0.3s ease-in-out'
+                                }} 
+                            />
                             <Typography variant="body2" sx={{ mb: 1, fontSize: '0.7rem' }}>
-                            Your trusted partner for bulk food orders in Chennai — serving <br/>corporates, industries & events.
+                                Your trusted partner for bulk food orders in Chennai — serving <br/>corporates, industries & events.
                             </Typography>
 
-                              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Follow Us</Typography>
-                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start',cursor: 'pointer' }}>
-                                <FacebookIcon onClick={openFacebook} sx={{ fontSize: '0.9rem',cursor: 'pointer'}} />
-                                <InstagramIcon onClick={openInstagram} sx={{ fontSize: '0.9rem',cursor: 'pointer' }} />
-                                <TwitterIcon  onClick={openTwitter} sx={{ fontSize: '0.9rem',cursor: 'pointer' }} />
-                                <LinkedInIcon onClick={ openLinkedin} sx={{ fontSize: '0.9rem',cursor: 'pointer' }} />
+                            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, fontSize: '0.85rem', color: '#c60800' }}>Follow Us</Typography>
+                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start', cursor: 'pointer' }}>
+                                <FacebookIcon onClick={openFacebook} sx={{ fontSize: '0.9rem', cursor: 'pointer'}} />
+                                <InstagramIcon onClick={openInstagram} sx={{ fontSize: '0.9rem', cursor: 'pointer' }} />
+                                <TwitterIcon onClick={openTwitter} sx={{ fontSize: '0.9rem', cursor: 'pointer' }} />
+                                <LinkedInIcon onClick={openLinkedin} sx={{ fontSize: '0.9rem', cursor: 'pointer' }} />
                             </Box>
                         </Box>
 
@@ -310,25 +363,37 @@ function Footer({ refs }) {
                         gap: 3,
                         flexWrap: 'wrap',
                         height: { md: 'calc(100% - 80px)' },
-                        paddingTop:'30px'
+                        paddingTop: '30px'
                     }}>
                         <Box sx={{ 
                             flex: '1 1 250px',
                             mb: 2
                         }}>
-                            <img src={HogistLogo} alt="logo" style={{ height: '65px', width: '190px', marginBottom: '3px',marginLeft:'-10px' }} />
+                            <img 
+                                src={imagesLoaded[HogistLogo] ? HogistLogo : ''} 
+                                alt="logo" 
+                                style={{ 
+                                    height: '65px', 
+                                    width: '190px', 
+                                    marginBottom: '3px', 
+                                    marginLeft: '-10px',
+                                    opacity: imagesLoaded[HogistLogo] ? 1 : 0,
+                                    transition: 'opacity 0.3s ease-in-out'
+                                }} 
+                            />
                             <Typography sx={{ fontSize: '15px', lineHeight: 1.4 }}>
                                 Your trusted partner for bulk food orders in Chennai — serving corporates, industries & events.
                             </Typography>
 
-                             <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '17px', color: '#c60800' }}>Follow Us</Typography>
-                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start',cursor: 'pointer' }}>
-                                <FacebookIcon onClick={openFacebook} sx={{ fontSize: '1.4rem',cursor: 'pointer'}} />
-                                <InstagramIcon onClick={openInstagram} sx={{ fontSize:'1.4rem',cursor: 'pointer' }} />
-                                <TwitterIcon  onClick={openTwitter} sx={{ fontSize: '1.4rem',cursor: 'pointer', }} />
-                                <LinkedInIcon onClick={ openLinkedin} sx={{ fontSize:'1.4rem',cursor: 'pointer' }} />
+                            <Typography sx={{ fontWeight: 'bold', mb: 1, mt: 2, fontSize: '17px', color: '#c60800' }}>Follow Us</Typography>
+                            <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-start', cursor: 'pointer' }}>
+                                <FacebookIcon onClick={openFacebook} sx={{ fontSize: '1.4rem', cursor: 'pointer'}} />
+                                <InstagramIcon onClick={openInstagram} sx={{ fontSize: '1.4rem', cursor: 'pointer' }} />
+                                <TwitterIcon onClick={openTwitter} sx={{ fontSize: '1.4rem', cursor: 'pointer' }} />
+                                <LinkedInIcon onClick={openLinkedin} sx={{ fontSize: '1.4rem', cursor: 'pointer' }} />
                             </Box>
                         </Box>
+
 
                         <Box sx={{ 
                             flex: '1 1 100px',
@@ -428,10 +493,28 @@ function Footer({ refs }) {
                             alignItems: 'center'
                         }}>
                             <Box sx={{ width: { xs: '90px', sm: '80px', md: '90px' }, height: 'auto' }}>
-                                <img src={AppStoreButton} alt="App Store" style={{ width: '100%', height: 'auto' }} />
+                                <img 
+                                    src={imagesLoaded[AppStoreButton] ? AppStoreButton : ''} 
+                                    alt="App Store" 
+                                    style={{ 
+                                        width: '100%', 
+                                        height: 'auto',
+                                        opacity: imagesLoaded[AppStoreButton] ? 1 : 0,
+                                        transition: 'opacity 0.3s ease-in-out'
+                                    }} 
+                                />
                             </Box>
                             <Box sx={{ width: { xs: '90px', sm: '80px', md: '90px' }, height: 'auto' }}>
-                                <img src={GooglePlayButton} alt="Google Play" style={{ width: '100%', height: 'auto' }} />
+                                <img 
+                                    src={imagesLoaded[GooglePlayButton] ? GooglePlayButton : ''} 
+                                    alt="Google Play" 
+                                    style={{ 
+                                        width: '100%', 
+                                        height: 'auto',
+                                        opacity: imagesLoaded[GooglePlayButton] ? 1 : 0,
+                                        transition: 'opacity 0.3s ease-in-out'
+                                    }} 
+                                />
                             </Box>
                         </Box>
                     </Box>
