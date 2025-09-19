@@ -1,6 +1,7 @@
-import React from 'react';
-import { Box, Card, CardContent, CardMedia, Typography, Button, Container,Stack } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Card, CardContent, CardMedia, Typography, Button, Container, Stack } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { useInView } from 'react-intersection-observer';
 import bday from '../assets/EventCaterImage/bday.webp';
 import corporate from '../assets/EventCaterImage/corporate.webp';
 import industry from '../assets/EventCaterImage/industry.webp';
@@ -11,7 +12,30 @@ import { link } from 'framer-motion/client';
 function EventsCater() {
   const theme = useTheme();
   const navigate = useNavigate();
+  const [imagesLoaded, setImagesLoaded] = useState({});
   
+  // Use react-intersection-observer hook for the section
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  // Handle image loading when section comes into view
+  useEffect(() => {
+    if (sectionInView) {
+      // Preload all service images when section is in view
+      const serviceImages = [corporate, bday, industry, Celebration];
+      serviceImages.forEach((image, index) => {
+        const img = new Image();
+        img.src = image;
+        img.alt = `service-image-${index}`;
+        img.onload = () => {
+          setImagesLoaded(prev => ({ ...prev, [image]: true }));
+        };
+      });
+    }
+  }, [sectionInView]);
+
   const serviceLinks = {
     industrial: 'https://www.hogist.com/industrial-catering-services-near-me/',
     corporate: 'https://www.hogist.com/corporate-catering-services-in-chennai/',
@@ -59,8 +83,11 @@ function EventsCater() {
   ];
 
   return (
-    <Box sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}  component="section">
-
+    <Box 
+      ref={sectionRef}
+      sx={{ py: 6, background: '#000', fontFamily: theme.fontFamily.default, mb:'-10px' }}  
+      component="section"
+    >
       <Container maxWidth="lg">
         <Typography variant="h2" align="center" fontWeight="bold" sx={{fontSize:{ xs: '1.5rem',sm:'28px', md: theme.font.title}}} color={theme.palette.primary.secondary}>
           Events we Cater
@@ -72,7 +99,7 @@ function EventsCater() {
         {/* Container with specific adjustments for tablet and laptop (1024px) only */}
         <Box sx={{ 
           display: 'flex', 
-          flexWrap: { xs: 'wrap', sm: 'wrap', md: 'nowrap', lg: 'nowrap', xl: 'nowrap' }, // Changed for tablet view
+          flexWrap: { xs: 'wrap', sm: 'wrap', md: 'nowrap', lg: 'nowrap', xl: 'nowrap' },
           justifyContent: 'center', 
           gap: 3,
           px: { xs: 2, sm: 0 }
@@ -81,13 +108,12 @@ function EventsCater() {
             <Card key={index} sx={{
               width: { 
                 xs: '100%', 
-                sm: '45%', // Tablet: 2 cards per row (approx 45% width)45PX-H132-HEADINGOTHERS-1REM
-                md: 280,   // Desktop: fixed width
-                lg: 280,   // Laptop: fixed width
-                xl: 280    // Large desktop: fixed width
+                sm: '45%',
+                md: 280,
+                lg: 280,
+                xl: 280
               },
               maxWidth: { xs: 300, sm: 'none', md: 280, lg: 280, xl: 280 },
-              // height: { xs: 320, sm: 350, md: 350, lg: 350, xl: 350 },
               display: 'flex',
               flexDirection: 'column',
               backgroundColor: 'white',
@@ -104,20 +130,12 @@ function EventsCater() {
                 display: 'flex', 
                 justifyContent: 'center', 
                 alignItems: 'center',
-                // height: { 
-                //   xs: 130, 
-                //   sm: 150, 
-                //   md: 140, // Regular desktop
-                //   lg: 140, // Laptop (1024px): slightly smaller height
-                //   xl: 150  // Large desktop (1440px+): back to original height
-                // },
-                // height:'900px',
                 width: { 
                   xs: '90%', 
                   sm: 270, 
                   md: 200,
-                  lg: 220,  // Laptop (1024px): slightly smaller width
-                  xl: 225.75 // Large desktop (1440px+): back to original width
+                  lg: 220,
+                  xl: 225.75
                 },
                 margin: { xs: '12px auto 8px', sm: '16px auto 8px', md: '16px auto 8px', lg: '16px auto 8px', xl: '16px auto 8px' },
                 overflow: 'hidden',
@@ -125,14 +143,16 @@ function EventsCater() {
               }}>
                 <CardMedia
                   component="img"
-                  loading="lazy" // Added lazy loading here
+                  src={imagesLoaded[service.image] ? service.image : ''}
+                  alt={`${service.title} food bulk order`}
+                  loading="lazy"
                   sx={{
                     height: '100%',
                     width: '100%',
                     objectFit: 'cover',
+                    opacity: imagesLoaded[service.image] ? 1 : 0,
+                    transition: 'opacity 0.3s ease-in-out'
                   }}
-                  image={service.image}
-                 alt={`${service.title} food bulk order`}
                 />
               </Box>
               
@@ -169,43 +189,41 @@ function EventsCater() {
                       }
                     }}
                   >
-                    
-                      Explore More
-                    
+                    Explore More
                   </Button>
                 </Box>
               </CardContent>
             </Card>
           ))}
         </Box>
-          <Stack  
-                   direction="row" 
-                   spacing={{ xs: 1.5, sm: 2, md: 3 }}
-                   sx={{ 
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                     mt: '40px',
-                     width: '100%'
-                   }}
-                 >
-                   <Button
-                     variant="contained"
-                     onClick={handleRequestPricingClick}
-                     sx={{ 
-                       minWidth: { xs: '130px', sm: '140px', md: '130px' },
-                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
-                       padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
-                       fontWeight: 'bold',
-                       borderRadius: '24px',
-                       backgroundColor: theme.palette.primary.secondary,
-                       '&:hover': {
-                         backgroundColor: theme.palette.primary.secondary,
-                       }
-                     }}
-                   >
-                    Get pricing
-                   </Button>
-                 </Stack>
+        <Stack  
+          direction="row" 
+          spacing={{ xs: 1.5, sm: 2, md: 3 }}
+          sx={{ 
+            justifyContent: 'center',
+            alignItems: 'center',
+            mt: '40px',
+            width: '100%'
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={handleRequestPricingClick}
+            sx={{ 
+              minWidth: { xs: '130px', sm: '140px', md: '130px' },
+              fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
+              padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+              fontWeight: 'bold',
+              borderRadius: '24px',
+              backgroundColor: theme.palette.primary.secondary,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.secondary,
+              }
+            }}
+          >
+            Get pricing
+          </Button>
+        </Stack>
       </Container>
     </Box>
   );

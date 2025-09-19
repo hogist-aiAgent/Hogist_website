@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Box, Typography, Rating, useTheme, Button, Stack, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useInView } from 'react-intersection-observer';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -148,10 +149,18 @@ function TestimonialSection() {
   const theme = useTheme();
   const wrapperRef = useRef(null);
   const [cardWidth, setCardWidth] = useState(0);
-   const openWhatsApp = () => {
+  
+  // Use react-intersection-observer hook for the section
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  const openWhatsApp = () => {
     const url = `https://wa.me/${'9962374733'}`;
     window.open(url, '_blank');
   };
+
   useEffect(() => {
     const updateCardWidth = () => {
       if (wrapperRef.current && wrapperRef.current.firstChild) {
@@ -226,7 +235,7 @@ function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            color: '#c60000',
+            color: 'text.primary',
             fontWeight: 'bold',
             fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
@@ -272,7 +281,7 @@ function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            color: '#c60000',
+            color: 'text.primary',
             fontWeight: 'bold',
             fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
@@ -318,7 +327,7 @@ function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            color: '#c60000',
+            color: 'text.primary',
             fontWeight: 'bold',
             fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
@@ -363,7 +372,7 @@ function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            color: '#c60000',
+            color: 'text.primary',
             fontWeight: 'bold',
             fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
@@ -408,7 +417,7 @@ function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            color: '#c60000',
+            color: 'text.primary',
             fontWeight: 'bold',
             fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
@@ -453,7 +462,7 @@ function TestimonialSection() {
         <Typography 
           variant="body1" 
           sx={{
-            color: '#c60000',
+            color: 'text.primary',
             fontWeight: 'bold',
             fontSize: { xs: '14px', sm: theme.font.paragraph },
             letterSpacing: '0.5px'
@@ -466,7 +475,11 @@ function TestimonialSection() {
   ];
 
   return (
-    <TestimonialContainer  id="testimonial-section" component="section">
+    <TestimonialContainer  
+      ref={sectionRef}
+      id="testimonial-section" 
+      component="section"
+    >
       
       <Typography 
         variant="h2" 

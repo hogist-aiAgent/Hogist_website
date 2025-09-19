@@ -1,21 +1,62 @@
-import { Typography, Box, Container, useTheme, Grid, Stack,Button } from '@mui/material';
-import React, { forwardRef } from 'react';
+import { Typography, Box, Container, useTheme, Grid, Stack, Button } from '@mui/material';
+import React, { forwardRef, useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 import Order_food from '../assets/ServePage/bulk-food-order-near-me.webp';
 import scooty from '../assets/ServePage/order-bulk-food-online.webp';
 import Waiters from '../assets/ServePage/bulk-food-delivery.webp';
 import HeroSection from './HeroSection';
+
 const ServeSection = forwardRef((props, ref) => {
   const theme = useTheme();
+  const [imagesLoaded, setImagesLoaded] = useState({});
+  
+  // Use react-intersection-observer hook for the section
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
 
-   const handleRequestPricingClick = () => {
+  // Handle image loading when section comes into view
+  useEffect(() => {
+    if (sectionInView) {
+      // Preload all images when section is in view
+      const imageUrls = [Order_food, scooty, Waiters];
+      imageUrls.forEach((image, index) => {
+        const img = new Image();
+        img.src = image;
+        img.alt = index === 0 ? "bulk food order near me" : 
+                  index === 1 ? "order bulk food online" : "bulk food delivery";
+        img.onload = () => {
+          setImagesLoaded(prev => ({ ...prev, [image]: true }));
+        };
+      });
+    }
+  }, [sectionInView]);
+
+  const handleRequestPricingClick = () => {
     // Scroll to the hero section
     const heroSection = document.getElementById('hero-section');
     if (heroSection) {
       heroSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
-    <Box ref={ref} sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 },  fontFamily: theme.fontFamily.default, }}component="section" 
+    <Box 
+      ref={(node) => {
+        // Set the external ref if provided
+        if (ref) {
+          if (typeof ref === 'function') {
+            ref(node);
+          } else {
+            ref.current = node;
+          }
+        }
+        // Set the intersection observer ref
+        sectionRef(node);
+      }}
+      sx={{ bgcolor: 'white', minHeight: '100vh', py: { xs: 2, md: 4 }, fontFamily: theme.fontFamily.default }} 
+      component="section"
     >
       <Container>
         <Typography variant="h2" fontWeight="bold" sx={{ 
@@ -23,12 +64,12 @@ const ServeSection = forwardRef((props, ref) => {
           mb: { xs: 1, md: 2 }, 
           color: theme.palette.primary.secondary, 
           paddingTop: { xs: '15px', md: '30px' },
-          fontSize: { xs: '1.5rem',sm:'28px', md:theme.font.title },
-          marginBottom:'50px',
-           
+          fontSize: { xs: '1.5rem', sm: '28px', md: theme.font.title },
+          marginBottom: '50px',
         }}>
           WHAT WE SERVE
         </Typography>
+        
         <Typography variant="h3" fontWeight="bold" sx={{ 
           textAlign: 'center', 
           mb: { xs: 2, md: 4 }, 
@@ -45,43 +86,67 @@ const ServeSection = forwardRef((props, ref) => {
         }}>
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={Order_food} alt="bulk food order near me" loading="lazy" sx={{ 
-                height: { xs: 120, md: 200 },
-                mb: { xs: 2, md: 4 },
-                objectFit: 'contain'
-              }} />
+              <Box 
+                component="img" 
+                src={imagesLoaded[Order_food] ? Order_food : ''} 
+                alt="bulk food order near me" 
+                loading="lazy" 
+                sx={{ 
+                  height: { xs: 120, md: 200 },
+                  mb: { xs: 2, md: 4 },
+                  objectFit: 'contain',
+                  opacity: imagesLoaded[Order_food] ? 1 : 0,
+                  transition: 'opacity 0.3s ease-in-out'
+                }} 
+              />
               <Typography variant="h5" fontWeight="bold" sx={{ mb: 1, color: theme.palette.primary.secondary }}>
-                  Meal Box
+                Meal Box
               </Typography>
               <Typography variant="body1" color="black">
-               Customizable bulk meal boxes for events and teams.
+                Customizable bulk meal boxes for events and teams.
               </Typography>
             </Box>
           </Grid>
           
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={scooty} alt="order bulk food online" loading="lazy" sx={{ 
-                height: { xs: 130, md: 210 },
-                mb: { xs: 1, md: 2 },
-                objectFit: 'contain'
-              }} />
+              <Box 
+                component="img" 
+                src={imagesLoaded[scooty] ? scooty : ''} 
+                alt="order bulk food online" 
+                loading="lazy" 
+                sx={{ 
+                  height: { xs: 130, md: 210 },
+                  mb: { xs: 1, md: 2 },
+                  objectFit: 'contain',
+                  opacity: imagesLoaded[scooty] ? 1 : 0,
+                  transition: 'opacity 0.3s ease-in-out'
+                }} 
+              />
               <Typography variant="h5" fontWeight="bold" sx={{ mb: 1, color: theme.palette.primary.secondary }}>
                 Delivery Box
               </Typography>
               <Typography variant="body1" color="black">
-               Party-ready bulk food delivery boxes for gatherings.
+                Party-ready bulk food delivery boxes for gatherings.
               </Typography>
             </Box>
           </Grid>
           
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={Waiters} alt="bulk food delivery" loading="lazy" sx={{ 
-                height: { xs: 120, md: 200 },
-                mb: { xs: 2, md: '-7px' },
-                objectFit: 'contain'
-              }} />
+              <Box 
+                component="img" 
+                src={imagesLoaded[Waiters] ? Waiters : ''} 
+                alt="bulk food delivery" 
+                loading="lazy" 
+                sx={{ 
+                  height: { xs: 120, md: 200 },
+                  mb: { xs: 2, md: '-7px' },
+                  objectFit: 'contain',
+                  opacity: imagesLoaded[Waiters] ? 1 : 0,
+                  transition: 'opacity 0.3s ease-in-out'
+                }} 
+              />
               <Typography variant="h5" fontWeight="bold" sx={{ 
                 mb: 1, 
                 color: theme.palette.primary.secondary, 

@@ -1,6 +1,7 @@
 import { Button, Typography } from '@mui/material'
 import { Box, Container, Stack, useTheme } from '@mui/system'
-import React, { useRef } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer';
 import gimg1 from '../assets/gallery/bulk-food-order-for-party.webp'
 import gimg2 from '../assets/gallery/bulk-food-order-for-corporate .webp'
 import gimg3 from '../assets/gallery/bulk-food-order-delivery-near-me.webp'
@@ -10,30 +11,50 @@ import gimg6 from '../assets/gallery/bulk-food-delivery-near-me.webp'
 
 function GallerySection() {
     const theme = useTheme();
-    const videoRefs = useRef([]);
+    const [imagesLoaded, setImagesLoaded] = useState({});
     
-    const handleVideoPlay = (index) => {
-        if (videoRefs.current[index]) {
-            videoRefs.current[index].play();
+    // Use react-intersection-observer hook for the section
+    const { ref: sectionRef, inView: sectionInView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    });
+
+    // Handle image loading when section comes into view
+    useEffect(() => {
+        if (sectionInView) {
+            // Preload all gallery images when section is in view
+            const galleryImages = [gimg1, gimg2, gimg3, gimg4, gimg5, gimg6];
+            galleryImages.forEach((image, index) => {
+                const img = new Image();
+                img.src = image;
+                img.alt = `gallery-image-${index}`;
+                img.onload = () => {
+                    setImagesLoaded(prev => ({ ...prev, [image]: true }));
+                };
+            });
         }
-    };
+    }, [sectionInView]);
+
     const openGallery = () => {
-    const url = `https://hogist.com/gallery/`;
-    window.open(url, '_blank');
-  };
+        const url = `https://hogist.com/gallery/`;
+        window.open(url, '_blank');
+    };
 
     return (
-        <Box sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            py: 5,
-            bgcolor: 'black',
-            px: { xs: 2, sm: 3, md: 4 },
-            marginBottom: '-10px'
-        }}
-        component="section">
+        <Box 
+            ref={sectionRef}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                py: 5,
+                bgcolor: 'black',
+                px: { xs: 2, sm: 3, md: 4 },
+                marginBottom: '-10px'
+            }}
+            component="section"
+        >
             <Typography 
                 variant="h2" 
                 align="center" 
@@ -76,14 +97,16 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={gimg1} 
-                       alt="bulk food order for party"  
-                        loading="lazy" // Added lazy loading here
+                        src={imagesLoaded[gimg1] ? gimg1 : ''} 
+                        alt="bulk food order for party"  
+                        loading="lazy"
                         style={{ 
                             width: '100%', 
                             height: '100%', 
                             objectFit: 'cover',
-                            display: 'block' 
+                            display: 'block',
+                            opacity: imagesLoaded[gimg1] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
                         }} 
                     />
                 </Box>
@@ -102,14 +125,16 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={gimg2} 
-                       alt="bulk food order for corporate " 
-                        loading="lazy" // Added lazy loading here
+                        src={imagesLoaded[gimg2] ? gimg2 : ''} 
+                        alt="bulk food order for corporate" 
+                        loading="lazy"
                         style={{ 
                             width: '100%', 
                             height: '100%', 
                             objectFit: 'cover',
-                            display: 'block' 
+                            display: 'block',
+                            opacity: imagesLoaded[gimg2] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
                         }} 
                     />
                 </Box>
@@ -128,14 +153,16 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={gimg3} 
+                        src={imagesLoaded[gimg3] ? gimg3 : ''} 
                         alt="bulk food order delivery near me"  
-                        loading="lazy" // Added lazy loading here
+                        loading="lazy"
                         style={{ 
                             width: '100%', 
                             height: '100%', 
                             objectFit: 'cover',
-                            display: 'block' 
+                            display: 'block',
+                            opacity: imagesLoaded[gimg3] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
                         }} 
                     />
                 </Box>
@@ -154,14 +181,16 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={gimg4} 
-                       alt="online bulk food delivery" 
-                        loading="lazy" // Added lazy loading here
+                        src={imagesLoaded[gimg4] ? gimg4 : ''} 
+                        alt="online bulk food delivery" 
+                        loading="lazy"
                         style={{ 
                             width: '100%', 
                             height: '100%', 
                             objectFit: 'cover',
-                            display: 'block' 
+                            display: 'block',
+                            opacity: imagesLoaded[gimg4] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
                         }} 
                     />
                 </Box>
@@ -180,14 +209,16 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={gimg5} 
+                        src={imagesLoaded[gimg5] ? gimg5 : ''} 
                         alt="bulk food order delivery platform"  
-                        loading="lazy" // Added lazy loading here
+                        loading="lazy"
                         style={{ 
                             width: '100%', 
                             height: '100%', 
                             objectFit: 'cover',
-                            display: 'block' 
+                            display: 'block',
+                            opacity: imagesLoaded[gimg5] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
                         }} 
                     />
                 </Box>
@@ -206,47 +237,49 @@ function GallerySection() {
                     }
                 }}>
                     <img 
-                        src={gimg6} 
+                        src={imagesLoaded[gimg6] ? gimg6 : ''} 
                         alt="bulk food delivery near me" 
-                        loading="lazy" // Added lazy loading here
+                        loading="lazy"
                         style={{ 
                             width: '100%', 
                             height: '100%', 
                             objectFit: 'cover',
-                            display: 'block' 
+                            display: 'block',
+                            opacity: imagesLoaded[gimg6] ? 1 : 0,
+                            transition: 'opacity 0.3s ease-in-out'
                         }} 
                     />
                 </Box>
              
             </Box>
-             <Stack  
-                   direction="row" 
-                   spacing={{ xs: 1.5, sm: 2, md: 3 }}
-                   sx={{ 
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                     mt: '40px',
-                     width: '100%'
-                   }}
-                 >
-                   <Button
-                     variant="contained"
-                     onClick={openGallery}
-                     sx={{ 
-                       minWidth: { xs: '130px', sm: '140px', md: '130px' },
-                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
-                       padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
-                       fontWeight: 'bold',
-                       borderRadius: '24px',
-                       backgroundColor: theme.palette.primary.secondary,
-                       '&:hover': {
-                         backgroundColor: theme.palette.primary.secondary,
-                       }
-                     }}
-                   >
-                     View more
-                   </Button>
-                 </Stack>
+            <Stack  
+                direction="row" 
+                spacing={{ xs: 1.5, sm: 2, md: 3 }}
+                sx={{ 
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    mt: '40px',
+                    width: '100%'
+                }}
+            >
+                <Button
+                    variant="contained"
+                    onClick={openGallery}
+                    sx={{ 
+                        minWidth: { xs: '130px', sm: '140px', md: '130px' },
+                        fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph },
+                        padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+                        fontWeight: 'bold',
+                        borderRadius: '24px',
+                        backgroundColor: theme.palette.primary.secondary,
+                        '&:hover': {
+                            backgroundColor: theme.palette.primary.secondary,
+                        }
+                    }}
+                >
+                    View more
+                </Button>
+            </Stack>
         </Box>
     )
 }

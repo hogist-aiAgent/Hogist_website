@@ -1,11 +1,35 @@
-import React from 'react';
-import { Box, Typography,useTheme } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import clients from '../../utils/clientImport';
 
 const ClientCarousel = () => {
   const duplicatedClients = [...clients, ...clients.reverse()];
   const theme = useTheme();
+  const [logosLoaded, setLogosLoaded] = useState({});
+  
+  // Use react-intersection-observer hook for the carousel
+  const { ref: carouselRef, inView: carouselInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  // Handle logo loading when carousel comes into view
+  useEffect(() => {
+    if (carouselInView) {
+      // Preload all client logos when carousel is in view
+      clients.forEach((logo, index) => {
+        const img = new Image();
+        img.src = logo;
+        img.alt = `logo-${index}`;
+        img.onload = () => {
+          setLogosLoaded(prev => ({ ...prev, [logo]: true }));
+        };
+      });
+    }
+  }, [carouselInView]);
+
   const MarqueeRow = ({ reverse = false }) => (
     <motion.div
       animate={{ x: reverse ? ['-50%', '0%'] : ['0%', '-50%'] }}
@@ -40,13 +64,15 @@ const ClientCarousel = () => {
         >
           <Box
             component="img"
-            src={logo}
+            src={logosLoaded[logo] ? logo : ''}
             alt={`logo-${index}`}
-            loading="lazy" // Added lazy loading here
+            loading="lazy"
             sx={{
               maxHeight: '100%',
               maxWidth: '100%',
               objectFit: 'contain',
+              opacity: logosLoaded[logo] ? 1 : 0,
+              transition: 'opacity 0.3s ease-in-out'
             }}
           />
         </Box>
@@ -55,21 +81,23 @@ const ClientCarousel = () => {
   );
 
   return (
-    
-    <Box sx={{ py: 6, background: '#000', position: 'relative', overflow: 'hidden' }}>
-    
+    <Box 
+      ref={carouselRef}
+      sx={{ py: 6, background: '#000', position: 'relative', overflow: 'hidden' }}
+    >
       <Box sx={{ position: 'relative', zIndex: 2 }}>
         <Typography variant="h2" fontWeight="bold" sx={{ 
           color: theme.palette.primary.secondary,
           textAlign: 'center', 
           mb: 6,
-          marginTop:-2,
-          fontSize:{xs:'25px', sm:'30px', md:theme.font.title}
+          marginTop: -2,
+          fontSize: { xs: '25px', sm: '30px', md: theme.font.title }
         }}>
           Take a Look at our clients
         </Typography>
       </Box>
-            {/* Fade left */}
+      
+      {/* Fade left */}
       <Box
         sx={{
           position: 'absolute',
@@ -81,6 +109,7 @@ const ClientCarousel = () => {
           zIndex: 1,
         }}
       />
+      
       {/* Fade right */}
       <Box
         sx={{

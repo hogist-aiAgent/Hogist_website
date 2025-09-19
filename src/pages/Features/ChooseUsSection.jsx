@@ -3,9 +3,9 @@ import AlarmOnIcon from '@mui/icons-material/AlarmOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import chooseusPic from '../../assets/chooseus/bulk-food-order-chennai.webp'
-
-import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import chooseusPic from '../../assets/chooseus/bulk-food-order-chennai.webp';
+import React, { useState, useEffect } from 'react';
 
 const features = [
   {
@@ -32,13 +32,32 @@ const features = [
 
 function ChooseUsSection() {
   const theme = useTheme();
-   const openWhatsApp = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+  // Use react-intersection-observer hook for the image
+  const { ref: imageRef, inView: imageInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  // Handle image loading when it comes into view
+  useEffect(() => {
+    if (imageInView && !imageLoaded) {
+      const img = new Image();
+      img.src = chooseusPic;
+      img.alt = "bulk food order chennai";
+      img.onload = () => setImageLoaded(true);
+    }
+  }, [imageInView, imageLoaded]);
+
+  const openWhatsApp = () => {
     const url = `https://wa.me/${'9962374733'}`;
     window.open(url, '_blank');
   };
+
   return (
     <Box
-    id="chooseUs-section"
+      id="chooseUs-section"
       sx={{
         py: { xs: 6, md: 10 },
         px: { xs: 2, md: 8 },
@@ -51,7 +70,7 @@ function ChooseUsSection() {
         maxWidth: 1450,
         margin: '0 auto'
       }}
-       component="section"
+      component="section"
     >
       {/* Left Side */}
       <Box
@@ -63,15 +82,15 @@ function ChooseUsSection() {
           flexDirection: 'column',
           alignItems: { xs: 'center', md: 'flex-start' },
           mb: { xs: 8, md: 0 },
-        marginLeft:{sm:'16px', md:'45px'},
-        marginRight:{md:'75px',lg:'5px'}
+          marginLeft: { sm: '16px', md: '45px' },
+          marginRight: { md: '75px', lg: '5px' }
         }}
       >
         <Typography
           variant="h2"
           sx={{
             fontWeight: 700,
-            fontSize: { xs: '28px', sm: '30px', md:theme.font.title},
+            fontSize: { xs: '28px', sm: '30px', md: theme.font.title },
             color: 'black',
             mb: 3,
             textAlign: { xs: 'center', md: 'left' }
@@ -87,23 +106,24 @@ function ChooseUsSection() {
             fontSize: { xs: '24px', sm: '28px', md: theme.font.heading },
             maxWidth: 700,
             textAlign: { xs: 'center', md: 'left' },
-            fontWeight:'bold',
-            lineHeight:'45px'
+            fontWeight: 'bold',
+            lineHeight: '45px'
           }}
         >
           HOGIST – Your Partner for Online Bulk Food Orders in Chennai
         </Typography>
         <Box
+          ref={imageRef}
           component="img"
-          loading="lazy"
-          src={chooseusPic}
+          src={imageLoaded ? chooseusPic : ''}
           alt="bulk food order chennai"
+          loading="lazy"
           sx={{
-            //borderRadius: 3,
             width: { xs: 220, sm: 260, md: 400 },
             height: { xs: 130, sm: 180, md: 300 },
             objectFit: 'cover',
-            //boxShadow: 3
+            opacity: imageLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease-in-out'
           }}
         />
       </Box>
@@ -118,7 +138,6 @@ function ChooseUsSection() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          
         }}
       >
         <Box
@@ -206,37 +225,38 @@ function ChooseUsSection() {
             </Box>
           ))}
         </Box>
-          <Stack  
-                   direction="row" 
-                   spacing={{ xs: 1.5, sm: 2, md: 3 }}
-                   sx={{ 
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                     mt: '40px',
-                     width: '100%',
-                     mr:{xs:'5px',md:'80px'}
-                   }}
-                 >
-                   <Button
-                     variant="contained"
-                     onClick={openWhatsApp}
-                     sx={{ 
-                       minWidth: { xs: '130px', sm: '140px', md: '130px' },
-                       fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
-                       padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
-                       fontWeight: 'bold',
-                       borderRadius: '24px',
-                       backgroundColor: theme.palette.primary.secondary,
-                       '&:hover': {
-                         backgroundColor: theme.palette.primary.secondary,
-                       }
-                     }}
-                   >
-                     Book your Event
-                   </Button>
-                 </Stack>
+        <Stack  
+          direction="row" 
+          spacing={{ xs: 1.5, sm: 2, md: 3 }}
+          sx={{ 
+            justifyContent: 'center',
+            alignItems: 'center',
+            mt: '40px',
+            width: '100%',
+            mr: { xs: '5px', md: '80px' }
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={openWhatsApp}
+            sx={{ 
+              minWidth: { xs: '130px', sm: '140px', md: '130px' },
+              fontSize: { xs: '14px', sm: '16px', md: theme.font.paragraph },
+              padding: { xs: '8px 10px', sm: '9px 18px', md: '10px 20px' },
+              fontWeight: 'bold',
+              borderRadius: '24px',
+              backgroundColor: theme.palette.primary.secondary,
+              '&:hover': {
+                backgroundColor: theme.palette.primary.secondary,
+              }
+            }}
+          >
+            Book your Event
+          </Button>
+        </Stack>
       </Box>
     </Box>
   );
 }
-export default React.memo(ChooseUsSection)
+
+export default React.memo(ChooseUsSection);

@@ -1,6 +1,7 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState, useEffect } from 'react';
 import { Box, Typography, Container, useTheme, CardContent, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import ClientCarousel from '../components/common/ClientCarousel';
 import BusinessIcon from '@mui/icons-material/Business';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
@@ -10,6 +11,24 @@ import about_us from '../assets/gallery/bulk-food-order.png';
 
 const AboutUs = forwardRef((props, ref) => {
   const theme = useTheme();
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+  // Use react-intersection-observer hook for the image
+  const { ref: imageRef, inView: imageInView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  // Handle image loading when it comes into view
+  useEffect(() => {
+    if (imageInView && !imageLoaded) {
+      const img = new Image();
+      img.src = about_us;
+      img.alt = "bulk food order";
+      img.onload = () => setImageLoaded(true);
+    }
+  }, [imageInView, imageLoaded]);
+
   return (
     <Box ref={ref} sx={{ overflow: 'hidden' }} itemScope itemType="https://schema.org/AboutPage">
       <Container maxWidth={false} sx={{ 
@@ -29,12 +48,13 @@ const AboutUs = forwardRef((props, ref) => {
           component="section"
         >
           <Box
+            ref={imageRef}
             sx={{
               flex: 1,
               display: 'flex',
               justifyContent: { xs: 'center', md: 'flex-start' },
               width: '100%',
-              maxWidth: { xs: '100%', sm: '450px', md: '400px', lg: '550px' }, // Reduced for tablet
+              maxWidth: { xs: '100%', sm: '450px', md: '400px', lg: '550px' },
               overflow:'hidden',
               mt: 3
             }}
@@ -50,7 +70,7 @@ const AboutUs = forwardRef((props, ref) => {
                 sx={{
                   height: { 
                     xs: 'auto', 
-                    sm: '220px', // Reduced for tablet
+                    sm: '220px',
                     md: '250px',
                     lg: '300px'
                   },
@@ -63,14 +83,16 @@ const AboutUs = forwardRef((props, ref) => {
                 }}
               >
                 <img 
-                  src={about_us} 
-                 alt="bulk food order"
-                  loading="lazy" // Added lazy loading here
+                  src={imageLoaded ? about_us : ''} 
+                  alt="bulk food order"
+                  loading="lazy"
                   style={{ 
                     width: '100%', 
                     height: '100%', 
                     objectFit: 'cover',
-                    display: 'block'
+                    display: 'block',
+                    opacity: imageLoaded ? 1 : 0,
+                    transition: 'opacity 0.3s ease-in-out'
                   }}
                 />
               </Paper>
@@ -108,7 +130,6 @@ const AboutUs = forwardRef((props, ref) => {
             justifyContent: 'center',
             mt: { xs: 4, md: 4 },
             mb: { xs: -1, md: -5 },
-            //gap: { xs: 2, sm: 3, md: 0 }
           }}
         >
           {[
