@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 
 import CTAButton from '../components/common/CTAButton';
 import EnquiryForm from '../layout/EnqueryForm';
-import headerImage from '../assets/mobile-banner/bulk-food-order-online.webp';
+// import headerImage from '../assets/mobile-banner/bulk-food-order-online.webp';
 
 const MotionBox = motion(Box);
 
@@ -29,14 +29,14 @@ const HeroSection = forwardRef((props, ref) => {
   }, []);
 
   // Handle image loading when component comes into view
-  useEffect(() => {
-    if (inView && !imageLoaded) {
-      const img = new Image();
-      img.src = 'https://uploads-ai.s3.ap-south-1.amazonaws.com/66d8db94671bf0f2b816a8b0c0de38f8.jpg';
-      img.alt = "bulk-food-order-online";
-      img.onload = () => setImageLoaded(true);
-    }
-  }, [inView, imageLoaded]);
+  // useEffect(() => {
+  //   if (inView && !imageLoaded) {
+  //     const img = new Image();
+  //     img.src = 'https://uploads-ai.s3.ap-south-1.amazonaws.com/66d8db94671bf0f2b816a8b0c0de38f8.jpg';
+  //     img.alt = "bulk-food-order-online";
+  //     img.onload = () => setImageLoaded(true);
+  //   }
+  // }, [inView, imageLoaded]);
 
   // Combine the external ref with our intersection ref
   const setRefs = useMemo(() => {
@@ -66,7 +66,7 @@ const HeroSection = forwardRef((props, ref) => {
         justifyContent: { xs: 'center', md: 'space-between' },
         alignItems: 'center',
         flexDirection: { xs: 'column', md: 'row' }, 
-        backgroundImage: imageLoaded ? `url(https://uploads-ai.s3.ap-south-1.amazonaws.com/66d8db94671bf0f2b816a8b0c0de38f8.jpg)` : 'none',
+        // backgroundImage: imageLoaded ? `url(https://uploads-ai.s3.ap-south-1.amazonaws.com/66d8db94671bf0f2b816a8b0c0de38f8.jpg)` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -87,7 +87,7 @@ const HeroSection = forwardRef((props, ref) => {
     >
 
        {/* Preload image with lazy loading - only when in viewport */}
-      {inView && (
+      {/* {inView && (
         <img 
           src={headerImage} 
           alt=""
@@ -95,7 +95,7 @@ const HeroSection = forwardRef((props, ref) => {
           style={{ display: 'none' }} 
           onLoad={() => setImageLoaded(true)}
         />
-      )}
+      )} */}
 
        {/* Content Section */}
       <MotionBox
