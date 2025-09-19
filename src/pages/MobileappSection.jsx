@@ -4,7 +4,7 @@ import React from 'react';
 import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
 import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
 //import MobileApp from '../assets/Mobileapp/';
-import mobilepic from '../assets/Mobileapp/mobilenew.webp'
+import mobilepic from '../assets/Mobileapp/online-bulk-food-order.webp'
 function MobileappSection() {
     const theme = useTheme();
      const openGooglePlay = () => {
@@ -39,7 +39,7 @@ function MobileappSection() {
                 }}>
                     <img 
                         src={mobilepic} 
-                        alt='MobileApp' 
+                        alt='online bulk food order' 
                         loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 

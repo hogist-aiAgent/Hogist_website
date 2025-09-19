@@ -3,7 +3,7 @@ import AlarmOnIcon from '@mui/icons-material/AlarmOn';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
-import chooseusPic from '../../assets/chooseus/Whychoosus.webp'
+import chooseusPic from '../../assets/chooseus/bulk-food-order-chennai.webp'
 
 import React from 'react';
 
@@ -97,7 +97,7 @@ function ChooseUsSection() {
           component="img"
           loading="lazy"
           src={chooseusPic}
-          alt="Hogist bulk food ordering services in Chennai"
+          alt="bulk food order chennai"
           sx={{
             //borderRadius: 3,
             width: { xs: 220, sm: 260, md: 400 },

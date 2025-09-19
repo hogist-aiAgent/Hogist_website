@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -77,6 +77,27 @@ function Header() {
     }
     setDrawerOpen(false); // Close drawer on mobile after navigation
   };
+   const [logoLoaded, setLogoLoaded] = useState(false);
+  const logoRef = useRef(null);
+
+  // Lazy load logo with Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !logoLoaded) {
+          setLogoLoaded(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (logoRef.current) {
+      observer.observe(logoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [logoLoaded]);
+
 
   return (
     <Box
@@ -152,20 +173,32 @@ function Header() {
         </Box>
       ) : (
         <>
-          <LazyLoad height={60} offset={100}>
-            <Box
-              component="img"
-              src={HeaderLogo}
-              alt="Hogist Logo"
-              loading="lazy"
-              sx={{ 
-                width: { md: 150, lg: 170 }, 
-                height: 'auto', 
-                paddingRight: { md: '10px', lg: '15px' },
-                flexShrink: 0, // Prevent logo from shrinking
-              }}
-            />
-          </LazyLoad>
+            {/* Logo with lazy loading */}
+      <Box ref={logoRef}>
+        {logoLoaded ? (
+          <Box
+            component="img"
+            src={HeaderLogo}
+            alt="Hogist Logo"
+            loading="lazy"
+            sx={{ 
+              width: { md: 150, lg: 170 }, 
+              height: 'auto', 
+              paddingRight: { md: '10px', lg: '15px' },
+              flexShrink: 0,
+            }}
+          />
+        ) : (
+          <Box 
+            sx={{ 
+              width: { md: 150, lg: 170 },
+              height: '40px',
+              backgroundColor: '#f0f0f0',
+              borderRadius: '4px'
+            }} 
+          />
+        )}
+      </Box>
 
           <Box sx={{ 
             display: 'flex', 

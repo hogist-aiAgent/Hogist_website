@@ -6,7 +6,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
-import about_us from '../assets/gallery/about_us.png';
+import about_us from '../assets/gallery/bulk-food-order.png';
 
 const AboutUs = forwardRef((props, ref) => {
   const theme = useTheme();
@@ -64,7 +64,7 @@ const AboutUs = forwardRef((props, ref) => {
               >
                 <img 
                   src={about_us} 
-                 alt="Corporate catering service in Chennai by Hogist"
+                 alt="bulk food order"
                   loading="lazy" // Added lazy loading here
                   style={{ 
                     width: '100%', 

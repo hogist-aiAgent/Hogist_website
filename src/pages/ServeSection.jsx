@@ -1,8 +1,8 @@
 import { Typography, Box, Container, useTheme, Grid, Stack,Button } from '@mui/material';
 import React, { forwardRef } from 'react';
-import Order_food from '../assets/ServePage/MealBox.webp';
-import scooty from '../assets/ServePage/Deliverybox.webp';
-import Waiters from '../assets/ServePage/Catering.webp';
+import Order_food from '../assets/ServePage/bulk-food-order-near-me.webp';
+import scooty from '../assets/ServePage/order-bulk-food-online.webp';
+import Waiters from '../assets/ServePage/bulk-food-delivery.webp';
 import HeroSection from './HeroSection';
 const ServeSection = forwardRef((props, ref) => {
   const theme = useTheme();
@@ -45,7 +45,7 @@ const ServeSection = forwardRef((props, ref) => {
         }}>
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={Order_food} alt="Bulk meal boxes for events and corporate teams" loading="lazy" sx={{ 
+              <Box component="img" src={Order_food} alt="bulk food order near me" loading="lazy" sx={{ 
                 height: { xs: 120, md: 200 },
                 mb: { xs: 2, md: 4 },
                 objectFit: 'contain'
@@ -61,7 +61,7 @@ const ServeSection = forwardRef((props, ref) => {
           
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={scooty} alt="Fastest Delivery" loading="lazy" sx={{ 
+              <Box component="img" src={scooty} alt="order bulk food online" loading="lazy" sx={{ 
                 height: { xs: 130, md: 210 },
                 mb: { xs: 1, md: 2 },
                 objectFit: 'contain'
@@ -77,7 +77,7 @@ const ServeSection = forwardRef((props, ref) => {
           
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={Waiters} alt="Best Quality" loading="lazy" sx={{ 
+              <Box component="img" src={Waiters} alt="bulk food delivery" loading="lazy" sx={{ 
                 height: { xs: 120, md: 200 },
                 mb: { xs: 2, md: '-7px' },
                 objectFit: 'contain'

@@ -6,12 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 import CTAButton from '../components/common/CTAButton';
 import EnquiryForm from '../layout/EnqueryForm';
-import headerImage from '../assets/mobile-banner/HeaderImage.webp'
-const MotionBox = motion(Box);
+import headerImage from '../assets/mobile-banner/bulk-food-order-online.webp';
 
+const MotionBox = motion(Box);
 
 const HeroSection = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -19,6 +21,31 @@ const HeroSection = forwardRef((props, ref) => {
     const url = `https://wa.me/${'9962374733'}`;
     window.open(url, '_blank');
   }, []);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsIntersecting(true);
+          // Preload the image when component is in viewport
+          const img = new Image();
+          img.src = headerImage;
+          img.alt="bulk-food-order-online"
+          img.onload = () => setImageLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref?.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [ref]);
+
 
   return (
     <Box 
@@ -31,10 +58,11 @@ const HeroSection = forwardRef((props, ref) => {
         justifyContent: { xs: 'center', md: 'space-between' },
         alignItems: 'center',
         flexDirection: { xs: 'column', md: 'row' }, 
-        backgroundImage: `url(${ headerImage})`,
+        backgroundImage: imageLoaded ? `url(${headerImage})` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        backgroundColor: imageLoaded ? 'transparent' : '#f5f5f5',
         color: '#fff',
         px: { xs: 2, sm: 3, md: 5 },
         py: { xs: 2, sm: 3, md: 4 }, 
@@ -44,11 +72,24 @@ const HeroSection = forwardRef((props, ref) => {
           md: '90vh',
         },
         fontFamily: theme.fontFamily.default,
+        transition: 'background-image 0.3s ease',
       }}
        itemScope
       itemType="https://schema.org/FoodService"
     >
-      {/* Content Section */}
+
+       {/* Preload image with lazy loading - only when in viewport */}
+      {isIntersecting && (
+        <img 
+          src={headerImage} 
+          alt=""
+          loading="lazy" 
+          style={{ display: 'none' }} 
+          onLoad={() => setImageLoaded(true)}
+        />
+      )}
+
+       {/* Content Section */}
       <MotionBox
         initial={{ opacity: 0, scale: 1.2 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -61,7 +102,19 @@ const HeroSection = forwardRef((props, ref) => {
           textAlign: { xs: 'center', md: 'left' }
         }}
       >
-        <h1 style={{textAlign:'center', color:theme.palette.primary.secondary, marginBottom:'50px', fontWeight:'bold'}}>HOGIST - Online Bulk Food Order & Delivery Platform</h1>
+        <Typography
+          variant="h1"
+          fontWeight="900"
+          sx={{ 
+            fontSize: { xs: '36px', md:theme.font.title }, 
+            mt: { xs: 0, md: 0 }, 
+            mb: { xs: 1.5, sm: 2, md: 2 },
+            lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
+            textAlign:"center"
+          }}
+        >
+          <Box component="span" sx={{ color: theme.palette.primary.secondary }}>HOGIST</Box> - Online Bulk Food Order & Delivery Platform
+        </Typography>
 
         <Typography 
           variant="h6" 

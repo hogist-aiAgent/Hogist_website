@@ -132,7 +132,7 @@ function EventsCater() {
                     objectFit: 'cover',
                   }}
                   image={service.image}
-                 alt={`${service.title} catering service in Chennai`}
+                 alt={`${service.title} food bulk order`}
                 />
               </Box>
               

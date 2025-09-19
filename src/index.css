@@ -1,6 +1,27 @@
 * {
-  margin: 0 ;
+  margin: 0;
   padding: 0;
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+/* Add smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure images don't cause layout shifts */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optimize lazy loading */
+.lazy-load {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lazy-load.loaded {
+  opacity: 1;
+}

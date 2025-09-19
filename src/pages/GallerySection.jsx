@@ -1,12 +1,12 @@
 import { Button, Typography } from '@mui/material'
 import { Box, Container, Stack, useTheme } from '@mui/system'
 import React, { useRef } from 'react'
-import gimg1 from '../assets/gallery/4img.webp'
-import gimg2 from '../assets/gallery/5img.webp'
-import gimg3 from '../assets/gallery/6img.webp'
-import gimg4 from '../assets/gallery/1img.webp'
-import gimg5 from '../assets/gallery/2img.webp'
-import gimg6 from '../assets/gallery/3img.webp'
+import gimg1 from '../assets/gallery/bulk-food-order-for-party.webp'
+import gimg2 from '../assets/gallery/bulk-food-order-for-corporate .webp'
+import gimg3 from '../assets/gallery/bulk-food-order-delivery-near-me.webp'
+import gimg4 from '../assets/gallery/online-bulk-food-delivery.webp'
+import gimg5 from '../assets/gallery/bulk-food-order-delivery-platform.webp'
+import gimg6 from '../assets/gallery/bulk-food-delivery-near-me.webp'
 
 function GallerySection() {
     const theme = useTheme();
@@ -77,7 +77,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg1} 
-                       alt="Hogist catering service for corporate events in Chennai"  
+                       alt="bulk food order for party"  
                         loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
@@ -103,7 +103,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg2} 
-                       alt="Hogist catering service for corporate events in Chennai" 
+                       alt="bulk food order for corporate " 
                         loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
@@ -129,7 +129,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg3} 
-                        alt="Hogist catering service for corporate events in Chennai"  
+                        alt="bulk food order delivery near me"  
                         loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
@@ -155,7 +155,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg4} 
-                       alt="Hogist catering service for corporate events in Chennai" 
+                       alt="online bulk food delivery" 
                         loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
@@ -181,7 +181,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg5} 
-                        alt="Hogist catering service for corporate events in Chennai"  
+                        alt="bulk food order delivery platform"  
                         loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
@@ -207,7 +207,7 @@ function GallerySection() {
                 }}>
                     <img 
                         src={gimg6} 
-                        alt="Hogist catering service for corporate events in Chennai" 
+                        alt="bulk food delivery near me" 
                         loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 

@@ -5,13 +5,25 @@
     <link rel="icon" type="image/svg+xml" href="/loaderLogo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.hogist.com/" />
-    <link rel="preload" as="image" href="src/assets/mobile-banner/HeaderImage.webp">
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load Google Fonts with minimal impact -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="src/assets/mobile-banner/bulk-food-order-online.webp">
      
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.hogist.com/" />
+    
     <meta name="description" content="Place your bulk food order in Chennai online with Hogist — weddings, parties, corporate events & industrial needs. Fresh meals, customized menus & on-time delivery. Order Now!" />
 
-     <!-- Open Graph Tags -->
+    <!-- Open Graph Tags -->
     <meta property="og:title" content="HOGIST – Online Bulk Food Order & Delivery in Chennai" />
     <meta property="og:description" content="Place your bulk food order in Chennai online with Hogist — weddings, parties, corporate events & industrial needs. Fresh meals, customized menus & on-time delivery." />
     <meta property="og:url" content="https://www.hogist.com/" />
@@ -29,7 +41,7 @@
     <meta name="twitter:image" content="https://www.hogist.com/assets/images/logo.png" />
     <meta name="twitter:site" content="@hogist" />
 
-     <!-- Additional Meta Tags -->
+    <!-- Additional Meta Tags -->
     <meta name="keywords" content="bulk food order, catering services, corporate catering, industrial catering, food delivery, Chennai, Coimbatore, online food order" />
     <meta name="author" content="Hogist" />
     <meta name="robots" content="index, follow" />
@@ -39,13 +51,14 @@
     <meta name="geo.position" content="13.0827;80.2707" />
     <meta name="ICBM" content="13.0827, 80.2707" />
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "tc5kvs1cf1");
-</script>
+    <!-- Defer non-critical JavaScript -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "tc5kvs1cf1");
+    </script>
 
     <script type="application/ld+json">
 {
@@ -215,12 +228,48 @@
   ]
 }
 </script>
-    <title> HOGIST – Online Bulk Food Order & Delivery in Chennai</title>
+
+   <title>HOGIST – Online Bulk Food Order & Delivery in Chennai</title>
+    
+    <!-- Inline critical CSS or load asynchronously -->
+    <style>
+      /* Critical CSS for above-the-fold content */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Fallback font until Poppins loads */
+      .poppins-loaded {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
+    
+    <!-- Load full CSS asynchronously -->
+    <link rel="stylesheet" href="/src/index.css" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="/src/index.css">
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx">
-      
+    
+    <!-- Defer script loading -->
+    <script type="module" src="/src/main.jsx" defer></script>
+    
+    <!-- Load schema after page content -->
+    <script>
+      window.addEventListener('load', function() {
+        // Move schema to body for better SEO parsing
+        const schemaScript = document.getElementById('structured-data');
+        if (schemaScript) {
+          document.body.appendChild(schemaScript);
+        }
+        
+        // Add class when fonts are loaded
+        document.body.classList.add('poppins-loaded');
+      });
     </script>
   </body>
 </html>
