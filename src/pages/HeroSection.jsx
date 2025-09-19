@@ -39,25 +39,25 @@ const HeroSection = forwardRef((props, ref) => {
   // }, [inView, imageLoaded]);
 
   // Combine the external ref with our intersection ref
-  const setRefs = useMemo(() => {
-    return (node) => {
-      // Set the external ref if provided
-      if (ref) {
-        if (typeof ref === 'function') {
-          ref(node);
-        } else {
-          ref.current = node;
-        }
-      }
+  // const setRefs = useMemo(() => {
+  //   return (node) => {
+  //     // Set the external ref if provided
+  //     if (ref) {
+  //       if (typeof ref === 'function') {
+  //         ref(node);
+  //       } else {
+  //         ref.current = node;
+  //       }
+  //     }
       
-      // Set the intersection observer ref
-      intersectionRef(node);
-    };
-  }, [ref, intersectionRef]);
+  //     // Set the intersection observer ref
+  //     intersectionRef(node);
+  //   };
+  // }, [ref, intersectionRef]);
 
   return (
     <Box 
-      ref={setRefs}
+      //ref={setRefs}
       id="hero-section"
       sx={{
         display: 'flex',
@@ -67,10 +67,10 @@ const HeroSection = forwardRef((props, ref) => {
         alignItems: 'center',
         flexDirection: { xs: 'column', md: 'row' }, 
         // backgroundImage: imageLoaded ? `url(https://uploads-ai.s3.ap-south-1.amazonaws.com/66d8db94671bf0f2b816a8b0c0de38f8.jpg)` : 'none',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: imageLoaded ? 'transparent' : '#f5f5f5',
+        // backgroundSize: 'cover',
+        // backgroundPosition: 'center',
+        // backgroundRepeat: 'no-repeat',
+        // backgroundColor: imageLoaded ? 'transparent' : '#f5f5f5',
         color: '#fff',
         px: { xs: 2, sm: 3, md: 5 },
         py: { xs: 2, sm: 3, md: 4 }, 
