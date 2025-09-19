@@ -65,6 +65,7 @@ const AboutUs = forwardRef((props, ref) => {
                 <img 
                   src={about_us} 
                  alt="Corporate catering service in Chennai by Hogist"
+                  loading="lazy" // Added lazy loading here
                   style={{ 
                     width: '100%', 
                     height: '100%', 

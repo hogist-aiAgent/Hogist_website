@@ -42,6 +42,7 @@ const ClientCarousel = () => {
             component="img"
             src={logo}
             alt={`logo-${index}`}
+            loading="lazy" // Added lazy loading here
             sx={{
               maxHeight: '100%',
               maxWidth: '100%',

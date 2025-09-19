@@ -45,7 +45,7 @@ const ServeSection = forwardRef((props, ref) => {
         }}>
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={Order_food} alt="Bulk meal boxes for events and corporate teams" sx={{ 
+              <Box component="img" src={Order_food} alt="Bulk meal boxes for events and corporate teams" loading="lazy" sx={{ 
                 height: { xs: 120, md: 200 },
                 mb: { xs: 2, md: 4 },
                 objectFit: 'contain'
@@ -61,7 +61,7 @@ const ServeSection = forwardRef((props, ref) => {
           
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={scooty} alt="Fastest Delivery" sx={{ 
+              <Box component="img" src={scooty} alt="Fastest Delivery" loading="lazy" sx={{ 
                 height: { xs: 130, md: 210 },
                 mb: { xs: 1, md: 2 },
                 objectFit: 'contain'
@@ -77,7 +77,7 @@ const ServeSection = forwardRef((props, ref) => {
           
           <Grid item xs={12} md="auto">
             <Box sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}>
-              <Box component="img" src={Waiters} alt="Best Quality" sx={{ 
+              <Box component="img" src={Waiters} alt="Best Quality" loading="lazy" sx={{ 
                 height: { xs: 120, md: 200 },
                 mb: { xs: 2, md: '-7px' },
                 objectFit: 'contain'

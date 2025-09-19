@@ -1,4 +1,4 @@
-   import { Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { Box, Container, useTheme } from '@mui/system';
 import React from 'react';
 import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
@@ -40,6 +40,7 @@ function MobileappSection() {
                     <img 
                         src={mobilepic} 
                         alt='MobileApp' 
+                        loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
                             height: '600px',
@@ -102,6 +103,7 @@ function MobileappSection() {
                             <img 
                                 src={AppStoreButton} 
                                 alt="Download on the App Store" 
+                                loading="lazy" // Added lazy loading here
                                 style={{ 
                                     width: '100%', 
                                     height: 'auto',
@@ -119,6 +121,7 @@ function MobileappSection() {
                             <img 
                                 src={GooglePlayButton} 
                                 alt="GET IT ON Google Play" 
+                                loading="lazy" // Added lazy loading here
                                 style={{ 
                                     width: '100%', 
                                     height: 'auto',

@@ -130,7 +130,9 @@ function Header() {
                 src={HeaderLogo}
                 alt="Hogist Logo"
                 loading="lazy"
-                sx={{ width: { xs: 90, sm: 110 }, height: 'auto', mr: 1 }}
+                width={2048}
+                height={545}
+                sx={{ width: { xs: 90, sm: 110 }, height: 'auto',maxWidth:'100%', mr: 1 }}
               />
             </LazyLoad>
           </Box>

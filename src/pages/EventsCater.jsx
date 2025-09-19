@@ -125,6 +125,7 @@ function EventsCater() {
               }}>
                 <CardMedia
                   component="img"
+                  loading="lazy" // Added lazy loading here
                   sx={{
                     height: '100%',
                     width: '100%',
@@ -159,12 +160,17 @@ function EventsCater() {
                     size="small"
                     onClick={() => handleExploreMoreClick(service.title)}
                     sx={{
-                      background: theme.palette.primary.secondary,
+                      backgroundColor: theme.palette.primary.secondary ,
                       fontWeight: 'bold',
-                      fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  }
+                      fontSize: { xs: '14px', sm: '16px', md:theme.font.paragraph  },
+                      '&:hover': {
+                        backgroundColor: '#c60000', 
+                      textDecoration:'none'  
+                      }
                     }}
                   >
-                    <Link to={service.link}>Explore More</Link>
+                    
+                      Explore More
                     
                   </Button>
                 </Box>

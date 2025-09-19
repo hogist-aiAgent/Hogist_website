@@ -78,6 +78,7 @@ function GallerySection() {
                     <img 
                         src={gimg1} 
                        alt="Hogist catering service for corporate events in Chennai"  
+                        loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -103,6 +104,7 @@ function GallerySection() {
                     <img 
                         src={gimg2} 
                        alt="Hogist catering service for corporate events in Chennai" 
+                        loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -128,6 +130,7 @@ function GallerySection() {
                     <img 
                         src={gimg3} 
                         alt="Hogist catering service for corporate events in Chennai"  
+                        loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -153,6 +156,7 @@ function GallerySection() {
                     <img 
                         src={gimg4} 
                        alt="Hogist catering service for corporate events in Chennai" 
+                        loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -178,6 +182,7 @@ function GallerySection() {
                     <img 
                         src={gimg5} 
                         alt="Hogist catering service for corporate events in Chennai"  
+                        loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
                             height: '100%', 
@@ -203,6 +208,7 @@ function GallerySection() {
                     <img 
                         src={gimg6} 
                         alt="Hogist catering service for corporate events in Chennai" 
+                        loading="lazy" // Added lazy loading here
                         style={{ 
                             width: '100%', 
                             height: '100%', 

@@ -95,6 +95,7 @@ function ChooseUsSection() {
         </Typography>
         <Box
           component="img"
+          loading="lazy"
           src={chooseusPic}
           alt="Hogist bulk food ordering services in Chennai"
           sx={{
