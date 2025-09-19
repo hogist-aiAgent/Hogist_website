@@ -79,7 +79,7 @@ const HeroSection = forwardRef((props, ref) => {
     >
 
        {/* Preload image with lazy loading - only when in viewport */}
-      
+      {isIntersecting && (
         <img 
           src={headerImage} 
           alt=""
@@ -87,7 +87,7 @@ const HeroSection = forwardRef((props, ref) => {
           style={{ display: 'none' }} 
           onLoad={() => setImageLoaded(true)}
         />
-      
+      )}
 
        {/* Content Section */}
       <MotionBox
