@@ -13,15 +13,15 @@ const MotionBox = motion(Box);
 
 const HeroSection = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imageLoaded, setImageLoaded] = useState(false);
+ // const [imageLoaded, setImageLoaded] = useState(false);
   const theme = useTheme();
   const navigate = useNavigate();
 
   // Use react-intersection-observer hook
-  const { ref: intersectionRef, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
+  // const { ref: intersectionRef, inView } = useInView({
+  //   threshold: 0.1,
+  //   triggerOnce: true
+  // });
 
   const openWhatsApp = useMemo(() => () => {
     const url = `https://wa.me/${'9962374733'}`;
@@ -70,7 +70,7 @@ const HeroSection = forwardRef((props, ref) => {
         // backgroundSize: 'cover',
         // backgroundPosition: 'center',
         // backgroundRepeat: 'no-repeat',
-        // backgroundColor: imageLoaded ? 'transparent' : '#f5f5f5',
+         backgroundColor: '#000',
         color: '#fff',
         px: { xs: 2, sm: 3, md: 5 },
         py: { xs: 2, sm: 3, md: 4 }, 
