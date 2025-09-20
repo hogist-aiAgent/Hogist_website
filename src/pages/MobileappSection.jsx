@@ -2,8 +2,8 @@ import { Typography } from '@mui/material';
 import { Box, Container, useTheme } from '@mui/system';
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
-import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
+import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.webp';
+import AppStoreButton from '../assets/Mobileapp/AppStoreButton.webp';
 import mobilepic from '../assets/Mobileapp/online-bulk-food-order.webp';
 
 function MobileappSection() {

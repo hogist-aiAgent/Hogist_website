@@ -9,8 +9,8 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import AppStoreButton from '../assets/Mobileapp/AppStoreButton.png';
-import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.png';
+import AppStoreButton from '../assets/Mobileapp/AppStoreButton.webp';
+import GooglePlayButton from '../assets/Mobileapp/GooglePlayButton.webp';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 function Footer({ refs }) {
