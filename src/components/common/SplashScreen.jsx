@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import LazyLoad from 'react-lazyload';
@@ -9,11 +9,20 @@ import LoaderLogo from '../../assets/loaderLogo.png';
 
 const MotionBox = motion(Box);
 
- function SplashScreen({ loading = false }) {
+function SplashScreen({ loading = false }) {
+  const [showLogo, setShowLogo] = useState(true);
+  
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    
+    // Keep logo visible for longer (adjust the timeout value as needed)
+    const timer = setTimeout(() => {
+      setShowLogo(true);
+    }, 3000); // 3 seconds delay after animation completes
+    
     return () => {
       document.body.style.overflow = 'auto';
+      clearTimeout(timer);
     };
   }, []);
 
@@ -26,7 +35,7 @@ const MotionBox = motion(Box);
           position: 'fixed',
           top: 0,
           left: 0,
-           backgroundImage: `url(${splashScreenBg})`,
+          backgroundImage: `url(${splashScreenBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           display: 'flex',
@@ -62,13 +71,14 @@ const MotionBox = motion(Box);
           alignItems: 'center',
           justifyContent: 'center',}} height={100} offset={100}>
             <motion.img
-              src={LoaderLogo}
+              src={splashScreenLogo}
               alt="Loading"
-              animate={{ rotateY: 360 }}
+              // animate={{ rotateY: 360 }}
               transition={{ repeat: Infinity, duration: 1.5, ease: 'linear' }}
               style={{
-                width: '100px',
-                height: 'auto',
+               width: '300px',
+              height: 'auto',
+              maxWidth: '80%',
                 filter: 'brightness(0) invert(1)',
                 transformStyle: 'preserve-3d',
               }}
@@ -83,7 +93,7 @@ const MotionBox = motion(Box);
     <MotionBox
       initial={{ opacity: 0, scale: 1.05 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 2, ease: 'easeOut' }}
+      transition={{ duration: 2, ease: 'easeInOut' }}
       sx={{
         width: '100vw',
         height: '100vh',
@@ -91,7 +101,9 @@ const MotionBox = motion(Box);
         top: 0,
         left: 0,
         overflow: 'hidden',
-        zIndex: 1300,
+        zIndex: showLogo ? 1300 : -1, // Hide after timeout
+        opacity: showLogo ? 1 : 0,
+        transition: 'opacity 0.5s ease-in-out',
       }}
     >
       {/* Background */}
@@ -144,12 +156,14 @@ const MotionBox = motion(Box);
             alt="Splash Screen Logo"
             initial={{ opacity: 0, scale: 0.8, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.8, ease: 'easeOut', delay: 0.5 }}
+            transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
             style={{
               width: '300px',
               height: 'auto',
               maxWidth: '80%',
               filter: 'brightness(0) invert(1)',
+              opacity: showLogo ? 1 : 0, // Control visibility
+              transition: 'opacity 0.5s ease-in-out',
             }}
           />
         </LazyLoad>
@@ -157,4 +171,4 @@ const MotionBox = motion(Box);
     </MotionBox>
   );
 }
-export default React.memo(SplashScreen)
+export default React.memo(SplashScreen);
