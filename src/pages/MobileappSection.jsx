@@ -81,7 +81,7 @@ function MobileappSection() {
                         loading="lazy"
                         style={{ 
                             width: '100%', 
-                            height: '500px',
+                            height: '600px',
                             maxWidth: '80%',
                             opacity: imageLoaded ? 1 : 0,
                             transition: 'opacity 0.3s ease-in-out'
