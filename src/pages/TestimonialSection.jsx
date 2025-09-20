@@ -162,23 +162,23 @@ function TestimonialSection() {
   };
 
   useEffect(() => {
-    const updateCardWidth = () => {
-      if (wrapperRef.current && wrapperRef.current.firstChild) {
-        const card = wrapperRef.current.firstChild;
-        const cardStyle = window.getComputedStyle(card);
-        const cardWidth = card.offsetWidth;
-        const marginLeft = parseFloat(cardStyle.marginLeft) || 0;
-        const marginRight = parseFloat(cardStyle.marginRight) || 0;
-        setCardWidth(cardWidth + marginLeft + marginRight);
-      }
-    };
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
 
-    updateCardWidth();
-    window.addEventListener('resize', updateCardWidth);
-    
-    return () => {
-      window.removeEventListener('resize', updateCardWidth);
-    };
+    const ro = new ResizeObserver(() => {
+      window.requestAnimationFrame(() => {
+        const card = wrapper.firstElementChild;
+        if (!card) return;
+        const style = window.getComputedStyle(card);
+        const width = card.offsetWidth;
+        const ml = parseFloat(style.marginLeft) || 0;
+        const mr = parseFloat(style.marginRight) || 0;
+        setCardWidth(width + ml + mr);
+      });
+    });
+
+    ro.observe(wrapper);
+    return () => ro.disconnect();
   }, []);
 
   const scrollLeft = () => {

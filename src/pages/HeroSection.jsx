@@ -112,6 +112,7 @@ const HeroSection = forwardRef((props, ref) => {
       >
         <Typography
           variant="h1"
+          component="h1"
           fontWeight="900"
           sx={{ 
             fontSize: { xs: '36px', md:theme.font.title }, 
