@@ -81,8 +81,8 @@ function ChooseUsSection() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: { xs: 'center', md: 'flex-start' },
-          mb: { xs: 8, md: 0 },
-          marginLeft: { sm: '16px', md: '45px' },
+          mb: { xs: 2, sm:1, md: 2 },
+          marginLeft: { sm:'5px', md: '45px' },
           marginRight: { md: '75px', lg: '5px' }
         }}
       >
@@ -119,8 +119,8 @@ function ChooseUsSection() {
           alt="bulk food order chennai"
           loading="lazy"
           sx={{
-            width: { xs: 220, sm: 260, md: 400 },
-            height: { xs: 130, sm: 180, md: 300 },
+            width: { xs: '100%', sm: '80%', md: 400 },
+            height: { xs: 250, sm: 390, md: 300 },
             objectFit: 'cover',
             opacity: imageLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease-in-out'
@@ -138,6 +138,7 @@ function ChooseUsSection() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+          marginTop:'55px',
         }}
       >
         <Box
@@ -145,7 +146,7 @@ function ChooseUsSection() {
             width: '100%',
             display: 'flex',
             flexWrap: 'wrap',
-            gap: 3,
+            gap: {sx:2,md:3},
             justifyContent: { xs: 'center', md: 'flex-start' }
           }}
         >

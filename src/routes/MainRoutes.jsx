@@ -7,7 +7,7 @@ import WhatsAppButton from '../components/common/watsapPage';
 const MainPage = lazy(() => import('../pages/MainPage'));
 
 function MainRoutes() {
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
    useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,7 +22,10 @@ function MainRoutes() {
       {showSplash ? (
         <SplashScreen loading={false} />
       ) : (
-        <Suspense fallback={<></>}>
+        <Suspense fallback={
+        <SplashScreen loading={true} />
+
+        }>
           <Header/><WhatsAppButton/>
           <Routes>
             <Route path="/" element={<MainPage />} />

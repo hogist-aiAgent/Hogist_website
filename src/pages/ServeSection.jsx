@@ -94,7 +94,8 @@ const ServeSection = forwardRef((props, ref) => {
                 sx={{ 
                   height: { xs: 120, md: 200 },
                   mb: { xs: 2, md: 4 },
-                  objectFit: 'contain',
+                  display: 'block',
+                  margin: '0 auto',
                   opacity: imagesLoaded[Order_food] ? 1 : 0,
                   transition: 'opacity 0.3s ease-in-out'
                 }} 
@@ -118,7 +119,8 @@ const ServeSection = forwardRef((props, ref) => {
                 sx={{ 
                   height: { xs: 130, md: 210 },
                   mb: { xs: 1, md: 2 },
-                  objectFit: 'contain',
+                  display: 'block',
+                  margin: '0 auto',
                   opacity: imagesLoaded[scooty] ? 1 : 0,
                   transition: 'opacity 0.3s ease-in-out'
                 }} 
@@ -142,7 +144,8 @@ const ServeSection = forwardRef((props, ref) => {
                 sx={{ 
                   height: { xs: 120, md: 200 },
                   mb: { xs: 2, md: '-7px' },
-                  objectFit: 'contain',
+                  display: 'block',
+                  margin: '0 auto',
                   opacity: imagesLoaded[Waiters] ? 1 : 0,
                   transition: 'opacity 0.3s ease-in-out'
                 }} 

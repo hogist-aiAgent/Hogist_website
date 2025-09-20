@@ -19,7 +19,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import LazyLoad from 'react-lazyload';
-import HeaderLogo from '../assets/HogistLogo2.png';
+import HeaderLogo from '../assets/HogistLogo2.webp';
 
 const navItems = ['Home', 'Why Us', 'Services', 'Menu Bank', 'Review', 'Blogs'];
 

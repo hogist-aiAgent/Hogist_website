@@ -26,7 +26,7 @@ const MotionBox = motion(Box);
           position: 'fixed',
           top: 0,
           left: 0,
-          // backgroundImage: `url(${splashScreenBg})`,
+           backgroundImage: `url(${splashScreenBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           display: 'flex',
